@@ -1,0 +1,1 @@
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNAContent\obj\x86\Debug\HelloXNAContent.contentprojResolveAssemblyReference.cache

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:MeshContent">
+    <Name>Box001</Name>
+    <Identity>
+      <SourceFilename>D:\XNA Projects\11688025_lab05\11688025_lab05\11688025_lab05Content\Models\DSkyboxMesh.FBX</SourceFilename>
+      <SourceTool>FbxImporter</SourceTool>
+    </Identity>
+    <OpaqueData>
+      <Data Key="MaxHandle" Type="int">8</Data>
+    </OpaqueData>
+    <Transform>-2.54 -2.34843986E-23 3.8352934E-07 0 -1.67646E-14 -2.54 -1.11026928E-07 0 3.8352934E-07 -1.11026928E-07 2.54 0 -4.79411647E-05 2.77567324E-05 -635 1</Transform>
+    <Positions>-250 -250 0 250 -250 0 -250 250 0 250 250 0 -250 -250 500 250 -250 500 -250 250 500 250 250 500</Positions>
+    <Geometry>
+      <Batch>
+        <Material>#Resource1</Material>
+        <Indices>2 1 0 1 2 3 6 5 4 5 6 7 10 9 8 9 10 11 14 13 12 13 14 15 18 17 16 17 18 19 22 21 20 21 22 23</Indices>
+        <Vertices>
+          <PositionIndices>2 0 3 1 5 4 7 6 1 0 5 4 3 1 7 5 2 3 6 7 0 2 4 6</PositionIndices>
+          <Channels>
+            <VertexChannel Name="Normal0" ElementType="Framework:Vector3">0 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0</VertexChannel>
+            <VertexChannel Name="TextureCoordinate0" ElementType="Framework:Vector2">0.5 0.664505661 0.499426216 0.335497975 0.250997484 0.664505661 0.250997484 0.335497975 0.99947536 0.335497975 0.746512651 0.335497975 0.99947536 0.664505661 0.746512651 0.664505661 0.250997484 0.335497975 0.499426216 0.335497975 0.250997543 0.0003002882 0.499426216 0.0003002882 0.250997484 0.664505661 0.250997484 0.335497975 0.000224256422 0.664505661 0.000224256422 0.335497975 0.5 0.664505661 0.250997484 0.664505661 0.5 0.99873805 0.250997543 0.99873805 0.499426216 0.335497975 0.5 0.664505661 0.746512651 0.335497975 0.746512651 0.664505661</VertexChannel>
+          </Channels>
+        </Vertices>
+      </Batch>
+    </Geometry>
+  </Asset>
+  <Resources>
+    <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
+      <Name>Material #90</Name>
+      <Identity>
+        <SourceFilename>D:\XNA Projects\11688025_lab05\11688025_lab05\11688025_lab05Content\Models\DSkyboxMesh.FBX</SourceFilename>
+        <SourceTool>FbxImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0.588 0.588 0.588</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">1</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="SpecularPower" Type="float">2</Data>
+      </OpaqueData>
+      <Textures>
+        <Texture Key="Texture">
+          <OpaqueData>
+            <Data Key="TextureCoordinate">TextureCoordinate0</Data>
+          </OpaqueData>
+          <Reference>#External1</Reference>
+        </Texture>
+      </Textures>
+    </Resource>
+  </Resources>
+  <ExternalReferences>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\11688025_lab05Content\Textures\Skybox.jpg</ExternalReference>
+  </ExternalReferences>
+</XnaContent>

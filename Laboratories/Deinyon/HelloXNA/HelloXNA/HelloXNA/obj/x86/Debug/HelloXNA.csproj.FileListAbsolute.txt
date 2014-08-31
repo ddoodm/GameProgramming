@@ -1,0 +1,12 @@
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\SpriteFont1.xnb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\soHardcore.xnb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\d.xnb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\AwesomeSmiley2.xnb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\threerings.xnb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\HelloXNA.exe
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\HelloXNA.pdb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\obj\x86\Debug\HelloXNA.csprojResolveAssemblyReference.cache
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\obj\x86\Debug\HelloXNA.exe
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\obj\x86\Debug\HelloXNA.pdb
+G:\XNA Projects\HelloXNA\HelloXNA\HelloXNA\bin\x86\Debug\Content\start.xnb
