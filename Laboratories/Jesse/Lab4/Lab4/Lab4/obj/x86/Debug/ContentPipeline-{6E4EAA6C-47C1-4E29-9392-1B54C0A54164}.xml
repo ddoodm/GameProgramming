@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Skybox\clear_back.JPG</Source>
+      <Name>Skybox\clear_back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_back.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_front.JPG</Source>
+      <Name>Skybox\clear_front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_front.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_left.JPG</Source>
+      <Name>Skybox\clear_left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_left.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_right.JPG</Source>
+      <Name>Skybox\clear_right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_right.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_top.JPG</Source>
+      <Name>Skybox\clear_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_top.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\029terresable.jpg</Source>
+      <Name>GroundModel\029terresable</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\029terresable.xnb</Output>
+      <Time>2011-09-01T11:51:36+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\19uq.png</Source>
+      <Name>GroundModel\19uq</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\19uq.xnb</Output>
+      <Time>2011-09-01T11:40:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\3SNe.png</Source>
+      <Name>GroundModel\3SNe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\3SNe.xnb</Output>
+      <Time>2011-09-01T11:40:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\Ak4c.jpg</Source>
+      <Name>GroundModel\Ak4c</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\Ak4c.xnb</Output>
+      <Time>2011-09-01T11:41:00+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\Checker.bmp</Source>
+      <Name>GroundModel\Checker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\Checker.xnb</Output>
+      <Time>2011-09-01T10:27:18+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\greytiles.jpg</Source>
+      <Name>GroundModel\greytiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\greytiles.xnb</Output>
+      <Time>2011-09-01T11:23:18+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\mapzoneagedpavementdiff.png</Source>
+      <Name>GroundModel\mapzoneagedpavementdiff</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\mapzoneagedpavementdiff.xnb</Output>
+      <Time>2011-09-01T11:24:26+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\mapzonegrass01diffuse.png</Source>
+      <Name>GroundModel\mapzonegrass01diffuse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\mapzonegrass01diffuse.xnb</Output>
+      <Time>2011-09-01T11:25:54+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\mapzoneoldroaddiffuse.png</Source>
+      <Name>GroundModel\mapzoneoldroaddiffuse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\mapzoneoldroaddiffuse.xnb</Output>
+      <Time>2011-09-01T11:26:00+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\mapzoneredtilescratched.png</Source>
+      <Name>GroundModel\mapzoneredtilescratched</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\mapzoneredtilescratched.xnb</Output>
+      <Time>2011-09-01T11:39:38+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\sanddf.png</Source>
+      <Name>GroundModel\sanddf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\sanddf.xnb</Output>
+      <Time>2011-09-01T11:26:06+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\TedO.png</Source>
+      <Name>GroundModel\TedO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\TedO.xnb</Output>
+      <Time>2011-09-01T11:40:18+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\skybox.x</Source>
+      <Name>Skybox\skybox</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+      <Dependency>
+        <Key>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\obj\x86\Debug\Skybox\skybox_0.xml</Key>
+        <Value>2014-08-23T12:46:25.5108815+10:00</Value>
+      </Dependency>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>GroundModel\Ground.x</Source>
+      <Name>GroundModel\Ground</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\Ground.xnb</Output>
+      <Time>2014-08-23T16:20:48.2175862+10:00</Time>
+      <Dependency>
+        <Key>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\obj\x86\Debug\GroundModel\Ground_0.xml</Key>
+        <Value>2014-08-23T16:20:50.2457022+10:00</Value>
+      </Dependency>
+      <Request>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\19uq_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Skybox\skybox.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\obj\x86\Debug\Skybox\skybox_0.xml</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_top.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_right.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_left.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_front.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\clear_back.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
+      <Time>2011-08-16T00:44:44+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\Ground.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\obj\x86\Debug\GroundModel\Ground_0.xml</Output>
+      <Time>2014-08-23T16:20:48.2175862+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\19uq.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\19uq_0.xnb</Output>
+      <Time>2011-09-01T11:40:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>crate.png</Source>
+      <Name>crate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\crate.xnb</Output>
+      <Time>2014-08-24T21:52:10.0852395+10:00</Time>
+    </Item>
+    <Item>
+      <Source>GroundModel\grass2.png</Source>
+      <Name>GroundModel\grass2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\GroundModel\grass2.xnb</Output>
+      <Time>2014-08-24T21:21:41.8576709+10:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{6E4EAA6C-47C1-4E29-9392-1B54C0A54164}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-08-18T01:25:24.1605882+10:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

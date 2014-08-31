@@ -1,0 +1,7 @@
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\bin\x86\Debug\Lab2.exe
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\bin\x86\Debug\Lab2.pdb
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\obj\x86\Debug\Lab2.csprojResolveAssemblyReference.cache
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\obj\x86\Debug\Lab2.exe
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\obj\x86\Debug\Lab2.pdb
+c:\users\noobish\documents\visual studio 2013\Projects\Lab2\Lab2\Lab2\bin\x86\Debug\Content\crate.xnb

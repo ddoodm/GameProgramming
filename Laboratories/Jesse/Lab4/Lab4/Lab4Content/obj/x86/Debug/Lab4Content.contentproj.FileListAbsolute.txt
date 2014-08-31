@@ -1,0 +1,2 @@
+C:\Users\Nooblet\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4Content\obj\x86\Debug\Lab4Content.contentprojResolveAssemblyReference.cache
+C:\Users\Noobish\Documents\Visual Studio 2013\Projects\Lab4\Lab4\Lab4Content\obj\x86\Debug\Lab4Content.contentprojResolveAssemblyReference.cache
