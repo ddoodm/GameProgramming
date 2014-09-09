@@ -51,7 +51,7 @@ namespace GameProgrammingMajor
                 target = Vector3.Zero,
                 up = Vector3.Up
             };
-            camera = new Camera(this, camDesc);
+            camera = new FlyingCamera(this, camDesc);
 
             base.Initialize();
         }

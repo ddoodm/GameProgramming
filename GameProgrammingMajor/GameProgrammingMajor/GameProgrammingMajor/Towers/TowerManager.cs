@@ -9,14 +9,14 @@ namespace GameProgrammingMajor
     /// <summary>
     /// Manages the placement and update of towers.
     /// </summary>
-    class TowerManager
+    public class TowerManager
     {
         private Game game;
 
-        private static const int
+        private const int
             NUM_BLOCKS = 32;        // The number of tower blocks in both axes.
-        private static float
-            blockSize = 10f;        // The size of each block.
+        private float
+            gridSizee = 200f;       // The size of the block grid.
 
         // Position of this collection of towers ("village")
         public Vector3 position;
@@ -46,11 +46,29 @@ namespace GameProgrammingMajor
                 for (int x = 0; x < NUM_BLOCKS; x++)
                 {
                     // Place each block in a grid formation:
-                    blocks[z, x].position =
-                        position + new Vector3(x * blockSize, 0, z * blockSize);
+                    Vector3 blockPosition =
+                        position + new Vector3(x * gridSizee, 0, z * gridSizee);
 
-                    // Provide the blockSize:
-                    blocks[z, x].size = blockSize;
+                    // Create the block:
+                    blocks[z, x] = new TowerBlock(game, blockPosition, gridSizee);
+                }
+        }
+
+        public void update(EntityUpdateParams updateParams)
+        {
+            for (int z = 0; z < NUM_BLOCKS; z++)
+                for (int x = 0; x < NUM_BLOCKS; x++)
+                {
+                    blocks[z, x].update(updateParams);
+                }
+        }
+
+        public void draw(EntityDrawParams drawParams)
+        {
+            for (int z = 0; z < NUM_BLOCKS; z++)
+                for (int x = 0; x < NUM_BLOCKS; x++)
+                {
+                    blocks[z, x].draw(drawParams);
                 }
         }
     }

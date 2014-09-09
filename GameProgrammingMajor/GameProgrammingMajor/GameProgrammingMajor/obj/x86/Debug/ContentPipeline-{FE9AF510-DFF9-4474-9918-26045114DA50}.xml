@@ -19,6 +19,15 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
       <Time>2014-09-09T20:15:48+10:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\UI\towerBlockSelector.png</Source>
+      <Name>Textures\UI\towerBlockSelector</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\towerBlockSelector.xnb</Output>
+      <Time>2014-09-09T22:19:46+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

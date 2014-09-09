@@ -15,6 +15,7 @@ namespace GameProgrammingMajor
     {
         public StaticModelManager staticManager;
         public EntityManager entityManager;
+        public TowerManager towerManager;
 
         public World(Game game)
         {
@@ -27,18 +28,23 @@ namespace GameProgrammingMajor
             floor.tiling = new Vector2(2, 2);
             entityManager.add(
                 new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
+
+            // Create a "Tower Manager" which allows for the placement of towers in the area
+            towerManager = new TowerManager(game, Vector3.Zero);
         }
 
         public void update(EntityUpdateParams updateParams)
         {
             entityManager.update(updateParams);
             staticManager.update(updateParams);
+            towerManager.update(updateParams);
         }
 
         public void draw(EntityDrawParams drawParams)
         {
             entityManager.draw(drawParams);
             staticManager.draw(drawParams);
+            towerManager.draw(drawParams);
         }
     }
 }

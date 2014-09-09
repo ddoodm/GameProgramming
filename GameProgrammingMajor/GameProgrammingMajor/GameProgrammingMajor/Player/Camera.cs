@@ -283,6 +283,12 @@ namespace GameProgrammingMajor
 
         }
 
+        public FlyingCamera(Game game, CameraTuple tuple)
+            : base(game, tuple)
+        {
+
+        }
+
         public override void Update(GameTime gameTime)
         {
             // Obtain mouse coordinates
