@@ -72,7 +72,9 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EntityManager.cs" />
     <Compile Include="Entities\PrimitiveEntity.cs" />
+    <Compile Include="Models\StaticModelManager.cs" />
     <Compile Include="Primitives\PlanePrimitive.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\NPC.cs" />

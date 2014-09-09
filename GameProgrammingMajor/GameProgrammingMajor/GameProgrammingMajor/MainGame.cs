@@ -40,9 +40,9 @@ namespace GameProgrammingMajor
         /// </summary>
         protected override void Initialize()
         {
-            player = new Player();
+            player = new Player(this);
 
-            world = new World();
+            world = new World(this);
 
             camera = new FPCamera(this, new Vector3(0, 20.0f, 0), new Vector3(0, 20.0f, 1f), Vector3.Up);
 
@@ -77,6 +77,13 @@ namespace GameProgrammingMajor
             KeyboardState keyboard = Keyboard.GetState();
             MouseState mouse = Mouse.GetState();
 
+            // Prepare update parameters for entities, statics and primitives
+            EntityUpdateParams updateParams = new EntityUpdateParams()
+            {
+                camera = this.camera,
+                gameTime = gameTime
+            };
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
                 || keyboard.IsKeyDown(Keys.Escape))
@@ -84,6 +91,9 @@ namespace GameProgrammingMajor
 
             // Update primary camera
             camera.Update(gameTime);
+
+            // Update the world (entities and static models)
+            world.update(updateParams);
 
             base.Update(gameTime);
         }
@@ -96,7 +106,15 @@ namespace GameProgrammingMajor
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            // Prepare drawing parameters for entities, statics and primitives
+            EntityDrawParams drawParams = new EntityDrawParams()
+            {
+                camera = this.camera,
+                gameTime = gameTime
+            };
+
+            // Draw the world
+            world.draw(drawParams);
 
             base.Draw(gameTime);
         }
