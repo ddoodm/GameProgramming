@@ -72,11 +72,20 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PrimitiveEntity.cs" />
+    <Compile Include="Primitives\PlanePrimitive.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\NPC.cs" />
+    <Compile Include="Entities\Tank.cs" />
+    <Compile Include="Physics\Kinematic.cs" />
     <Compile Include="MainGame.cs" />
+    <Compile Include="Physics\Steering.cs" />
     <Compile Include="Player\Camera.cs" />
     <Compile Include="Player\Player.cs" />
+    <Compile Include="Primitives\Primitive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Models\StaticModel.cs" />
     <Compile Include="World\World.cs" />
   </ItemGroup>
   <ItemGroup>
