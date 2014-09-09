@@ -19,7 +19,7 @@ namespace GameProgrammingMajor
     public struct CameraTuple
     {
         public Vector3 position;
-        public Vector3 direction;
+        public Vector3 target;
         public Vector3 up;
     }
 
@@ -70,7 +70,7 @@ namespace GameProgrammingMajor
         }
 
         public Camera(Game game, CameraTuple tuple)
-            : this(game, tuple.position, tuple.direction, tuple.up)
+            : this(game, tuple.position, tuple.target, tuple.up)
         { }
 
         /// <summary>

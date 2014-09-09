@@ -21,10 +21,11 @@ namespace GameProgrammingMajor
             staticManager = new StaticModelManager();
             entityManager = new EntityManager();
 
-            // Add a few test entities
+            // Add a test floor primitive to the Entity manager
+            PlanePrimitive floor = new PlanePrimitive(game, 200f, Vector3.Up);
+            floor.texture = game.Content.Load<Texture2D>("Textures\\brickFacade");
             entityManager.add(
-                new PrimitiveEntity<VertexPositionNormalTexture>(
-                   game, new PlanePrimitive(game, 200f, Vector3.Up)));
+                new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
         }
 
         public void update(EntityUpdateParams updateParams)

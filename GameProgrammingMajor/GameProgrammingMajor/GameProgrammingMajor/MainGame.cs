@@ -44,7 +44,14 @@ namespace GameProgrammingMajor
 
             world = new World(this);
 
-            camera = new FPCamera(this, new Vector3(0, 20.0f, 0), new Vector3(0, 20.0f, 1f), Vector3.Up);
+            // Configure the camera. This will be declared more formally.
+            CameraTuple camDesc = new CameraTuple()
+            {
+                position = new Vector3(-150f, 200f, 150f),
+                target = Vector3.Zero,
+                up = Vector3.Up
+            };
+            camera = new Camera(this, camDesc);
 
             base.Initialize();
         }

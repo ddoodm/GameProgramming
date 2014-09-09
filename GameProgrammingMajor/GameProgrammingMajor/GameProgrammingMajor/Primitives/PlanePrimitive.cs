@@ -9,10 +9,17 @@ namespace GameProgrammingMajor
 {
     public class PlanePrimitive : Primitive<VertexPositionNormalTexture>
     {
-        public Plane plane { get; private set; }
-        public Vector3 N { get; private set; }
-        public Vector3 T { get; private set; }
-        public Vector3 B { get; private set; }
+        public Plane plane { get; private set; }    // The XNA plane that is an analytic representation of the plane.
+        public Vector3 N { get; private set; }      // The normal to the plane
+        public Vector3 T { get; private set; }      // The tangent to the plane, which is arbitrary for bitangent computation
+        public Vector3 B { get; private set; }      // The bitangent to the plane, which is used to define the coordinate system
+
+        /// <summary>
+        /// Divides the plane's size for texture coordinate computation.
+        /// Set to 0 to fit the texture to the plane.
+        /// Default: 16f
+        /// </summary>
+        public float texCoordDivisor = 16f;
 
         public PlanePrimitive(Game game, float size, Vector3 up)
             : base(game, size)
@@ -24,7 +31,7 @@ namespace GameProgrammingMajor
 
         protected virtual float getTexSize(float modelSize)
         {
-            return modelSize / 32f;
+            return modelSize / texCoordDivisor;
         }
 
         protected override void build(float sz)
