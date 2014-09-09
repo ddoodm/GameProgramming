@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameProgrammingMajor
 {
-    class World
+    public class World
     {
     }
 }
