@@ -23,7 +23,8 @@ namespace GameProgrammingMajor
 
             // Add a test floor primitive to the Entity manager
             PlanePrimitive floor = new PlanePrimitive(game, 200f, Vector3.Up);
-            floor.texture = game.Content.Load<Texture2D>("Textures\\brickFacade");
+            floor.texture = game.Content.Load<Texture2D>("Textures\\Grass0139_33_S");
+            floor.tiling = new Vector2(2, 2);
             entityManager.add(
                 new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
         }

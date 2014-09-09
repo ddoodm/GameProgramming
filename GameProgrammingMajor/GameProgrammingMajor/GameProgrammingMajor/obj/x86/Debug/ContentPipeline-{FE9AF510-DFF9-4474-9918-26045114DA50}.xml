@@ -10,6 +10,15 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
       <Time>2014-09-09T19:34:04+10:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\Grass0139_33_S.jpg</Source>
+      <Name>Textures\Grass0139_33_S</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
+      <Time>2014-09-09T20:15:48+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

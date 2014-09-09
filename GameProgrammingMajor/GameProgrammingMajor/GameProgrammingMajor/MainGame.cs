@@ -47,7 +47,7 @@ namespace GameProgrammingMajor
             // Configure the camera. This will be declared more formally.
             CameraTuple camDesc = new CameraTuple()
             {
-                position = new Vector3(-150f, 200f, 150f),
+                position = new Vector3(-100f, 200f, 100f),
                 target = Vector3.Zero,
                 up = Vector3.Up
             };

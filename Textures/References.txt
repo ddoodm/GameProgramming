@@ -1,0 +1,6 @@
+====== Texture Resource References ======
+  Please try to update this list when
+ you use a new texture that isn't yours.
+=========================================
+
+Grass0139_33_S.jpg	(Resampled)	http://www.cgtextures.com/texview.php?id=44371&PHPSESSID=pegmiou3bj4bkrbgvc54jvna25

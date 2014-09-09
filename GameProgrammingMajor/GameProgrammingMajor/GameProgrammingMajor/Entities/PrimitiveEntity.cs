@@ -18,6 +18,10 @@ namespace GameProgrammingMajor
         public PrimitiveEntity(Game game, Primitive<Vertex> primitive, Vector3 position, float rotation)
             : base(game, position, rotation)
         {
+            // Check that the primitive is built before creating the entity
+            if (!primitive.isBuilt)
+                primitive.build();
+
             this.primitive = primitive;
         }
 

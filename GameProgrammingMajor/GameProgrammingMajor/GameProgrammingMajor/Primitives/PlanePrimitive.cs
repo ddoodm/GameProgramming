@@ -15,30 +15,20 @@ namespace GameProgrammingMajor
         public Vector3 B { get; private set; }      // The bitangent to the plane, which is used to define the coordinate system
 
         /// <summary>
-        /// Divides the plane's size for texture coordinate computation.
-        /// Set to 0 to fit the texture to the plane.
-        /// Default: 16f
+        /// The number of times to wrap the texture.
+        /// Use Vector2.One to fill the texture.
+        /// Default: 8x8
         /// </summary>
-        public float texCoordDivisor = 16f;
+        public Vector2 tiling = new Vector2(8, 8);
 
         public PlanePrimitive(Game game, float size, Vector3 up)
             : base(game, size)
         {
             plane = new Plane(up, 0);
-
-            build(size);
         }
 
-        protected virtual float getTexSize(float modelSize)
+        public override void build()
         {
-            return modelSize / texCoordDivisor;
-        }
-
-        protected override void build(float sz)
-        {
-            // Texture size
-            float texSz = getTexSize(sz);
-
             /* In order to find the coordinate system approximated by N, 
              * I cross an arbitrary vector with the plane's normal to
              * find the tangent, and cross the tangent with the normal
@@ -51,20 +41,26 @@ namespace GameProgrammingMajor
             /* Then, I build an arbitrary quad on the coordinate system's
              * 'X' and 'Z' axes.*/
             Vector3 P = -N * plane.D;
-            Vector3 szT = T * sz;
-            Vector3 szB = B * sz;
+            Vector3 szT = T * size;
+            Vector3 szB = B * size;
 
             v_data = new VertexPositionNormalTexture[4]
             {
                 new VertexPositionNormalTexture( P - szT - szB, N, new Vector2(0,        0) ),
-                new VertexPositionNormalTexture( P + szT - szB, N, new Vector2(texSz,    0) ),
-                new VertexPositionNormalTexture( P - szT + szB, N, new Vector2(0,        texSz) ),
-                new VertexPositionNormalTexture( P + szT + szB, N, new Vector2(texSz,    texSz) ),
+                new VertexPositionNormalTexture( P + szT - szB, N, new Vector2(tiling.X, 0) ),
+                new VertexPositionNormalTexture( P - szT + szB, N, new Vector2(0,        tiling.Y) ),
+                new VertexPositionNormalTexture( P + szT + szB, N, new Vector2(tiling.X, tiling.Y) ),
             };
+
+            // Update the "Built" flag to true.
+            isBuilt = true;
         }
 
         public override void draw(EntityDrawParams drawParams)
         {
+            if (!isBuilt)
+                throw new Exception("You must first call build() before drawing this plane.");
+
             base.draw(drawParams);
 
             shader.VertexColorEnabled = false;
@@ -96,11 +92,6 @@ namespace GameProgrammingMajor
             : base(game, size, up)
         {
             shader = game.Content.Load<Effect>("Shaders\\plasma");
-        }
-
-        protected override float getTexSize(float modelSize)
-        {
-            return 1f;
         }
 
         public override void draw(EntityDrawParams drawParams)

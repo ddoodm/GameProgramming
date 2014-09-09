@@ -18,6 +18,11 @@ namespace GameProgrammingMajor
         protected BasicEffect shader;           // Stock shader
         protected Vector3 lightPos;
 
+        /// <summary>
+        /// Indicates whether the primitive has been built yet.
+        /// </summary>
+        public bool isBuilt { get; protected set; }
+
         public Texture2D texture;
 
         public Primitive(Game game, float size)
@@ -25,17 +30,15 @@ namespace GameProgrammingMajor
             this.game = game;
             this.size = size;
 
-            build(size);
+            v_data = new Vertex[1];
+
             init();
         }
 
         public Primitive(Game game, float size, Vector3 pos)
+            : this(game, size)
         {
-            this.game = game;
             this.pos = pos;
-            this.size = size;
-
-            init();
         }
 
         private void init()
@@ -48,17 +51,10 @@ namespace GameProgrammingMajor
             shader = new BasicEffect(game.GraphicsDevice);
 
             // Configure default lighting
-            lightPos = new Vector3(5f, 10f, 5f);
-            shader.SpecularPower = 128f;
-            shader.PreferPerPixelLighting = true;   // Use Phong shading
-            shader.LightingEnabled = true; // turn on the lighting subsystem.
-            shader.DirectionalLight0.Direction = Vector3.Normalize(-lightPos); // Reflect
-            shader.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
-            shader.DirectionalLight0.DiffuseColor = new Vector3(0.7f, 0.7f, 0.7f);
-            shader.DirectionalLight0.SpecularColor = new Vector3(0.5f, 0.5f, 0.5f);
+            shader.EnableDefaultLighting();
         }
 
-        protected virtual void build(float sz)
+        public virtual void build()
         {
 
         }
