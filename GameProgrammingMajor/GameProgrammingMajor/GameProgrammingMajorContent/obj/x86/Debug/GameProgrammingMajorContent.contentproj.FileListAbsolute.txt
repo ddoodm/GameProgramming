@@ -1,1 +1,2 @@
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\obj\x86\Debug\GameProgrammingMajorContent.contentprojResolveAssemblyReference.cache
+G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\obj\x86\Debug\GameProgrammingMajorContent.contentprojResolveAssemblyReference.cache

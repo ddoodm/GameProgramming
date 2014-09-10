@@ -67,12 +67,12 @@ namespace GameProgrammingMajor
 
         }
 
-        public virtual void update(EntityUpdateParams updateParams)
+        public virtual void update(UpdateParams updateParams)
         {
             world = Matrix.Identity;
         }
 
-        public virtual void draw(EntityDrawParams drawParams)
+        public virtual void draw(DrawParams drawParams)
         {
             // Bind the vertex buffer
             game.GraphicsDevice.SetVertexBuffer(vbo);

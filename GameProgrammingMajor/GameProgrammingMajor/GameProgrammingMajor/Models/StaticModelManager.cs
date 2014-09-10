@@ -31,13 +31,13 @@ namespace GameProgrammingMajor
             models = new List<StaticModel>();
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             foreach (StaticModel model in models)
                 model.update(updateParams);
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             foreach (StaticModel model in models)
                 model.draw(drawParams);

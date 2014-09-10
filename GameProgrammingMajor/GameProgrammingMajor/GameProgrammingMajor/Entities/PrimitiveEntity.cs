@@ -36,7 +36,7 @@ namespace GameProgrammingMajor
 
         }
 
-        public override void update(EntityUpdateParams updateParams)
+        public override void update(UpdateParams updateParams)
         {
             primitive.update(updateParams);
 
@@ -51,7 +51,7 @@ namespace GameProgrammingMajor
             primitive.world = world;
         }
 
-        public override void draw(EntityDrawParams drawParams)
+        public override void draw(DrawParams drawParams)
         {
             primitive.draw(drawParams);
         }

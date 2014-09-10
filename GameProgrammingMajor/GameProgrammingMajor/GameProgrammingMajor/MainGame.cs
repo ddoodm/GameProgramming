@@ -20,7 +20,7 @@ namespace GameProgrammingMajor
         /// Standard XNA graphics interfaces
         /// </summary>
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
 
         /// <summary>
         /// High-level game objects
@@ -28,6 +28,7 @@ namespace GameProgrammingMajor
         public Player player;
         public World world;
         public Camera camera;
+        public HUD hud;
 
         public MainGame()
         {
@@ -52,6 +53,8 @@ namespace GameProgrammingMajor
                 up = Vector3.Up
             };
             camera = new FlyingCamera(this, camDesc);
+
+            hud = new HUD(this, player);
 
             base.Initialize();
         }
@@ -85,7 +88,7 @@ namespace GameProgrammingMajor
             MouseState mouse = Mouse.GetState();
 
             // Prepare update parameters for entities, statics and primitives
-            EntityUpdateParams updateParams = new EntityUpdateParams()
+            UpdateParams updateParams = new UpdateParams()
             {
                 camera = this.camera,
                 gameTime = gameTime,
@@ -120,7 +123,7 @@ namespace GameProgrammingMajor
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // Prepare drawing parameters for entities, statics and primitives
-            EntityDrawParams drawParams = new EntityDrawParams()
+            DrawParams drawParams = new DrawParams()
             {
                 camera = this.camera,
                 gameTime = gameTime,
@@ -130,6 +133,8 @@ namespace GameProgrammingMajor
 
             // Draw the world
             world.draw(drawParams);
+
+            hud.draw(drawParams);
 
             base.Draw(gameTime);
         }

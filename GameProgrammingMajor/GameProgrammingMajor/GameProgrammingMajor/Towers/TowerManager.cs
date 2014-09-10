@@ -65,7 +65,7 @@ namespace GameProgrammingMajor
                 }
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             // Obtain the ID of the currently selected block
             iVec2 selectedBlock = selectionManager.getSelectedBlock(
@@ -83,7 +83,7 @@ namespace GameProgrammingMajor
                 }
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             for (int z = 0; z < NUM_BLOCKS; z++)
                 for (int x = 0; x < NUM_BLOCKS; x++)

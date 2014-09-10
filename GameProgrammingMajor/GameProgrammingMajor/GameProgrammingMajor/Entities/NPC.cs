@@ -77,7 +77,7 @@ namespace GameProgrammingMajor
             entity.load(content);
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             // Obtain time difference
             float timeDelta = (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
@@ -116,7 +116,7 @@ namespace GameProgrammingMajor
             }
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             entity.draw(drawParams);
 

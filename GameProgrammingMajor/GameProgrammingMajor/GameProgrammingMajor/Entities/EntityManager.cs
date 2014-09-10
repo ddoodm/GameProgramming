@@ -25,13 +25,13 @@ namespace GameProgrammingMajor
             return entity;
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             foreach (Entity entity in entities)
                 entity.update(updateParams);
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             foreach (Entity entity in entities)
                 entity.draw(drawParams);

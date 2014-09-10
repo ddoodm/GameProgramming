@@ -49,7 +49,7 @@ namespace GameProgrammingMajor
             isBuilt = true;
         }
 
-        public override void draw(EntityDrawParams drawParams)
+        public override void draw(DrawParams drawParams)
         {
             if (!isBuilt)
                 throw new Exception("You must first call build() before drawing this plane.");
@@ -87,7 +87,7 @@ namespace GameProgrammingMajor
             shader = game.Content.Load<Effect>("Shaders\\plasma");
         }
 
-        public override void draw(EntityDrawParams drawParams)
+        public override void draw(DrawParams drawParams)
         {
             shader.Parameters["World"].SetValue(world);
             shader.Parameters["View"].SetValue(drawParams.camera.view);

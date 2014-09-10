@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
+      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
       <Time>2014-09-09T19:34:04+10:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
+      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
       <Time>2014-09-09T20:15:48+10:00</Time>
     </Item>
     <Item>
@@ -25,8 +25,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\towerBlockSelector.xnb</Output>
+      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\towerBlockSelector.xnb</Output>
       <Time>2014-09-09T22:19:46+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Font\UIFont.spritefont</Source>
+      <Name>Font\UIFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb</Output>
+      <Time>2014-09-10T17:22:12+10:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -35,10 +44,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\</RootDirectory>
-      <LoggerRootDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\</RootDirectory>
+      <LoggerRootDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\</LoggerRootDirectory>
+      <IntermediateDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -67,7 +76,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-07-31T10:43:30.3613281+10:00</Value>
+        <Value>2014-08-05T20:24:12.3062601+10:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

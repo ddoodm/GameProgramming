@@ -150,6 +150,14 @@ namespace GameProgrammingMajor
         private float baseHeight;
 
         /// <summary>
+        /// Dan's jump height variables
+        /// </summary>
+        /*
+        private float jumpSpeed = 0f;
+        private float baseHeight;
+         */
+
+        /// <summary>
         /// The pitch constraint
         /// </summary>
         private float
@@ -160,6 +168,12 @@ namespace GameProgrammingMajor
             : base(game, eye, target, up)
         {
             baseHeight = eye.Y;
+        }
+
+        public FPCamera(Game game, CameraTuple tuple)
+            : base(game, tuple)
+        {
+
         }
 
         public override void Update(GameTime gameTime)
@@ -188,7 +202,7 @@ namespace GameProgrammingMajor
             }
 
             // Transform camera through new direction
-            transform();
+            transform(gameTime);
 
             // Re-build the view matrix
             createLookAt();
@@ -203,7 +217,7 @@ namespace GameProgrammingMajor
         /// <summary>
         /// Perform keyboard-input translation *after* having rotated the view
         /// </summary>
-        private void transform()
+        private void transform(GameTime gameTime)
         {
             // Keyboard key states
             KeyboardState ks = Keyboard.GetState();
@@ -232,7 +246,34 @@ namespace GameProgrammingMajor
 
             // Do jump operation
             position = new Vector3(position.X, baseHeight + get_jump_y(ks), position.Z);
+            //position = new Vector3(position.X, get_jump_y_v2(gameTime), position.Z);
         }
+
+        /*
+        private float get_jump_y_v2(GameTime gameTime)
+        {
+            KeyboardState keyboard = .GetState();
+
+            float timeDelta = gameTime.ElapsedGameTime.Seconds;
+            float result = 0f;
+
+            if (keyboard.IsKeyDown(Keys.Space) && (position.Y == baseHeight))
+                jumpSpeed = 20;
+
+            if (position.Y > baseHeight)
+                jumpSpeed--;
+
+            if ((position + Vector3.Up * jumpSpeed * timeDelta).Y < baseHeight)
+            {
+                jumpSpeed = 0;
+                result = baseHeight;
+            }
+
+            result = position.Y + jumpSpeed * timeDelta;
+
+            return result;
+        }
+         */
 
         /// <summary>
         /// Computes the jump height at the current frame,

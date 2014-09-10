@@ -33,14 +33,14 @@ namespace GameProgrammingMajor
             towerManager = new TowerManager(game, Matrix.Identity);
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             entityManager.update(updateParams);
             staticManager.update(updateParams);
             towerManager.update(updateParams);
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             entityManager.draw(drawParams);
             staticManager.draw(drawParams);

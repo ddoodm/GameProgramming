@@ -11,18 +11,19 @@ namespace GameProgrammingMajor
     /// <summary>
     /// Parameters to pass to an Entity when updating.
     /// </summary>
-    public struct EntityUpdateParams
+    public struct UpdateParams
     {
         public GameTime gameTime;
         public Camera camera;
         public KeyboardState keyboardState;
         public MouseState mouseState;
+        public Player player; 
     }
 
     /// <summary>
     /// Parameters to pass to an Entity when drawing.
     /// </summary>
-    public struct EntityDrawParams
+    public struct DrawParams
     {
         public GameTime gameTime;
         public Camera camera;
@@ -63,8 +64,8 @@ namespace GameProgrammingMajor
 
         public virtual void load(ContentManager content) { }
 
-        public virtual void update(EntityUpdateParams updateParams) { }
+        public virtual void update(UpdateParams updateParams) { }
 
-        public virtual void draw(EntityDrawParams drawParams) { }
+        public virtual void draw(DrawParams drawParams) { }
     }
 }

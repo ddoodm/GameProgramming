@@ -40,12 +40,12 @@ namespace GameProgrammingMajor
             selectionIndicator.kinematic.position = position + Vector3.Up * 2f; // Offset into +Y
         }
 
-        public void update(EntityUpdateParams updateParams)
+        public void update(UpdateParams updateParams)
         {
             selectionIndicator.update(updateParams);
         }
 
-        public void draw(EntityDrawParams drawParams)
+        public void draw(DrawParams drawParams)
         {
             if (selected)
             {

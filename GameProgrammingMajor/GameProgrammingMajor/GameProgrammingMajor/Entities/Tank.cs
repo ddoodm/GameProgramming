@@ -33,7 +33,7 @@ namespace GameProgrammingMajor
             model.Load(content);
         }
 
-        public override void update(EntityUpdateParams updateParams)
+        public override void update(UpdateParams updateParams)
         {
             updateWheels();
 
@@ -75,7 +75,7 @@ namespace GameProgrammingMajor
                 + MathHelper.PiOver2; */
         }
 
-        public override void draw(EntityDrawParams drawParams)
+        public override void draw(DrawParams drawParams)
         {
             model.Draw(world, drawParams.camera.view, drawParams.camera.projection);
         }

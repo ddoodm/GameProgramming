@@ -15,9 +15,11 @@ namespace GameProgrammingMajor
     /// </summary>
     public class Player
     {
+        public int score = 0;
+
         public Player(Game game)
         {
-
+            
         }
     }
 }

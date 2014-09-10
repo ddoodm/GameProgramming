@@ -32,12 +32,12 @@ namespace GameProgrammingMajor
             this.model = rhs.model;
         }
 
-        public override void update(EntityUpdateParams updateParams)
+        public override void update(UpdateParams updateParams)
         {
             base.update(updateParams);
         }
 
-        public virtual void draw(EntityDrawParams drawParams)
+        public virtual void draw(DrawParams drawParams)
         {
             // Per-mesh transform matrices
             Matrix[] transforms = new Matrix[model.Bones.Count];
