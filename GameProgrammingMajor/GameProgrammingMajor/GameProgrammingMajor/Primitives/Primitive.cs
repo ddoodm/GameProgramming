@@ -17,7 +17,11 @@ namespace GameProgrammingMajor
         protected Vertex[] v_data;              // Vertex data
         protected VertexBuffer vbo;             // Buffer object
         protected BasicEffect shader;           // Stock shader
-        protected Vector3 lightPos;
+
+        /// <summary>
+        /// The diffuse colour of the primitive.
+        /// </summary>
+        public Vector3 diffuseColour = Vector3.One;
 
         /// <summary>
         /// The number of times to wrap the texture.

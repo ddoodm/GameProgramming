@@ -14,7 +14,7 @@ namespace GameProgrammingMajor
         private Game game;
 
         private const int
-            NUM_BLOCKS = 10;        // The number of tower blocks in both axes.
+            NUM_BLOCKS = 16;        // The number of tower blocks in both axes.
         private float
             blockSize = 20f;       // The size each block in the grid.
 
@@ -29,6 +29,9 @@ namespace GameProgrammingMajor
 
         // Determines which block is selected.
         public TowerSelectionManager selectionManager;
+
+        // Illustrates the boundaries of the Tower Manager region
+        private PlaneEntity boundary;
 
         /// <summary>
         /// Create a new Tower Manager.
@@ -46,6 +49,10 @@ namespace GameProgrammingMajor
 
             selectionManager = new TowerSelectionManager(
                 world, midPosition, NUM_BLOCKS, blockSize);
+
+            boundary = new PlaneEntity(game, new WireframePlanePrimitive(
+                game, blockSize * NUM_BLOCKS, Vector3.Up), world.Translation + Vector3.Up, 0);
+            boundary.primitive.diffuseColour = new Vector3(1f, 0f, 0f);
         }
 
         /// <summary>
@@ -84,6 +91,8 @@ namespace GameProgrammingMajor
                     // Perform an update on this block
                     blocks[z, x].update(updateParams);
                 }
+
+            boundary.update(updateParams);
         }
 
         public void draw(DrawParams drawParams)
@@ -93,6 +102,8 @@ namespace GameProgrammingMajor
                 {
                     blocks[z, x].draw(drawParams);
                 }
+
+            boundary.draw(drawParams);
         }
     }
 }
