@@ -61,7 +61,7 @@ namespace GameProgrammingMajor
             shader.TextureEnabled = true;
 
             shader.DiffuseColor = diffuseColour;
-            shader.SpecularColor = new Vector3(0.25f);
+            shader.SpecularColor = specularColour;
 
             shader.World = world;
 

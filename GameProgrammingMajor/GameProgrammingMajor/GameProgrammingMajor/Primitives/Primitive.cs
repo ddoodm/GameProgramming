@@ -24,6 +24,11 @@ namespace GameProgrammingMajor
         public Vector3 diffuseColour = Vector3.One;
 
         /// <summary>
+        /// The specular colour of the primitive
+        /// </summary>
+        public Vector3 specularColour = new Vector3(0.25f);
+
+        /// <summary>
         /// The number of times to wrap the texture.
         /// Use Vector2.One to fill the texture.
         /// Default: 1x1

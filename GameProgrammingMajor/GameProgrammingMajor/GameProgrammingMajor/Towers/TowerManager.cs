@@ -88,6 +88,11 @@ namespace GameProgrammingMajor
                     // If this block is the selected block, let it know
                     blocks[z, x].selected = selectedBlock == new iVec2(x, z);
 
+                    // A test of creating new towers on click
+                    if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed
+                        && blocks[z, x].selected)
+                        blocks[z, x].tower = new WallTower(game, blocks[z, x].world, blocks[z, x].size);
+
                     // Perform an update on this block
                     blocks[z, x].update(updateParams);
                 }

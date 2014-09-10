@@ -26,6 +26,7 @@ namespace GameProgrammingMajor
             PlanePrimitive floor = new PlanePrimitive(game, 400f, Vector3.Up);
             floor.texture = game.Content.Load<Texture2D>("Textures\\Grass0139_33_S");
             floor.textureTiling = new Vector2(4, 4);
+            floor.specularColour = Vector3.Zero;
             entityManager.add(
                 new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
 
