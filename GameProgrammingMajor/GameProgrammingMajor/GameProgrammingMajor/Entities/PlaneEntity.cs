@@ -10,7 +10,7 @@ namespace GameProgrammingMajor
     /// <summary>
     /// A simple mechanism for creating and drawing a plane
     /// </summary>
-    class PlaneEntity : PrimitiveEntity<VertexPositionNormalTexture>
+    public class PlaneEntity : PrimitiveEntity<VertexPositionNormalTexture>
     {
         public PlaneEntity(Game game, PlanePrimitive plane, Vector3 position, float rotation)
             : base(game, plane, position, rotation)

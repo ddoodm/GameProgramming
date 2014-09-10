@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
       <Source>Textures\brickFacade.jpg</Source>
@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
       <Time>2014-09-09T19:34:04+10:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S.xnb</Output>
       <Time>2014-09-09T20:15:48+10:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\towerBlockSelector.xnb</Output>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\towerBlockSelector.xnb</Output>
       <Time>2014-09-09T22:19:46+10:00</Time>
     </Item>
     <Item>
@@ -34,8 +34,89 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb</Output>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb</Output>
       <Time>2014-09-10T17:22:12+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\tower_wall.FBX</Source>
+      <Name>Models\tower_wall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_wall.xnb</Output>
+      <Time>2014-09-10T22:11:12+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Key>
+        <Value>2014-09-10T22:11:16+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Request>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\tower_wall.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Output>
+      <Time>2014-09-10T22:11:12+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\concreteNew.jpg</Source>
+      <Name>Textures\concreteNew</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew.xnb</Output>
+      <Time>2014-09-10T21:43:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\concreteNew.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Output>
+      <Time>2014-09-10T21:43:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\BrickOldRounded0298_1_S.jpg</Source>
+      <Name>Textures\BrickOldRounded0298_1_S</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S.xnb</Output>
+      <Time>2014-09-10T21:43:20+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\BrickOldRounded0298_1_S.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Output>
+      <Time>2014-09-10T21:43:20+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\shadowA.png</Source>
+      <Name>Textures\shadowA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\shadowA.xnb</Output>
+      <Time>2014-09-10T22:24:22+10:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -44,10 +125,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\</RootDirectory>
-      <LoggerRootDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\</LoggerRootDirectory>
-      <IntermediateDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\</RootDirectory>
+      <LoggerRootDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -76,7 +157,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-08-05T20:24:12.3062601+10:00</Value>
+        <Value>2014-07-31T10:43:30.3613281+10:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

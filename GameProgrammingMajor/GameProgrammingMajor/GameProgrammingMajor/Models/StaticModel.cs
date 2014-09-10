@@ -25,6 +25,13 @@ namespace GameProgrammingMajor
             world *= Matrix.CreateTranslation(position);
         }
 
+        public StaticModel(Game game, Model model, Matrix world)
+            : this(game, model)
+        {
+            kinematic.position = world.Translation;
+            this.world = world;
+        }
+
         // Copy constructor
         public StaticModel(StaticModel rhs)
             : base(rhs.game, rhs.world)

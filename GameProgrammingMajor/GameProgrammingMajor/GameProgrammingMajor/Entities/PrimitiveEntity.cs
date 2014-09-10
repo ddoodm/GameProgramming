@@ -11,7 +11,7 @@ namespace GameProgrammingMajor
     /// An Entity that wraps a Primitive
     /// </summary>
     /// <typeparam name="Vertex">The XNA.Graphics Vertex Format Structure to give this primitive.</typeparam>
-    class PrimitiveEntity<Vertex> : Entity where Vertex : struct
+    public class PrimitiveEntity<Vertex> : Entity where Vertex : struct
     {
         public Primitive<Vertex> primitive;
 

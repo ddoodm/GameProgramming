@@ -17,3 +17,10 @@ G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajo
 G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\GameProgrammingMajor.exe
 G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\GameProgrammingMajor.pdb
 G:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_wall.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\shadowA.xnb

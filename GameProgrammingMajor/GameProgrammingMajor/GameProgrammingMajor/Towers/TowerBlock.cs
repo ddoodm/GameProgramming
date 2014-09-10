@@ -14,20 +14,34 @@ namespace GameProgrammingMajor
     {
         private Game game;
 
-        public Vector3 position;
-        public float size;
+        // The two-dimensional index of this block
+        protected iVec2 blockId;
+
+        // The transformation of this block
+        public Matrix world;
+
+        // The size of the model (should be constant, but here for flexibility)
+        public float size; 
+
+        // The actual tower that comsunes this block. Can be null.
+        public Tower tower = null;
 
         // Illuminates when the block is selected
         private PlaneEntity selectionIndicator;
         public bool selected = false;
 
-        public TowerBlock(Game game, Vector3 position, float size)
+        public TowerBlock(Game game, iVec2 blockId, Matrix world, float size)
         {
             this.game = game;
-            this.position = position;
+            this.blockId = blockId;
+            this.world = world;
             this.size = size;
 
             init_selectionIndicator();
+
+            // TESTTTT!
+            if (blockId == new iVec2(5, 5) || blockId == new iVec2(2,4))
+                tower = new WallTower(game, world, size);
         }
 
         private void init_selectionIndicator()
@@ -36,17 +50,20 @@ namespace GameProgrammingMajor
             selModel.texture = game.Content.Load<Texture2D>("Textures\\UI\\towerBlockSelector");
             selModel.textureTiling = Vector2.One;
 
-            selectionIndicator = new PlaneEntity(game, selModel, position, 0);
-            selectionIndicator.kinematic.position = position + Vector3.Up * 2f; // Offset into +Y
+            selectionIndicator = new PlaneEntity(game, selModel, world.Translation, 0);
+            selectionIndicator.kinematic.position = world.Translation + Vector3.Up * 2f; // Offset into +Y
         }
 
         public void update(UpdateParams updateParams)
         {
+            if(tower != null) tower.update(updateParams);
             selectionIndicator.update(updateParams);
         }
 
         public void draw(DrawParams drawParams)
         {
+            if (tower != null) tower.draw(drawParams);
+
             if (selected)
             {
                 // Draw selection indicator as semi-transparent

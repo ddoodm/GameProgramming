@@ -60,8 +60,11 @@ namespace GameProgrammingMajor
                     Vector3 blockPosition =
                         midPosition + new Vector3((float)x * blockSize*2, 0, (float)z * blockSize*2);
 
+                    // Compute the block's world transform matrix
+                    Matrix blockWorld = Matrix.CreateTranslation(blockPosition);
+
                     // Create the block:
-                    blocks[z, x] = new TowerBlock(game, blockPosition, blockSize);
+                    blocks[z, x] = new TowerBlock(game, new iVec2(z, x), blockWorld, blockSize);
                 }
         }
 
