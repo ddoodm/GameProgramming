@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\spaceship.x</Source>
+      <Name>Models\spaceship</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
+      <Time>2014-08-22T12:51:33.1068387+10:00</Time>
+      <Dependency>
+        <Key>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\spaceship_0.xml</Key>
+        <Value>2014-09-10T15:40:57.7454891+10:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox2.x</Source>
+      <Name>Models\Skybox\skybox2</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox2.xnb</Output>
+      <Time>2014-08-23T12:14:04.3772261+10:00</Time>
+      <Dependency>
+        <Key>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\Skybox\skybox2_0.xml</Key>
+        <Value>2014-09-10T15:40:58.1736646+10:00</Value>
+      </Dependency>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Top_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Right_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Left_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Front_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Back_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\SkyBox_Bottom_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_back.JPG</Source>
+      <Name>Models\Skybox\skybox_back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_back.xnb</Output>
+      <Time>2014-08-23T12:09:32.2526161+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_bottom.JPG</Source>
+      <Name>Models\Skybox\skybox_bottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_bottom.xnb</Output>
+      <Time>2014-08-23T12:09:32.3012464+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_front.JPG</Source>
+      <Name>Models\Skybox\skybox_front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_front.xnb</Output>
+      <Time>2014-08-23T12:09:32.334269+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_left.JPG</Source>
+      <Name>Models\Skybox\skybox_left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_left.xnb</Output>
+      <Time>2014-08-23T12:09:32.3442821+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_right.JPG</Source>
+      <Name>Models\Skybox\skybox_right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_right.xnb</Output>
+      <Time>2014-08-23T12:09:32.3542841+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox_top.JPG</Source>
+      <Name>Models\Skybox\skybox_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\skybox_top.xnb</Output>
+      <Time>2014-08-23T12:09:32.3642912+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Ak4c.jpg</Source>
+      <Name>Textures\Ak4c</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Textures\Ak4c.xnb</Output>
+      <Time>2014-08-23T14:35:39.8650559+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\crate(1).png</Source>
+      <Name>Textures\crate(1)</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Textures\crate(1).xnb</Output>
+      <Time>2014-08-29T14:04:10.8670382+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tank\tank.fbx</Source>
+      <Name>Models\Tank\tank</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Tank\tank.xnb</Output>
+      <Time>2014-08-27T16:23:26.1725412+10:00</Time>
+      <Dependency>
+        <Key>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\Tank\tank_0.xml</Key>
+        <Value>2014-09-10T15:41:04.5738772+10:00</Value>
+      </Dependency>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Tank\engine_diff_tex_0.xnb</Request>
+      <Request>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Tank\turret_alt_diff_tex_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2014-08-30T14:04:33.3773694+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\spaceship.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\spaceship_0.xml</Output>
+      <Time>2014-08-22T12:51:33.1068387+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\skybox2.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\Skybox\skybox2_0.xml</Output>
+      <Time>2014-08-23T12:14:04.3772261+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\Clear_Top.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Top_0.xnb</Output>
+      <Time>2014-08-20T16:41:43.125649+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\Clear_Right.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Right_0.xnb</Output>
+      <Time>2014-08-20T16:41:43.1186444+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\Clear_Left.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Left_0.xnb</Output>
+      <Time>2014-08-20T16:41:43.1116364+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\Clear_Front.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Front_0.xnb</Output>
+      <Time>2014-08-20T16:41:43.0976324+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\Clear_Back.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\Clear_Back_0.xnb</Output>
+      <Time>2014-08-20T16:41:43.0756134+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Skybox\SkyBox_Bottom.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Skybox\SkyBox_Bottom_0.xnb</Output>
+      <Time>2014-08-23T12:09:32.3012464+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tank\tank.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\Models\Tank\tank_0.xml</Output>
+      <Time>2014-08-27T16:23:26.1725412+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tank\engine_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Tank\engine_diff_tex_0.xnb</Output>
+      <Time>2014-08-27T16:23:26.0961886+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tank\turret_alt_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\Models\Tank\turret_alt_diff_tex_0.xnb</Output>
+      <Time>2014-08-27T16:23:26.1960848+10:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{596397D0-96E1-41CE-B170-E197E97D7896}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\lab6\lab4.1\lab4._1\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-08-04T15:57:16.685757+10:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab4._1", "lab4.1\lab4._1\lab4._1.csproj", "{B7D249C2-A337-4E24-90E4-131E88AE1EF2}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "lab4._1Content", "lab4.1\lab4._1Content\lab4._1Content.contentproj", "{596397D0-96E1-41CE-B170-E197E97D7896}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7D249C2-A337-4E24-90E4-131E88AE1EF2}.Debug|x86.ActiveCfg = Debug|x86
+		{B7D249C2-A337-4E24-90E4-131E88AE1EF2}.Debug|x86.Build.0 = Debug|x86
+		{B7D249C2-A337-4E24-90E4-131E88AE1EF2}.Release|x86.ActiveCfg = Release|x86
+		{B7D249C2-A337-4E24-90E4-131E88AE1EF2}.Release|x86.Build.0 = Release|x86
+		{596397D0-96E1-41CE-B170-E197E97D7896}.Debug|x86.ActiveCfg = Debug|x86
+		{596397D0-96E1-41CE-B170-E197E97D7896}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
