@@ -14,27 +14,38 @@ namespace GameProgrammingMajor
         private Game game;
 
         private const int
-            NUM_BLOCKS = 32;        // The number of tower blocks in both axes.
+            NUM_BLOCKS = 10;        // The number of tower blocks in both axes.
         private float
-            gridSizee = 200f;       // The size of the block grid.
+            blockSize = 20f;       // The size each block in the grid.
 
-        // Position of this collection of towers ("village")
-        public Vector3 position;
+        // Transformation of this collection of towers ("village")
+        public Matrix world;
+
+        // The position from the centre of the manager
+        public Vector3 midPosition;
 
         // The two-dimensional array of tower blocks to which towers may be allocated.
         public TowerBlock[,] blocks = new TowerBlock[NUM_BLOCKS, NUM_BLOCKS];
+
+        // Determines which block is selected.
+        public TowerSelectionManager selectionManager;
 
         /// <summary>
         /// Create a new Tower Manager.
         /// </summary>
         /// <param name="game">The main game object</param>
         /// <param name="position">The position of this collection of towers.</param>
-        public TowerManager(Game game, Vector3 position)
+        public TowerManager(Game game, Matrix world)
         {
             this.game = game;
-            this.position = position;
+            this.world = world;
+
+            midPosition = world.Translation - new Vector3(1f, 0f, 1f) * (blockSize * NUM_BLOCKS - blockSize);
 
             initializeBlocks();
+
+            selectionManager = new TowerSelectionManager(
+                world, midPosition, NUM_BLOCKS, blockSize);
         }
 
         /// <summary>
@@ -47,18 +58,27 @@ namespace GameProgrammingMajor
                 {
                     // Place each block in a grid formation:
                     Vector3 blockPosition =
-                        position + new Vector3(x * gridSizee, 0, z * gridSizee);
+                        midPosition + new Vector3((float)x * blockSize*2, 0, (float)z * blockSize*2);
 
                     // Create the block:
-                    blocks[z, x] = new TowerBlock(game, blockPosition, gridSizee);
+                    blocks[z, x] = new TowerBlock(game, blockPosition, blockSize);
                 }
         }
 
         public void update(EntityUpdateParams updateParams)
         {
+            // Obtain the ID of the currently selected block
+            iVec2 selectedBlock = selectionManager.getSelectedBlock(
+                game.GraphicsDevice.Viewport, updateParams.camera, updateParams.mouseState);
+
+            // For each block in the 2D array:
             for (int z = 0; z < NUM_BLOCKS; z++)
                 for (int x = 0; x < NUM_BLOCKS; x++)
                 {
+                    // If this block is the selected block, let it know
+                    blocks[z, x].selected = selectedBlock == new iVec2(x, z);
+
+                    // Perform an update on this block
                     blocks[z, x].update(updateParams);
                 }
         }

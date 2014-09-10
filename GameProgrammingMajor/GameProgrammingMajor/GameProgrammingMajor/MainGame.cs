@@ -88,7 +88,9 @@ namespace GameProgrammingMajor
             EntityUpdateParams updateParams = new EntityUpdateParams()
             {
                 camera = this.camera,
-                gameTime = gameTime
+                gameTime = gameTime,
+                keyboardState = keyboard,
+                mouseState = mouse
             };
 
             // Allows the game to exit
@@ -111,13 +113,19 @@ namespace GameProgrammingMajor
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            // Peripheral states
+            KeyboardState keyboard = Keyboard.GetState();
+            MouseState mouse = Mouse.GetState();
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // Prepare drawing parameters for entities, statics and primitives
             EntityDrawParams drawParams = new EntityDrawParams()
             {
                 camera = this.camera,
-                gameTime = gameTime
+                gameTime = gameTime,
+                keyboardState = keyboard,
+                mouseState = mouse
             };
 
             // Draw the world

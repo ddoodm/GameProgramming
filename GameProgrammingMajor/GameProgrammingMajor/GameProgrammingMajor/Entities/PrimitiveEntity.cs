@@ -46,6 +46,9 @@ namespace GameProgrammingMajor
             // Update world matrix
             world *= Matrix.CreateRotationY(kinematic.orientation);
             world *= Matrix.CreateTranslation(kinematic.position);
+
+            // Provide world matrix to the primitive
+            primitive.world = world;
         }
 
         public override void draw(EntityDrawParams drawParams)

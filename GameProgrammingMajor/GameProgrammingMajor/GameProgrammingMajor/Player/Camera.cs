@@ -338,12 +338,15 @@ namespace GameProgrammingMajor
             // Normalized Y direction vector
             Vector3 nDirection = Vector3.Normalize(direction);
 
-            // Shift multiplier
-            if (ks.IsKeyDown(Keys.LeftShift))
-                nDirection *= 2.0f;
-
             // Orthonormal direction vector for strafe movement
             Vector3 orthoDirection = Vector3.Normalize(Vector3.Cross(up, nDirection));
+
+            // Shift multiplier
+            if (ks.IsKeyDown(Keys.LeftShift))
+            {
+                nDirection *= 3.0f;
+                orthoDirection *= 3.0f;
+            }
 
             if (ks.IsKeyDown(Keys.W))
                 position += nDirection;

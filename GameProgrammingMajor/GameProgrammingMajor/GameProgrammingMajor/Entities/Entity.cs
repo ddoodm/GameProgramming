@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
 
 namespace GameProgrammingMajor
 {
@@ -14,6 +15,8 @@ namespace GameProgrammingMajor
     {
         public GameTime gameTime;
         public Camera camera;
+        public KeyboardState keyboardState;
+        public MouseState mouseState;
     }
 
     /// <summary>
@@ -23,6 +26,8 @@ namespace GameProgrammingMajor
     {
         public GameTime gameTime;
         public Camera camera;
+        public KeyboardState keyboardState;
+        public MouseState mouseState;
     }
 
     /// <summary>

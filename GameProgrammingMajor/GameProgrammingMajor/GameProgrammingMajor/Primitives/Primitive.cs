@@ -9,14 +9,22 @@ namespace GameProgrammingMajor
 {
     public class Primitive<Vertex> where Vertex : struct
     {
+        public Matrix world;                    // World translation matrix
+        protected Vector3 pos = new Vector3();  // Position in Cartesian space
+
         protected Game game;                    // Handle to game object
         protected float size;
-        protected Vector3 pos = new Vector3();
-        protected Matrix world;                 // World translation matrix
         protected Vertex[] v_data;              // Vertex data
         protected VertexBuffer vbo;             // Buffer object
         protected BasicEffect shader;           // Stock shader
         protected Vector3 lightPos;
+
+        /// <summary>
+        /// The number of times to wrap the texture.
+        /// Use Vector2.One to fill the texture.
+        /// Default: 1x1
+        /// </summary>
+        public Vector2 textureTiling = Vector2.One;
 
         /// <summary>
         /// Indicates whether the primitive has been built yet.
@@ -69,6 +77,7 @@ namespace GameProgrammingMajor
             // Bind the vertex buffer
             game.GraphicsDevice.SetVertexBuffer(vbo);
 
+            shader.World = world;
             shader.View = drawParams.camera.view;             // View transform matrix
             shader.Projection = drawParams.camera.projection; // Perspective projection matrix
 

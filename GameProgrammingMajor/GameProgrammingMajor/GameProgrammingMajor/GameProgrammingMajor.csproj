@@ -91,6 +91,8 @@
     <Compile Include="Models\StaticModel.cs" />
     <Compile Include="Towers\TowerBlock.cs" />
     <Compile Include="Towers\TowerManager.cs" />
+    <Compile Include="Towers\TowerSelectionManager.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="World\World.cs" />
   </ItemGroup>
   <ItemGroup>

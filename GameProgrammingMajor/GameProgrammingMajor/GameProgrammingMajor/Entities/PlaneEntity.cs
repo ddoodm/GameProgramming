@@ -12,8 +12,8 @@ namespace GameProgrammingMajor
     /// </summary>
     class PlaneEntity : PrimitiveEntity<VertexPositionNormalTexture>
     {
-        public PlaneEntity(Game game, Vector3 position, Vector3 up, float size, float rotation)
-            : base(game, new PlanePrimitive(game, size, up), position, rotation)
+        public PlaneEntity(Game game, PlanePrimitive plane, Vector3 position, float rotation)
+            : base(game, plane, position, rotation)
         {
 
         }

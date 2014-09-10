@@ -14,13 +14,6 @@ namespace GameProgrammingMajor
         public Vector3 T { get; private set; }      // The tangent to the plane, which is arbitrary for bitangent computation
         public Vector3 B { get; private set; }      // The bitangent to the plane, which is used to define the coordinate system
 
-        /// <summary>
-        /// The number of times to wrap the texture.
-        /// Use Vector2.One to fill the texture.
-        /// Default: 8x8
-        /// </summary>
-        public Vector2 tiling = new Vector2(8, 8);
-
         public PlanePrimitive(Game game, float size, Vector3 up)
             : base(game, size)
         {
@@ -46,10 +39,10 @@ namespace GameProgrammingMajor
 
             v_data = new VertexPositionNormalTexture[4]
             {
-                new VertexPositionNormalTexture( P - szT - szB, N, new Vector2(0,        0) ),
-                new VertexPositionNormalTexture( P + szT - szB, N, new Vector2(tiling.X, 0) ),
-                new VertexPositionNormalTexture( P - szT + szB, N, new Vector2(0,        tiling.Y) ),
-                new VertexPositionNormalTexture( P + szT + szB, N, new Vector2(tiling.X, tiling.Y) ),
+                new VertexPositionNormalTexture( P - szT - szB, N, new Vector2(0,               0) ),
+                new VertexPositionNormalTexture( P + szT - szB, N, new Vector2(textureTiling.X, 0) ),
+                new VertexPositionNormalTexture( P - szT + szB, N, new Vector2(0,               textureTiling.Y) ),
+                new VertexPositionNormalTexture( P + szT + szB, N, new Vector2(textureTiling.X, textureTiling.Y) ),
             };
 
             // Update the "Built" flag to true.
