@@ -345,6 +345,18 @@ namespace GameProgrammingMajor
     /// </summary>
     public class TopdownCamera : Camera
     {
+        // The speed at which to zoom the camera.
+        public float zoomSpeed = 40f;
+
+        // The speed at which to rotate the camera.
+        public float rotSpeed = 0.05f;
+
+        // The scroll value as of the last update.
+        int prevScroll = 0;
+
+        // The mouse's X coordinate as of the last update.
+        float prevMouseX = 0;
+
         public TopdownCamera(Game game, Vector3 eye, Vector3 target, Vector3 up)
             : base(game, eye, target, up)
         {
@@ -359,7 +371,13 @@ namespace GameProgrammingMajor
 
         public override void Update(GameTime gameTime)
         {
-            transform(gameTime);
+            steering.linear = Vector3.Zero;
+
+            rotate();
+
+            scrollZoom();
+
+            transform();
 
             createLookAt();
 
@@ -367,9 +385,44 @@ namespace GameProgrammingMajor
         }
 
         /// <summary>
+        /// Rotate the camera using the middle mouse button
+        /// </summary>
+        protected void rotate()
+        {
+            MouseState mouse = Mouse.GetState();
+
+            // Do not rotate when mouse is not pressed
+            if (mouse.MiddleButton == ButtonState.Released)
+                return;
+
+            // Rotation angle
+            float theta = (float)(mouse.X - halfWindow.Width) / (float)window.Width * MathHelper.Pi * rotSpeed;
+
+            // Create a rotation matrix
+            Matrix rotation = Matrix.CreateRotationY(theta);
+
+            // Rotate the direction vector
+            direction = Vector3.Transform(direction, rotation);
+        }
+
+        /// <summary>
+        /// Zoom the camera using the scrollwheel
+        /// </summary>
+        protected void scrollZoom()
+        {
+            MouseState mouse = Mouse.GetState();
+
+            int scrollDelta = mouse.ScrollWheelValue - prevScroll;
+
+            steering.linear += direction * scrollDelta * zoomSpeed;
+
+            prevScroll = mouse.ScrollWheelValue;
+        }
+
+        /// <summary>
         /// Perform keyboard-input translation *after* having rotated the view
         /// </summary>
-        protected void transform(GameTime gameTime)
+        protected void transform()
         {
             // Keyboard key states
             KeyboardState ks = Keyboard.GetState();
@@ -389,8 +442,6 @@ namespace GameProgrammingMajor
 
             // Orthonormal direction vector for strafe movement
             Vector3 orthoDirection = Vector3.Cross(up, flatDirection);
-
-            steering.linear = Vector3.Zero;
 
             if (ks.IsKeyDown(Keys.W))
                 steering.linear += flatDirection;
