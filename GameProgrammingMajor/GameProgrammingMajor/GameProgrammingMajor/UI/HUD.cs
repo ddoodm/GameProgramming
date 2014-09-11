@@ -12,7 +12,7 @@ namespace GameProgrammingMajor
         MainGame game;
 
         public static string TEXT_PLAYER = "Score: {0}\n";
-        public static string TEXT_DEBUG = "Camera Position: {1:f}";
+        public static string TEXT_DEBUG = "Camera (1,2): {1}";
 
         SpriteFont uiFont;
 
@@ -48,7 +48,7 @@ namespace GameProgrammingMajor
             string message = string.Format(
                 TEXT_PLAYER + (debugVisible? TEXT_DEBUG : ""),
                 player.score,
-                drawParams.camera.position);
+                drawParams.camera.GetType().ToString());
 
             game.spriteBatch.Begin();
             for (int i = 0; i < 2; i++)

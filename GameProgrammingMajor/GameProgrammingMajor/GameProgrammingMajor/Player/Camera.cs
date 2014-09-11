@@ -270,17 +270,19 @@ namespace GameProgrammingMajor
             // Orthonormal direction vector for strafe movement
             Vector3 orthoDirection = Vector3.Cross(up, flatDirection);
 
+            steering.linear = Vector3.Zero;
+
             if (ks.IsKeyDown(Keys.W))
-                position += flatDirection;
+                steering.linear += flatDirection;
             if (ks.IsKeyDown(Keys.S))
-                position -= flatDirection;
+                steering.linear -= flatDirection;
             if (ks.IsKeyDown(Keys.A))
-                position += orthoDirection;
+                steering.linear += orthoDirection;
             if (ks.IsKeyDown(Keys.D))
-                position -= orthoDirection;
+                steering.linear -= orthoDirection;
 
             // Do jump operation
-            position = new Vector3(position.X, baseHeight + get_jump_y(ks), position.Z);
+            kinematic.position = new Vector3(kinematic.position.X, baseHeight + get_jump_y(ks), kinematic.position.Z);
         }
 
         /*
@@ -399,7 +401,7 @@ namespace GameProgrammingMajor
             float theta = (float)(mouse.X - halfWindow.Width) / (float)window.Width * MathHelper.Pi * rotSpeed;
 
             // Create a rotation matrix
-            Matrix rotation = Matrix.CreateRotationY(theta);
+            Matrix rotation = Matrix.CreateRotationY(-theta);
 
             // Rotate the direction vector
             direction = Vector3.Transform(direction, rotation);

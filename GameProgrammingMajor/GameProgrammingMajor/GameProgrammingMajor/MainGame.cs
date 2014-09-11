@@ -30,6 +30,26 @@ namespace GameProgrammingMajor
         public Camera camera;
         public HUD hud;
 
+        /// <summary>
+        /// Topdown camera description
+        /// </summary>
+        private CameraTuple topdownCamDesc = new CameraTuple()
+        {
+            position = new Vector3(-100f, 200f, 100f),
+            target = Vector3.Zero,
+            up = Vector3.Up
+        };
+
+        /// <summary>
+        /// First-person camera description
+        /// </summary>
+        private CameraTuple fpCamDesc = new CameraTuple()
+        {
+            position = new Vector3(-100f, 20f, 100f),
+            target = Vector3.Zero,
+            up = Vector3.Up
+        };
+
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,14 +67,8 @@ namespace GameProgrammingMajor
 
             world = new World(this);
 
-            // Configure the camera. This will be declared more formally.
-            CameraTuple camDesc = new CameraTuple()
-            {
-                position = new Vector3(-100f, 200f, 100f),
-                target = Vector3.Zero,
-                up = Vector3.Up
-            };
-            camera = new TopdownCamera(this, camDesc);
+            // Configure the camera.
+            camera = new TopdownCamera(this, topdownCamDesc);
 
             hud = new HUD(this, player);
 
@@ -103,6 +117,9 @@ namespace GameProgrammingMajor
                 || keyboard.IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            // Select the type of camera:
+            changeCamera(keyboard);
+
             // Update primary camera
             camera.Update(gameTime);
 
@@ -110,6 +127,14 @@ namespace GameProgrammingMajor
             world.update(updateParams);
 
             base.Update(gameTime);
+        }
+
+        private void changeCamera(KeyboardState keyboard)
+        {
+            if (keyboard.IsKeyDown(Keys.D1))
+                camera = new TopdownCamera(this, topdownCamDesc);
+            else if (keyboard.IsKeyDown(Keys.D2))
+                camera = new FPCamera(this, fpCamDesc);
         }
 
         /// <summary>
