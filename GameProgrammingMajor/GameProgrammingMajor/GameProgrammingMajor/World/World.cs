@@ -22,10 +22,15 @@ namespace GameProgrammingMajor
             staticManager = new StaticModelManager();
             entityManager = new EntityManager();
 
+            hardcodedWorldPopulation(game);
+        }
+
+        private void hardcodedWorldPopulation(Game game)
+        {
             // Add a test floor primitive to the Entity manager
-            PlanePrimitive floor = new PlanePrimitive(game, 400f, Vector3.Up);
+            PlanePrimitive floor = new PlanePrimitive(game, 500f, Vector3.Up);
             floor.texture = game.Content.Load<Texture2D>("Textures\\Grass0139_33_S");
-            floor.textureTiling = new Vector2(4, 4);
+            floor.textureTiling = new Vector2(5, 5);
             floor.specularColour = Vector3.Zero;
             entityManager.add(
                 new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));

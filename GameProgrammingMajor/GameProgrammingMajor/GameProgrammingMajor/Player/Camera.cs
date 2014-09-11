@@ -47,6 +47,21 @@ namespace GameProgrammingMajor
         public Vector3 up { get; protected set; }
 
         /// <summary>
+        /// The camera's physical state
+        /// (position, velocity, and orientation)
+        /// </summary>
+        public Kinematic kinematic;
+        public Steering steering;
+
+        /// <summary>
+        /// Camera translation speed settings
+        /// </summary>
+        public float
+            maxSpeed = 500f,
+            shiftMultiplier = 2f,
+            friction = 0.95f;
+
+        /// <summary>
         /// Describes the window dimensions.
         /// 'halfWindow' is the (window size / 2).
         /// </summary>
@@ -58,6 +73,10 @@ namespace GameProgrammingMajor
             this.position = position;
             this.direction = Vector3.Normalize(target - position);
             this.up = up;
+
+            // Initialize physical state
+            kinematic = new Kinematic(position);
+            steering = new Steering();
 
             // Store window dimensions for later calculation
             window = game.GraphicsDevice.PresentationParameters.Bounds;
@@ -89,6 +108,12 @@ namespace GameProgrammingMajor
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            // Update Kinematic
+            kinematic.update(steering, (float)gameTime.ElapsedGameTime.TotalSeconds);
+            
+            // Apply friction
+            if(kinematic.velocity.Length() > 0)
+                kinematic.velocity *= friction;
 
             // Call base update routine
             base.Update(gameTime);
@@ -99,7 +124,8 @@ namespace GameProgrammingMajor
         /// </summary>
         protected void createLookAt()
         {
-            view = Matrix.CreateLookAt(position, position + direction, up);
+            //view = Matrix.CreateLookAt(position, position + direction, up);
+            view = Matrix.CreateLookAt(kinematic.position, kinematic.position + direction, up);
         }
 
         /// <summary>
@@ -173,10 +199,28 @@ namespace GameProgrammingMajor
         public FPCamera(Game game, CameraTuple tuple)
             : base(game, tuple)
         {
-
+            baseHeight = tuple.position.Y;
         }
 
         public override void Update(GameTime gameTime)
+        {
+            // Do an FPS-style pitch and yaw computation
+            fpsPitchYaw();
+
+            // Transform camera through new direction
+            transform(gameTime);
+
+            // Re-build the view matrix
+            createLookAt();
+
+            // Reset mouse position to mid-window so as to obtain differential coordinates on next update
+            Mouse.SetPosition(halfWindow.Width, halfWindow.Height);
+
+            // Call parent update routine
+            base.Update(gameTime);
+        }
+
+        protected void fpsPitchYaw()
         {
             // Obtain mouse coordinates
             MouseState mouse = Mouse.GetState();
@@ -200,24 +244,12 @@ namespace GameProgrammingMajor
                 direction = Vector3.Normalize(Vector3.Transform(direction, rot_pitch));
                 currentPitch += pitchAngle;
             }
-
-            // Transform camera through new direction
-            transform(gameTime);
-
-            // Re-build the view matrix
-            createLookAt();
-
-            // Reset mouse position to mid-window so as to obtain differential coordinates on next update
-            Mouse.SetPosition(halfWindow.Width, halfWindow.Height);
-
-            // Call parent update routine
-            base.Update(gameTime);
         }
 
         /// <summary>
         /// Perform keyboard-input translation *after* having rotated the view
         /// </summary>
-        private void transform(GameTime gameTime)
+        protected void transform(GameTime gameTime)
         {
             // Keyboard key states
             KeyboardState ks = Keyboard.GetState();
@@ -228,9 +260,12 @@ namespace GameProgrammingMajor
                 0,
                 direction.Z));
 
+            // Raise the direction to the max speed
+            flatDirection *= maxSpeed;
+
             // Shift multiplier
             if (ks.IsKeyDown(Keys.LeftShift))
-                flatDirection *= 2.0f;
+                flatDirection *= shiftMultiplier;
 
             // Orthonormal direction vector for strafe movement
             Vector3 orthoDirection = Vector3.Cross(up, flatDirection);
@@ -246,7 +281,6 @@ namespace GameProgrammingMajor
 
             // Do jump operation
             position = new Vector3(position.X, baseHeight + get_jump_y(ks), position.Z);
-            //position = new Vector3(position.X, get_jump_y_v2(gameTime), position.Z);
         }
 
         /*
@@ -287,7 +321,7 @@ namespace GameProgrammingMajor
         /// </summary>
         /// <param name="ks"></param>
         /// <returns></returns>
-        private float get_jump_y(KeyboardState ks)
+        protected virtual float get_jump_y(KeyboardState ks)
         {
             if (jumping)
             {
@@ -303,6 +337,69 @@ namespace GameProgrammingMajor
             }
 
             return 0f;
+        }
+    }
+
+    /// <summary>
+    /// A Sim-style camera.
+    /// </summary>
+    public class TopdownCamera : Camera
+    {
+        public TopdownCamera(Game game, Vector3 eye, Vector3 target, Vector3 up)
+            : base(game, eye, target, up)
+        {
+
+        }
+
+        public TopdownCamera(Game game, CameraTuple tuple)
+            : base(game, tuple)
+        {
+
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            transform(gameTime);
+
+            createLookAt();
+
+            base.Update(gameTime);
+        }
+
+        /// <summary>
+        /// Perform keyboard-input translation *after* having rotated the view
+        /// </summary>
+        protected void transform(GameTime gameTime)
+        {
+            // Keyboard key states
+            KeyboardState ks = Keyboard.GetState();
+
+            // Normalized Y-ignorant direction vector
+            Vector3 flatDirection = Vector3.Normalize(new Vector3(
+                direction.X,
+                0,
+                direction.Z));
+
+            // Raise the direction to the max speed
+            flatDirection *= maxSpeed;
+
+            // Shift multiplier
+            if (ks.IsKeyDown(Keys.LeftShift))
+                flatDirection *= shiftMultiplier;
+
+            // Orthonormal direction vector for strafe movement
+            Vector3 orthoDirection = Vector3.Cross(up, flatDirection);
+
+            steering.linear = Vector3.Zero;
+
+            if (ks.IsKeyDown(Keys.W))
+                steering.linear += flatDirection;
+            if (ks.IsKeyDown(Keys.S))
+                steering.linear -= flatDirection;
+            if (ks.IsKeyDown(Keys.A))
+                steering.linear += orthoDirection;
+            if (ks.IsKeyDown(Keys.D))
+                steering.linear -= orthoDirection;
         }
     }
 

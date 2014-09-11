@@ -34,6 +34,8 @@ namespace GameProgrammingMajor
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace GameProgrammingMajor
                 target = Vector3.Zero,
                 up = Vector3.Up
             };
-            camera = new FlyingCamera(this, camDesc);
+            camera = new TopdownCamera(this, camDesc);
 
             hud = new HUD(this, player);
 

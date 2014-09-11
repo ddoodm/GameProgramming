@@ -85,8 +85,8 @@ namespace GameProgrammingMajor
 
             // Compute the block ID of the intersection
             iVec2 blockId = new iVec2(
-                (int)((intPosition.X - midPosition.X) / blockSize/2),
-                (int)((intPosition.Z - midPosition.Z) / blockSize/2));
+                (int)((intPosition.X - midPosition.X + blockSize/2) / blockSize/2),
+                (int)((intPosition.Z - midPosition.Z + blockSize/2) / blockSize/2));
 
             return blockId;
         }
