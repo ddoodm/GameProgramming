@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace GameProgrammingMajor
 {
@@ -14,13 +15,14 @@ namespace GameProgrammingMajor
     public class World
     {
         public StaticModelManager staticManager;
-        public EntityManager entityManager;
+        public EntityManager<Entity> entityManager;
         public TowerManager towerManager;
+        public TankWave tankWave;
 
         public World(Game game)
         {
             staticManager = new StaticModelManager();
-            entityManager = new EntityManager();
+            entityManager = new EntityManager<Entity>(game);
 
             hardcodedWorldPopulation(game);
         }
@@ -37,6 +39,10 @@ namespace GameProgrammingMajor
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
             towerManager = new TowerManager(game, Matrix.Identity);
+
+            // Initialize an entity wave for entities of type 'Tank'
+            Kinematic target = new Kinematic(new Vector3(300f, 0, 300f));
+            tankWave = new TankWave(game, new Vector3[1]{towerManager.coordinatesOf(new iVec2(1,1))}, target);
         }
 
         public void update(UpdateParams updateParams)
@@ -44,6 +50,7 @@ namespace GameProgrammingMajor
             entityManager.update(updateParams);
             staticManager.update(updateParams);
             towerManager.update(updateParams);
+            tankWave.update(updateParams);
         }
 
         public void draw(DrawParams drawParams)
@@ -51,6 +58,7 @@ namespace GameProgrammingMajor
             entityManager.draw(drawParams);
             staticManager.draw(drawParams);
             towerManager.draw(drawParams);
+            tankWave.draw(drawParams);
         }
     }
 }

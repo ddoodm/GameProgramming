@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace GameProgrammingMajor
 {
-    public class EntityManager
+    public class EntityManager<EntityType> where EntityType : Entity
     {
-        public List<Entity> entities;
+        private Game game;
 
-        public EntityManager()
+        public List<EntityType> entities;
+
+        public EntityManager(Game game)
         {
-            entities = new List<Entity>();
+            this.game = game;
+            entities = new List<EntityType>();
         }
 
         /// <summary>
@@ -19,19 +24,20 @@ namespace GameProgrammingMajor
         /// </summary>
         /// <param name="entity">The entity to add to the manager.</param>
         /// <returns>A handle to the entity that was added to the manager.</returns>
-        public Entity add(Entity entity)
+        public Entity add(EntityType entity)
         {
             entities.Add(entity);
+            entity.load(game.Content);
             return entity;
         }
 
-        public void update(UpdateParams updateParams)
+        public virtual void update(UpdateParams updateParams)
         {
             foreach (Entity entity in entities)
                 entity.update(updateParams);
         }
 
-        public void draw(DrawParams drawParams)
+        public virtual void draw(DrawParams drawParams)
         {
             foreach (Entity entity in entities)
                 entity.draw(drawParams);

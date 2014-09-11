@@ -64,8 +64,7 @@ namespace GameProgrammingMajor
                 for (int x = 0; x < NUM_BLOCKS; x++)
                 {
                     // Place each block in a grid formation:
-                    Vector3 blockPosition =
-                        midPosition + new Vector3((float)x * blockSize*2, 0, (float)z * blockSize*2);
+                    Vector3 blockPosition = coordinatesOf(new iVec2(z, x));
 
                     // Compute the block's world transform matrix
                     Matrix blockWorld = Matrix.CreateTranslation(blockPosition);
@@ -73,6 +72,17 @@ namespace GameProgrammingMajor
                     // Create the block:
                     blocks[z, x] = new TowerBlock(game, new iVec2(z, x), blockWorld, blockSize);
                 }
+        }
+
+        /// <summary>
+        /// Get the world coordinates of a block ID.
+        /// </summary>
+        public Vector3 coordinatesOf(iVec2 blockId)
+        {
+            return world.Translation + midPosition +
+                new Vector3((float)blockId.y * blockSize * 2,
+                    0,
+                    (float)blockId.x * blockSize * 2);
         }
 
         public void update(UpdateParams updateParams)

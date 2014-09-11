@@ -134,6 +134,8 @@ namespace GameProgrammingMajor
             if (keyboard.IsKeyDown(Keys.D1))
                 camera = new TopdownCamera(this, topdownCamDesc);
             else if (keyboard.IsKeyDown(Keys.D2))
+                camera = new FlyingCamera(this, topdownCamDesc);
+            else if (keyboard.IsKeyDown(Keys.D3))
                 camera = new FPCamera(this, fpCamDesc);
         }
 

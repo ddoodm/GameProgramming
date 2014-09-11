@@ -12,7 +12,7 @@ namespace GameProgrammingMajor
         MainGame game;
 
         public static string TEXT_PLAYER = "Score: {0}\n";
-        public static string TEXT_DEBUG = "Camera (1,2): {1}";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {1}";
 
         SpriteFont uiFont;
 

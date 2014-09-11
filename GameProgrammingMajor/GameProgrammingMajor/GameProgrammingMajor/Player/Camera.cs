@@ -354,21 +354,18 @@ namespace GameProgrammingMajor
         public float rotSpeed = 0.05f;
 
         // The scroll value as of the last update.
-        int prevScroll = 0;
-
-        // The mouse's X coordinate as of the last update.
-        float prevMouseX = 0;
+        int prevScroll;
 
         public TopdownCamera(Game game, Vector3 eye, Vector3 target, Vector3 up)
             : base(game, eye, target, up)
         {
-
+            prevScroll = Mouse.GetState().ScrollWheelValue;
         }
 
         public TopdownCamera(Game game, CameraTuple tuple)
             : base(game, tuple)
         {
-
+            prevScroll = Mouse.GetState().ScrollWheelValue;
         }
 
         public override void Update(GameTime gameTime)
@@ -482,6 +479,8 @@ namespace GameProgrammingMajor
 
         public override void Update(GameTime gameTime)
         {
+            steering.linear = Vector3.Zero;
+
             // Obtain mouse coordinates
             MouseState mouse = Mouse.GetState();
 
@@ -527,26 +526,26 @@ namespace GameProgrammingMajor
             KeyboardState ks = Keyboard.GetState();
 
             // Normalized Y direction vector
-            Vector3 nDirection = Vector3.Normalize(direction);
+            Vector3 nDirection = Vector3.Normalize(direction) * maxSpeed;
 
             // Orthonormal direction vector for strafe movement
-            Vector3 orthoDirection = Vector3.Normalize(Vector3.Cross(up, nDirection));
+            Vector3 orthoDirection = Vector3.Normalize(Vector3.Cross(up, nDirection)) * maxSpeed;
 
             // Shift multiplier
             if (ks.IsKeyDown(Keys.LeftShift))
             {
-                nDirection *= 3.0f;
-                orthoDirection *= 3.0f;
+                nDirection *= shiftMultiplier;
+                orthoDirection *= shiftMultiplier;
             }
 
             if (ks.IsKeyDown(Keys.W))
-                position += nDirection;
+                steering.linear += nDirection;
             if (ks.IsKeyDown(Keys.S))
-                position -= nDirection;
+                steering.linear -= nDirection;
             if (ks.IsKeyDown(Keys.A))
-                position += orthoDirection;
+                steering.linear += orthoDirection;
             if (ks.IsKeyDown(Keys.D))
-                position -= orthoDirection;
+                steering.linear -= orthoDirection;
         }
     }
 }
