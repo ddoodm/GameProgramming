@@ -25,7 +25,7 @@ namespace GameProgrammingMajor
 
     public class NPC 
     {
-        public static bool DEBUG = false;
+        public static bool DEBUG = true;
 
         /// <summary>
         /// The waypoint model is for debugging purposes.

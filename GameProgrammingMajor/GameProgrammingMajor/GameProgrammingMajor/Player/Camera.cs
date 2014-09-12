@@ -174,15 +174,6 @@ namespace GameProgrammingMajor
     /// </summary>
     public class FPCamera : Camera
     {
-        private const float JUMP_SPEED = 0.08f;
-
-        /// <summary>
-        /// Parameters to maintain the jump state
-        /// </summary>
-        private Boolean jumping = false;
-        private float jumpTheta = 0f;
-        private float baseHeight;
-
         /// <summary>
         /// Dan's jump height variables
         /// </summary>
@@ -198,25 +189,33 @@ namespace GameProgrammingMajor
             maxPitch = 80f / 180f * (float)Math.PI,
             currentPitch = 0;
 
+        private Player player;
+
         public FPCamera(Game game, Vector3 eye, Vector3 target, Vector3 up)
             : base(game, eye, target, up)
         {
-            baseHeight = eye.Y;
+            
         }
 
         public FPCamera(Game game, CameraTuple tuple)
             : base(game, tuple)
         {
-            baseHeight = tuple.position.Y;
+            
+        }
+
+        public FPCamera(Game game, Player player)
+            : base(game, player.kinematic.position, player.kinematic.position + new Vector3(1f, 0f, 0f), Vector3.Up)
+        {
+            this.player = player;
         }
 
         public override void Update(GameTime gameTime)
         {
+            this.kinematic = player.kinematic;
+            this.steering = player.steering;
+
             // Do an FPS-style pitch and yaw computation
             fpsPitchYaw();
-
-            // Transform camera through new direction
-            transform(gameTime);
 
             // Re-build the view matrix
             createLookAt();
@@ -254,45 +253,6 @@ namespace GameProgrammingMajor
             }
         }
 
-        /// <summary>
-        /// Perform keyboard-input translation *after* having rotated the view
-        /// </summary>
-        protected void transform(GameTime gameTime)
-        {
-            // Keyboard key states
-            KeyboardState ks = Keyboard.GetState();
-
-            // Normalized Y-ignorant direction vector
-            Vector3 flatDirection = Vector3.Normalize(new Vector3(
-                direction.X,
-                0,
-                direction.Z));
-
-            // Raise the direction to the max speed
-            flatDirection *= maxSpeed;
-
-            // Shift multiplier
-            if (ks.IsKeyDown(Keys.LeftShift))
-                flatDirection *= shiftMultiplier;
-
-            // Orthonormal direction vector for strafe movement
-            Vector3 orthoDirection = Vector3.Cross(up, flatDirection);
-
-            steering.linear = Vector3.Zero;
-
-            if (ks.IsKeyDown(Keys.W))
-                steering.linear += flatDirection;
-            if (ks.IsKeyDown(Keys.S))
-                steering.linear -= flatDirection;
-            if (ks.IsKeyDown(Keys.A))
-                steering.linear += orthoDirection;
-            if (ks.IsKeyDown(Keys.D))
-                steering.linear -= orthoDirection;
-
-            // Do jump operation
-            kinematic.position = new Vector3(kinematic.position.X, baseHeight + get_jump_y(ks), kinematic.position.Z);
-        }
-
         /*
         private float get_jump_y_v2(GameTime gameTime)
         {
@@ -318,36 +278,6 @@ namespace GameProgrammingMajor
             return result;
         }
          */
-
-        /// <summary>
-        /// Computes the jump height at the current frame,
-        /// and takes a KeyboardState to update jumping state.
-        /// 
-        /// This method could have been written by defining a starting acceleration,
-        /// and by decrementing that acceleration every update until the object hits the floor.
-        /// 
-        /// I have instead implemented a more computationally expensive algorithm as
-        /// a technical experiment. 
-        /// </summary>
-        /// <param name="ks"></param>
-        /// <returns></returns>
-        protected virtual float get_jump_y(KeyboardState ks)
-        {
-            if (jumping)
-            {
-                if (jumpTheta >= Math.PI - JUMP_SPEED * Math.PI)
-                    jumping = false;
-
-                return 42f * (float)Math.Pow(Math.Sin(jumpTheta += JUMP_SPEED), 1.5);
-            }
-            else if (ks.IsKeyDown(Keys.Space))
-            {
-                jumping = true;
-                jumpTheta = 0f;
-            }
-
-            return 0f;
-        }
     }
 
     /// <summary>

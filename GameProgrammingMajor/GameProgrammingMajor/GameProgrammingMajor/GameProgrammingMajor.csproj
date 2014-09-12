@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\EntityManager.cs" />
+    <Compile Include="Entities\NPCManager.cs" />
     <Compile Include="Entities\PlaneEntity.cs" />
     <Compile Include="Entities\PrimitiveEntity.cs" />
     <Compile Include="Models\Skybox.cs" />

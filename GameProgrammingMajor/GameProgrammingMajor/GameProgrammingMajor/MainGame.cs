@@ -63,15 +63,23 @@ namespace GameProgrammingMajor
         /// </summary>
         protected override void Initialize()
         {
+            // Create the world
             world = new World(this);
 
-            // Configure the camera.
-            camera = new FPCamera(this, fpCamDesc);
+            // Create a player at (0,0,0)
+            player = new Player(this, Matrix.Identity, world);
 
-            // Link the camera to a Player
-            player = new Player(this, camera, world);
+            // Configure the camera as an FPS camera for the player
+            camera = new FPCamera(this, player);
 
+            // Supply the Player to the world
+            world.player = player;
+
+            // Create a HUD that displays information about the Player
             hud = new HUD(this, player);
+
+            // Load the world
+            world.hardcodedWorldPopulation(this);
 
             base.Initialize();
         }
