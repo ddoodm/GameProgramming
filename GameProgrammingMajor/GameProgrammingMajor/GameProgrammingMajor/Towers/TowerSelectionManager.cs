@@ -14,25 +14,20 @@ namespace GameProgrammingMajor
     /// </summary>
     public class TowerSelectionManager
     {
-        private Matrix world;
-        private Vector3 midPosition;
-        private float numBlocks, blockSize;
+        private TowerManager towerManager;
 
         public Plane plane;
 
-        public TowerSelectionManager(Matrix world, Vector3 midPosition, float numBlocks, float blockSize)
+        public TowerSelectionManager(TowerManager towerManager)
         {
-            this.world = world;
-            this.midPosition = midPosition;
-            this.numBlocks = numBlocks;
-            this.blockSize = blockSize;
+            this.towerManager = towerManager;
 
             computePlane();
         }
 
         private void computePlane()
         {
-            plane = new Plane(Vector3.Up, midPosition.Y);
+            plane = new Plane(Vector3.Up, towerManager.midPosition.Y);
         }
 
         /// <summary>
@@ -51,9 +46,9 @@ namespace GameProgrammingMajor
             // Perform a reverse perspective projection on the mouse coordinates
             // and obtain a near-far vector delta
             Vector3 near = viewport.Unproject(
-                nearMouse, camera.projection, camera.view, world);
+                nearMouse, camera.projection, camera.view, towerManager.world);
             Vector3 far = viewport.Unproject(
-                farMouse, camera.projection, camera.view, world);
+                farMouse, camera.projection, camera.view, towerManager.world);
 
             // Obtain a ray that projects from the near mouse to the far mouse
             Vector3 direction = Vector3.Normalize(far - near);
@@ -84,11 +79,7 @@ namespace GameProgrammingMajor
             intPosition = ray.Position + ray.Direction * (float)distance;
 
             // Compute the block ID of the intersection
-            iVec2 blockId = new iVec2(
-                (int)((intPosition.X - midPosition.X + blockSize/2) / blockSize/2),
-                (int)((intPosition.Z - midPosition.Z + blockSize/2) / blockSize/2));
-
-            return blockId;
+            return towerManager.idOf(intPosition);
         }
     }
 }

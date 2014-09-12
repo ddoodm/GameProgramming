@@ -17,7 +17,7 @@ namespace GameProgrammingMajor
         public StaticModelManager staticManager;
         public EntityManager<Entity> entityManager;
         public TowerManager towerManager;
-        public TankWave tankWave;
+        //public TankWave tankWave;
 
         public World(Game game)
         {
@@ -37,28 +37,25 @@ namespace GameProgrammingMajor
             entityManager.add(
                 new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
 
-            // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.Identity);
+            // Create a skybox
+            staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
 
-            // Initialize an entity wave for entities of type 'Tank'
-            Kinematic target = new Kinematic(new Vector3(300f, 0, 300f));
-            tankWave = new TankWave(game, new Vector3[1]{towerManager.coordinatesOf(new iVec2(1,1))}, target);
+            // Create a "Tower Manager" which allows for the placement of towers in the area
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,0,150f)));
         }
 
         public void update(UpdateParams updateParams)
         {
-            entityManager.update(updateParams);
             staticManager.update(updateParams);
+            entityManager.update(updateParams);
             towerManager.update(updateParams);
-            tankWave.update(updateParams);
         }
 
         public void draw(DrawParams drawParams)
         {
-            entityManager.draw(drawParams);
             staticManager.draw(drawParams);
+            entityManager.draw(drawParams);
             towerManager.draw(drawParams);
-            tankWave.draw(drawParams);
         }
     }
 }

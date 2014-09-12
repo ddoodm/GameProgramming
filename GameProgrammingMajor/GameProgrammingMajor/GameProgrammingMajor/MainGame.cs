@@ -68,7 +68,7 @@ namespace GameProgrammingMajor
             world = new World(this);
 
             // Configure the camera.
-            camera = new TopdownCamera(this, topdownCamDesc);
+            camera = new FPCamera(this, fpCamDesc);
 
             hud = new HUD(this, player);
 
@@ -132,11 +132,11 @@ namespace GameProgrammingMajor
         private void changeCamera(KeyboardState keyboard)
         {
             if (keyboard.IsKeyDown(Keys.D1))
-                camera = new TopdownCamera(this, topdownCamDesc);
-            else if (keyboard.IsKeyDown(Keys.D2))
-                camera = new FlyingCamera(this, topdownCamDesc);
-            else if (keyboard.IsKeyDown(Keys.D3))
                 camera = new FPCamera(this, fpCamDesc);
+            else if (keyboard.IsKeyDown(Keys.D2))
+                camera = new TopdownCamera(this, topdownCamDesc);
+            else if (keyboard.IsKeyDown(Keys.D3))
+                camera = new FlyingCamera(this, topdownCamDesc);
         }
 
         /// <summary>

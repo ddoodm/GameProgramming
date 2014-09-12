@@ -43,12 +43,14 @@ namespace GameProgrammingMajor
             this.game = game;
             this.world = world;
 
-            midPosition = world.Translation - new Vector3(1f, 0f, 1f) * (blockSize * NUM_BLOCKS - blockSize);
+            midPosition = world.Translation - new Vector3(
+                blockSize * NUM_BLOCKS,
+                0f,
+                blockSize * NUM_BLOCKS);
 
             initializeBlocks();
 
-            selectionManager = new TowerSelectionManager(
-                world, midPosition, NUM_BLOCKS, blockSize);
+            selectionManager = new TowerSelectionManager(this);
 
             boundary = new PlaneEntity(game, new WireframePlanePrimitive(
                 game, blockSize * NUM_BLOCKS, Vector3.Up), world.Translation + Vector3.Up, 0);
@@ -79,10 +81,20 @@ namespace GameProgrammingMajor
         /// </summary>
         public Vector3 coordinatesOf(iVec2 blockId)
         {
-            return world.Translation + midPosition +
-                new Vector3((float)blockId.y * blockSize * 2,
+            return midPosition +
+                new Vector3((float)blockId.y * blockSize * 2 + blockSize,
                     0,
-                    (float)blockId.x * blockSize * 2);
+                    (float)blockId.x * blockSize * 2 + blockSize);
+        }
+
+        /// <summary>
+        /// Returns the block ID of the block at the 'position'.
+        /// </summary>
+        public iVec2 idOf(Vector3 position)
+        {
+            return new iVec2(
+                (int)((position.X - midPosition.X + world.Translation.X) / blockSize / 2),
+                (int)((position.Z - midPosition.Z + world.Translation.Z) / blockSize / 2));
         }
 
         public void update(UpdateParams updateParams)

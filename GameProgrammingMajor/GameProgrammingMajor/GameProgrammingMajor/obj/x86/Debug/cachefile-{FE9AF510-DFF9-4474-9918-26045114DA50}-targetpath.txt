@@ -16,3 +16,6 @@ Content\turret_alt_diff_tex.xnb
 Content\tank.xnb
 Content\engine_diff_tex_0.xnb
 Content\turret_alt_diff_tex_0.xnb
+Content\Textures\Skybox.xnb
+Content\Models\DSkyboxMesh.xnb
+Content\Textures\Skybox_0.xnb

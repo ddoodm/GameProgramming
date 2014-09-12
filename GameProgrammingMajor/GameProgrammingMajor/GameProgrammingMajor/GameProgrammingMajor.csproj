@@ -75,6 +75,7 @@
     <Compile Include="Entities\EntityManager.cs" />
     <Compile Include="Entities\PlaneEntity.cs" />
     <Compile Include="Entities\PrimitiveEntity.cs" />
+    <Compile Include="Models\Skybox.cs" />
     <Compile Include="Entities\WaveController.cs" />
     <Compile Include="Models\StaticModelManager.cs" />
     <Compile Include="Primitives\PlanePrimitive.cs" />

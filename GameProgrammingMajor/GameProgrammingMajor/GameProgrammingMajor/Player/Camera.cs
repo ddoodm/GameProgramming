@@ -42,7 +42,7 @@ namespace GameProgrammingMajor
         /// The camera's orientation description in
         /// Cartesian space.
         /// </summary>
-        public Vector3 position { get; protected set; }
+        //public Vector3 position { get; protected set; }
         public Vector3 direction { get; protected set; }
         public Vector3 up { get; protected set; }
 
@@ -62,6 +62,14 @@ namespace GameProgrammingMajor
             friction = 0.95f;
 
         /// <summary>
+        /// Perspective projection parameters
+        /// </summary>
+        public float
+            near = 1.0f,        // The near plane
+            far = 2000.0f,      // The far plane
+            fov = 65.0f;        // Field of View
+
+        /// <summary>
         /// Describes the window dimensions.
         /// 'halfWindow' is the (window size / 2).
         /// </summary>
@@ -70,7 +78,6 @@ namespace GameProgrammingMajor
         public Camera(Game game, Vector3 position, Vector3 target, Vector3 up)
             : base(game)
         {
-            this.position = position;
             this.direction = Vector3.Normalize(target - position);
             this.up = up;
 
@@ -129,15 +136,14 @@ namespace GameProgrammingMajor
         }
 
         /// <summary>
-        /// Rebuild the projection matrix by forming a
-        /// 65' FOV perspective projection
+        /// Rebuild the projection matrix
         /// </summary>
         protected void createPerspectiveProjection()
         {
             projection = Matrix.CreatePerspectiveFieldOfView(
-                65.0f / 180.0f * (float)Math.PI,
+                fov / 180.0f * (float)Math.PI,
                 (float)window.Width / (float)window.Height,
-                1.0f, 1100.0f);
+                near, far);
         }
 
         /// <summary>
@@ -153,7 +159,7 @@ namespace GameProgrammingMajor
                 for (int i = 0; i < amp; i++)
                 {
                     float shaleDelta = Math.Min(3, r.Next(-amp + i, amp - i) * 0.25f);
-                    position += new Vector3(shaleDelta, 0, shaleDelta * (float)r.Next(-5, 5) / 5f);
+                    kinematic.position += new Vector3(shaleDelta, 0, shaleDelta * (float)r.Next(-5, 5) / 5f);
                     Thread.Sleep(50);
                 }
             }).Start();
