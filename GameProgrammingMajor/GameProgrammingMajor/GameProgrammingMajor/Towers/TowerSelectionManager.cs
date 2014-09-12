@@ -27,7 +27,7 @@ namespace GameProgrammingMajor
 
         private void computePlane()
         {
-            plane = new Plane(Vector3.Up, towerManager.midPosition.Y);
+            plane = new Plane(Vector3.Up, 0);
         }
 
         /// <summary>

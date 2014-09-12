@@ -33,7 +33,7 @@ namespace GameProgrammingMajor
         {
             // Add a test floor primitive to the Entity manager
             PlanePrimitive floor = new PlanePrimitive(game, 500f, Vector3.Up);
-            floor.texture = game.Content.Load<Texture2D>("Textures\\Grass0139_33_S");
+            floor.texture = game.Content.Load<Texture2D>("Textures\\concreteNew");
             floor.textureTiling = new Vector2(5, 5);
             floor.specularColour = Vector3.Zero;
             entityManager.add(new PlaneEntity(game, floor, Vector3.Zero, 0));
@@ -41,15 +41,19 @@ namespace GameProgrammingMajor
             // Create a skybox
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
 
+            // Add the "Fire Here" sign
+            Vector3 shootHerePosition = new Vector3(0,0,-300f);
+            staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
+
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,0,150f)));
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,10f,150f)), staticManager);
 
             // Add a tank that pursues the player
             Tank pursueTank = new Tank(game);
             NPC pursueNPC = new NPC(game, pursueTank);
             pursueNPC.setState(NPCState.PURSUE);
             pursueNPC.target = player.kinematic;
-            pursueNPC.steering.maxSpeed = 200f;
+            pursueNPC.steering.maxSpeed = 65f;
             npcManager.add(pursueNPC);
 
             // Add a tank that arrives at the Pursue Tank
@@ -57,7 +61,7 @@ namespace GameProgrammingMajor
             NPC arriveNPC = new NPC(game, arriveTank);
             arriveNPC.setState(NPCState.ARRIVE);
             arriveNPC.target = pursueNPC.kinematic;
-            arriveNPC.steering.maxSpeed = 150f;
+            arriveNPC.steering.maxSpeed = 25f;
             npcManager.add(arriveNPC);
         }
 

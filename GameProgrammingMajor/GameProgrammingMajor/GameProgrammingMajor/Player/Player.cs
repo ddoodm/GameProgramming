@@ -22,7 +22,7 @@ namespace GameProgrammingMajor
         /// Player's physical settings
         /// </summary>
         public float
-            maxSpeed = 500f,
+            maxSpeed = 800f,
             shiftMultiplier = 2f,
             friction = 0.95f,
             height = 20f;
@@ -102,6 +102,9 @@ namespace GameProgrammingMajor
                 kinematic.position.X,
                 height + get_jump_y(ks),
                 kinematic.position.Z);
+
+            // Apply friction
+            kinematic.velocity *= friction;
         }
 
         /// <summary>

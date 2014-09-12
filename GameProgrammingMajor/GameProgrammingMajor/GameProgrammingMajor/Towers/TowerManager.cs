@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GameProgrammingMajor
 {
@@ -38,7 +39,7 @@ namespace GameProgrammingMajor
         /// </summary>
         /// <param name="game">The main game object</param>
         /// <param name="position">The position of this collection of towers.</param>
-        public TowerManager(Game game, Matrix world)
+        public TowerManager(Game game, Matrix world, StaticModelManager staticManager)
         {
             this.game = game;
             this.world = world;
@@ -55,6 +56,10 @@ namespace GameProgrammingMajor
             boundary = new PlaneEntity(game, new WireframePlanePrimitive(
                 game, blockSize * NUM_BLOCKS, Vector3.Up), world.Translation + Vector3.Up, 0);
             boundary.primitive.diffuseColour = new Vector3(1f, 0f, 0f);
+
+            // Add the "Base" model entity
+            Matrix baseTransform = Matrix.CreateScale(blockSize * NUM_BLOCKS) * world;
+            staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\towerManBase"), baseTransform));
         }
 
         /// <summary>

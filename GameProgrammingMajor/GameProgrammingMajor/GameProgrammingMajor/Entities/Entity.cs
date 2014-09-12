@@ -17,7 +17,8 @@ namespace GameProgrammingMajor
         public Camera camera;
         public KeyboardState keyboardState;
         public MouseState mouseState;
-        public Player player; 
+        public Player player;
+        public World world;
     }
 
     /// <summary>

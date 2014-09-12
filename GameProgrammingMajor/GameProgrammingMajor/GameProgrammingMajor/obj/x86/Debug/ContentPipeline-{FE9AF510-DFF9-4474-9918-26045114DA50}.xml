@@ -300,6 +300,90 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\smg1_fire1.xnb</Output>
       <Time>2014-09-12T12:43:28+10:00</Time>
     </Item>
+    <Item>
+      <Source>Models\towerManBase.FBX</Source>
+      <Name>Models\towerManBase</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\towerManBase.xnb</Output>
+      <Time>2014-09-12T21:05:22+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\towerManBase_0.xml</Key>
+        <Value>2014-09-12T21:06:08+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\towerManBase.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\towerManBase_0.xml</Output>
+      <Time>2014-09-12T21:05:22+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Grass0139_33_S.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S_0.xnb</Output>
+      <Time>2014-09-09T20:15:48+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\ShootHere.jpg</Source>
+      <Name>Textures\ShootHere</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere.xnb</Output>
+      <Time>2014-09-12T21:22:02+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ShootHere.FBX</Source>
+      <Name>Models\ShootHere</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\ShootHere.xnb</Output>
+      <Time>2014-09-12T21:21:50+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\ShootHere_0.xml</Key>
+        <Value>2014-09-12T21:23:06+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\ShootHere.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\ShootHere_0.xml</Output>
+      <Time>2014-09-12T21:21:50+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\ShootHere.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere_0.xnb</Output>
+      <Time>2014-09-12T21:22:02+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

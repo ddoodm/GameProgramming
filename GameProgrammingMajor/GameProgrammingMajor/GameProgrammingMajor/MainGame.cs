@@ -118,7 +118,8 @@ namespace GameProgrammingMajor
                 camera = this.camera,
                 gameTime = gameTime,
                 keyboardState = keyboard,
-                mouseState = mouse
+                mouseState = mouse,
+                world = this.world
             };
 
             // Allows the game to exit
