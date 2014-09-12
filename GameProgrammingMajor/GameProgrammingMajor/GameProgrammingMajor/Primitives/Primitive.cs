@@ -29,6 +29,11 @@ namespace GameProgrammingMajor
         public Vector3 specularColour = new Vector3(0.25f);
 
         /// <summary>
+        /// The glossyness
+        /// </summary>
+        public float specularPower = 24f;
+
+        /// <summary>
         /// The number of times to wrap the texture.
         /// Use Vector2.One to fill the texture.
         /// Default: 1x1
@@ -89,6 +94,10 @@ namespace GameProgrammingMajor
             shader.World = world;
             shader.View = drawParams.camera.view;             // View transform matrix
             shader.Projection = drawParams.camera.projection; // Perspective projection matrix
+
+            shader.DiffuseColor = diffuseColour;
+            shader.SpecularColor = specularColour;
+            shader.SpecularPower = specularPower;
 
             // Bind texture to shader
             shader.Texture = texture;

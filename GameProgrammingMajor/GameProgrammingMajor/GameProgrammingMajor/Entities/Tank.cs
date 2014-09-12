@@ -16,14 +16,19 @@ namespace GameProgrammingMajor
     {
         private TankModel model = new TankModel();
 
-        public Tank(Game game, Vector3 position)
+        private ProjectileManager projectileManager;
+        public Kinematic turretTarget;
+
+        public Tank(Game game, Vector3 position, World world)
             : base(game)
         {
             kinematic.position = position;
+
+            projectileManager = new ProjectileManager(game, world);
         }
 
-        public Tank(Game game)
-            : this(game, Vector3.Zero)
+        public Tank(Game game, World world)
+            : this(game, Vector3.Zero, world)
         {
             
         }
@@ -31,11 +36,15 @@ namespace GameProgrammingMajor
         public override void load(ContentManager content)
         {
             model.Load(content);
+            projectileManager.loadContent(content);
         }
 
         public override void update(UpdateParams updateParams)
         {
+            updateTurret();
             updateWheels();
+
+            shootRandomly(updateParams);
 
             // Flatten the Kinematic. The tank must translate only on the X,Z plane
             kinematic.position = new Vector3(kinematic.position.X, 0, kinematic.position.Z);
@@ -46,6 +55,26 @@ namespace GameProgrammingMajor
             // Update world matrix
             world *= Matrix.CreateRotationY(kinematic.orientation);
             world *= Matrix.CreateTranslation(kinematic.position);
+        }
+
+        /// <summary>
+        /// Shoot at the turret target randomly.
+        /// </summary>
+        private void shootRandomly(UpdateParams updateParams)
+        {
+            projectileManager.update(updateParams);
+
+            // Generate a random number to determine whether to shoot
+            int randNum = updateParams.random.Next(0, 20);
+
+            if (randNum == 0)
+            {
+                Vector3 turretPosition = Vector3.Transform(model.canonPosition, world);
+                Vector3 targetDirection = Vector3.Normalize(turretTarget.position - turretPosition);
+
+                projectileManager.projectileSpeed = 0.5f;
+                projectileManager.shoot(turretPosition, targetDirection);
+            }
         }
 
         public bool colliding(Tank other)
@@ -69,6 +98,25 @@ namespace GameProgrammingMajor
             return false;
         }
 
+        private void updateTurret()
+        {
+            // Do not update if there is no target
+            if (turretTarget == null)
+                return;
+
+            // Get direction to target
+            Vector3 targetDirection = turretTarget.position - kinematic.position;
+
+            // Get angle to target
+            float theta = (float)Math.Atan2(targetDirection.X, targetDirection.Z);
+
+            // Subtract the tank's body rotation
+            theta -= kinematic.orientation;
+
+            // Rotate turret
+            model.TurretRotation = theta;
+        }
+
         private void updateWheels()
         {
             model.WheelRotation += kinematic.velocity.Length() / 1000f;
@@ -81,6 +129,7 @@ namespace GameProgrammingMajor
         public override void draw(DrawParams drawParams)
         {
             model.Draw(world, drawParams.camera.view, drawParams.camera.projection);
+            projectileManager.draw(drawParams);
         }
     }
 
@@ -175,6 +224,13 @@ namespace GameProgrammingMajor
         {
             get { return hatchRotationValue; }
             set { hatchRotationValue = value; }
+        }
+
+        public Vector3 canonPosition
+        {
+            get { return model.Bones["canon_geo"].Transform.Translation
+                 + model.Bones["turret_geo"].Transform.Translation;
+            }
         }
 
         /// <summary>

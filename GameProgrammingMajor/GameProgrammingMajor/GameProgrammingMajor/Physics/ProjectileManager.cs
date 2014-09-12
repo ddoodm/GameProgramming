@@ -23,6 +23,8 @@ namespace GameProgrammingMajor
         private SoundEffect sf_bullet;
         private SoundEffect sf_impact;
 
+        public float projectileSpeed = 0.8f;
+
         public ProjectileManager(Game game, World world)
         {
             this.game = game;
@@ -44,7 +46,8 @@ namespace GameProgrammingMajor
         {
             if (cooldown <= 0)
             {
-                Projectile p = new Projectile(this, new StaticModel(projectileModel), origin, direction);
+                Projectile p = new Projectile(this, 
+                    new StaticModel(projectileModel), origin, direction, projectileSpeed);
                 projectiles.Add(p);
 
                 sf_bullet.Play();
@@ -96,29 +99,29 @@ namespace GameProgrammingMajor
 
         public class Projectile
         {
-            private const float SPEED = 0.8f;
-
             private ProjectileManager manager;
             private StaticModel projectileModel;
             private BoundingSphere boundingSphere;
             private Vector3 start;
             private Vector3 direction;
 
+            public float speed;
             public float cooldown = 20f;
             public float screenTime = 0;
             public float creationTime = 0;
 
-            public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction)
+            public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed)
             {
                 this.manager = manager;
                 this.projectileModel = projectileModel;
                 this.start = start;
                 this.direction = direction;
+                this.speed = speed;
             }
 
             public void update(UpdateParams updateParams)
             {
-                float bulletTime = (float)updateParams.gameTime.TotalGameTime.TotalMilliseconds * SPEED;
+                float bulletTime = (float)updateParams.gameTime.TotalGameTime.TotalMilliseconds * speed;
 
                 if (creationTime == 0)
                     creationTime = bulletTime;

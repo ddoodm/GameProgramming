@@ -9,13 +9,16 @@ namespace GameProgrammingMajor
 {
     public class StaticModel : Entity
     {
-        public Model        model { get; protected set; }
-        public bool         noCollision = false;
+        public Model                model { get; protected set; }
+        public BoundingSphere[]     boundingSpheres;
+        public bool                 noCollision = false;
 
         public StaticModel(Game game, Model model)
             : base(game)
         {
             this.model = model;
+
+            boundingSpheres = new BoundingSphere[model.Meshes.Count];
         }
 
         public StaticModel(Game game, Model model, Vector3 position)
@@ -59,19 +62,23 @@ namespace GameProgrammingMajor
         /// <summary>
         /// Determines whether this mesh collides with a bounding sphere
         /// </summary>
-        public bool collidesWith(BoundingSphere other)
+        public bool collidesWith(BoundingSphere otherSphere)
         {
             if (this.noCollision)
                 return false;
 
-            foreach (ModelMesh thisMesh in model.Meshes)
-                if (thisMesh.BoundingSphere.Intersects(other))
+            foreach (BoundingSphere thisSphere in boundingSpheres)
+                if (thisSphere.Intersects(otherSphere))
                     return true;
             return false;
         }
 
         public override void update(UpdateParams updateParams)
         {
+            // Obtain model bounding spheres and transform them
+            for(int i=0; i<model.Meshes.Count; i++)
+                boundingSpheres[i] = model.Meshes[i].BoundingSphere.Transform(world);
+
             base.update(updateParams);
         }
 

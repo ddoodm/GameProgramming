@@ -21,6 +21,7 @@ namespace GameProgrammingMajor
         /// </summary>
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        private Random randomGenerator;
 
         /// <summary>
         /// High-level game objects
@@ -40,20 +41,15 @@ namespace GameProgrammingMajor
             up = Vector3.Up
         };
 
-        /// <summary>
-        /// First-person camera description
-        /// </summary>
-        private CameraTuple fpCamDesc = new CameraTuple()
-        {
-            position = new Vector3(-100f, 20f, 100f),
-            target = Vector3.Zero,
-            up = Vector3.Up
-        };
-
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
+
+            randomGenerator = new Random();
 
             IsMouseVisible = true;
         }
@@ -66,8 +62,8 @@ namespace GameProgrammingMajor
             // Create the world
             world = new World(this);
 
-            // Create a player at (0,0,0)
-            player = new Player(this, Matrix.Identity, world);
+            // Create a player at (-100,0,0)
+            player = new Player(this, Matrix.CreateTranslation(new Vector3(-150f,0,0)), world);
 
             // Configure the camera as an FPS camera for the player
             camera = new FPCamera(this, player);
@@ -119,7 +115,8 @@ namespace GameProgrammingMajor
                 gameTime = gameTime,
                 keyboardState = keyboard,
                 mouseState = mouse,
-                world = this.world
+                world = this.world,
+                random = randomGenerator
             };
 
             // Allows the game to exit

@@ -22,7 +22,7 @@ namespace GameProgrammingMajor
         /// Player's physical settings
         /// </summary>
         public float
-            maxSpeed = 800f,
+            maxSpeed = 700f,
             shiftMultiplier = 2f,
             friction = 0.95f,
             height = 20f;

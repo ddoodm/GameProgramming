@@ -60,9 +60,6 @@ namespace GameProgrammingMajor
             shader.LightingEnabled = true;
             shader.TextureEnabled = true;
 
-            shader.DiffuseColor = diffuseColour;
-            shader.SpecularColor = specularColour;
-
             shader.World = world;
 
             // Draw VBO for multiple shader passes
@@ -152,12 +149,13 @@ namespace GameProgrammingMajor
             shader.LightingEnabled = false;
             shader.TextureEnabled = false;
 
-            shader.DiffuseColor = diffuseColour;
-            shader.SpecularColor = new Vector3(0.25f);
-
             shader.Projection = drawParams.camera.projection;
             shader.View = drawParams.camera.view;
             shader.World = world;
+
+            shader.DiffuseColor = diffuseColour;
+            shader.SpecularColor = specularColour;
+            shader.SpecularPower = specularPower;
 
             // Draw VBO for multiple shader passes
             foreach (EffectPass pass in shader.CurrentTechnique.Passes)

@@ -112,7 +112,7 @@ namespace GameProgrammingMajor
             int randIndex = rand.Next(0, spawnOrigins.Length);
 
             // Create the NPC
-            Tank newTank = new Tank(game, spawnOrigins[randIndex]);
+            Tank newTank = new Tank(game, spawnOrigins[randIndex], updateParams.world);
 
             // Create an NPC for the tank
             NPC tankNpc = new NPC(game, newTank);

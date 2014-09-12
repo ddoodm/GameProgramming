@@ -32,10 +32,10 @@ namespace GameProgrammingMajor
         public void hardcodedWorldPopulation(Game game)
         {
             // Add a test floor primitive to the Entity manager
-            PlanePrimitive floor = new PlanePrimitive(game, 500f, Vector3.Up);
+            PlanePrimitive floor = new PlanePrimitive(game, 1000f, Vector3.Up);
             floor.texture = game.Content.Load<Texture2D>("Textures\\concreteNew");
-            floor.textureTiling = new Vector2(5, 5);
-            floor.specularColour = Vector3.Zero;
+            floor.textureTiling = new Vector2(10, 10);
+            floor.specularColour = new Vector3(0.5f);
             entityManager.add(new PlaneEntity(game, floor, Vector3.Zero, 0));
 
             // Create a skybox
@@ -49,18 +49,23 @@ namespace GameProgrammingMajor
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,10f,150f)), staticManager);
 
             // Add a tank that pursues the player
-            Tank pursueTank = new Tank(game);
+            Tank pursueTank = new Tank(game, new Vector3(-200f,0,200f), this);
             NPC pursueNPC = new NPC(game, pursueTank);
+            pursueTank.turretTarget = player.kinematic;
             pursueNPC.setState(NPCState.PURSUE);
             pursueNPC.target = player.kinematic;
+            ((Pursue)pursueNPC.steering).targetRadius = 80f;
+            ((Pursue)pursueNPC.steering).slowRadius = 250f;
             pursueNPC.steering.maxSpeed = 65f;
             npcManager.add(pursueNPC);
 
             // Add a tank that arrives at the Pursue Tank
-            Tank arriveTank = new Tank(game);
+            Tank arriveTank = new Tank(game, new Vector3(-200f, 0, 250f), this);
             NPC arriveNPC = new NPC(game, arriveTank);
+            arriveTank.turretTarget = player.kinematic;
             arriveNPC.setState(NPCState.ARRIVE);
             arriveNPC.target = pursueNPC.kinematic;
+            ((Arrive)arriveNPC.steering).targetRadius = 75f;
             arriveNPC.steering.maxSpeed = 25f;
             npcManager.add(arriveNPC);
         }

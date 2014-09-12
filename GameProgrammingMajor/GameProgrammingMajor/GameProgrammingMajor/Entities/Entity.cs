@@ -19,6 +19,7 @@ namespace GameProgrammingMajor
         public MouseState mouseState;
         public Player player;
         public World world;
+        public Random random;
     }
 
     /// <summary>
