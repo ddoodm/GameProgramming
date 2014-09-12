@@ -191,18 +191,6 @@ namespace GameProgrammingMajor
 
         private Player player;
 
-        public FPCamera(Game game, Vector3 eye, Vector3 target, Vector3 up)
-            : base(game, eye, target, up)
-        {
-            
-        }
-
-        public FPCamera(Game game, CameraTuple tuple)
-            : base(game, tuple)
-        {
-            
-        }
-
         public FPCamera(Game game, Player player)
             : base(game, player.kinematic.position, player.kinematic.position + new Vector3(1f, 0f, 0f), Vector3.Up)
         {

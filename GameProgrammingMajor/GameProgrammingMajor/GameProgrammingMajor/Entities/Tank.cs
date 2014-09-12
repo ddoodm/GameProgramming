@@ -37,6 +37,9 @@ namespace GameProgrammingMajor
         {
             updateWheels();
 
+            // Flatten the Kinematic. The tank must translate only on the X,Z plane
+            kinematic.position = new Vector3(kinematic.position.X, 0, kinematic.position.Z);
+
             // Initialize world matrix and scale the model down
             world = Matrix.Identity * Matrix.CreateScale(0.075f);
 

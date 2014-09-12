@@ -144,7 +144,7 @@ namespace GameProgrammingMajor
         private void changeCamera(KeyboardState keyboard)
         {
             if (keyboard.IsKeyDown(Keys.D1))
-                camera = new FPCamera(this, fpCamDesc);
+                camera = new FPCamera(this, player);
             else if (keyboard.IsKeyDown(Keys.D2))
                 camera = new TopdownCamera(this, topdownCamDesc);
             else if (keyboard.IsKeyDown(Keys.D3))
