@@ -10,11 +10,11 @@ FBXHeaderExtension:  {
         Version: 1000
         Year: 2014
         Month: 9
-        Day: 10
-        Hour: 22
-        Minute: 11
-        Second: 1
-        Millisecond: 639
+        Day: 12
+        Hour: 12
+        Minute: 1
+        Second: 7
+        Millisecond: 833
     }
     Creator: "FBX SDK/FBX Plugins version 2012.0"
 }
@@ -660,8 +660,8 @@ Objects:  {
             ReferenceInformationType: "IndexToDirect"
             Materials: 0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,1,1
              ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-             ,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-             ,1,1,1,1,1,1,1,1,1,1
+             ,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+             ,0,0,0,1,1,1,1,1,1,1
         }
         LayerElementTexture: 0 {
             Version: 101
@@ -672,8 +672,8 @@ Objects:  {
             TextureAlpha: 1
             TextureId: 0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,1,1
              ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-             ,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-             ,1,1,1,1,1,1,1,1,1,1
+             ,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+             ,0,0,0,1,1,1,1,1,1,1
         }
         Layer: 0 {
             Version: 100
@@ -719,13 +719,13 @@ Objects:  {
             Property: "Original|ApplicationVendor", "KString", "", "Autodesk"
             Property: "Original|ApplicationName", "KString", "", "3ds Max"
             Property: "Original|ApplicationVersion", "KString", "", "2012"
-            Property: "Original|DateTime_GMT", "DateTime", "", "10/09/2014 12:11:01.628"
+            Property: "Original|DateTime_GMT", "DateTime", "", "12/09/2014 02:01:07.821"
             Property: "Original|FileName", "KString", "", "D:\GameProgramming\Models\tower_wall.FBX"
             Property: "LastSaved", "Compound", ""
             Property: "LastSaved|ApplicationVendor", "KString", "", "Autodesk"
             Property: "LastSaved|ApplicationName", "KString", "", "3ds Max"
             Property: "LastSaved|ApplicationVersion", "KString", "", "2012"
-            Property: "LastSaved|DateTime_GMT", "DateTime", "", "10/09/2014 12:11:01.628"
+            Property: "LastSaved|DateTime_GMT", "DateTime", "", "12/09/2014 02:01:07.821"
         }
     }
     Material: "Material::Material #37", "" {

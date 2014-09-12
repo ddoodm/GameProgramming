@@ -63,12 +63,13 @@ namespace GameProgrammingMajor
         /// </summary>
         protected override void Initialize()
         {
-            player = new Player(this);
-
             world = new World(this);
 
             // Configure the camera.
             camera = new FPCamera(this, fpCamDesc);
+
+            // Link the camera to a Player
+            player = new Player(this, camera, world);
 
             hud = new HUD(this, player);
 
@@ -83,7 +84,7 @@ namespace GameProgrammingMajor
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            player.loadContent(Content);
         }
 
         /// <summary>
@@ -122,6 +123,9 @@ namespace GameProgrammingMajor
 
             // Update primary camera
             camera.Update(gameTime);
+
+            // Update the player
+            player.update(updateParams);
 
             // Update the world (entities and static models)
             world.update(updateParams);
@@ -163,6 +167,10 @@ namespace GameProgrammingMajor
             // Draw the world
             world.draw(drawParams);
 
+            // Draw the player
+            player.draw(drawParams);
+
+            // Draw a UI
             hud.draw(drawParams);
 
             base.Draw(gameTime);

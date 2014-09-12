@@ -35,3 +35,5 @@ D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajo
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox.xnb
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\DSkyboxMesh.xnb
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox_0.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\metal_barrel_impact_hard2.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\smg1_fire1.xnb

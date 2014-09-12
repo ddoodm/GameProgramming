@@ -53,6 +53,8 @@ namespace GameProgrammingMajor
         public Kinematic kinematic;
         public Steering steering;
 
+        public Vector3 position { get { return kinematic.position; } }
+
         /// <summary>
         /// Camera translation speed settings
         /// </summary>

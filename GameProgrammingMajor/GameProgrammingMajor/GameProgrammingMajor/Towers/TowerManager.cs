@@ -14,7 +14,7 @@ namespace GameProgrammingMajor
         private Game game;
 
         private const int
-            NUM_BLOCKS = 16;        // The number of tower blocks in both axes.
+            NUM_BLOCKS = 10;        // The number of tower blocks in both axes.
         private const float
             blockSize = 20f;       // The size each block in the grid.
 

@@ -10,6 +10,7 @@ namespace GameProgrammingMajor
     public class StaticModel : Entity
     {
         public Model        model { get; protected set; }
+        public bool         noCollision = false;
 
         public StaticModel(Game game, Model model)
             : base(game)
@@ -37,6 +38,36 @@ namespace GameProgrammingMajor
             : base(rhs.game, rhs.world)
         {
             this.model = rhs.model;
+        }
+
+        /// <summary>
+        /// Determines whether a model is colliding with this model
+        /// </summary>
+        /// <param name="other">The model to check collisions with</param>
+        /// <returns>Whether there is a collision</returns>
+        public bool collidesWith(StaticModel other)
+        {
+            if (this.noCollision)
+                return false;
+
+            foreach (ModelMesh otherMesh in other.model.Meshes)
+                if (this.collidesWith(otherMesh.BoundingSphere))
+                    return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether this mesh collides with a bounding sphere
+        /// </summary>
+        public bool collidesWith(BoundingSphere other)
+        {
+            if (this.noCollision)
+                return false;
+
+            foreach (ModelMesh thisMesh in model.Meshes)
+                if (thisMesh.BoundingSphere.Intersects(other))
+                    return true;
+            return false;
         }
 
         public override void update(UpdateParams updateParams)

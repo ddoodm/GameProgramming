@@ -31,6 +31,11 @@ namespace GameProgrammingMajor
             
         }
 
+        public override bool collidesWith(StaticModel model)
+        {
+            return base.collidesWith(model);
+        }
+
         public override void load(ContentManager content)
         {
 

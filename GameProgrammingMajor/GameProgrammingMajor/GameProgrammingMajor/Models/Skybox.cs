@@ -12,7 +12,8 @@ namespace GameProgrammingMajor
         public Skybox(Game game, Model model)
             : base(game, model)
         {
-
+            // Skyboxes should not perform collision detection
+            base.noCollision = true;
         }
 
         public override void draw(DrawParams drawParams)

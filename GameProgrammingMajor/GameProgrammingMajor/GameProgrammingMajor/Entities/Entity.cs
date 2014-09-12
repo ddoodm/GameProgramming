@@ -62,6 +62,9 @@ namespace GameProgrammingMajor
             this.world = world;
         }
 
+        public virtual bool collidesWith(StaticModel model) { return false; }
+        public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
+
         public virtual void load(ContentManager content) { }
 
         public virtual void update(UpdateParams updateParams) { }

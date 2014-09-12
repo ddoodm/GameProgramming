@@ -44,10 +44,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_wall.xnb</Output>
-      <Time>2014-09-10T22:11:12+10:00</Time>
+      <Time>2014-09-12T12:01:28+10:00</Time>
       <Dependency>
         <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Key>
-        <Value>2014-09-10T22:11:16+10:00</Value>
+        <Value>2014-09-12T12:01:32+10:00</Value>
       </Dependency>
       <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Request>
       <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
@@ -57,7 +57,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Output>
-      <Time>2014-09-10T22:11:12+10:00</Time>
+      <Time>2014-09-12T12:01:28+10:00</Time>
     </Item>
     <Item>
       <Source>Textures\concreteNew.jpg</Source>
@@ -281,6 +281,24 @@
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox_0.xnb</Output>
       <Time>2014-09-11T21:37:42+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\metal_barrel_impact_hard2.wav</Source>
+      <Name>Sound\metal_barrel_impact_hard2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\metal_barrel_impact_hard2.xnb</Output>
+      <Time>2014-09-12T12:43:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\smg1_fire1.wav</Source>
+      <Name>Sound\smg1_fire1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\smg1_fire1.xnb</Output>
+      <Time>2014-09-12T12:43:28+10:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

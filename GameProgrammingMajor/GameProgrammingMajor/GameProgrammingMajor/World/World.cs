@@ -34,8 +34,7 @@ namespace GameProgrammingMajor
             floor.texture = game.Content.Load<Texture2D>("Textures\\Grass0139_33_S");
             floor.textureTiling = new Vector2(5, 5);
             floor.specularColour = Vector3.Zero;
-            entityManager.add(
-                new PrimitiveEntity<VertexPositionNormalTexture>(game, floor));
+            entityManager.add(new PlaneEntity(game, floor, Vector3.Zero, 0));
 
             // Create a skybox
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
