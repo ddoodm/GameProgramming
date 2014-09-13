@@ -120,7 +120,7 @@ namespace GameProgrammingMajor
             if (tankNpcs.Count == 0)
             {
                 // Arrive at the target
-                tankNpc.setState(NPCState.ARRIVE);
+                tankNpc.addPriority(NPCState.ARRIVE);
                 tankNpc.target = target;
 
                 // Set leader tank steering properties
@@ -130,7 +130,7 @@ namespace GameProgrammingMajor
             else
             {
                 // Pursue every other tank
-                tankNpc.setState(NPCState.PURSUE);
+                tankNpc.addPriority(NPCState.PURSUE);
                 tankNpc.target = tankNpcs[tankNpcs.Count - 1].kinematic;
 
                 // Set follower tank steering properties

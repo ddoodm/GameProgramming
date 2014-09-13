@@ -113,9 +113,12 @@ namespace GameProgrammingMajor
         /// <summary>
         /// How far the AI can see infront of itself to avoid collisions
         /// </summary>
-        public float aheadDistance = 60f;
+        public float aheadDistance = 100f;
 
-        public float friction = 0.95f;
+        /// <summary>
+        /// The obstacle to avoid
+        /// </summary>
+        public BoundingSphere? obstacle = null;
 
         public Avoid()
         { }
@@ -126,28 +129,31 @@ namespace GameProgrammingMajor
             try
             {
                 aheadDistance = ((Avoid)oldSteering).aheadDistance;
-                friction = ((Avoid)oldSteering).friction;
             }
             catch { }
         }
 
         public override void update(UpdateParams updateParams, Kinematic character, Kinematic target)
         {
-            // The "ahead" vector is a 'feeler'
-            Vector3 direction = character.velocity == Vector3.Zero ? new Vector3(1f, 0f, 0f) : character.velocity;
-            Vector3 ahead = character.position + Vector3.Normalize(direction) * aheadDistance;
+            Vector3 ahead = Vector3.Zero;
 
-            // The closest bounding sphere
-            BoundingSphere? obstacle = updateParams.world.staticManager.findNearestCollisionSphere(character.position, ahead, aheadDistance);
+            // If the obstacle has not yet been defined, search for it now.
+            if (!obstacle.HasValue)
+            {
+                // The "ahead" vector is a 'feeler'
+                Vector3 direction = character.velocity == Vector3.Zero ? new Vector3(0f, 1f, 0f) : character.velocity;
+                ahead = character.position + Vector3.Normalize(direction) * aheadDistance;
+
+                // The closest bounding sphere
+                obstacle = updateParams.world.staticManager.findNearestCollisionSphere(character.position, ahead, aheadDistance);
+            }
 
             // The avoidance steering force
             Vector3 avoidForce = Vector3.Zero;
 
             // If there is an obstacle, force the NPC away
             if (obstacle.HasValue)
-                avoidForce = Vector3.Normalize(ahead - ((BoundingSphere)obstacle).Center) * maxSpeed;
-            else
-                character.velocity *= friction;
+                avoidForce = Vector3.Normalize(character.position - ((BoundingSphere)obstacle).Center) * maxSpeed;
 
             // Output steering force
             this.linear = avoidForce;

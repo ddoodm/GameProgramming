@@ -42,8 +42,8 @@ namespace GameProgrammingMajor
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
             
             // Add the "Fire Here" sign
-            //Vector3 shootHerePosition = new Vector3(0,0,-800f);
-            //staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
+            Vector3 shootHerePosition = new Vector3(0,0,-400f);
+            staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,10f,150f)), staticManager);
@@ -52,7 +52,7 @@ namespace GameProgrammingMajor
             Tank pursueTank = new Tank(game, new Vector3(-200f,0,200f), this);
             NPC pursueNPC = new NPC(game, pursueTank);
             pursueTank.turretTarget = player.kinematic;
-            pursueNPC.setState(NPCState.PURSUE);
+            pursueNPC.addPriority(NPCState.PURSUE);
             pursueNPC.target = player.kinematic;
             ((Pursue)pursueNPC.steering).targetRadius = 80f;
             ((Pursue)pursueNPC.steering).slowRadius = 250f;
@@ -63,10 +63,10 @@ namespace GameProgrammingMajor
             Tank arriveTank = new Tank(game, new Vector3(-200f, 0, 250f), this);
             NPC arriveNPC = new NPC(game, arriveTank);
             arriveTank.turretTarget = player.kinematic;
-            arriveNPC.setState(NPCState.ARRIVE);
+            arriveNPC.addPriority(NPCState.ARRIVE);
             arriveNPC.target = pursueNPC.kinematic;
             ((Arrive)arriveNPC.steering).targetRadius = 75f;
-            arriveNPC.steering.maxSpeed = 25f;
+            arriveNPC.steering.maxSpeed = 45f;
             npcManager.add(arriveNPC);
         }
 

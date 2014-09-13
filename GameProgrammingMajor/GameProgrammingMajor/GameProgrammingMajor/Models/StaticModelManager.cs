@@ -43,7 +43,7 @@ namespace GameProgrammingMajor
             BoundingSphere? nearestSphere = null;
 
             // Convert the "Ahead" vector to a Ray
-            Ray feeler = new Ray(position, ahead);
+            Ray feeler = new Ray(position, Vector3.Normalize(ahead));
 
             foreach (StaticModel model in this.models)
             {

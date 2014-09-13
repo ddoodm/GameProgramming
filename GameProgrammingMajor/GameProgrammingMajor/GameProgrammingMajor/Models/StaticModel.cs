@@ -77,11 +77,14 @@ namespace GameProgrammingMajor
 
         public override void update(UpdateParams updateParams)
         {
+            Matrix[] transforms = new Matrix[model.Bones.Count];
+            model.CopyAbsoluteBoneTransformsTo(transforms);
+
             // Obtain model bounding spheres / boxes and transform them
             for (int i = 0; i < model.Meshes.Count; i++)
             {
                 boundingSpheres[i] = model.Meshes[i].BoundingSphere.Transform(
-                    model.Meshes[i].ParentBone.Transform * world);
+                    /*model.Meshes[i].ParentBone.Transform*/ transforms[i] * world);
             }
 
             base.update(updateParams);

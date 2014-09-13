@@ -15,12 +15,8 @@ namespace GameProgrammingMajor
     {
         IDLE,
         SEEK,
-        FLEE,
         ARRIVE,
-        ALIGN,
-        MATCH,
         PURSUE,
-        EVADE,
         AVOID
     }
 
@@ -42,14 +38,20 @@ namespace GameProgrammingMajor
         public NPCState state { get; private set; }
         public Stack<NPCState> priorities { get; private set; }
 
-        public float lookAheadDistance = 75f;
+        public float lookAheadDistance = 150f;
 
         public Kinematic kinematic
         {
             get { return entity.kinematic; }
         }
 
-        public void setState(NPCState state)
+        public void addPriority(NPCState state)
+        {
+            priorities.Push(state);
+            setState(state);
+        }
+
+        private void setState(NPCState state)
         {
             if (this.state == state)
                 return;
@@ -118,7 +120,7 @@ namespace GameProgrammingMajor
         private void updateSteeringState(UpdateParams updateParams)
         {
             // The "ahead" vector is a 'feeler'
-            Vector3 direction = kinematic.velocity == Vector3.Zero ? new Vector3(1f, 0f, 0f) : kinematic.velocity;
+            Vector3 direction = kinematic.velocity == Vector3.Zero ? new Vector3(0f, 1f, 0f) : kinematic.velocity;
             Vector3 ahead = kinematic.position + Vector3.Normalize(direction) * lookAheadDistance;
 
             // Get the nearest collision sphere
@@ -140,6 +142,10 @@ namespace GameProgrammingMajor
 
                 case NPCState.AVOID:
 
+                    // Provide the obstacle
+                    ((Avoid)steering).obstacle = nearestCollision;
+                    ((Avoid)steering).aheadDistance = lookAheadDistance;
+
                     // If there are no longer any plausible collisions, revert to the old AI
                     if (!nearestCollision.HasValue)
                         priorities.Pop();
@@ -149,23 +155,6 @@ namespace GameProgrammingMajor
 
             // Set the current state to the topmost priority
             setState(priorities.Peek());
-        }
-
-        /// <summary>
-        /// A very hacky method for spherical collision detection on a tank.
-        /// </summary>
-        /// <param name="other">The tank with which we wish to avoid.</param>
-        public void tankColUpdate(Tank other)
-        {
-            if (entity.GetType() != typeof(Tank))
-                throw new Exception("tankColUpdate() called on a " + entity.GetType().ToString() + " NPC.");
-
-            if (((Tank)entity).colliding(other))
-            {
-                // Stop on collision with another tank
-                kinematic.velocity *= 0f;
-                steering.linear *= 0f;
-            }
         }
 
         public void draw(DrawParams drawParams)
