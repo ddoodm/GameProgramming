@@ -54,8 +54,9 @@ namespace pathfinding
         {
             return map[y, x];
         }
-        public int getGWeight(int index)
+        public int getGWeight(int x, int y)
         {
+            int index = GetIndex(x, y);
             switch (index)
             {
                 case 1: return 1;//road

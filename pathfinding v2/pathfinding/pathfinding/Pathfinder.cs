@@ -100,7 +100,7 @@ namespace pathfinding
 
                     node.Walkable = map.GetIndex(x, y) != 0;
 
-                    node.GWeight = map.getGWeight(map.GetIndex(x, y));
+                    node.GWeight = map.getGWeight(x, y);
 
                     // We only want to store nodes
 
