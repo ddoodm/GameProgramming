@@ -100,16 +100,8 @@ namespace pathfinding
 
                     node.Walkable = map.GetIndex(x, y) != 0;
 
-                    int index = map.GetIndex(x, y);
-                    switch (index)
-                    {
-                        case 1: node.GWeight = 1;//road
-                            break;
-                        case 2: node.GWeight = 3;//grass
-                            break;
-                        case 3: node.GWeight = 10;//tar
-                            break;
-                    }
+                    node.GWeight = map.getGWeight(map.GetIndex(x, y));
+
                     // We only want to store nodes
 
                     // that can be walked on.

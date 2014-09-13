@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\grass.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\grass.xnb</Output>
       <Time>2014-09-13T16:07:41.1574708+10:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\path.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\path.xnb</Output>
       <Time>2014-09-13T16:07:41.1694973+10:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\marker.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\marker.xnb</Output>
       <Time>2014-09-13T18:09:31.4605143+10:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\mover.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\mover.xnb</Output>
       <Time>2014-09-13T19:56:35.5211585+10:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\target.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\target.xnb</Output>
       <Time>2014-09-13T20:12:42.2859455+10:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\road.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\road.xnb</Output>
       <Time>2014-09-13T21:21:44.00635+10:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\tar.xnb</Output>
+      <Output>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\tar.xnb</Output>
       <Time>2014-09-13T21:54:08.0467975+10:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -71,10 +71,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfindingContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfindingContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

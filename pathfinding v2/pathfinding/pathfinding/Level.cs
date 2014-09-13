@@ -54,6 +54,16 @@ namespace pathfinding
         {
             return map[y, x];
         }
+        public int getGWeight(int index)
+        {
+            switch (index)
+            {
+                case 1: return 1;//road
+                case 2: return 3;//grass
+                case 3: return 10;//tar
+                default: return 0;
+            }
+        }
         public void Draw(SpriteBatch batch)
         {
             for (int x = 0; x < Width; x++)

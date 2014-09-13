@@ -11,3 +11,16 @@ C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathf
 C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\obj\x86\Debug\pathfinding.pdb
 C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\road.xnb
 C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\tar.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\grass.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\path.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\marker.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\mover.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\target.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\road.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\Content\Images\tar.xnb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\pathfinding.exe
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\bin\x86\Debug\pathfinding.pdb
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\obj\x86\Debug\pathfinding.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\obj\x86\Debug\pathfinding.exe
+C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfinding\obj\x86\Debug\pathfinding.pdb
