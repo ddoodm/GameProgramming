@@ -59,7 +59,7 @@ namespace GameProgrammingMajor
             // Fire a projectile if the mouse button is down
             projectileMan.update(updateParams);
             if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-                projectileMan.shoot(updateParams.camera);
+                projectileMan.shoot(updateParams, updateParams.camera);
         }
 
         /// <summary>

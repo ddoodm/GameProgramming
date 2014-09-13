@@ -121,7 +121,12 @@ namespace GameProgrammingMajor
             entity.draw(drawParams);
 
             // Draw target waypoint
-            if(DEBUG) waypointModel.draw(drawParams);
+            if (DEBUG)
+            {
+                drawParams.graphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
+                waypointModel.draw(drawParams);
+                drawParams.graphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+            }
         }
     }
 }

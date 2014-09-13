@@ -20,9 +20,6 @@ namespace GameProgrammingMajor
         private StaticModel projectileModel;
         private float cooldown = 0;
 
-        private SoundEffect sf_bullet;
-        private SoundEffect sf_impact;
-
         public float projectileSpeed = 0.8f;
 
         public ProjectileManager(Game game, World world)
@@ -37,12 +34,9 @@ namespace GameProgrammingMajor
         public void loadContent(ContentManager content)
         {
             projectileModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
-
-            sf_bullet = game.Content.Load<SoundEffect>("Sound\\smg1_fire1");
-            sf_impact = game.Content.Load<SoundEffect>("Sound\\metal_barrel_impact_hard2");
         }
 
-        public void shoot(Vector3 origin, Vector3 direction)
+        public void shoot(UpdateParams updateParams, Vector3 origin, Vector3 direction)
         {
             if (cooldown <= 0)
             {
@@ -50,7 +44,7 @@ namespace GameProgrammingMajor
                     new StaticModel(projectileModel), origin, direction, projectileSpeed);
                 projectiles.Add(p);
 
-                sf_bullet.Play();
+                updateParams.soundManager.play(SoundManager.SoundNames.PROJECTILE_FIRE);
 
                 cooldown = p.cooldown;
             }
@@ -58,9 +52,9 @@ namespace GameProgrammingMajor
                 cooldown -= 1f;
         }
 
-        public void shoot(Camera camera)
+        public void shoot(UpdateParams updateParams, Camera camera)
         {
-            shoot(camera.position, camera.direction);
+            shoot(updateParams, camera.position, camera.direction);
         }
 
         public void update(UpdateParams updateParams)
@@ -79,7 +73,7 @@ namespace GameProgrammingMajor
                     || projectiles[i].collision_test(entityTargets))
                 {
                     // Play collision sound effect
-                    sf_impact.Play();
+                    updateParams.soundManager.play(SoundManager.SoundNames.METAL_IMPACT);
 
                     // Shake the camera
                     updateParams.camera.shake(25);

@@ -12,6 +12,33 @@ using Microsoft.Xna.Framework.Media;
 namespace GameProgrammingMajor
 {
     /// <summary>
+    /// Parameters to pass to an Entity when updating.
+    /// </summary>
+    public struct UpdateParams
+    {
+        public GameTime gameTime;
+        public Camera camera;
+        public KeyboardState keyboardState;
+        public MouseState mouseState;
+        public Player player;
+        public World world;
+        public Random random;
+        public SoundManager soundManager;
+    }
+
+    /// <summary>
+    /// Parameters to pass to an Entity when drawing.
+    /// </summary>
+    public struct DrawParams
+    {
+        public GameTime gameTime;
+        public Camera camera;
+        public KeyboardState keyboardState;
+        public MouseState mouseState;
+        public GraphicsDevice graphicsDevice;
+    }
+
+    /// <summary>
     /// The main Game structure
     /// </summary>
     public class MainGame : Microsoft.Xna.Framework.Game
@@ -21,6 +48,7 @@ namespace GameProgrammingMajor
         /// </summary>
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        private SoundManager soundManager;
         private Random randomGenerator;
 
         /// <summary>
@@ -59,6 +87,9 @@ namespace GameProgrammingMajor
         /// </summary>
         protected override void Initialize()
         {
+            // Initialize sounds
+            soundManager = new SoundManager(this);
+
             // Create the world
             world = new World(this);
 
@@ -88,6 +119,9 @@ namespace GameProgrammingMajor
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // Load sounds
+            soundManager.load(Content);
+
             player.loadContent(Content);
         }
 
@@ -116,7 +150,8 @@ namespace GameProgrammingMajor
                 keyboardState = keyboard,
                 mouseState = mouse,
                 world = this.world,
-                random = randomGenerator
+                random = randomGenerator,
+                soundManager = this.soundManager
             };
 
             // Allows the game to exit
@@ -167,7 +202,8 @@ namespace GameProgrammingMajor
                 camera = this.camera,
                 gameTime = gameTime,
                 keyboardState = keyboard,
-                mouseState = mouse
+                mouseState = mouse,
+                graphicsDevice = this.GraphicsDevice
             };
 
             // Draw the world

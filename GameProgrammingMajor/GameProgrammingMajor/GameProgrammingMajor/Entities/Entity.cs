@@ -9,31 +9,6 @@ using Microsoft.Xna.Framework.Input;
 namespace GameProgrammingMajor
 {
     /// <summary>
-    /// Parameters to pass to an Entity when updating.
-    /// </summary>
-    public struct UpdateParams
-    {
-        public GameTime gameTime;
-        public Camera camera;
-        public KeyboardState keyboardState;
-        public MouseState mouseState;
-        public Player player;
-        public World world;
-        public Random random;
-    }
-
-    /// <summary>
-    /// Parameters to pass to an Entity when drawing.
-    /// </summary>
-    public struct DrawParams
-    {
-        public GameTime gameTime;
-        public Camera camera;
-        public KeyboardState keyboardState;
-        public MouseState mouseState;
-    }
-
-    /// <summary>
     /// A generic Entity that has a position, and virtual methods.
     /// </summary>
     public abstract class Entity
