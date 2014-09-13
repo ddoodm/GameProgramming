@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace GameProgrammingMajor
 {
@@ -29,6 +30,49 @@ namespace GameProgrammingMajor
         public StaticModelManager()
         {
             models = new List<StaticModel>();
+        }
+
+        /// <summary>
+        /// Finds the nearest bounding sphere to the vector "position"
+        /// </summary>
+        /// <param name="position">The position of the collider</param>
+        /// <param name="ahead">The vector that points in front of the collider</param>
+        /// <returns>The bounding sphere that is nearest to the vector.</returns>
+        public BoundingSphere? findNearestCollisionSphere(Vector3 position, Vector3 ahead, float aheadDistance)
+        {
+            BoundingSphere? nearestSphere = null;
+
+            // Convert the "Ahead" vector to a Ray
+            Ray feeler = new Ray(position, ahead);
+
+            foreach (StaticModel model in this.models)
+            {
+                // Ignore non-collidable models
+                if (model.noCollision)
+                    continue;
+
+                foreach (BoundingSphere sphere in model.boundingSpheres)
+                {
+                    // Get the distance that the ray intersected into the sphere
+                    float? intersection = sphere.Intersects(feeler);
+
+                    // Was there a collision?
+                    bool collision = intersection.HasValue && intersection <= aheadDistance;
+
+                    if (!collision)
+                        continue;
+
+                    // There was a collision, and there are no other spheres yet
+                    if (!nearestSphere.HasValue)
+                        nearestSphere = sphere;
+
+                    // There was a collision, but we must determine that this sphere is closer than other spheres
+                    else if (Vector3.Distance(position, sphere.Center) < Vector3.Distance(position, ((BoundingSphere)nearestSphere).Center))
+                        nearestSphere = sphere;
+                }
+            }
+
+            return nearestSphere;
         }
 
         public void update(UpdateParams updateParams)

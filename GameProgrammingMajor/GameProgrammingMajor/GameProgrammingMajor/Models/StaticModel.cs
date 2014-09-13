@@ -11,6 +11,7 @@ namespace GameProgrammingMajor
     {
         public Model                model { get; protected set; }
         public BoundingSphere[]     boundingSpheres;
+        public BoundingBox[]        boundingBoxes;
         public bool                 noCollision = false;
 
         public StaticModel(Game game, Model model)
@@ -19,6 +20,7 @@ namespace GameProgrammingMajor
             this.model = model;
 
             boundingSpheres = new BoundingSphere[model.Meshes.Count];
+            boundingBoxes = new BoundingBox[model.Meshes.Count];
         }
 
         public StaticModel(Game game, Model model, Vector3 position)
@@ -75,9 +77,12 @@ namespace GameProgrammingMajor
 
         public override void update(UpdateParams updateParams)
         {
-            // Obtain model bounding spheres and transform them
-            for(int i=0; i<model.Meshes.Count; i++)
-                boundingSpheres[i] = model.Meshes[i].BoundingSphere.Transform(world);
+            // Obtain model bounding spheres / boxes and transform them
+            for (int i = 0; i < model.Meshes.Count; i++)
+            {
+                boundingSpheres[i] = model.Meshes[i].BoundingSphere.Transform(
+                    model.Meshes[i].ParentBone.Transform * world);
+            }
 
             base.update(updateParams);
         }

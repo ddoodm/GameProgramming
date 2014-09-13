@@ -20,7 +20,8 @@ namespace GameProgrammingMajor
         ALIGN,
         MATCH,
         PURSUE,
-        EVADE
+        EVADE,
+        AVOID
     }
 
     public class NPC 
@@ -39,6 +40,9 @@ namespace GameProgrammingMajor
         public Kinematic target { private get; set; }
         public Steering steering;
         public NPCState state { get; private set; }
+        public Stack<NPCState> priorities { get; private set; }
+
+        public float lookAheadDistance = 75f;
 
         public Kinematic kinematic
         {
@@ -47,13 +51,20 @@ namespace GameProgrammingMajor
 
         public void setState(NPCState state)
         {
+            if (this.state == state)
+                return;
+
             this.state = state;
 
+            // Backup old steering state
+            Steering oldSteering = steering;
+
             switch (state)
-            { 
-                case NPCState.SEEK:     steering = new Seek();    break;
-                case NPCState.ARRIVE:   steering = new Arrive();  break;
-                case NPCState.PURSUE:   steering = new Pursue();  break;
+            {
+                case NPCState.SEEK:     steering = new Seek(oldSteering);      break;
+                case NPCState.ARRIVE:   steering = new Arrive(oldSteering);    break;
+                case NPCState.PURSUE:   steering = new Pursue(oldSteering);    break;
+                case NPCState.AVOID:    steering = new Avoid(oldSteering);     break;
             }
         }
 
@@ -64,9 +75,11 @@ namespace GameProgrammingMajor
             // Provide the entity with this NPC object
             entity.npc = this;
 
+            // Configure the priorities stack
+            priorities = new Stack<NPCState>();
+
             // Default steering algorithm
-            steering = new Arrive();
-            state = NPCState.ARRIVE;
+            priorities.Push(NPCState.ARRIVE);
 
             if(DEBUG)
                 waypointModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
@@ -82,8 +95,11 @@ namespace GameProgrammingMajor
             // Obtain time difference
             float timeDelta = (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
 
+            // Update steering AI state using a state machine
+            updateSteeringState(updateParams);
+
             // Update steering force
-            steering.update(entity.kinematic, target);
+            steering.update(updateParams, entity.kinematic, target);
 
             // Process velocity and orientation into position and rotation
             entity.kinematic.update(steering, timeDelta);
@@ -97,6 +113,42 @@ namespace GameProgrammingMajor
                 waypointModel.update(updateParams);
                 waypointModel.world = Matrix.CreateScale(4f) * Matrix.CreateTranslation(steering.predictedTarget);
             }
+        }
+
+        private void updateSteeringState(UpdateParams updateParams)
+        {
+            // The "ahead" vector is a 'feeler'
+            Vector3 direction = kinematic.velocity == Vector3.Zero ? new Vector3(1f, 0f, 0f) : kinematic.velocity;
+            Vector3 ahead = kinematic.position + Vector3.Normalize(direction) * lookAheadDistance;
+
+            // Get the nearest collision sphere
+            BoundingSphere? nearestCollision =
+                updateParams.world.staticManager.findNearestCollisionSphere(
+                    kinematic.position, ahead, lookAheadDistance);
+
+            switch (state)
+            {
+                case NPCState.SEEK:
+                case NPCState.ARRIVE:
+                case NPCState.PURSUE:
+
+                    // If there is a collision, we should attempt to avoid it
+                    if (nearestCollision.HasValue)
+                        priorities.Push(NPCState.AVOID);
+
+                    break;
+
+                case NPCState.AVOID:
+
+                    // If there are no longer any plausible collisions, revert to the old AI
+                    if (!nearestCollision.HasValue)
+                        priorities.Pop();
+
+                    break;
+            }
+
+            // Set the current state to the topmost priority
+            setState(priorities.Peek());
         }
 
         /// <summary>

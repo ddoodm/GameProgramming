@@ -40,10 +40,10 @@ namespace GameProgrammingMajor
 
             // Create a skybox
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
-
+            
             // Add the "Fire Here" sign
-            Vector3 shootHerePosition = new Vector3(0,0,-300f);
-            staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
+            //Vector3 shootHerePosition = new Vector3(0,0,-800f);
+            //staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,10f,150f)), staticManager);

@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Score: {0}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {1}";
+        public static string TEXT_PLAYER = "Score: {0}    Health: {1}\n";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {2}";
 
         SpriteFont uiFont;
 
@@ -48,6 +48,7 @@ namespace GameProgrammingMajor
             string message = string.Format(
                 TEXT_PLAYER + (debugVisible? TEXT_DEBUG : ""),
                 player.score,
+                player.health,
                 drawParams.camera.GetType().ToString());
 
             game.spriteBatch.Begin();

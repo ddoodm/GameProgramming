@@ -14,6 +14,18 @@ namespace GameProgrammingMajor
 
         public float maxAcceleration = 600f, maxSpeed = 300f;
 
+        public Steering()
+        { }
+
+        public Steering(Steering oldSteering)
+        {
+            if (oldSteering == null)
+                return;
+
+            this.maxAcceleration = oldSteering.maxAcceleration;
+            this.maxSpeed = oldSteering.maxSpeed;
+        }
+
         /// <summary>
         /// Used to draw the "predicted target" waypoint dummy model.
         /// </summary>
@@ -28,7 +40,7 @@ namespace GameProgrammingMajor
             angular = 0;
         }
 
-        public virtual void update(Kinematic character, Kinematic target) { }
+        public virtual void update(UpdateParams updateParams, Kinematic character, Kinematic target) { }
     }
 
     /// <summary>
@@ -38,7 +50,20 @@ namespace GameProgrammingMajor
     {
         public float targetRadius = 5f;
 
-        public override void update(Kinematic character, Kinematic target)
+        public Seek()
+        { }
+
+        public Seek(Steering oldSteering)
+            : base(oldSteering)
+        {
+            try
+            {
+                targetRadius = ((Seek)oldSteering).targetRadius;
+            }
+            catch (Exception e) { }
+        }
+
+        public override void update(UpdateParams updateParams, Kinematic character, Kinematic target)
         {
             // Find direction to target from position
             Vector3 direction = target.position - character.position;
@@ -81,6 +106,57 @@ namespace GameProgrammingMajor
     }
 
     /// <summary>
+    /// Avoid spherical collisions
+    /// </summary>
+    public class Avoid : Steering
+    {
+        /// <summary>
+        /// How far the AI can see infront of itself to avoid collisions
+        /// </summary>
+        public float aheadDistance = 60f;
+
+        public float friction = 0.95f;
+
+        public Avoid()
+        { }
+
+        public Avoid(Steering oldSteering)
+            : base(oldSteering)
+        {
+            try
+            {
+                aheadDistance = ((Avoid)oldSteering).aheadDistance;
+                friction = ((Avoid)oldSteering).friction;
+            }
+            catch { }
+        }
+
+        public override void update(UpdateParams updateParams, Kinematic character, Kinematic target)
+        {
+            // The "ahead" vector is a 'feeler'
+            Vector3 direction = character.velocity == Vector3.Zero ? new Vector3(1f, 0f, 0f) : character.velocity;
+            Vector3 ahead = character.position + Vector3.Normalize(direction) * aheadDistance;
+
+            // The closest bounding sphere
+            BoundingSphere? obstacle = updateParams.world.staticManager.findNearestCollisionSphere(character.position, ahead, aheadDistance);
+
+            // The avoidance steering force
+            Vector3 avoidForce = Vector3.Zero;
+
+            // If there is an obstacle, force the NPC away
+            if (obstacle.HasValue)
+                avoidForce = Vector3.Normalize(ahead - ((BoundingSphere)obstacle).Center) * maxSpeed;
+            else
+                character.velocity *= friction;
+
+            // Output steering force
+            this.linear = avoidForce;
+            this.angular = 0;
+            this.predictedTarget = character.position + avoidForce;
+        }
+    }
+
+    /// <summary>
     /// An Approach steering AI will seek toward the target
     /// until it reaches the slowing radius, at which point,
     /// the character will decelerate.
@@ -89,7 +165,21 @@ namespace GameProgrammingMajor
     {
         public float slowRadius = 120f, timeToTarget = 0.1f;
 
-        public override void update(Kinematic character, Kinematic target)
+        public Arrive()
+        { }
+
+        public Arrive(Steering oldSteering)
+            : base(oldSteering)
+        {
+            try
+            {
+                slowRadius = ((Arrive)oldSteering).slowRadius;
+                timeToTarget = ((Arrive)oldSteering).timeToTarget;
+            }
+            catch { }
+        }
+
+        public override void update(UpdateParams updateParams, Kinematic character, Kinematic target)
         {
             // Find direction to target from position
             Vector3 direction = target.position - character.position;
@@ -108,7 +198,7 @@ namespace GameProgrammingMajor
             // If the object is outside the slowing radius, use Seek
             if (distance > slowRadius)
             {
-                base.update(character, target);
+                base.update(updateParams, character, target);
                 return;
             }
 
@@ -140,7 +230,20 @@ namespace GameProgrammingMajor
     {
         public float predictionLimit = 2f;
 
-        public override void update(Kinematic character, Kinematic evader)
+        public Pursue()
+        { }
+
+        public Pursue(Steering oldSteering)
+            : base(oldSteering)
+        {
+            try
+            {
+                predictionLimit = ((Pursue)oldSteering).predictionLimit;
+            }
+            catch { }
+        }
+
+        public override void update(UpdateParams updateParams, Kinematic character, Kinematic evader)
         {
             // Distance of evader from the character
             float distance = (evader.position - character.position).Length();
@@ -159,7 +262,7 @@ namespace GameProgrammingMajor
             // Arrive on newly predicted target
             Kinematic kTarget = new Kinematic(evader);
             kTarget.position = target;
-            base.update(character, kTarget);
+            base.update(updateParams, character, kTarget);
         }
     }
 }

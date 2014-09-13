@@ -65,7 +65,7 @@ namespace GameProgrammingMajor
             projectileManager.update(updateParams);
 
             // Generate a random number to determine whether to shoot
-            int randNum = updateParams.random.Next(0, 10);
+            int randNum = updateParams.random.Next(0, 25);
 
             if (randNum == 0)
             {

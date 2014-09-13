@@ -13,7 +13,8 @@ namespace GameProgrammingMajor
     /// </summary>
     public class Player
     {
-        public int score = 0;
+        public float score = 0;
+        public float health = 1f;
 
         public Kinematic kinematic;
         public Steering steering;
@@ -25,7 +26,7 @@ namespace GameProgrammingMajor
             maxSpeed = 700f,
             shiftMultiplier = 2f,
             friction = 0.95f,
-            height = 20f;
+            height = 40f;
 
         /// <summary>
         /// Parameters to maintain the jump state
