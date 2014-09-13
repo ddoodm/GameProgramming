@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Images\grass.png</Source>
+      <Name>Images\grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\grass.xnb</Output>
+      <Time>2014-09-13T16:07:41.1574708+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\path.png</Source>
+      <Name>Images\path</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\path.xnb</Output>
+      <Time>2014-09-13T16:07:41.1694973+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\marker.png</Source>
+      <Name>Images\marker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\marker.xnb</Output>
+      <Time>2014-09-13T18:09:31.4605143+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\mover.png</Source>
+      <Name>Images\mover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\mover.xnb</Output>
+      <Time>2014-09-13T19:56:35.5211585+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\target.png</Source>
+      <Name>Images\target</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\target.xnb</Output>
+      <Time>2014-09-13T20:12:42.2859455+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\road.png</Source>
+      <Name>Images\road</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\road.xnb</Output>
+      <Time>2014-09-13T21:21:44.00635+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\tar.png</Source>
+      <Name>Images\tar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\Images\tar.xnb</Output>
+      <Time>2014-09-13T21:54:08.0467975+10:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{2FFAC96B-42AC-4117-A432-6DF8A1FB0628}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfindingContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfinding\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+10:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-08-04T15:57:16.685757+10:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
