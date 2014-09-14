@@ -63,6 +63,11 @@ namespace GameProgrammingMajor
             }
         }
 
+        public void updateSearchNodes(TowerManager map)
+        {
+            InitializeSearchNodes(map);
+        }
+
         /// Splits our level up into a grid of nodes.
         private void InitializeSearchNodes(TowerManager map)
         {

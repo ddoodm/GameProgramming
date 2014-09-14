@@ -212,7 +212,13 @@ namespace GameProgrammingMajor
                     if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed
                         && blocks[z, x].selected
                         && blocks[z, x].tower.GetType() == typeof(GrassTower))
+                    {
+                        // Place the tower
                         blocks[z, x].tower = new WallTower(game, blocks[z, x].world, blocks[z, x].size);
+
+                        // Update search nodes
+                        pathFinder.updateSearchNodes(this);
+                    }
 
                     // Perform an update on this block
                     blocks[z, x].update(updateParams);
