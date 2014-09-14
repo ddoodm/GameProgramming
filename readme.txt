@@ -34,7 +34,7 @@ Assignment One:
 
 Team Members:
   XXXXXXXX  – Deinyon Davies
-XXXXXXXX	– Daniel Nelson
+11685740 – Daniel Nelson
 11697822 – Matthew Wale
 XXXXXXXX – Jesse Walker
 	
@@ -75,9 +75,11 @@ Deinyon 	<role>
 Score: 0.0-5.0
 <Justification spiel>
 
-Daniel 	<role>
+Daniel 	Designer/Ai programer 
 Score: 0.0-5.0
-<Justification spiel>
+did lots of reasearch into a* and implemented a demo
+contributed lab project code 
+lead design talks 
 
 Matthew 	<role>
 Score: 0.0-5.0
