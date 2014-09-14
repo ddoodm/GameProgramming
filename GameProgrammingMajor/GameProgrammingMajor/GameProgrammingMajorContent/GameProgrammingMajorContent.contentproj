@@ -178,13 +178,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sound\pl_pain5.wav">
-      <Name>pl_pain5</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sound\shotgun_fire6.wav">
       <Name>shotgun_fire6</Name>
       <Importer>WavImporter</Importer>
@@ -194,6 +187,13 @@
   <ItemGroup>
     <Compile Include="Sound\town_ambience.wav">
       <Name>town_ambience</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sound\player_ouch.wav">
+      <Name>player_ouch</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>

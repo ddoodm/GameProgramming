@@ -50,7 +50,7 @@ namespace GameProgrammingMajor
             this.kinematic = new Kinematic(worldMatrix.Translation);
             this.steering = new Steering();
 
-            boundingSphere = new BoundingSphere(worldMatrix.Translation, 40f);
+            boundingSphere = new BoundingSphere(worldMatrix.Translation, 15f);
 
             projectileMan = new ProjectileManager(game, world);
             projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
@@ -66,10 +66,27 @@ namespace GameProgrammingMajor
         {
             transform(updateParams);
 
+            // Translate the player's bounding sphere
+            boundingSphere = new BoundingSphere(kinematic.position, boundingSphere.Radius);
+
+            fireProjectile(updateParams);
+        }
+
+        public void fireProjectile(UpdateParams updateParams)
+        {
             // Fire a projectile if the mouse button is down
             projectileMan.update(updateParams);
             if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-                projectileMan.shoot(updateParams, updateParams.camera);
+            {
+                // Get camera direction
+                Vector3 direction = Vector3.Normalize(updateParams.camera.direction);
+
+                // Add the player's collision radius and projectile
+                Vector3 position = kinematic.position + direction * (boundingSphere.Radius * 2f);
+
+                // Fire the projectile
+                projectileMan.shoot(updateParams, position, direction);
+            }
         }
 
         /// <summary>
@@ -145,6 +162,23 @@ namespace GameProgrammingMajor
             }
 
             return 0f;
+        }
+
+        public bool collidesWith(BoundingSphere otherSphere)
+        {
+            return boundingSphere.Intersects(otherSphere);
+        }
+
+        public void takeDamage(UpdateParams updateParams, float damage)
+        {
+            // Constrain to 0 or above
+            if (health - damage >= 0)
+                health -= damage;
+            else
+                health = 0;
+
+            // Play damage sound effect
+            updateParams.soundManager.play(SoundManager.SoundNames.PLAYER_PAIN);
         }
 
         public void draw(DrawParams drawParams)

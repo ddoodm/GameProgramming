@@ -11,7 +11,7 @@ namespace GameProgrammingMajor
 {
     public class ProjectileManager
     {
-        private const float bulletLife = 420f;
+        private const float bulletLife = 700f;
 
         private Game game;
         private List<Projectile> projectiles;
@@ -72,7 +72,8 @@ namespace GameProgrammingMajor
                 }
 
                 if (projectiles[i].collision_test(staticTargets)
-                    || projectiles[i].collision_test(entityTargets))
+                    || projectiles[i].collision_test(entityTargets)
+                    || projectiles[i].collision_test(updateParams, updateParams.player))
                 {
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
@@ -104,6 +105,7 @@ namespace GameProgrammingMajor
             public float speed;
             public float screenTime = 0;
             public float creationTime = 0;
+            public float damage = 0.05f;
 
             public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed)
             {
@@ -143,6 +145,16 @@ namespace GameProgrammingMajor
                 foreach (Entity target in targets)
                     if (target.collidesWith(boundingSphere))
                         return true;
+                return false;
+            }
+
+            public bool collision_test(UpdateParams updateParams, Player player)
+            {
+                if(player.collidesWith(boundingSphere))
+                {
+                    player.takeDamage(updateParams, damage);
+                    return true;
+                }
                 return false;
             }
 

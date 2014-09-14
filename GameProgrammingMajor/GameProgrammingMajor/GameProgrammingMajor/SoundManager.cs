@@ -20,7 +20,7 @@ namespace GameProgrammingMajor
                 PLAYER_PROJECTILE_FIRE = "Sound\\smg1_fire1",
                 PROJECTILE_FIRE = "Sound\\shotgun_fire6",
                 IMPACT_METAL = "Sound\\metal_barrel_impact_hard2",
-                PLAYER_PAIN = "Sound\\pl_pain5",
+                PLAYER_PAIN = "Sound\\player_ouch",
                 AMBIENCE_TOWN = "Sound\\town_ambience";
         }
 

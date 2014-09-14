@@ -431,15 +431,6 @@
       <Time>2014-09-13T21:18:48+10:00</Time>
     </Item>
     <Item>
-      <Source>Sound\pl_pain5.wav</Source>
-      <Name>Sound\pl_pain5</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\pl_pain5.xnb</Output>
-      <Time>2014-09-14T09:18:26+10:00</Time>
-    </Item>
-    <Item>
       <Source>Sound\shotgun_fire6.wav</Source>
       <Name>Sound\shotgun_fire6</Name>
       <Importer>WavImporter</Importer>
@@ -456,6 +447,15 @@
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\town_ambience.xnb</Output>
       <Time>2014-09-14T09:48:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\player_ouch.wav</Source>
+      <Name>Sound\player_ouch</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\player_ouch.xnb</Output>
+      <Time>2014-09-14T10:31:58+10:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

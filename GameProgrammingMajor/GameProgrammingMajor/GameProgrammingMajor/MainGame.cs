@@ -149,6 +149,7 @@ namespace GameProgrammingMajor
                 gameTime = gameTime,
                 keyboardState = keyboard,
                 mouseState = mouse,
+                player = this.player,
                 world = this.world,
                 random = randomGenerator,
                 soundManager = this.soundManager
