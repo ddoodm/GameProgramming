@@ -17,14 +17,22 @@ namespace GameProgrammingMajor
         public class SoundNames
         {
             public static string
-                PROJECTILE_FIRE = "Sound\\smg1_fire1",
-                METAL_IMPACT = "Sound\\metal_barrel_impact_hard2";
+                PLAYER_PROJECTILE_FIRE = "Sound\\smg1_fire1",
+                PROJECTILE_FIRE = "Sound\\shotgun_fire6",
+                IMPACT_METAL = "Sound\\metal_barrel_impact_hard2",
+                PLAYER_PAIN = "Sound\\pl_pain5",
+                AMBIENCE_TOWN = "Sound\\town_ambience";
         }
 
         /// <summary>
         /// The list of key-value pairs that store the sound effects
         /// </summary>
         private List<KeyValuePair<string, SoundEffect>> soundEffects;
+
+        /// <summary>
+        /// The instance of the currently playing ambient noise
+        /// </summary>
+        public SoundEffectInstance ambientInstance = null;
 
         public SoundManager(Game game)
         {
@@ -66,6 +74,20 @@ namespace GameProgrammingMajor
         {
             SoundEffect sound = findSound(soundKey);
             sound.Play();
+        }
+
+        /// <summary>
+        /// Play a sound in a loop
+        /// </summary>
+        /// <param name="soundKey">The key of the sound to play.</param>
+        public void playAmbience(string soundKey)
+        {
+            SoundEffect sound = findSound(soundKey);
+            SoundEffectInstance instance = sound.CreateInstance();
+            instance.IsLooped = true;
+            instance.Play();
+
+            ambientInstance = instance;
         }
     }
 }

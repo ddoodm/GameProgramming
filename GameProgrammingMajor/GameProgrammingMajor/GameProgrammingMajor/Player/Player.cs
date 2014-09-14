@@ -35,6 +35,11 @@ namespace GameProgrammingMajor
         private Boolean jumping = false;
         private float jumpTheta = 0f;
 
+        /// <summary>
+        /// The bounding sphere that surrounds the player
+        /// </summary>
+        public BoundingSphere boundingSphere;
+
         private ProjectileManager projectileMan;
 
         /// <summary>
@@ -45,7 +50,11 @@ namespace GameProgrammingMajor
             this.kinematic = new Kinematic(worldMatrix.Translation);
             this.steering = new Steering();
 
+            boundingSphere = new BoundingSphere(worldMatrix.Translation, 40f);
+
             projectileMan = new ProjectileManager(game, world);
+            projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
+            projectileMan.cooldownWait = 5f;
         }
 
         public void loadContent(ContentManager content)

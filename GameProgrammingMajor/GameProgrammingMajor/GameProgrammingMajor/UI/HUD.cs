@@ -12,12 +12,12 @@ namespace GameProgrammingMajor
         MainGame game;
 
         public static string TEXT_PLAYER = "Score: {0}    Health: {1}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {2}";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {2}\nTank A Priority: {3}    Tank B Priority: {4}";
 
-        SpriteFont uiFont;
+        private SpriteFont uiFont;
+        private string message = "";
 
         Player player;
-        Entity baseTower;
 
         public bool visible = true; 
         public bool debugVisible = true;
@@ -30,26 +30,27 @@ namespace GameProgrammingMajor
             uiFont = game.Content.Load<SpriteFont>("Font\\UIFont");
         }
 
+        public void update(UpdateParams updateParams)
+        {
+            Type camType = updateParams.camera.GetType();
+
+            message = string.Format(
+                TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
+                player.score,
+                player.health,
+                camType.ToString(),
+                updateParams.world.npcManager.npcs[0].state,
+                updateParams.world.npcManager.npcs[1].state);
+        }
+
         /// <summary>
-        /// Display:
-        /// Score,
-        /// Health,
-        /// Time,
-        /// Enemy wave information,
-        /// Debug
+        /// 
         /// </summary>
         /// <param name="drawParams"></param>
         public void draw(DrawParams drawParams)
         {
             if (!visible)
                 return;
-
-            Type camType = drawParams.camera.GetType();
-            string message = string.Format(
-                TEXT_PLAYER + (debugVisible? TEXT_DEBUG : ""),
-                player.score,
-                player.health,
-                drawParams.camera.GetType().ToString());
 
             game.spriteBatch.Begin();
             for (int i = 0; i < 2; i++)

@@ -46,7 +46,7 @@ namespace GameProgrammingMajor
             staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(150f,10f,150f)), staticManager);
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(200f,10f,200f)), staticManager);
 
             // Add a tank that pursues the player
             Tank pursueTank = new Tank(game, new Vector3(-200f,0,200f), this);

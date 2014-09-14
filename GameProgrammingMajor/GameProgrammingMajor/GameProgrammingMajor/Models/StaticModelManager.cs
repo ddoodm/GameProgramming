@@ -56,7 +56,7 @@ namespace GameProgrammingMajor
                     // Get the distance that the ray intersected into the sphere
                     float? intersection = sphere.Intersects(feeler);
 
-                    // Was there a collision?
+                    // Was there a collision in range of the NPC's eyesight?
                     bool collision = intersection.HasValue && intersection <= aheadDistance;
 
                     if (!collision)

@@ -430,6 +430,33 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\bakedFountain_0.xnb</Output>
       <Time>2014-09-13T21:18:48+10:00</Time>
     </Item>
+    <Item>
+      <Source>Sound\pl_pain5.wav</Source>
+      <Name>Sound\pl_pain5</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\pl_pain5.xnb</Output>
+      <Time>2014-09-14T09:18:26+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\shotgun_fire6.wav</Source>
+      <Name>Sound\shotgun_fire6</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\shotgun_fire6.xnb</Output>
+      <Time>2014-09-14T09:21:16+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\town_ambience.wav</Source>
+      <Name>Sound\town_ambience</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\town_ambience.xnb</Output>
+      <Time>2014-09-14T09:48:04+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

@@ -29,3 +29,6 @@ Content\Textures\ShootHere_0.xnb
 Content\Textures\bakedFountain.xnb
 Content\Models\DFountain.xnb
 Content\Textures\bakedFountain_0.xnb
+Content\Sound\pl_pain5.xnb
+Content\Sound\shotgun_fire6.xnb
+Content\Sound\town_ambience.xnb

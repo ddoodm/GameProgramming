@@ -20,7 +20,9 @@ namespace GameProgrammingMajor
         private StaticModel projectileModel;
         private float cooldown = 0;
 
+        public float cooldownWait = 20f;
         public float projectileSpeed = 0.8f;
+        public string projectileFireSound = SoundManager.SoundNames.PROJECTILE_FIRE;
 
         public ProjectileManager(Game game, World world)
         {
@@ -44,9 +46,9 @@ namespace GameProgrammingMajor
                     new StaticModel(projectileModel), origin, direction, projectileSpeed);
                 projectiles.Add(p);
 
-                updateParams.soundManager.play(SoundManager.SoundNames.PROJECTILE_FIRE);
+                updateParams.soundManager.play(projectileFireSound);
 
-                cooldown = p.cooldown;
+                cooldown = cooldownWait;
             }
             else
                 cooldown -= 1f;
@@ -73,7 +75,7 @@ namespace GameProgrammingMajor
                     || projectiles[i].collision_test(entityTargets))
                 {
                     // Play collision sound effect
-                    updateParams.soundManager.play(SoundManager.SoundNames.METAL_IMPACT);
+                    updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
 
                     // Shake the camera
                     updateParams.camera.shake(25);
@@ -100,7 +102,6 @@ namespace GameProgrammingMajor
             private Vector3 direction;
 
             public float speed;
-            public float cooldown = 20f;
             public float screenTime = 0;
             public float creationTime = 0;
 

@@ -171,6 +171,13 @@ namespace GameProgrammingMajor
             // Update the world (entities and static models)
             world.update(updateParams);
 
+            // Update UI message
+            hud.update(updateParams);
+
+            // Play the ambient noise
+            if(soundManager.ambientInstance == null)
+                soundManager.playAmbience(SoundManager.SoundNames.AMBIENCE_TOWN);
+
             base.Update(gameTime);
         }
 
