@@ -578,6 +578,35 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\mover_model_0.xml</Output>
       <Time>2014-09-14T15:50:58+10:00</Time>
     </Item>
+    <Item>
+      <Source>Models\teapot.FBX</Source>
+      <Name>Models\teapot</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\teapot.xnb</Output>
+      <Time>2014-09-14T20:11:38+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\teapot_0.xml</Key>
+        <Value>2014-09-14T20:21:34+10:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Shaders\plasma.fx</Source>
+      <Name>Shaders\plasma</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Shaders\plasma.xnb</Output>
+      <Time>2014-09-14T20:14:38+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\teapot.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\teapot_0.xml</Output>
+      <Time>2014-09-14T20:11:38+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

@@ -76,6 +76,7 @@
     <Compile Include="Entities\NPCManager.cs" />
     <Compile Include="Entities\PlaneEntity.cs" />
     <Compile Include="Entities\PrimitiveEntity.cs" />
+    <Compile Include="Models\PlasmaModel.cs" />
     <Compile Include="Models\Skybox.cs" />
     <Compile Include="Entities\WaveController.cs" />
     <Compile Include="Models\StaticModelManager.cs" />
@@ -113,7 +114,6 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="UI\GameOver.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameProgrammingMajorContent\GameProgrammingMajorContent.contentproj">

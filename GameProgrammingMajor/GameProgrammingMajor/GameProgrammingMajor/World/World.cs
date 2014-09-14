@@ -45,6 +45,10 @@ namespace GameProgrammingMajor
             Vector3 shootHerePosition = new Vector3(0,0,-600f);
             staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
 
+            // Add a plasma teapot
+            Vector3 teapotTrans = new Vector3(-400, 0, -400);
+            staticManager.add(new PlasmaModel(game, game.Content.Load<Model>("Models\\teapot"), teapotTrans));
+
             // Create a "Tower Manager" which allows for the placement of towers in the area
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), staticManager);
 

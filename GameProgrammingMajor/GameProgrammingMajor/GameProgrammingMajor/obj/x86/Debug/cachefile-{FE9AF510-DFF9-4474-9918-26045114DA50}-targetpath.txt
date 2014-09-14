@@ -40,3 +40,5 @@ Content\Textures\block_tar.xnb
 Content\Models\tower_tar.xnb
 Content\Textures\block_tar_0.xnb
 Content\Models\mover_model.xnb
+Content\Models\teapot.xnb
+Content\Shaders\plasma.xnb
