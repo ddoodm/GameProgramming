@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace GameProgrammingMajor
 {
+    public enum TowerType
+    {
+        WALL = 0,
+        PATH,
+        GRASS,
+        TAR,
+        NONE
+    }
+
     /// <summary>
     /// Manages the placement and update of towers.
     /// </summary>
@@ -34,6 +44,30 @@ namespace GameProgrammingMajor
         // Illustrates the boundaries of the Tower Manager region
         private PlaneEntity boundary;
 
+        // The path finding algorithm
+        private TowerPathFinder pathFinder;
+
+        // The AI that traverses the terrain
+        private TowerTraverser mover;
+
+        // The path for the AI to follow
+        private List<Vector2> path;
+
+        // A pre-designed map
+        private int[,] predesignedMap = new int[NUM_BLOCKS, NUM_BLOCKS]
+        {
+            {2,2,2,2,2,1,2,2,2,2},
+            {2,3,3,2,2,1,2,2,2,2},
+            {2,3,2,2,2,1,2,2,2,2},
+            {3,3,2,2,2,1,1,1,2,2},
+            {3,2,2,0,0,0,0,1,2,2},
+            {3,2,2,2,2,1,1,1,2,2},
+            {2,2,2,2,2,1,2,2,2,2},
+            {2,2,2,2,2,1,2,2,2,2},
+            {2,2,2,2,2,1,2,2,2,2},
+            {1,1,1,1,1,1,2,2,2,2},
+        };
+
         /// <summary>
         /// Create a new Tower Manager.
         /// </summary>
@@ -60,6 +94,18 @@ namespace GameProgrammingMajor
             // Add the "Base" model entity
             Matrix baseTransform = Matrix.CreateScale(blockSize * NUM_BLOCKS) * world;
             staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\towerManBase"), baseTransform));
+
+            // Set up path finding objects
+            pathFinder = new TowerPathFinder(this);
+            mover = new TowerTraverser();
+            path = pathFinder.FindPath(new Point(0, 0), new Point(8, 4));
+            mover.addPath(path);
+        }
+
+        public void load(ContentManager content)
+        {
+            mover.addMoverModel(new StaticModel(game, content.Load<Model>("Models\\mover_model")));
+            mover.addModel(new StaticModel(game, content.Load<Model>("Models\\DSphere")));
         }
 
         /// <summary>
@@ -78,7 +124,43 @@ namespace GameProgrammingMajor
 
                     // Create the block:
                     blocks[z, x] = new TowerBlock(game, new iVec2(z, x), blockWorld, blockSize);
+
+                    // Set the block based on the pre-designed map
+                    blocks[z, x].setTower(createTowerFromInt(predesignedMap[z, x], blockWorld, blockSize));
                 }
+        }
+
+        public TowerType getTowerTypeOf(Type type)
+        {
+            if (type == typeof(GrassTower))
+                return TowerType.GRASS;
+            if (type == typeof(PathTower))
+                return TowerType.PATH;
+            if (type == typeof(WallTower))
+                return TowerType.WALL;
+            if (type == typeof(TarTower))
+                return TowerType.TAR;
+
+            return TowerType.NONE;
+        }
+
+        private Tower createTowerFromInt(int towerTypeID, Matrix world, float size)
+        {
+            TowerType towerType = (TowerType)towerTypeID;
+
+            switch (towerType)
+            {
+                case TowerType.GRASS:
+                    return new GrassTower(game, world, size);
+                case TowerType.PATH:
+                    return new PathTower(game, world, size);
+                case TowerType.WALL:
+                    return new WallTower(game, world, size);
+                case TowerType.TAR:
+                    return new TarTower(game, world, size);
+            }
+
+            throw new Exception("towerTypeID has no corresponding tower type.");
         }
 
         /// <summary>
@@ -102,6 +184,17 @@ namespace GameProgrammingMajor
                 (int)((position.Z - midPosition.Z + world.Translation.Z) / blockSize / 2));
         }
 
+        // Get the Tower Type at the specified index
+        public TowerType getTowerTypeAt(int x, int y)
+        {
+            return getTowerTypeOf(blocks[y, x].GetType());
+        }
+
+        public int getGWeight(int x, int y)
+        {
+            return blocks[y, x].getGWeight();
+        }
+
         public void update(UpdateParams updateParams)
         {
             // Obtain the ID of the currently selected block
@@ -117,7 +210,8 @@ namespace GameProgrammingMajor
 
                     // A test of creating new towers on click
                     if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed
-                        && blocks[z, x].selected)
+                        && blocks[z, x].selected
+                        && blocks[z, x].tower.GetType() == typeof(GrassTower))
                         blocks[z, x].tower = new WallTower(game, blocks[z, x].world, blocks[z, x].size);
 
                     // Perform an update on this block
@@ -125,6 +219,29 @@ namespace GameProgrammingMajor
                 }
 
             boundary.update(updateParams);
+
+            updatePathFinder(updateParams, selectedBlock);
+        }
+
+        private void updatePathFinder(UpdateParams updateParams, iVec2 selectedBlock)
+        {
+            mover.Update(updateParams, this);
+
+            // Place a new target when the right mouse button is pressed
+            if (updateParams.mouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+            {
+                // If within bounds and not a wall
+                if (selectedBlock.x >= 0 && selectedBlock.x < NUM_BLOCKS && selectedBlock.y >= 0 && selectedBlock.y < NUM_BLOCKS
+                    && getTowerTypeAt(selectedBlock.x, selectedBlock.y) != TowerType.WALL)
+                {
+                    Point startPoint = new Point(
+                        (int)(mover.position.X) / (int)blockSize,
+                        (int)(mover.position.Y) / (int)blockSize);
+                    Point endPoint = new Point(selectedBlock.x, selectedBlock.y);
+                    path = pathFinder.FindPath(startPoint, endPoint);
+                    mover.addPath(path);
+                }
+            }
         }
 
         public void draw(DrawParams drawParams)
@@ -136,6 +253,9 @@ namespace GameProgrammingMajor
                 }
 
             boundary.draw(drawParams);
+
+            // Draw path finder
+            mover.Draw(drawParams);
         }
     }
 }

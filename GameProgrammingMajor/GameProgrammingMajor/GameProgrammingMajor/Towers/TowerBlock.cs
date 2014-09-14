@@ -38,10 +38,6 @@ namespace GameProgrammingMajor
             this.size = size;
 
             init_selectionIndicator();
-
-            // TESTTTT!
-            if (blockId == new iVec2(5, 5) || blockId == new iVec2(2,4))
-                tower = new WallTower(game, world, size);
         }
 
         private void init_selectionIndicator()
@@ -52,6 +48,16 @@ namespace GameProgrammingMajor
 
             selectionIndicator = new PlaneEntity(game, selModel, world.Translation, 0);
             selectionIndicator.kinematic.position = world.Translation + Vector3.Up * 2f; // Offset into +Y
+        }
+
+        public void setTower(Tower tower)
+        {
+            this.tower = tower;
+        }
+
+        public int getGWeight()
+        {
+            return tower.gWeight;
         }
 
         public void update(UpdateParams updateParams)

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:MeshContent">
+    <Name>tower_soil</Name>
+    <Identity>
+      <SourceFilename>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\Models\tower_soil.FBX</SourceFilename>
+      <SourceTool>FbxImporter</SourceTool>
+    </Identity>
+    <OpaqueData>
+      <Data Key="MaxHandle" Type="int">2</Data>
+    </OpaqueData>
+    <Transform>2.54 0 0 0 0 1.55530138E-16 -2.54 0 0 2.54 1.55530138E-16 0 0 0 0 1</Transform>
+    <Positions>-3.33333349 -10 0 3.333333 -10 0 10 -10 0 -10 -3.33333349 0 10 -3.33333349 0 -10 3.333333 0 10 3.333333 0 -10 10 0 -3.33333349 10 0 3.333333 10 0 10 10 0 -10 -10 0 -3.33333349 -6.51135159 1.48844528 3.333333 -7.31240273 0.9144068 7.188246 -7.936762 0.854212761 -8.593763 -3.33333349 0.925733566 -3.33333349 -3.33333349 1.93820286 3.333333 -3.33333349 2 6.033613 -3.45631742 1.138483 -9.512081 3.333333 0.7599869 -3.33333349 3.333333 1.59653473 3.333333 3.333333 1.77161884 7.59497261 3.333333 1.06523466 -8.431347 8.793301 0.912027359 -3.33333349 7.41274452 1.400363 3.333333 8.330151 1.04714441 6.446518 7.68521 0.5914011</Positions>
+    <Geometry>
+      <Batch>
+        <Material>#Resource1</Material>
+        <Indices>2 1 0 0 3 2 5 4 1 1 2 5 7 6 4 4 5 7 8 2 3 3 9 8 10 5 2 2 8 10 11 7 5 5 10 11 12 8 9 9 13 12 14 10 8 8 12 14 15 11 10 10 14 15 18 17 16 20 19 16 16 17 20 22 21 19 19 20 22 25 24 23 23 26 25 28 27 24 24 25 28 15 29 27 27 28 15 32 31 30 30 33 32 35 34 31 31 32 35 37 36 34 34 35 37 40 39 38 38 13 40 42 41 39 39 40 42 42 43 41</Indices>
+        <Vertices>
+          <PositionIndices>11 12 16 15 13 17 14 18 20 19 21 22 24 23 25 26 0 12 11 1 13 2 14 2 4 18 14 6 22 10 10 9 25 26 8 24 7 23 7 5 19 3 15 11</PositionIndices>
+          <Channels>
+            <VertexChannel Name="Normal0" ElementType="Framework:Vector3">-0.1800067 -0.18914 0.965310037 -0.046588406 -0.245765522 0.968209147 -0.081393525 -0.0636681 0.9946464 -0.373590052 -0.0343893729 0.926956236 0.0409005731 -0.2676034 0.9626606 0.08808188 -0.07729227 0.99311 0.130176172 -0.179199859 0.9751623 0.227888212 -0.0495877266 0.972423851 -0.0716167837 0.04709539 0.9963197 -0.4276617 0.0130961547 0.903844 0.09418369 0.07148678 0.992985 0.246645823 0.040134117 0.9682743 -0.0298132114 0.263109237 0.964305341 -0.232503533 0.266704619 0.935313165 0.0541826449 0.2867533 0.956470966 0.152965859 0.192641675 0.9692732 0.009170177 -0.377536 0.925949454 -0.046588406 -0.245765522 0.968209147 -0.1800067 -0.18914 0.965310037 0.001246136 -0.359842449 0.933012247 0.0409005731 -0.2676034 0.9626606 0.164600044 -0.148188755 0.975165069 0.130176172 -0.179199859 0.9751623 0.164600044 -0.148188755 0.975165069 0.305854619 -0.0143343983 0.9519704 0.227888212 -0.0495877266 0.972423851 0.130176172 -0.179199859 0.9751623 0.2857827 0.0170945376 0.958141863 0.246645823 0.040134117 0.9682743 0.179167584 0.1663401 0.9696545 0.179167584 0.1663401 0.9696545 0.0272697788 0.41574648 0.9090716 0.0541826449 0.2867533 0.956470966 0.152965859 0.192641675 0.9692732 0.007723884 0.5135187 0.8580437 -0.0298132114 0.263109237 0.964305341 -0.363667518 0.279977262 0.888458669 -0.232503533 0.266704619 0.935313165 -0.363667518 0.279977262 0.888458669 -0.6401603 0.0041976 0.7682299 -0.4276617 0.0130961547 0.903844 -0.6088128 -0.0182899125 0.793103039 -0.373590052 -0.0343893729 0.926956236 -0.1800067 -0.18914 0.965310037</VertexChannel>
+            <VertexChannel Name="TextureCoordinate0" ElementType="Framework:Vector2">0 1 0.333333343 1 0.333333343 0.6666666 0 0.6666666 0.6666667 1 0.6666667 0.6666666 1 1 1 0.6666666 0.333333343 0.3333333 0 0.3333333 0.6666667 0.3333333 1 0.3333333 0.333333343 0 0 0 0.6666667 0 1 0 0.333333343 1 0.333333343 0 0 0 0.6666667 1 0.6666667 0 1 1 1 0 0 1 0.333333343 1 0.333333343 0 0 0 0.6666667 1 0.6666667 0 1 1 0 1 0.333333343 1 0.333333343 0 0 0 0.6666667 1 0.6666667 0 1 1 1 0 0 1 0.333333343 1 0.333333343 0 0.6666667 1 0.6666667 0 1 0</VertexChannel>
+          </Channels>
+        </Vertices>
+      </Batch>
+    </Geometry>
+  </Asset>
+  <Resources>
+    <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
+      <Name>Material #25</Name>
+      <Identity>
+        <SourceFilename>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajorContent\Models\tower_soil.FBX</SourceFilename>
+        <SourceTool>FbxImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0.588 0.588 0.588</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">1</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="SpecularPower" Type="float">2</Data>
+      </OpaqueData>
+      <Textures>
+        <Texture Key="Texture">
+          <OpaqueData>
+            <Data Key="TextureCoordinate">TextureCoordinate0</Data>
+          </OpaqueData>
+          <Reference>#External1</Reference>
+        </Texture>
+      </Textures>
+    </Resource>
+  </Resources>
+  <ExternalReferences>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\GameProgrammingMajorContent\Textures\block_soil.png</ExternalReference>
+  </ExternalReferences>
+</XnaContent>

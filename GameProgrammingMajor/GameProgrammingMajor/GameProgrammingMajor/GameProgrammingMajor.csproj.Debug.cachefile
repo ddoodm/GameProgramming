@@ -33,3 +33,10 @@ Content\Sound\shotgun_fire6.xnb
 Content\Sound\town_ambience.xnb
 Content\Sound\player_ouch.xnb
 Content\Textures\UI\GameOver.xnb
+Content\Textures\block_soil.xnb
+Content\Models\tower_soil.xnb
+Content\Textures\block_soil_0.xnb
+Content\Textures\block_tar.xnb
+Content\Models\tower_tar.xnb
+Content\Textures\block_tar_0.xnb
+Content\Models\mover_model.xnb

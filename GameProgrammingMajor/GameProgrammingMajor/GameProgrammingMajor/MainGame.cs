@@ -122,6 +122,9 @@ namespace GameProgrammingMajor
             // Load sounds
             soundManager.load(Content);
 
+            // Load world content
+            world.load(Content);
+
             player.loadContent(Content);
         }
 

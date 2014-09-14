@@ -42,11 +42,11 @@ namespace GameProgrammingMajor
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
             
             // Add the "Fire Here" sign
-            Vector3 shootHerePosition = new Vector3(0,0,-400f);
+            Vector3 shootHerePosition = new Vector3(0,0,-600f);
             staticManager.add(new StaticModel(game, game.Content.Load<Model>("Models\\ShootHere"), Matrix.CreateTranslation(shootHerePosition)));
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(200f,10f,200f)), staticManager);
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), staticManager);
 
             // Add a tank that pursues the player
             Tank pursueTank = new Tank(game, new Vector3(-200f,0,200f), this);
@@ -68,6 +68,12 @@ namespace GameProgrammingMajor
             ((Arrive)arriveNPC.steering).targetRadius = 75f;
             arriveNPC.steering.maxSpeed = 45f;
             npcManager.add(arriveNPC);
+        }
+
+        public void load(ContentManager content)
+        {
+            // Load path finding demo content 
+            towerManager.load(content);
         }
 
         public void update(UpdateParams updateParams)

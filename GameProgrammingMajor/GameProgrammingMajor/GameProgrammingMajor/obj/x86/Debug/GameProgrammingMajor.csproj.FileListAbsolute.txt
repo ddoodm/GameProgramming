@@ -49,3 +49,10 @@ D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajo
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\town_ambience.xnb
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\player_ouch.xnb
 D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\GameOver.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_soil.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil_0.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_tar.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar_0.xnb
+D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\mover_model.xnb

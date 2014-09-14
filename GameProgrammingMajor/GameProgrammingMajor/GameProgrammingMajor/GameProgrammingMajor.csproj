@@ -94,10 +94,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Models\StaticModel.cs" />
     <Compile Include="SoundManager.cs" />
+    <Compile Include="Towers\GrassTower.cs" />
+    <Compile Include="Towers\PathTower.cs" />
+    <Compile Include="Towers\SearchNode.cs" />
+    <Compile Include="Towers\TarTower.cs" />
     <Compile Include="Towers\Tower.cs" />
     <Compile Include="Towers\TowerBlock.cs" />
     <Compile Include="Towers\TowerManager.cs" />
+    <Compile Include="Towers\TowerPathFinder.cs" />
     <Compile Include="Towers\TowerSelectionManager.cs" />
+    <Compile Include="Towers\TowerTraverser.cs" />
     <Compile Include="UI\HUD.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="World\World.cs" />

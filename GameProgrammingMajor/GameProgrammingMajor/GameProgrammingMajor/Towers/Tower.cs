@@ -13,6 +13,9 @@ namespace GameProgrammingMajor
         protected StaticModel model;
         protected PlaneEntity shadowTex;
 
+        // Path-finding weight
+        public int gWeight = 0;
+
         public Tower(Game game, Matrix world, float size)
             : base(game, world)
         {
@@ -36,15 +39,22 @@ namespace GameProgrammingMajor
             shadowTex.update(updateParams);
         }
 
-        public virtual void draw(DrawParams drawParams)
+        protected virtual void drawShadow(DrawParams drawParams)
         {
             game.GraphicsDevice.BlendState = BlendState.AlphaBlend;
             shadowTex.draw(drawParams);
+        }
+
+        public virtual void draw(DrawParams drawParams)
+        {
+
         }
     }
 
     public class WallTower : Tower
     {
+        public int gWeight = 0;
+
         public WallTower(Game game, Matrix world, float size)
             : base(game, world, size)
         {
@@ -70,6 +80,7 @@ namespace GameProgrammingMajor
         {
             base.draw(drawParams);
 
+            drawShadow(drawParams);
             model.draw(drawParams);
         }
     }
