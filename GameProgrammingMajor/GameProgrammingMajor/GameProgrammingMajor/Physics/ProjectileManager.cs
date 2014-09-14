@@ -78,9 +78,6 @@ namespace GameProgrammingMajor
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
 
-                    // Shake the camera
-                    updateParams.camera.shake(25);
-
                     // Remove the projectile
                     projectiles.Remove(projectiles[i]);
                     continue;
@@ -153,6 +150,10 @@ namespace GameProgrammingMajor
                 if(player.collidesWith(boundingSphere))
                 {
                     player.takeDamage(updateParams, damage);
+
+                    // Shake the camera
+                    updateParams.camera.shake(25);
+
                     return true;
                 }
                 return false;
