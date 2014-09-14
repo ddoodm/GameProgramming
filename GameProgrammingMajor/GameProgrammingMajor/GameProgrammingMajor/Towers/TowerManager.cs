@@ -187,7 +187,7 @@ namespace GameProgrammingMajor
         // Get the Tower Type at the specified index
         public TowerType getTowerTypeAt(int x, int y)
         {
-            return getTowerTypeOf(blocks[y, x].GetType());
+            return getTowerTypeOf(blocks[y, x].tower.GetType());
         }
 
         public int getGWeight(int x, int y)
