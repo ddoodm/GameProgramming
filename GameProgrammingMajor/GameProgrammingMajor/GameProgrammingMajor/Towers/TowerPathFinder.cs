@@ -250,8 +250,8 @@ namespace GameProgrammingMajor
             // Reverse the path and transform into world space.
             for (int i = closedList.Count - 1; i >= 0; i--)
             {
-                finalPath.Add(new Vector2(closedList[i].Position.X * 32,
-                                          closedList[i].Position.Y * 32));
+                finalPath.Add(new Vector2(closedList[i].Position.X * 20,
+                                          closedList[i].Position.Y * 20));
             }
 
             return finalPath;

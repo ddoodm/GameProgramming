@@ -26,7 +26,7 @@ namespace GameProgrammingMajor
 
         private const int
             NUM_BLOCKS = 10;        // The number of tower blocks in both axes.
-        private const float
+        public const float
             blockSize = 20f;       // The size each block in the grid.
 
         // Transformation of this collection of towers ("village")

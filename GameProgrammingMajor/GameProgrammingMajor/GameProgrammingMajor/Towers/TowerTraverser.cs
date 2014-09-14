@@ -13,6 +13,8 @@ namespace GameProgrammingMajor
         List<Vector2> path;
         StaticModel markerModel, moverModel;
 
+        float levelWidth, levelHeight;
+
         float time;
         float defaultDelay = 1f;
         float delay = 1f;
@@ -35,6 +37,8 @@ namespace GameProgrammingMajor
 
         public void Update(UpdateParams updateParams, TowerManager level)
         {
+            levelWidth = levelHeight = 20f * level.blocks.GetLength(0);
+
             if (path.Count > 0)
             {
 
@@ -43,7 +47,7 @@ namespace GameProgrammingMajor
                 {
                     position = path[0];
                     time = 0;
-                    TowerType towerType = level.getTowerTypeAt((int)path[0].X / 32, (int)path[0].Y / 32);
+                    TowerType towerType = level.getTowerTypeAt((int)path[0].X / 20, (int)path[0].Y / 20);
                     switch (towerType)
                     {
                         case TowerType.PATH: delay = 0.5f;//road
@@ -68,7 +72,8 @@ namespace GameProgrammingMajor
         {
             DrawPath(drawParams);
 
-            moverModel.world = Matrix.CreateTranslation(new Vector3(position.X, 0, position.Y));
+            moverModel.world = Matrix.CreateTranslation(
+                new Vector3(position.X * 2 - levelWidth/2 - 80, 0, position.Y * 2 - levelHeight/2 - 80));
             moverModel.draw(drawParams);
         }
 
@@ -76,7 +81,8 @@ namespace GameProgrammingMajor
         {
             foreach (Vector2 v in path)
             {
-                markerModel.world = Matrix.CreateScale(5f) * Matrix.CreateTranslation(new Vector3(v.X, 0, v.Y));
+                markerModel.world = Matrix.CreateScale(5f) * Matrix.CreateTranslation(
+                    new Vector3(v.X * 2 - levelWidth/2 - 80, 0, v.Y * 2 - levelHeight/2 - 80));
                 markerModel.draw(drawParams);
             }
         }
