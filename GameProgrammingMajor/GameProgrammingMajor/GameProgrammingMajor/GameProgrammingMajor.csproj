@@ -107,6 +107,7 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <Content Include="UI\GameOver.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameProgrammingMajorContent\GameProgrammingMajorContent.contentproj">

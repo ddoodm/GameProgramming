@@ -457,6 +457,15 @@
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\player_ouch.xnb</Output>
       <Time>2014-09-14T10:31:58+10:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\UI\GameOver.png</Source>
+      <Name>Textures\UI\GameOver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\GameOver.xnb</Output>
+      <Time>2014-09-14T11:26:26+10:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FE9AF510-DFF9-4474-9918-26045114DA50}</ContentProjectGUID>

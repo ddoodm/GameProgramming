@@ -160,6 +160,20 @@ namespace GameProgrammingMajor
                 || keyboard.IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            // Play the ambient noise
+            if (soundManager.ambientInstance == null)
+                soundManager.playAmbience(SoundManager.SoundNames.AMBIENCE_TOWN);
+
+            // Stop working if the player has died
+            if (player.isDead)
+            {
+                // When 'return' is pressed, restore health
+                if (keyboard.IsKeyDown(Keys.Enter))
+                    player.health = 1f;
+                else
+                    return;
+            }
+
             // Select the type of camera:
             changeCamera(keyboard);
 
@@ -174,10 +188,6 @@ namespace GameProgrammingMajor
 
             // Update UI message
             hud.update(updateParams);
-
-            // Play the ambient noise
-            if(soundManager.ambientInstance == null)
-                soundManager.playAmbience(SoundManager.SoundNames.AMBIENCE_TOWN);
 
             base.Update(gameTime);
         }
@@ -221,7 +231,7 @@ namespace GameProgrammingMajor
             player.draw(drawParams);
 
             // Draw a UI
-            hud.draw(drawParams);
+            hud.draw(drawParams, spriteBatch);
 
             base.Draw(gameTime);
         }

@@ -181,6 +181,11 @@ namespace GameProgrammingMajor
             updateParams.soundManager.play(SoundManager.SoundNames.PLAYER_PAIN);
         }
 
+        public bool isDead
+        {
+            get { return health == 0; }
+        }
+
         public void draw(DrawParams drawParams)
         {
             projectileMan.draw(drawParams);

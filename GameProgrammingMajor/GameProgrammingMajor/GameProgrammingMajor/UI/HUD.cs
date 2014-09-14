@@ -17,6 +17,9 @@ namespace GameProgrammingMajor
         private SpriteFont uiFont;
         private string message = "";
 
+        private Texture2D gameOverSprite;
+        private Texture2D blackTexture;
+
         Player player;
 
         public bool visible = true; 
@@ -28,6 +31,11 @@ namespace GameProgrammingMajor
             this.player = player;
 
             uiFont = game.Content.Load<SpriteFont>("Font\\UIFont");
+            gameOverSprite = game.Content.Load<Texture2D>("Textures\\UI\\GameOver");
+
+            // Make a 1x1 semi-transparent texture
+            blackTexture = new Texture2D(game.GraphicsDevice, 1, 1);
+            blackTexture.SetData(new Color[] {new Color(0, 0, 0, 0.75f)});
         }
 
         public void update(UpdateParams updateParams)
@@ -47,8 +55,11 @@ namespace GameProgrammingMajor
         /// 
         /// </summary>
         /// <param name="drawParams"></param>
-        public void draw(DrawParams drawParams)
+        public void draw(DrawParams drawParams, SpriteBatch spriteBatch)
         {
+            if(player.isDead)
+                drawGameOver(drawParams, spriteBatch);
+
             if (!visible)
                 return;
 
@@ -67,6 +78,20 @@ namespace GameProgrammingMajor
             game.GraphicsDevice.BlendState = BlendState.AlphaBlend;
             game.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+        }
+
+        private void drawGameOver(DrawParams drawParams, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+
+            Rectangle view = drawParams.graphicsDevice.Viewport.Bounds;
+            Vector2 midView = new Vector2(view.Center.X, view.Center.Y);
+            midView -= new Vector2(gameOverSprite.Bounds.Center.X, gameOverSprite.Bounds.Center.Y);
+
+            spriteBatch.Draw(blackTexture, view, Color.White);
+            spriteBatch.Draw(gameOverSprite, midView, Color.White);
+
+            spriteBatch.End();
         }
     }
 }

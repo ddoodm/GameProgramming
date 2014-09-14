@@ -32,3 +32,4 @@ Content\Textures\bakedFountain_0.xnb
 Content\Sound\shotgun_fire6.xnb
 Content\Sound\town_ambience.xnb
 Content\Sound\player_ouch.xnb
+Content\Textures\UI\GameOver.xnb
