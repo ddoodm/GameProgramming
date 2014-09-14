@@ -36,7 +36,7 @@ Team Members:
   XXXXXXXX  – Deinyon Davies
 11685740 – Daniel Nelson
 11697822 – Matthew Wale
-XXXXXXXX – Jesse Walker
+11729631 – Jesse Walker
 	
 
 How To Play.
@@ -71,19 +71,21 @@ A filling prospect. These guys have got me here, I don’t really know enough abou
 
 Peer Evaluation.
 
-Deinyon 	<role>
+Deinyon 	Lead programmer/<anything you want listed>
 Score: 0.0-5.0
 <Justification spiel>
 
-Daniel 	Designer/Ai programer 
-Score: 0.0-5.0
-did lots of reasearch into a* and implemented a demo
-contributed lab project code 
-lead design talks 
+Daniel 	Designer/AI programmer 
+Score: 5.0
+Researched A* path-finding and implemented a demonstration for it. Also led design talks and contributed lab code to the project.
 
-Matthew 	<role>
-Score: 0.0-5.0
-<Justification spiel>
+//did lots of reasearch into a* and implemented a demo
+//contributed lab project code 
+//lead design talks 
+
+Matthew 	Documentation/Administration
+Score: 3.0
+Organised and compiled elements for the read-me document. 
 
 Jesse 		<role>
 Score: 0.0-5.0

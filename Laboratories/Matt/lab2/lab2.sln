@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab2", "lab2\lab2\lab2.csproj", "{FAEADA37-7A34-46CB-8661-83E5B97D71D8}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "lab2Content", "lab2\lab2Content\lab2Content.contentproj", "{A15A3741-EDBE-4042-8644-205F06F2AA15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAEADA37-7A34-46CB-8661-83E5B97D71D8}.Debug|x86.ActiveCfg = Debug|x86
+		{FAEADA37-7A34-46CB-8661-83E5B97D71D8}.Debug|x86.Build.0 = Debug|x86
+		{FAEADA37-7A34-46CB-8661-83E5B97D71D8}.Release|x86.ActiveCfg = Release|x86
+		{FAEADA37-7A34-46CB-8661-83E5B97D71D8}.Release|x86.Build.0 = Release|x86
+		{A15A3741-EDBE-4042-8644-205F06F2AA15}.Debug|x86.ActiveCfg = Debug|x86
+		{A15A3741-EDBE-4042-8644-205F06F2AA15}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
