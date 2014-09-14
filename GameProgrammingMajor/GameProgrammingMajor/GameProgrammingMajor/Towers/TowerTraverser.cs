@@ -81,8 +81,8 @@ namespace GameProgrammingMajor
         {
             foreach (Vector2 v in path)
             {
-                markerModel.world = Matrix.CreateScale(5f) * Matrix.CreateTranslation(
-                    new Vector3(v.X * 2 - levelWidth/2 - 80, 0, v.Y * 2 - levelHeight/2 - 80));
+                markerModel.world = Matrix.CreateScale(3f) * Matrix.CreateTranslation(
+                    new Vector3(v.X * 2 - levelWidth/2 - 80, 10, v.Y * 2 - levelHeight/2 - 80));
                 markerModel.draw(drawParams);
             }
         }
