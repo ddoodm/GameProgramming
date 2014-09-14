@@ -14,7 +14,7 @@ namespace GameProgrammingMajor
         protected PlaneEntity shadowTex;
 
         // Path-finding weight
-        public int gWeight = 0;
+        private int gWeight = 0;
 
         public Tower(Game game, Matrix world, float size)
             : base(game, world)
@@ -32,6 +32,11 @@ namespace GameProgrammingMajor
             PlanePrimitive plane = new PlanePrimitive(game, size*1.5f, Vector3.Up);
             shadowTex = new PlaneEntity(game, plane, world.Translation + Vector3.Up, 0);
             shadowTex.primitive.texture = game.Content.Load<Texture2D>("Textures\\shadowA");
+        }
+
+        public virtual int getGWeight()
+        {
+            return gWeight;
         }
 
         public virtual void update(UpdateParams updateParams)
@@ -53,7 +58,7 @@ namespace GameProgrammingMajor
 
     public class WallTower : Tower
     {
-        public int gWeight = 0;
+        private int gWeight = 0;
 
         public WallTower(Game game, Matrix world, float size)
             : base(game, world, size)
@@ -67,6 +72,11 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_wall"), world);
+        }
+
+        public override int getGWeight()
+        {
+            return gWeight;
         }
 
         public override void update(UpdateParams updateParams)

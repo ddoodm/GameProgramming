@@ -10,7 +10,7 @@ namespace GameProgrammingMajor
     public class PathTower : Tower
     {
         // Path is a first-class A* block - it is preferred
-        public int gWeight = 1;
+        private int gWeight = 1;
 
         public PathTower(Game game, Matrix world, float size)
             : base(game, world, size)
@@ -24,6 +24,11 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_soil"), world);
+        }
+
+        public override int getGWeight()
+        {
+            return gWeight;
         }
 
         public override void update(UpdateParams updateParams)

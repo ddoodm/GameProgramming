@@ -57,7 +57,7 @@ namespace GameProgrammingMajor
 
         public int getGWeight()
         {
-            return tower.gWeight;
+            return tower.getGWeight();
         }
 
         public void update(UpdateParams updateParams)

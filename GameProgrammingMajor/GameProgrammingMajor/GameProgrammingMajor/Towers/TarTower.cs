@@ -9,7 +9,7 @@ namespace GameProgrammingMajor
 {
     class TarTower : Tower
     {
-        public int gWeight = 10;
+        private int gWeight = 10;
 
         public TarTower(Game game, Matrix world, float size)
             : base(game, world, size)
@@ -23,6 +23,11 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_tar"), world);
+        }
+
+        public override int getGWeight()
+        {
+            return gWeight;
         }
 
         public override void update(UpdateParams updateParams)
