@@ -172,7 +172,7 @@ namespace GameProgrammingMajor
         public void takeDamage(UpdateParams updateParams, float damage)
         {
             // Constrain to 0 or above
-            if (health - damage >= 0)
+            if (health - damage > 0)
                 health -= damage;
             else
                 health = 0;

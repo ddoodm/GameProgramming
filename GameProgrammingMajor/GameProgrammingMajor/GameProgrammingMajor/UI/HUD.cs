@@ -11,7 +11,7 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Score: {0}    Health: {1}\n";
+        public static string TEXT_PLAYER = "Score: {0}    Health: {1:0.0}\n";
         public static string TEXT_DEBUG = "Camera (1,2,3): {2}\nTank A Priority: {3}    Tank B Priority: {4}";
 
         private SpriteFont uiFont;

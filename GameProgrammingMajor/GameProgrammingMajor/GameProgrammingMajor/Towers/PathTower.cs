@@ -10,7 +10,7 @@ namespace GameProgrammingMajor
     public class PathTower : Tower
     {
         // Path is a first-class A* block - it is preferred
-        private int gWeight = 1;
+        private int gWeight = 0;
 
         public PathTower(Game game, Matrix world, float size)
             : base(game, world, size)

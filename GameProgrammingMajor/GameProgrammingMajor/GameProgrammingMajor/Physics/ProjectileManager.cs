@@ -102,7 +102,7 @@ namespace GameProgrammingMajor
             public float speed;
             public float screenTime = 0;
             public float creationTime = 0;
-            public float damage = 0.09f;
+            public float damage = 0.2f;
 
             public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed)
             {

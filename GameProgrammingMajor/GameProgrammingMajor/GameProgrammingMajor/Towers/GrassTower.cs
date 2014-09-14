@@ -25,6 +25,11 @@ namespace GameProgrammingMajor
             model = null;
         }
 
+        public override int getGWeight()
+        {
+            return gWeight;
+        }
+
         public override void update(UpdateParams updateParams)
         {
             base.update(updateParams);
