@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11688025_lab10", "11688025_lab10\11688025_lab10\11688025_lab10.csproj", "{7A0817D8-5144-4BC7-B1DA-590A10468970}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "11688025_lab10Content", "11688025_lab10\11688025_lab10Content\11688025_lab10Content.contentproj", "{68C1AD50-D57F-4B79-9550-70927B4DB8D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A0817D8-5144-4BC7-B1DA-590A10468970}.Debug|x86.ActiveCfg = Debug|x86
+		{7A0817D8-5144-4BC7-B1DA-590A10468970}.Debug|x86.Build.0 = Debug|x86
+		{7A0817D8-5144-4BC7-B1DA-590A10468970}.Release|x86.ActiveCfg = Release|x86
+		{7A0817D8-5144-4BC7-B1DA-590A10468970}.Release|x86.Build.0 = Release|x86
+		{68C1AD50-D57F-4B79-9550-70927B4DB8D9}.Debug|x86.ActiveCfg = Debug|x86
+		{68C1AD50-D57F-4B79-9550-70927B4DB8D9}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
