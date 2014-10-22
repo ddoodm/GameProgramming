@@ -1,2 +1,0 @@
-C:\Users\daniel\Documents\Programing\intro to games programing\pathfinding\pathfinding\pathfindingContent\obj\x86\Debug\pathfindingContent.contentprojResolveAssemblyReference.cache
-C:\Users\daniel\Documents\GitHub\GameProgramming\pathfinding v2\pathfinding\pathfindingContent\obj\x86\Debug\pathfindingContent.contentprojResolveAssemblyReference.cache
