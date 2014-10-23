@@ -93,20 +93,20 @@ namespace GameProgrammingMajor
             // Create the world
             world = new World(this);
 
-            // Create a player at (-100,0,0)
-            player = new Player(this, Matrix.CreateTranslation(new Vector3(-150f,0,0)), world);
-
             // Configure the camera as an FPS camera for the player
             camera = new TopdownCamera(this, topdownCamDesc);
+
+            // Load the world
+            world.hardcodedWorldPopulation(this);
+
+            // Create a player at (-100,0,0)
+            player = new Player(this, Matrix.CreateTranslation(new Vector3(-150f, 0, 0)), world, world.towerManager);
 
             // Supply the Player to the world
             world.player = player;
 
             // Create a HUD that displays information about the Player
             hud = new HUD(this, player);
-
-            // Load the world
-            world.hardcodedWorldPopulation(this);
 
             base.Initialize();
         }

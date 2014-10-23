@@ -19,16 +19,16 @@ namespace GameProgrammingMajor
         private ProjectileManager projectileManager;
         public Kinematic turretTarget;
 
-        public Tank(Game game, Vector3 position, World world)
+        public Tank(Game game, Vector3 position, World world, TowerManager towerManager)
             : base(game)
         {
             kinematic.position = position;
 
-            projectileManager = new ProjectileManager(game, world);
+            projectileManager = new ProjectileManager(game, world, towerManager);
         }
 
-        public Tank(Game game, World world)
-            : this(game, Vector3.Zero, world)
+        public Tank(Game game, World world, TowerManager towerManager)
+            : this(game, Vector3.Zero, world, towerManager)
         {
             
         }

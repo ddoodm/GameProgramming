@@ -17,6 +17,7 @@ namespace GameProgrammingMajor
         private List<Projectile> projectiles;
         private List<StaticModel> staticTargets;
         private List<Entity> entityTargets;
+        private TowerManager towerManager;
         private StaticModel projectileModel;
         private float cooldown = 0;
 
@@ -24,13 +25,14 @@ namespace GameProgrammingMajor
         public float projectileSpeed = 0.8f;
         public string projectileFireSound = SoundManager.SoundNames.PROJECTILE_FIRE;
 
-        public ProjectileManager(Game game, World world)
+        public ProjectileManager(Game game, World world, TowerManager towerManager)
         {
             this.game = game;
             projectiles = new List<Projectile>();
 
             entityTargets = world.entityManager.entities;
             staticTargets = world.staticManager.models;
+            this.towerManager = towerManager;
         }
 
         public void loadContent(ContentManager content)
@@ -73,7 +75,8 @@ namespace GameProgrammingMajor
 
                 if (projectiles[i].collision_test(staticTargets)
                     || projectiles[i].collision_test(entityTargets)
-                    || projectiles[i].collision_test(updateParams, updateParams.player))
+                    || projectiles[i].collision_test(updateParams, updateParams.player)
+                    || projectiles[i].collision_test(towerManager))
                 {
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
@@ -157,6 +160,14 @@ namespace GameProgrammingMajor
                     return true;
                 }
                 return false;
+            }
+
+            /// <summary>
+            /// Check for collisions with all Towers in a TowerManager
+            /// </summary>
+            public bool collision_test(TowerManager towerManager)
+            {
+                return towerManager.towersCollideWith(boundingSphere);
             }
 
             public void draw(DrawParams drawParams)

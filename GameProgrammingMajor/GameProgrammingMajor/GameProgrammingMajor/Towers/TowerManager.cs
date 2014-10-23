@@ -128,7 +128,7 @@ namespace GameProgrammingMajor
         public void load(ContentManager content)
         {
             // Create the entity that will traverse the terrain
-            Tank tank = new Tank(game, ((MainGame)game).world); // TODO: Very bad hack. Do not do this.
+            Tank tank = new Tank(game, ((MainGame)game).world, this); // TODO: Very bad hack. Do not do this.
             tank.load(content);
             tank.npc = new NPC(game, tank);
             tank.npc.steering = new Seek();
@@ -315,6 +315,32 @@ namespace GameProgrammingMajor
         public void setPathFinderStartNode(iVec2 startBlock)
         {
             mover.position = new Vector2(startBlock.x, startBlock.y) * blockSize;
+        }
+
+        /// <summary>
+        /// Collision detect the sphere against all Towers in this Tower Manager.
+        /// </summary>
+        /// <param name="sphere">The sphere to collide with</param>
+        /// <returns>True if an intersection was detected</returns>
+        public bool towersCollideWith(BoundingSphere sphere)
+        {
+            foreach (TowerBlock block in blocks)
+                if (block.tower != null && block.tower.collidesWith(sphere))
+                    return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Collision detect the box against all Towers in this Tower Manager.
+        /// </summary>
+        /// <param name="box">The box to collide with</param>
+        /// <returns>True if an intersection was detected</returns>
+        public bool towersCollideWith(BoundingBox box)
+        {
+            foreach (TowerBlock block in blocks)
+                if (block.tower != null && block.tower.collidesWith(box))
+                    return true;
+            return false;
         }
 
         public void draw(DrawParams drawParams)

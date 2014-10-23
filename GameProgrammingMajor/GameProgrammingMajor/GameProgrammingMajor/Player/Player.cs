@@ -45,14 +45,14 @@ namespace GameProgrammingMajor
         /// <summary>
         /// Create a player that is linked to a camera
         /// </summary>
-        public Player(Game game, Matrix worldMatrix, World world)
+        public Player(Game game, Matrix worldMatrix, World world, TowerManager towerManager)
         {
             this.kinematic = new Kinematic(worldMatrix.Translation);
             this.steering = new Steering();
 
             boundingSphere = new BoundingSphere(worldMatrix.Translation, 15f);
 
-            projectileMan = new ProjectileManager(game, world);
+            projectileMan = new ProjectileManager(game, world, towerManager);
             projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
             projectileMan.cooldownWait = 5f;
         }

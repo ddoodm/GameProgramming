@@ -11,6 +11,8 @@ namespace GameProgrammingMajor
     {
         private float size;
         protected StaticModel model;
+        protected BoundingBox boundingBox;
+        protected DrawableBoundingBox drawableBoundingBox;
         protected PlaneEntity shadowTex;
 
         public bool shadowEnabled = false;
@@ -59,6 +61,22 @@ namespace GameProgrammingMajor
         {
 
         }
+
+        public bool collidesWith(BoundingSphere sphere)
+        {
+            if (boundingBox == null || sphere == null)
+                return false;
+
+            return boundingBox.Intersects(sphere);
+        }
+
+        public bool collidesWith(BoundingBox box)
+        {
+            if (boundingBox == null || box == null)
+                return false;
+
+            return boundingBox.Intersects(box);
+        }
     }
 
     public class WallTower : Tower
@@ -77,6 +95,12 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_wall"), world);
+
+            // Create a Bounding Box from the model using our utility class
+            boundingBox = BoundingBoxUtilities.createBoundingBox(model.model, world);
+
+            // Create a drawable Bounding Box from the Bounding Box created above
+            drawableBoundingBox = new DrawableBoundingBox(boundingBox, game.GraphicsDevice);
         }
 
         public override int getGWeight()
@@ -97,6 +121,7 @@ namespace GameProgrammingMajor
 
             drawShadow(drawParams);
             model.draw(drawParams);
+            drawableBoundingBox.draw(drawParams);
         }
     }
 }

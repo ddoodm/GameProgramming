@@ -49,6 +49,10 @@ namespace GameProgrammingMajor
         /// <param name="pathFinder">The path finder that stores the new search nodes.</param>
         public void rePathfind(TowerManager level, TowerPathFinder pathFinder)
         {
+            // If the path is null, there is no need to re-calculate
+            if (path == null)
+                return;
+
             iVec2 from = level.idOf(mover.kinematic.position);
             iVec2 to = new iVec2(path.Last() / (int)TowerManager.blockSize);
 
