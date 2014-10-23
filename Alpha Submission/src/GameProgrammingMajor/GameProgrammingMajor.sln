@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameProgrammingMajor", "GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor.csproj", "{A92572F6-62B3-48F1-B4A7-EE0D4953A59F}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "GameProgrammingMajorContent", "GameProgrammingMajor\GameProgrammingMajorContent\GameProgrammingMajorContent.contentproj", "{FE9AF510-DFF9-4474-9918-26045114DA50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A92572F6-62B3-48F1-B4A7-EE0D4953A59F}.Debug|x86.ActiveCfg = Debug|x86
+		{A92572F6-62B3-48F1-B4A7-EE0D4953A59F}.Debug|x86.Build.0 = Debug|x86
+		{A92572F6-62B3-48F1-B4A7-EE0D4953A59F}.Release|x86.ActiveCfg = Release|x86
+		{A92572F6-62B3-48F1-B4A7-EE0D4953A59F}.Release|x86.Build.0 = Release|x86
+		{FE9AF510-DFF9-4474-9918-26045114DA50}.Debug|x86.ActiveCfg = Debug|x86
+		{FE9AF510-DFF9-4474-9918-26045114DA50}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

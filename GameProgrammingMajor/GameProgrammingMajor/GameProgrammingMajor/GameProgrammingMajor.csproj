@@ -80,6 +80,7 @@
     <Compile Include="Models\Skybox.cs" />
     <Compile Include="Entities\WaveController.cs" />
     <Compile Include="Models\StaticModelManager.cs" />
+    <Compile Include="NormalComputer.cs" />
     <Compile Include="Physics\ProjectileManager.cs" />
     <Compile Include="Primitives\PlanePrimitive.cs" />
     <Compile Include="Entities\Entity.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Models\StaticModel.cs" />
     <Compile Include="SoundManager.cs" />
+    <Compile Include="Terrain.cs" />
     <Compile Include="Towers\GrassTower.cs" />
     <Compile Include="Towers\PathTower.cs" />
     <Compile Include="Towers\SearchNode.cs" />

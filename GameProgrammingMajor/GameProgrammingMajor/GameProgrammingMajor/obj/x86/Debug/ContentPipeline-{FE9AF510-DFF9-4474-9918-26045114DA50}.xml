@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Textures\brickFacade.jpg</Source>
-      <Name>Textures\brickFacade</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\brickFacade.xnb</Output>
-      <Time>2014-09-09T19:34:04+10:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\Grass0139_33_S.jpg</Source>
       <Name>Textures\Grass0139_33_S</Name>
       <Importer>TextureImporter</Importer>
@@ -29,37 +20,6 @@
       <Time>2014-09-09T22:19:46+10:00</Time>
     </Item>
     <Item>
-      <Source>Font\UIFont.spritefont</Source>
-      <Name>Font\UIFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb</Output>
-      <Time>2014-09-10T17:22:12+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\tower_wall.FBX</Source>
-      <Name>Models\tower_wall</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_wall.xnb</Output>
-      <Time>2014-09-12T12:01:28+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Key>
-        <Value>2014-09-12T12:01:32+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Request>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\tower_wall.FBX</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Output>
-      <Time>2014-09-12T12:01:28+10:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\concreteNew.jpg</Source>
       <Name>Textures\concreteNew</Name>
       <Importer>TextureImporter</Importer>
@@ -69,44 +29,12 @@
       <Time>2014-09-10T21:43:04+10:00</Time>
     </Item>
     <Item>
-      <Source>Textures\concreteNew.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Output>
-      <Time>2014-09-10T21:43:04+10:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\BrickOldRounded0298_1_S.jpg</Source>
       <Name>Textures\BrickOldRounded0298_1_S</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S.xnb</Output>
-      <Time>2014-09-10T21:43:20+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\BrickOldRounded0298_1_S.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Output>
       <Time>2014-09-10T21:43:20+10:00</Time>
     </Item>
     <Item>
@@ -128,6 +56,93 @@
       <Time>2014-09-11T16:06:58+10:00</Time>
     </Item>
     <Item>
+      <Source>engine_diff_tex.tga</Source>
+      <Name>engine_diff_tex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\engine_diff_tex.xnb</Output>
+      <Time>2014-09-11T17:04:10+10:00</Time>
+    </Item>
+    <Item>
+      <Source>turret_alt_diff_tex.tga</Source>
+      <Name>turret_alt_diff_tex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\turret_alt_diff_tex.xnb</Output>
+      <Time>2014-09-11T17:04:12+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Skybox.jpg</Source>
+      <Name>Textures\Skybox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox.xnb</Output>
+      <Time>2014-09-11T21:37:42+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\ShootHere.jpg</Source>
+      <Name>Textures\ShootHere</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere.xnb</Output>
+      <Time>2014-09-12T21:22:02+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\GameOver.png</Source>
+      <Name>Textures\UI\GameOver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\GameOver.xnb</Output>
+      <Time>2014-09-14T11:26:26+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\block_soil.png</Source>
+      <Name>Textures\block_soil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil.xnb</Output>
+      <Time>2014-09-14T12:22:52+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\block_tar.png</Source>
+      <Name>Textures\block_tar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar.xnb</Output>
+      <Time>2014-09-14T14:52:38+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Font\UIFont.spritefont</Source>
+      <Name>Font\UIFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Font\UIFont.xnb</Output>
+      <Time>2014-09-10T17:22:12+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\tower_wall.FBX</Source>
+      <Name>Models\tower_wall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_wall.xnb</Output>
+      <Time>2014-09-12T12:01:28+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Key>
+        <Value>2014-09-14T21:33:50+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Request>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
+    </Item>
+    <Item>
       <Source>Models\DSphere.FBX</Source>
       <Name>Models\DSphere</Name>
       <Importer>FbxImporter</Importer>
@@ -137,9 +152,214 @@
       <Time>2014-09-11T16:06:50+10:00</Time>
       <Dependency>
         <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\DSphere_0.xml</Key>
-        <Value>2014-09-11T16:10:40+10:00</Value>
+        <Value>2014-09-14T21:33:52+10:00</Value>
       </Dependency>
       <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\checker_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>tank.fbx</Source>
+      <Name>tank</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\tank.xnb</Output>
+      <Time>2014-09-11T17:04:10+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\tank_0.xml</Key>
+        <Value>2014-09-14T21:33:54+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\DSkyboxMesh.FBX</Source>
+      <Name>Models\DSkyboxMesh</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\DSkyboxMesh.xnb</Output>
+      <Time>2014-09-11T21:12:58+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\DSkyboxMesh_0.xml</Key>
+        <Value>2014-09-14T21:33:56+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\towerManBase.FBX</Source>
+      <Name>Models\towerManBase</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\towerManBase.xnb</Output>
+      <Time>2014-09-12T21:05:22+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\towerManBase_0.xml</Key>
+        <Value>2014-09-14T21:33:58+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\ShootHere.FBX</Source>
+      <Name>Models\ShootHere</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\ShootHere.xnb</Output>
+      <Time>2014-09-12T21:21:50+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\ShootHere_0.xml</Key>
+        <Value>2014-09-14T21:34:06+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\tower_soil.FBX</Source>
+      <Name>Models\tower_soil</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_soil.xnb</Output>
+      <Time>2014-09-14T12:22:46+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_soil_0.xml</Key>
+        <Value>2014-09-14T21:34:08+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\tower_tar.FBX</Source>
+      <Name>Models\tower_tar</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_tar.xnb</Output>
+      <Time>2014-09-14T14:52:46+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_tar_0.xml</Key>
+        <Value>2014-09-14T21:34:08+10:00</Value>
+      </Dependency>
+      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\mover_model.FBX</Source>
+      <Name>Models\mover_model</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\mover_model.xnb</Output>
+      <Time>2014-09-14T15:50:58+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\mover_model_0.xml</Key>
+        <Value>2014-09-14T21:34:08+10:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\teapot.FBX</Source>
+      <Name>Models\teapot</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\teapot.xnb</Output>
+      <Time>2014-09-14T20:11:38+10:00</Time>
+      <Dependency>
+        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\teapot_0.xml</Key>
+        <Value>2014-09-14T21:34:12+10:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Sound\metal_barrel_impact_hard2.wav</Source>
+      <Name>Sound\metal_barrel_impact_hard2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\metal_barrel_impact_hard2.xnb</Output>
+      <Time>2014-09-12T12:43:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\smg1_fire1.wav</Source>
+      <Name>Sound\smg1_fire1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\smg1_fire1.xnb</Output>
+      <Time>2014-09-12T12:43:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\shotgun_fire6.wav</Source>
+      <Name>Sound\shotgun_fire6</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\shotgun_fire6.xnb</Output>
+      <Time>2014-09-14T09:21:16+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\town_ambience.wav</Source>
+      <Name>Sound\town_ambience</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\town_ambience.xnb</Output>
+      <Time>2014-09-14T09:48:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\player_ouch.wav</Source>
+      <Name>Sound\player_ouch</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\player_ouch.xnb</Output>
+      <Time>2014-09-14T10:31:58+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\plasma.fx</Source>
+      <Name>Shaders\plasma</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Shaders\plasma.xnb</Output>
+      <Time>2014-09-14T20:14:38+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\tower_wall.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_wall_0.xml</Output>
+      <Time>2014-09-12T12:01:28+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\concreteNew.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\concreteNew_0.xnb</Output>
+      <Time>2014-09-10T21:43:04+10:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\BrickOldRounded0298_1_S.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Output>
+      <Time>2014-09-10T21:43:20+10:00</Time>
     </Item>
     <Item>
       <Source>Models\DSphere.FBX</Source>
@@ -163,39 +383,6 @@
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\checker_0.xnb</Output>
       <Time>2014-09-11T16:06:58+10:00</Time>
-    </Item>
-    <Item>
-      <Source>engine_diff_tex.tga</Source>
-      <Name>engine_diff_tex</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\engine_diff_tex.xnb</Output>
-      <Time>2014-09-11T17:04:10+10:00</Time>
-    </Item>
-    <Item>
-      <Source>turret_alt_diff_tex.tga</Source>
-      <Name>turret_alt_diff_tex</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\turret_alt_diff_tex.xnb</Output>
-      <Time>2014-09-11T17:04:12+10:00</Time>
-    </Item>
-    <Item>
-      <Source>tank.fbx</Source>
-      <Name>tank</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\tank.xnb</Output>
-      <Time>2014-09-11T17:04:10+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\tank_0.xml</Key>
-        <Value>2014-09-11T17:04:24+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\engine_diff_tex_0.xnb</Request>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\turret_alt_diff_tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>tank.fbx</Source>
@@ -237,29 +424,6 @@
       <Time>2014-09-11T17:04:12+10:00</Time>
     </Item>
     <Item>
-      <Source>Textures\Skybox.jpg</Source>
-      <Name>Textures\Skybox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox.xnb</Output>
-      <Time>2014-09-11T21:37:42+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\DSkyboxMesh.FBX</Source>
-      <Name>Models\DSkyboxMesh</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\DSkyboxMesh.xnb</Output>
-      <Time>2014-09-11T21:12:58+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\DSkyboxMesh_0.xml</Key>
-        <Value>2014-09-11T21:13:38+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox_0.xnb</Request>
-    </Item>
-    <Item>
       <Source>Models\DSkyboxMesh.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
@@ -281,39 +445,6 @@
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Skybox_0.xnb</Output>
       <Time>2014-09-11T21:37:42+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\metal_barrel_impact_hard2.wav</Source>
-      <Name>Sound\metal_barrel_impact_hard2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\metal_barrel_impact_hard2.xnb</Output>
-      <Time>2014-09-12T12:43:28+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\smg1_fire1.wav</Source>
-      <Name>Sound\smg1_fire1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\smg1_fire1.xnb</Output>
-      <Time>2014-09-12T12:43:28+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\towerManBase.FBX</Source>
-      <Name>Models\towerManBase</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\towerManBase.xnb</Output>
-      <Time>2014-09-12T21:05:22+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\towerManBase_0.xml</Key>
-        <Value>2014-09-12T21:06:08+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\BrickOldRounded0298_1_S_0.xnb</Request>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\Grass0139_33_S_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\towerManBase.FBX</Source>
@@ -339,29 +470,6 @@
       <Time>2014-09-09T20:15:48+10:00</Time>
     </Item>
     <Item>
-      <Source>Textures\ShootHere.jpg</Source>
-      <Name>Textures\ShootHere</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere.xnb</Output>
-      <Time>2014-09-12T21:22:02+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\ShootHere.FBX</Source>
-      <Name>Models\ShootHere</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\ShootHere.xnb</Output>
-      <Time>2014-09-12T21:21:50+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\ShootHere_0.xml</Key>
-        <Value>2014-09-12T21:23:06+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\ShootHere_0.xnb</Request>
-    </Item>
-    <Item>
       <Source>Models\ShootHere.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
@@ -385,111 +493,6 @@
       <Time>2014-09-12T21:22:02+10:00</Time>
     </Item>
     <Item>
-      <Source>Textures\bakedFountain.jpg</Source>
-      <Name>Textures\bakedFountain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\bakedFountain.xnb</Output>
-      <Time>2014-09-13T21:18:48+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\DFountain.FBX</Source>
-      <Name>Models\DFountain</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\DFountain.xnb</Output>
-      <Time>2014-09-13T21:19:14+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\DFountain_0.xml</Key>
-        <Value>2014-09-13T21:20:34+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\bakedFountain_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\DFountain.FBX</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\DFountain_0.xml</Output>
-      <Time>2014-09-13T21:19:14+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\bakedFountain.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\bakedFountain_0.xnb</Output>
-      <Time>2014-09-13T21:18:48+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\shotgun_fire6.wav</Source>
-      <Name>Sound\shotgun_fire6</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\shotgun_fire6.xnb</Output>
-      <Time>2014-09-14T09:21:16+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\town_ambience.wav</Source>
-      <Name>Sound\town_ambience</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\town_ambience.xnb</Output>
-      <Time>2014-09-14T09:48:04+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\player_ouch.wav</Source>
-      <Name>Sound\player_ouch</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Sound\player_ouch.xnb</Output>
-      <Time>2014-09-14T10:31:58+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\UI\GameOver.png</Source>
-      <Name>Textures\UI\GameOver</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\UI\GameOver.xnb</Output>
-      <Time>2014-09-14T11:26:26+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\block_soil.png</Source>
-      <Name>Textures\block_soil</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil.xnb</Output>
-      <Time>2014-09-14T12:22:52+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\tower_soil.FBX</Source>
-      <Name>Models\tower_soil</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_soil.xnb</Output>
-      <Time>2014-09-14T12:22:46+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_soil_0.xml</Key>
-        <Value>2014-09-14T12:23:48+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil_0.xnb</Request>
-    </Item>
-    <Item>
       <Source>Models\tower_soil.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
@@ -511,29 +514,6 @@
       <Options>None</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_soil_0.xnb</Output>
       <Time>2014-09-14T12:22:52+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\block_tar.png</Source>
-      <Name>Textures\block_tar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar.xnb</Output>
-      <Time>2014-09-14T14:52:38+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\tower_tar.FBX</Source>
-      <Name>Models\tower_tar</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\tower_tar.xnb</Output>
-      <Time>2014-09-14T14:52:46+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\tower_tar_0.xml</Key>
-        <Value>2014-09-14T14:52:56+10:00</Value>
-      </Dependency>
-      <Request>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Textures\block_tar_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\tower_tar.FBX</Source>
@@ -560,45 +540,10 @@
     </Item>
     <Item>
       <Source>Models\mover_model.FBX</Source>
-      <Name>Models\mover_model</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\mover_model.xnb</Output>
-      <Time>2014-09-14T15:50:58+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\mover_model_0.xml</Key>
-        <Value>2014-09-14T15:52:14+10:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\mover_model.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\mover_model_0.xml</Output>
       <Time>2014-09-14T15:50:58+10:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\teapot.FBX</Source>
-      <Name>Models\teapot</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Models\teapot.xnb</Output>
-      <Time>2014-09-14T20:11:38+10:00</Time>
-      <Dependency>
-        <Key>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\obj\x86\Debug\Models\teapot_0.xml</Key>
-        <Value>2014-09-14T20:21:34+10:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Shaders\plasma.fx</Source>
-      <Name>Shaders\plasma</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GameProgramming\GameProgrammingMajor\GameProgrammingMajor\GameProgrammingMajor\bin\x86\Debug\Content\Shaders\plasma.xnb</Output>
-      <Time>2014-09-14T20:14:38+10:00</Time>
     </Item>
     <Item>
       <Source>Models\teapot.FBX</Source>

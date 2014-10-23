@@ -12,7 +12,7 @@ namespace GameProgrammingMajor
         MainGame game;
 
         public static string TEXT_PLAYER = "Health: {0:0.0}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {1}\nTank A Priority: {2}    Tank B Priority: {3}";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {1}";
 
         private SpriteFont uiFont;
         private string message = "";
@@ -45,9 +45,7 @@ namespace GameProgrammingMajor
             message = string.Format(
                 TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
                 player.health,
-                camType.ToString(),
-                updateParams.world.npcManager.npcs[0].state,
-                updateParams.world.npcManager.npcs[1].state);
+                camType.ToString());
         }
 
         /// <summary>

@@ -263,6 +263,12 @@ namespace GameProgrammingMajor
         }
 
         /// Finds the optimal path from one point to another.
+        public List<Vector2> FindPath(iVec2 startPoint, iVec2 endPoint)
+        {
+            return FindPath(new Point(startPoint.x, startPoint.y), new Point(endPoint.x, endPoint.y));
+        }
+
+        /// Finds the optimal path from one point to another.
         public List<Vector2> FindPath(Point startPoint, Point endPoint)
         {
             // Only try to find a path if the start and end points are different.

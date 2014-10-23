@@ -13,6 +13,8 @@ namespace GameProgrammingMajor
         protected StaticModel model;
         protected PlaneEntity shadowTex;
 
+        public bool shadowEnabled = false;
+
         // Path-finding weight
         private int gWeight = 0;
 
@@ -46,6 +48,9 @@ namespace GameProgrammingMajor
 
         protected virtual void drawShadow(DrawParams drawParams)
         {
+            if (!shadowEnabled)
+                return;
+
             game.GraphicsDevice.BlendState = BlendState.AlphaBlend;
             shadowTex.draw(drawParams);
         }

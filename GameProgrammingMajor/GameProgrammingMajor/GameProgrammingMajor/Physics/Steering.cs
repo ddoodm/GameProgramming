@@ -63,6 +63,18 @@ namespace GameProgrammingMajor
             catch (Exception e) { }
         }
 
+        /// <summary>
+        /// Determine whether the NPC is within the target steering radius.
+        /// Steering must be (at least) of Seek type.
+        /// </summary>
+        /// <returns>True if within radius.</returns>
+        public bool inTargetRadius(Kinematic character, Kinematic target)
+        {
+            Vector3 delta = target.position - character.position;
+            float distance = delta.Length();
+            return distance <= targetRadius;
+        }
+
         public override void update(UpdateParams updateParams, Kinematic character, Kinematic target)
         {
             // Find direction to target from position

@@ -98,7 +98,8 @@ namespace GameProgrammingMajor
             float timeDelta = (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Update steering AI state using a state machine
-            updateSteeringState(updateParams);
+            // OLD METHOD FROM ALPHA
+            //updateSteeringState(updateParams);
 
             // Update steering force
             steering.update(updateParams, entity.kinematic, target);
@@ -117,6 +118,28 @@ namespace GameProgrammingMajor
             }
         }
 
+        /// <summary>
+        /// Determine whether the NPC is within the target steering radius.
+        /// Steering must be (at least) of Seek type.
+        /// </summary>
+        /// <returns>True if within radius.</returns>
+        public bool inTargetRadius()
+        {
+            if (target == null)
+                return false;
+
+            try
+            {
+                return ((Seek)steering).inTargetRadius(entity.kinematic, target);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("NPC::inTargetRadius() - Steering must be at least a 'Seek'");
+            }
+        }
+
+        /* === Old method from Alpha ===
+         * 
         private void updateSteeringState(UpdateParams updateParams)
         {
             // The "ahead" vector is a 'feeler'
@@ -156,6 +179,7 @@ namespace GameProgrammingMajor
             // Set the current state to the topmost priority
             setState(priorities.Peek());
         }
+         */
 
         public void draw(DrawParams drawParams)
         {

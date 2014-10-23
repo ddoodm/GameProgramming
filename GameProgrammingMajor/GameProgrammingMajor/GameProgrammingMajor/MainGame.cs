@@ -97,7 +97,7 @@ namespace GameProgrammingMajor
             player = new Player(this, Matrix.CreateTranslation(new Vector3(-150f,0,0)), world);
 
             // Configure the camera as an FPS camera for the player
-            camera = new FPCamera(this, player);
+            camera = new TopdownCamera(this, topdownCamDesc);
 
             // Supply the Player to the world
             world.player = player;

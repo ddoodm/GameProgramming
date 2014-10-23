@@ -46,11 +46,8 @@ namespace GameProgrammingMajor
 
             shootRandomly(updateParams);
 
-            // Flatten the Kinematic. The tank must translate only on the X,Z plane
-            kinematic.position = new Vector3(kinematic.position.X, 0, kinematic.position.Z);
-
             // Initialize world matrix and scale the model down
-            world = Matrix.Identity * Matrix.CreateScale(0.075f);
+            world = Matrix.Identity * Matrix.CreateScale(0.03f);
 
             // Update world matrix
             world *= Matrix.CreateRotationY(kinematic.orientation);
@@ -62,6 +59,10 @@ namespace GameProgrammingMajor
         /// </summary>
         private void shootRandomly(UpdateParams updateParams)
         {
+            // Break if there is no target
+            if (turretTarget == null)
+                return;
+
             projectileManager.update(updateParams);
 
             // Generate a random number to determine whether to shoot
