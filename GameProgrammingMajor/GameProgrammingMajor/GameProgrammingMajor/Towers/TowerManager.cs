@@ -238,6 +238,18 @@ namespace GameProgrammingMajor
             return idOf(new Vector3(position.X, 0, position.Y));
         }
 
+        public bool insideArea(Vector2 position)
+        {
+            iVec2 blockId = idOf(position);
+            return blockId.x >= 0 && blockId.y >= 0
+                && blockId.x < NUM_BLOCKS && blockId.y < NUM_BLOCKS;
+        }
+
+        public bool insideArea(Vector3 position)
+        {
+            return insideArea(new Vector2(position.X, position.Z));
+        }
+
         // Get the Tower Type at the specified index
         public TowerType getTowerTypeAt(int x, int y)
         {
@@ -251,6 +263,10 @@ namespace GameProgrammingMajor
 
         public void update(UpdateParams updateParams)
         {
+            // Get the current and next block ID of the mover
+            iVec2 moverBlock = mover.currentBlock(this);
+            iVec2? moverNextBlock = mover.nextBlock(this);
+
             // Obtain the ID of the currently selected block
             iVec2 selectedBlock = selectionManager.getSelectedBlock(
                 game.GraphicsDevice.Viewport, updateParams.camera, updateParams.mouseState);
@@ -259,13 +275,18 @@ namespace GameProgrammingMajor
             for (int z = 0; z < NUM_BLOCKS; z++)
                 for (int x = 0; x < NUM_BLOCKS; x++)
                 {
+                    // Create an iVec2 for easy comparison
+                    iVec2 cID = new iVec2(x, z);
+
                     // If this block is the selected block, let it know
-                    blocks[z, x].selected = selectedBlock == new iVec2(x, z);
+                    blocks[z, x].selected = selectedBlock == cID;
 
                     // A test of creating new towers on click
                     if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed
                         && blocks[z, x].selected
-                        && blocks[z, x].tower.GetType() == typeof(GrassTower))
+                        && blocks[z, x].tower.GetType() == typeof(GrassTower)
+                        && moverBlock != cID
+                        && !(moverNextBlock.HasValue && moverNextBlock.Value == cID))
                     {
                         // Place the tower
                         blocks[z, x].tower = new WallTower(game, blocks[z, x].world, blocks[z, x].size);
@@ -302,12 +323,7 @@ namespace GameProgrammingMajor
                 if (selectedBlock.x >= 0 && selectedBlock.x < NUM_BLOCKS && selectedBlock.y >= 0 && selectedBlock.y < NUM_BLOCKS
                     && getTowerTypeAt(selectedBlock.x, selectedBlock.y) != TowerType.WALL)
                 {
-                    Point startPoint = new Point(
-                        (int)(mover.position.X) / (int)blockSize,
-                        (int)(mover.position.Y) / (int)blockSize);
-                    Point endPoint = new Point(selectedBlock.x, selectedBlock.y);
-                    path = pathFinder.FindPath(startPoint, endPoint);
-                    mover.addPath(path);
+                    mover.pathfindTo(selectedBlock, this, pathFinder);
                 }
             }
         }

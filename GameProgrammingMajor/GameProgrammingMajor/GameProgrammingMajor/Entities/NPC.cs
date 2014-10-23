@@ -33,7 +33,7 @@ namespace GameProgrammingMajor
         private StaticModel waypointModel;
 
         public Entity entity { get; private set; }
-        public Kinematic target { private get; set; }
+        public Kinematic target;
         public Steering steering;
         public NPCState state { get; private set; }
         public Stack<NPCState> priorities { get; private set; }

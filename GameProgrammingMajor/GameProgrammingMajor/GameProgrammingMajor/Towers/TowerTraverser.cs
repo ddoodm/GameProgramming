@@ -50,13 +50,65 @@ namespace GameProgrammingMajor
         public void rePathfind(TowerManager level, TowerPathFinder pathFinder)
         {
             // If the path is null, there is no need to re-calculate
-            if (path == null)
+            if (path == null || path.Count == 0)
                 return;
 
             iVec2 from = level.idOf(mover.kinematic.position);
             iVec2 to = new iVec2(path.Last() / (int)TowerManager.blockSize);
 
             path = pathFinder.FindPath(from, to);
+        }
+
+        /// <summary>
+        /// Pathfind to a target Kinematic
+        /// </summary>
+        /// <param name="target">A kinematic which represents a motion in space to pathfind to.</param>
+        /// <param name="level">The TowerManager that is the pathfinding area</param>
+        /// <param name="pathFinder">The pathfinder with the search nodes configured</param>
+        public void pathfindTo(Kinematic target, TowerManager level, TowerPathFinder pathFinder)
+        {
+            // Do not pathfind if the target is outside of the map
+            if (!level.insideArea(target.position))
+                return;
+
+            iVec2 from = level.idOf(mover.kinematic.position);
+            iVec2 to = level.idOf(target.position);
+
+            path = pathFinder.FindPath(from, to);
+        }
+
+        /// <summary>
+        /// Pathfind to a target block ID
+        /// </summary>
+        /// <param name="target">The block ID to navigate to.</param>
+        /// <param name="level">The TowerManager that is the pathfinding area</param>
+        /// <param name="pathFinder">The pathfinder with the search nodes configured</param>
+        public void pathfindTo(iVec2 target, TowerManager level, TowerPathFinder pathFinder)
+        {
+            iVec2 from = level.idOf(mover.kinematic.position);
+
+            path = pathFinder.FindPath(from, target);
+        }
+
+        /// <summary>
+        /// Get the block ID that the mover is currently at.
+        /// </summary>
+        public iVec2 currentBlock(TowerManager level)
+        {
+            return level.idOf(mover.kinematic.position);
+        }
+
+        /// <summary>
+        /// Get the block ID of the block that the mover is approaching.
+        /// </summary>
+        public iVec2? nextBlock(TowerManager level)
+        {
+            // If the mover has no target, there is no next block
+            if (mover.npc.target == null)
+                return null;
+
+            iVec2 targetBlock = level.idOf(mover.npc.target.position);
+            return new iVec2?(targetBlock);
         }
 
         public void Update(UpdateParams updateParams, TowerManager level)
@@ -98,8 +150,8 @@ namespace GameProgrammingMajor
                 if (mover.npc.steering.GetType() != typeof(Seek))
                     mover.npc.steering = new Seek(mover.npc.steering);
 
-                // If the path is greater than 1 node, use a target radius the size of one block
-                ((Seek)mover.npc.steering).targetRadius = TowerManager.blockSize;
+                // If the path is greater than 1 node, use a target radius the size of 1.5 blocks (for fluidity)
+                ((Seek)mover.npc.steering).targetRadius = TowerManager.blockSize * 1.5f;
             }
             else
             {
@@ -108,7 +160,7 @@ namespace GameProgrammingMajor
 
                 // If we are at the end of the path, use a small target radius
                 ((Arrive)mover.npc.steering).targetRadius = 1f;
-                ((Arrive)mover.npc.steering).slowRadius = TowerManager.blockSize;
+                ((Arrive)mover.npc.steering).slowRadius = TowerManager.blockSize * 2f;
             }
 
             // Update models
