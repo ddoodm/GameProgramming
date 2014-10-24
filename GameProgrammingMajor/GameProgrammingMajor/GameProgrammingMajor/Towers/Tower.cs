@@ -43,6 +43,14 @@ namespace GameProgrammingMajor
             return gWeight;
         }
 
+        /// <summary>
+        /// Is it impossible to pathfind through this tower?
+        /// </summary>
+        public virtual bool isSolid()
+        {
+            return false;
+        }
+
         public virtual void update(UpdateParams updateParams)
         {
             shadowTex.update(updateParams);
@@ -106,6 +114,14 @@ namespace GameProgrammingMajor
         public override int getGWeight()
         {
             return gWeight;
+        }
+
+        /// <summary>
+        /// Is it impossible to pathfind through this tower?
+        /// </summary>
+        public override bool isSolid()
+        {
+            return true;
         }
 
         public override void update(UpdateParams updateParams)

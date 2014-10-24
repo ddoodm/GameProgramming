@@ -14,6 +14,7 @@ namespace GameProgrammingMajor
         PATH,
         GRASS,
         TAR,
+        TEAPOT,
         NONE
     }
 
@@ -81,7 +82,7 @@ namespace GameProgrammingMajor
             {2,2,2,2,2,1,2,2,2,2,2,2,3,2,2,0,2,2,2,2},
             {2,2,2,2,2,1,2,2,2,2,2,2,3,2,2,0,2,2,2,2},
             {2,2,2,2,2,1,2,2,2,2,2,2,2,3,2,2,2,2,2,2},
-            {1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+            {4,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
         };
 
         /// <summary>
@@ -190,6 +191,8 @@ namespace GameProgrammingMajor
                     return new WallTower(game, world, size);
                 case TowerType.TAR:
                     return new TarTower(game, world, size);
+                case TowerType.TEAPOT:
+                    return new TeapotTower(game, world, size);
             }
 
             throw new Exception("towerTypeID has no corresponding tower type.");
@@ -254,6 +257,11 @@ namespace GameProgrammingMajor
         public TowerType getTowerTypeAt(int x, int y)
         {
             return getTowerTypeOf(blocks[y, x].tower.GetType());
+        }
+
+        public Tower getTowerAt(int x, int y)
+        {
+            return blocks[y, x].tower;
         }
 
         public int getGWeight(int x, int y)

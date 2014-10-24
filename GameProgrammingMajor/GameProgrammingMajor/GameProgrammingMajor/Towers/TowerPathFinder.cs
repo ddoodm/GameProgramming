@@ -89,15 +89,10 @@ namespace GameProgrammingMajor
 
                     SearchNode node = new SearchNode();
 
-
-
                     node.Position = new Point(x, y);
 
-
-
-                    // Our enemies can only walk on grass tiles.
-
-                    node.Walkable = map.getTowerTypeAt(x, y) != TowerType.WALL;
+                    // MODIFIED: We can traverse non-solid Towers
+                    node.Walkable = !map.getTowerAt(x, y).isSolid();
 
                     node.GWeight = map.getGWeight(x, y);
 

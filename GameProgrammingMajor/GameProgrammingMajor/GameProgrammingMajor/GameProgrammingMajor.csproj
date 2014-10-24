@@ -101,6 +101,7 @@
     <Compile Include="Towers\PathTower.cs" />
     <Compile Include="Towers\SearchNode.cs" />
     <Compile Include="Towers\TarTower.cs" />
+    <Compile Include="Towers\TeapotTower.cs" />
     <Compile Include="Towers\Tower.cs" />
     <Compile Include="Towers\TowerBlock.cs" />
     <Compile Include="Towers\TowerManager.cs" />
