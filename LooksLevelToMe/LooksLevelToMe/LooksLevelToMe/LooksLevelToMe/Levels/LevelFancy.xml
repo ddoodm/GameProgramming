@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<game>
+	<tiles>	   
+		<tile>
+			<symbol>B</symbol>
+			<texture>
+				<name>Brown Block</name>
+				<startX>0</startX>
+				<startY>0</startY>
+				<width>101</width>
+				<height>171</height>
+			</texture>
+			<properties>
+				<walkable>false</walkable>
+			</properties>
+		</tile>
+    <tile>
+      <symbol>D</symbol>
+      <texture>
+        <name>Dirt Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>@</symbol>
+      <texture>
+        <name>Door Tall Closed</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>G</symbol>
+      <texture>
+        <name>Grass Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>P</symbol>
+      <texture>
+        <name>Plain Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>S</symbol>
+      <texture>
+        <name>Stone Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>#</symbol>
+      <texture>
+        <name>Wall Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>W</symbol>
+      <texture>
+        <name>Water Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>+</symbol>
+      <texture>
+        <name>Window Tall</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>T</symbol>
+      <texture>
+        <name>Wood Block</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+  </tiles>
+	
+	<level>
+    <name>Level 1</name>
+    <tile>
+      <startX>0</startX>
+      <startY>0</startY>
+      <height>40</height>
+      <width>50</width>
+    </tile>
+		<layout>
+      <row>WWWWWWWWWWWWWWWWWWWWWWWWWW</row>
+      <row>WWBWWWWWWWWW##WWWWWWBBWWWW</row>
+      <row>WBBBWWBWWWBB##WWWWBBBBBBBB</row>
+      <row>BBBBBBBBBBBB##BBBBBBBBBBBB</row>
+      <row>SSSSSSSSSSSSSSSSSSSSSSSSSS</row>
+      <row>SSSSSSSSSSSSSSSSSSSSSSSSSS</row>
+      <row>GGGG########SSGGGGGGGGGGGG</row>
+      <row>GGGG#TTTTTTTSSGGGGGGGGGGGG</row>
+      <row>GGGG#TPPPPPPSSGGGGGGGGGGGG</row>
+			<row>GGGG#TPPPPPPSSGGGGGGGGGGGG</row>
+      <row>GGGG#TPPPPPPSSGGGGGGGGGGGG</row>
+      <row>GGGG#TTTTTTTSSGGGGGGGGGGGG</row>
+      <row>GGGG########SSGGGGGGGGGGGG</row>
+      <row>GGGGGGGGGGGGSSGGGDGGGGDGGG</row>
+      <row>GGGGGGGGGGGGSSGDDDGGGDDDDD</row>
+      <row>GGGGGGGGGGGGSSGDDDGGGGDDDD</row>
+      <row>DDDDDDDDDDDDSSDDDDDDDDDDDD</row>
+      <row>DDDDDDDDDDDDSSDDDDDDDDDDDD</row>
+     
+    </layout>
+  </level> 
+</game>
