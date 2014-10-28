@@ -108,7 +108,7 @@ namespace GameProgrammingMajor
             boundingBox = BoundingBoxUtilities.createBoundingBox(model.model, world);
 
             // Create a drawable Bounding Box from the Bounding Box created above
-            drawableBoundingBox = new DrawableBoundingBox(boundingBox, game.GraphicsDevice);
+            drawableBoundingBox = new DrawableBoundingBox(boundingBox, game.GraphicsDevice, Color.White);
         }
 
         public override int getGWeight()

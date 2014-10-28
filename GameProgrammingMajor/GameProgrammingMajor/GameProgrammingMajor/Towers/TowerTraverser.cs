@@ -23,10 +23,16 @@ namespace GameProgrammingMajor
         StaticModel markerModel;
         Entity mover;
         TowerManager level;
+        Quadtree<Entity> tankTree;
 
         float levelWidth, levelHeight;
 
         public bool showDebugPath = true;
+
+        public TowerTraverser(Quadtree<Entity> tankTree)
+        {
+            this.tankTree = tankTree;
+        }
 
         public void addPath(List<Vector2> path)
         {
@@ -41,6 +47,7 @@ namespace GameProgrammingMajor
         public void setMover(Entity mover)
         {
             this.mover = mover;
+            tankTree.insert(mover);
         }
 
         /// <summary>

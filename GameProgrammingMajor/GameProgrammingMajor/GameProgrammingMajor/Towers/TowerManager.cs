@@ -60,6 +60,9 @@ namespace GameProgrammingMajor
         // The terrain on which the towers are placed
         public Terrain terrain;
 
+        // The tree that stores the tanks
+        private Quadtree<Entity> tankTree;
+
         // A pre-designed map
         private int[,] predesignedMap = new int[NUM_BLOCKS, NUM_BLOCKS]
         {
@@ -91,7 +94,7 @@ namespace GameProgrammingMajor
         /// <param name="game">The main game object</param>
         /// <param name="position">The position of this collection of towers.</param>
         public TowerManager(Game game, Matrix world)
-            : this(game, world, null)
+            : this(game, world, null, null)
         {
 
         }
@@ -102,11 +105,12 @@ namespace GameProgrammingMajor
         /// <param name="game">The main game object</param>
         /// <param name="position">The position of this collection of towers.</param>
         /// <param name="terrain">A pre-initialized terrain height map.</param>
-        public TowerManager(Game game, Matrix world, Terrain terrain)
+        public TowerManager(Game game, Matrix world, Terrain terrain, Quadtree<Entity> tankTree)
         {
             this.game = game;
             this.world = world;
             this.terrain = terrain;
+            this.tankTree = tankTree;
 
             midPosition = world.Translation - new Vector3(
                 blockSize * NUM_BLOCKS,
@@ -123,7 +127,7 @@ namespace GameProgrammingMajor
 
             // Set up path finding objects
             pathFinder = new TowerPathFinder(this);
-            mover = new TowerTraverser();
+            mover = new TowerTraverser(tankTree);
         }
 
         public void load(ContentManager content)

@@ -18,6 +18,7 @@ namespace GameProgrammingMajor
         public EntityManager<Entity> entityManager;
         public NPCManager npcManager;
         public TowerManager towerManager;
+        public Quadtree<Entity> tankTree;
 
         public Player player;
 
@@ -44,8 +45,12 @@ namespace GameProgrammingMajor
             // Create a skybox
             staticManager.add(new Skybox(game, game.Content.Load<Model>("Models\\DSkyboxMesh")));
 
+            // Create the quadtree structure
+            Vector3 halfTreeSize = new Vector3(500, 100, 500);
+            tankTree = new Quadtree<Entity>(new BoundingBox(-halfTreeSize, halfTreeSize), game.GraphicsDevice);
+
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain);
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain, tankTree);
             towerManager.setPathFinderStartNode(towerManager.idOf(Vector3.Zero));
         }
 
@@ -61,6 +66,7 @@ namespace GameProgrammingMajor
             entityManager.update(updateParams);
             towerManager.update(updateParams);
             npcManager.update(updateParams);
+            tankTree.update(updateParams);
         }
 
         public void draw(DrawParams drawParams)
@@ -69,6 +75,7 @@ namespace GameProgrammingMajor
             entityManager.draw(drawParams);
             towerManager.draw(drawParams);
             npcManager.draw(drawParams);
+            tankTree.draw(drawParams);
         }
     }
 }

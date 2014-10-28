@@ -101,9 +101,12 @@ namespace GameProgrammingMajor
 
         private BoundingBoxBuffers boxBuffer;
         private BasicEffect effect;
+        private Color color;
 
-        public DrawableBoundingBox(BoundingBox boundingBox, GraphicsDevice graphicsDevice)
+        public DrawableBoundingBox(BoundingBox boundingBox, GraphicsDevice graphicsDevice, Color color)
         {
+            this.color = color;
+
             boxBuffer = CreateBoundingBoxBuffers(boundingBox, graphicsDevice);
 
             effect = new BasicEffect(graphicsDevice);
@@ -206,9 +209,9 @@ namespace GameProgrammingMajor
             return boundingBoxBuffers;
         }
 
-        private static void AddVertex(List<VertexPositionColor> vertices, Vector3 position)
+        private void AddVertex(List<VertexPositionColor> vertices, Vector3 position)
         {
-            vertices.Add(new VertexPositionColor(position, Color.White));
+            vertices.Add(new VertexPositionColor(position, color));
         }
 
         public void draw(DrawParams drawParams)

@@ -24,6 +24,7 @@ namespace GameProgrammingMajor
         public World world;
         public Random random;
         public SoundManager soundManager;
+        public HUD hud;
     }
 
     /// <summary>
@@ -155,7 +156,8 @@ namespace GameProgrammingMajor
                 player = this.player,
                 world = this.world,
                 random = randomGenerator,
-                soundManager = this.soundManager
+                soundManager = this.soundManager,
+                hud = this.hud
             };
 
             // Allows the game to exit

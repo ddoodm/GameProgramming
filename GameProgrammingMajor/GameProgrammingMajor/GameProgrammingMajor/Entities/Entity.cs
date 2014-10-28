@@ -41,6 +41,7 @@ namespace GameProgrammingMajor
 
         public virtual bool collidesWith(StaticModel model) { return false; }
         public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
+        public virtual bool collidesWith(BoundingBox boundingBox) { return false; }
 
         public virtual void load(ContentManager content) { }
 

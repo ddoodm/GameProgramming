@@ -83,12 +83,12 @@ namespace GameProgrammingMajor
             foreach(ModelMesh thisMesh in model.model.Meshes)
             {
                 // Get bounding sphere for this object
-                BoundingSphere thisBs = new BoundingSphere(kinematic.position, 32f);
+                BoundingSphere thisBs = getBoundingSphere();
 
                 // Check for collision with every mesh in the other model
                 foreach (ModelMesh otherMesh in other.model.model.Meshes)
                 {
-                    BoundingSphere otherBs = new BoundingSphere(other.kinematic.position, 32f);
+                    BoundingSphere otherBs = other.getBoundingSphere();
 
                     // Perform check
                     if (thisBs.Intersects(otherBs))
@@ -97,6 +97,24 @@ namespace GameProgrammingMajor
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Get bounding sphere for this object
+        /// </summary>
+        public BoundingSphere getBoundingSphere()
+        {
+            return new BoundingSphere(kinematic.position, 10f);
+        }
+
+        public override bool collidesWith(BoundingSphere boundingSphere)
+        {
+            return getBoundingSphere().Intersects(boundingSphere);
+        }
+
+        public override bool collidesWith(BoundingBox boundingBox)
+        {
+            return (boundingBox.Contains(getBoundingSphere()) == ContainmentType.Contains) || getBoundingSphere().Intersects(boundingBox);
         }
 
         private void updateTurret()

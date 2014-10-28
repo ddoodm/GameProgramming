@@ -12,7 +12,7 @@ namespace GameProgrammingMajor
         MainGame game;
 
         public static string TEXT_PLAYER = "Health: {0:0.0}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {1}";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {1}\nQuadtree Nodes: {2}";
 
         private SpriteFont uiFont;
         private string message = "";
@@ -21,6 +21,8 @@ namespace GameProgrammingMajor
         private Texture2D blackTexture;
 
         Player player;
+
+        public int quadtreeNodeCount;
 
         public bool visible = true; 
         public bool debugVisible = true;
@@ -45,7 +47,8 @@ namespace GameProgrammingMajor
             message = string.Format(
                 TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
                 player.health,
-                camType.ToString());
+                camType.ToString(),
+                quadtreeNodeCount);
         }
 
         /// <summary>
