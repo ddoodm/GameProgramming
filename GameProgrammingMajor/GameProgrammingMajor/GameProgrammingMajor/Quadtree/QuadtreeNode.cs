@@ -71,13 +71,8 @@ namespace GameProgrammingMajor
             if (this.willBeLeaf())
                 entities.Add(entity);
             else
-            {
-                List<QuadtreeNode<T>> branches = branchesFor(entity);
-                if (branches.Count == 0)
-                    parent.insert(entity);
-                foreach (QuadtreeNode<T> node in branches)
+                foreach (QuadtreeNode<T> node in branchesFor(entity))
                     node.insert(entity);
-            }
         }
 
         /// <summary>
@@ -156,7 +151,7 @@ namespace GameProgrammingMajor
             if(isLeaf())
                 entities.Remove(entity);
 
-            parent.insert(entity);
+            tree.insert(entity);
 
             if (empty() && parent != null)
             {
