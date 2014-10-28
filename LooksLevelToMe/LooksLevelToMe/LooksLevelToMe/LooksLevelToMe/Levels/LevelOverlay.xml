@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<game>
+	<tiles>	   
+		<tile>
+			<symbol>A</symbol>
+			<texture>
+				<name>Character Boy</name>
+				<startX>0</startX>
+				<startY>0</startY>
+				<width>101</width>
+				<height>171</height>
+			</texture>
+			<properties>
+				<walkable>false</walkable>
+			</properties>
+		</tile>
+    <tile>
+      <symbol>B</symbol>
+      <texture>
+        <name>Character Cat Girl</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>C</symbol>
+      <texture>
+        <name>Character Horn Girl</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>D</symbol>
+      <texture>
+        <name>Character Pink Girl</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>E</symbol>
+      <texture>
+        <name>Character Princess Girl</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>F</symbol>
+      <texture>
+        <name>Chest Closed</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>G</symbol>
+      <texture>
+        <name>Enemy Bug</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>H</symbol>
+      <texture>
+        <name>Gem Blue</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>I</symbol>
+      <texture>
+        <name>Heart</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>J</symbol>
+      <texture>
+        <name>Key</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>K</symbol>
+      <texture>
+        <name>Rock</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>L</symbol>
+      <texture>
+        <name>Tree Short</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>M</symbol>
+      <texture>
+        <name>Tree Tall</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+    <tile>
+      <symbol>N</symbol>
+      <texture>
+        <name>Tree Ugly</name>
+        <startX>0</startX>
+        <startY>0</startY>
+        <width>101</width>
+        <height>171</height>
+      </texture>
+      <properties>
+        <walkable>false</walkable>
+      </properties>
+    </tile>
+  </tiles>
+	
+	<level>
+    <name>Level 1</name>
+    <tile>
+      <startX>0</startX>
+      <startY>0</startY>
+      <height>50</height>
+      <width>40</width>
+    </tile>
+		<layout>
+      <row>                          </row>
+      <row>             F            </row>
+      <row>                    K     </row>
+      <row>                          </row>
+      <row>                          </row>
+      <row>                          </row>
+      <row>   M                      </row>
+      <row>   M                      </row>
+      <row>   M   A             N    </row>
+			<row>   M   J                  </row>
+      <row>   M                      </row>
+      <row>   M           L          </row>
+      <row>                          </row>
+      <row>       N                  </row>
+      <row>                   L  K   </row>
+      <row> N               M         </row>
+      <row>     K                 M  </row>
+      <row>   N                      </row>
+
+    </layout>
+  </level> 
+</game>

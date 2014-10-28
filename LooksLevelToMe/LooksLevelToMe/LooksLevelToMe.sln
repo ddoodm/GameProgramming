@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LooksLevelToMe", "LooksLevelToMe\LooksLevelToMe\LooksLevelToMe.csproj", "{7B4E65A8-14CB-40C3-AA81-0E40F47C69F4}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "LooksLevelToMeContent", "LooksLevelToMe\LooksLevelToMeContent\LooksLevelToMeContent.contentproj", "{31A3745A-0765-47A5-B27B-E40ED4C54E6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B4E65A8-14CB-40C3-AA81-0E40F47C69F4}.Debug|x86.ActiveCfg = Debug|x86
+		{7B4E65A8-14CB-40C3-AA81-0E40F47C69F4}.Debug|x86.Build.0 = Debug|x86
+		{7B4E65A8-14CB-40C3-AA81-0E40F47C69F4}.Release|x86.ActiveCfg = Release|x86
+		{7B4E65A8-14CB-40C3-AA81-0E40F47C69F4}.Release|x86.Build.0 = Release|x86
+		{31A3745A-0765-47A5-B27B-E40ED4C54E6B}.Debug|x86.ActiveCfg = Debug|x86
+		{31A3745A-0765-47A5-B27B-E40ED4C54E6B}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
