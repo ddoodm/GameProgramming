@@ -52,7 +52,7 @@ namespace GameProgrammingMajor
 
             boundingSphere = new BoundingSphere(worldMatrix.Translation, 15f);
 
-            projectileMan = new ProjectileManager(game, world, towerManager);
+            projectileMan = new ProjectileManager(game, world, towerManager, towerManager.tankTree);
             projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
             projectileMan.cooldownWait = 5f;
         }

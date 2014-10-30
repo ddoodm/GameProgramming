@@ -28,6 +28,12 @@ namespace GameProgrammingMajor
             init_shadowPlane();
         }
 
+        public Tower(Tower rhs)
+            : this(rhs.game, rhs.world, rhs.size)
+        {
+
+        }
+
         /// <summary>
         /// A silly little way to draw a shadow volume below the model.
         /// </summary>
@@ -84,6 +90,14 @@ namespace GameProgrammingMajor
                 return false;
 
             return boundingBox.Intersects(box);
+        }
+
+        public bool collidesWith(Ray ray)
+        {
+            if (boundingBox == null || ray == null)
+                return false;
+
+            return boundingBox.Intersects(ray).HasValue;
         }
     }
 

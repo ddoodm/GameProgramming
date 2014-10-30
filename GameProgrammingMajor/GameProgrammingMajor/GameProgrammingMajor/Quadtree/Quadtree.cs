@@ -8,18 +8,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace GameProgrammingMajor
 {
-    public class Quadtree <T> where T : Entity
+    public class Quadtree
     {
-        public const int MAX_OBJECTS = 0;
+        public const int MAX_OBJECTS = 2;
         public const int MAX_LEVELS = 5;
 
         public BoundingBox size;
 
-        // Make the graphics device available to nodes
+        // Make the graphics device available to nodes (for debug)
         public GraphicsDevice graphicsDevice;
 
         // The root (head) node
-        QuadtreeNode<T> root;
+        QuadtreeNode root;
 
         public Quadtree(BoundingBox size, GraphicsDevice graphicsDevice)
         {
@@ -27,17 +27,31 @@ namespace GameProgrammingMajor
             this.size = size;
 
             // Create a node at the max level
-            root = new QuadtreeNode<T>(this, null, size, 0);
+            root = new QuadtreeNode(this, null, size, 0);
         }
 
         /// <summary>
         /// Insert an entity into the quadtree.
         /// </summary>
         /// <param name="entity">The entity to insert</param>
-        public void insert(T entity)
+        public void insert(Entity entity)
         {
             if (root.intersects(entity))
                 root.insert(entity);
+        }
+
+        public QuadtreeNode getNodeAt(Vector3 position)
+        {
+            return root.getNodeAt(position);
+        }
+
+        /** Returns any element that collides with a sphere */
+        public Entity collision(BoundingSphere sphere)
+        {
+            if(!root.contains(sphere))
+                return null;
+
+            return root.collision(sphere);
         }
 
         public void update(UpdateParams updateParams)

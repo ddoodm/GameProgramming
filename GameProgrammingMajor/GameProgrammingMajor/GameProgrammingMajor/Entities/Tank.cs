@@ -14,17 +14,23 @@ namespace GameProgrammingMajor
     /// </summary>
     public class Tank : Entity
     {
-        private TankModel model = new TankModel();
+        private TankModel model;
 
         private ProjectileManager projectileManager;
         public Kinematic turretTarget;
 
-        public Tank(Game game, Vector3 position, World world, TowerManager towerManager)
+        private TowerManager level;
+
+        public Tank(Game game, Vector3 position, World world, TowerManager level)
             : base(game)
         {
+            this.level = level;
+
+            model = new TankModel();
+
             kinematic.position = position;
 
-            projectileManager = new ProjectileManager(game, world, towerManager);
+            projectileManager = new ProjectileManager(game, world, level, level.tankTree);
         }
 
         public Tank(Game game, World world, TowerManager towerManager)
@@ -191,7 +197,7 @@ namespace GameProgrammingMajor
         // We could just allocate this locally inside the Draw method, but it
         // is more efficient to reuse a single array, as this avoids creating
         // unnecessary garbage.
-        Matrix[] boneTransforms;
+        protected Matrix[] boneTransforms;
 
         // Current animation positions.
         float wheelRotationValue;
@@ -315,11 +321,11 @@ namespace GameProgrammingMajor
             // Look up combined bone matrices for the entire model.
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
 
-            drawSolid(view, projection);
+            drawSolid(world, view, projection);
             //drawShadow(view, projection, sun, plane);
         }
 
-        private void drawSolid(Matrix view, Matrix projection)
+        protected virtual void drawSolid(Matrix world, Matrix view, Matrix projection)
         {
             // Draw the model.
             foreach (ModelMesh mesh in model.Meshes)
@@ -337,6 +343,33 @@ namespace GameProgrammingMajor
                     effect.EnableDefaultLighting();
                 }
 
+                mesh.Draw();
+            }
+        }
+    }
+
+    public class PlasmaTankModel : TankModel
+    {
+        private Effect plasma;
+
+        public PlasmaTankModel(ContentManager content)
+        {
+            plasma = content.Load<Effect>("Shaders\\plasma");
+        }
+
+        protected override void drawSolid(Matrix world, Matrix view, Matrix projection)
+        {
+            // Draw the model.
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (ModelMeshPart part in mesh.MeshParts)
+                {
+                    part.Effect = plasma;
+
+                    part.Effect.Parameters["World"].SetValue(mesh.ParentBone.Transform * world);
+                    part.Effect.Parameters["View"].SetValue(view);
+                    part.Effect.Parameters["Projection"].SetValue(projection);
+                }
                 mesh.Draw();
             }
         }

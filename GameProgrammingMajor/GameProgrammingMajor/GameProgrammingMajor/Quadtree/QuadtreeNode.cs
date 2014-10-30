@@ -7,38 +7,38 @@ using Microsoft.Xna.Framework.Content;
 
 namespace GameProgrammingMajor
 {
-    public class QuadtreeNode<T> where T : Entity
+    public class QuadtreeNode
     {
         // The area that this node covers
         BoundingBox bounds;
         DrawableBoundingBox drawBounds;
 
         // The parent tree structure
-        Quadtree<T> tree;
+        Quadtree tree;
 
         // This node's four children (Upper Left, Upper Right, ...)
-        QuadtreeNode<T> UL, UR, LL, LR;
+        QuadtreeNode UL, UR, LL, LR;
 
         // This node's parent
-        QuadtreeNode<T> parent;
+        QuadtreeNode parent;
 
-        List<T> entities;
+        List<Entity> entities;
 
         int currentDepth;
 
-        public QuadtreeNode(Quadtree<T> tree, QuadtreeNode<T> parent, BoundingBox bounds, int currentDepth)
+        public QuadtreeNode(Quadtree tree, QuadtreeNode parent, BoundingBox bounds, int currentDepth)
         {
             this.tree = tree;
             this.parent = parent;
             this.bounds = bounds;
             this.currentDepth = currentDepth;
 
-            entities = new List<T>();
+            entities = new List<Entity>();
 
             drawBounds = new DrawableBoundingBox(bounds, tree.graphicsDevice, isLeaf()? Color.LightGreen : Color.LightPink);
         }
 
-        public QuadtreeNode(Quadtree<T> tree, QuadtreeNode<T> parent, BoundingBox bounds, int currentDepth, Color color)
+        public QuadtreeNode(Quadtree tree, QuadtreeNode parent, BoundingBox bounds, int currentDepth, Color color)
             : this(tree, parent, bounds, currentDepth)
         {
             drawBounds = new DrawableBoundingBox(bounds, tree.graphicsDevice, color);
@@ -46,41 +46,78 @@ namespace GameProgrammingMajor
 
         public bool isLeaf()
         {
-            return 
-                (currentDepth >= Quadtree<T>.MAX_LEVELS)
-                || (entities.Count <= Quadtree<T>.MAX_OBJECTS);
+            return
+                (currentDepth >= Quadtree.MAX_LEVELS)
+                || (entities.Count <= Quadtree.MAX_OBJECTS);
         }
 
         public bool willBeLeaf()
         {
             return
-                (currentDepth >= Quadtree<T>.MAX_LEVELS)
-                || ((entities.Count + 1) <= Quadtree<T>.MAX_OBJECTS);
+                (currentDepth >= Quadtree.MAX_LEVELS)
+                || ((entities.Count + 1) <= Quadtree.MAX_OBJECTS);
         }
 
         /// <summary>
         /// Is the supplied entity inside this node?
         /// </summary>
-        public bool intersects(T entity)
+        public bool intersects(Entity entity)
         {
             return entity.collidesWith(bounds);
         }
 
-        public void insert(T entity)
+        public bool contains(BoundingSphere sphere)
+        {
+            return bounds.Contains(sphere) != ContainmentType.Disjoint;
+        }
+
+        public Entity collision(BoundingSphere sphere)
+        {
+            if (isLeaf())
+            {
+                foreach (Entity t in entities)
+                    if (t.collidesWith(sphere))
+                        return t;
+                return null;
+            }
+            else
+            {
+                if (UL != null && UL.contains(sphere)) return UL.collision(sphere);
+                if (UR != null && UR.contains(sphere)) return UR.collision(sphere);
+                if (LL != null && LL.contains(sphere)) return LL.collision(sphere);
+                if (LR != null && LR.contains(sphere)) return LR.collision(sphere);
+                return null;
+            }
+        }
+
+        public void insert(Entity entity)
         {
             if (this.willBeLeaf())
+            {
                 entities.Add(entity);
+                entity.treeNodes.Add(this);
+            }
             else
-                foreach (QuadtreeNode<T> node in branchesFor(entity))
-                    node.insert(entity);
+            {
+                // Move all entities down
+                List<Entity> movingEntities = new List<Entity>(entities);
+                movingEntities.Add(entity);
+
+                foreach (Entity t in movingEntities)
+                    foreach (QuadtreeNode node in branchesFor(t))
+                        node.insert(t);
+
+                movingEntities.Clear();
+                this.entities.Clear();
+            }
         }
 
         /// <summary>
         /// Find the child branch for the entity
         /// </summary>
-        private List<QuadtreeNode<T>> branchesFor(T entity)
+        private List<QuadtreeNode> branchesFor(Entity entity)
         {
-            List<QuadtreeNode<T>> branches = new List<QuadtreeNode<T>>();
+            List<QuadtreeNode> branches = new List<QuadtreeNode>();
             Vector3 midpoint = bounds.Min + (bounds.Max - bounds.Min) / 2f;
             midpoint = new Vector3(midpoint.X, 0, midpoint.Z);
             BoundingBox subBox;
@@ -88,28 +125,28 @@ namespace GameProgrammingMajor
             if (entity.collidesWith(subBox = expandY(computeULBox(midpoint))))
             {
                 if (UL == null)
-                    UL = new QuadtreeNode<T>(tree, this, subBox, currentDepth + 1, Color.Yellow);
+                    UL = new QuadtreeNode(tree, this, subBox, currentDepth + 1, Color.Yellow);
                 branches.Add(UL);
             }
 
             if (entity.collidesWith(subBox = expandY(computeURBox(midpoint))))
             {
                 if (UR == null)
-                    UR = new QuadtreeNode<T>(tree, this, subBox, currentDepth + 1, Color.Lime);
+                    UR = new QuadtreeNode(tree, this, subBox, currentDepth + 1, Color.Lime);
                 branches.Add(UR);
             }
 
             if (entity.collidesWith(subBox = expandY(computeLLBox(midpoint))))
             {
                 if (LL == null)
-                    LL = new QuadtreeNode<T>(tree, this, subBox, currentDepth + 1, Color.DarkOrchid);
+                    LL = new QuadtreeNode(tree, this, subBox, currentDepth + 1, Color.DarkOrchid);
                 branches.Add(LL);
             }
 
             if (entity.collidesWith(subBox = expandY(computeLRBox(midpoint))))
             {
                 if (LR == null)
-                    LR = new QuadtreeNode<T>(tree, this, subBox, currentDepth + 1, Color.Orange);
+                    LR = new QuadtreeNode(tree, this, subBox, currentDepth + 1, Color.Orange);
                 branches.Add(LR);
             }
 
@@ -146,7 +183,7 @@ namespace GameProgrammingMajor
         /// <summary>
         /// Move an entity into another node
         /// </summary>
-        public void moveAway(T entity)
+        public void moveAway(Entity entity)
         {
             if(isLeaf())
                 entities.Remove(entity);
@@ -160,7 +197,7 @@ namespace GameProgrammingMajor
             }
         }
 
-        public void remove(QuadtreeNode<T> node)
+        public void remove(QuadtreeNode node)
         {
             if (UL != null && UL.Equals(node)) UL = null;
             if (UR != null && UR.Equals(node)) UR = null;
@@ -186,6 +223,55 @@ namespace GameProgrammingMajor
             return count;
         }
 
+        public QuadtreeNode getNodeAt(Vector3 position)
+        {
+            // If there is no overlap, do not return a node
+            if (bounds.Contains(position) == ContainmentType.Contains)
+            {
+                if (isLeaf())
+                    return this;
+
+                if (UL != null) return UL.getNodeAt(position);
+                if (UR != null) return UR.getNodeAt(position);
+                if (LL != null) return LL.getNodeAt(position);
+                if (LR != null) return LR.getNodeAt(position);
+            }
+
+            return null;
+        }
+
+        public QuadtreeNode getParentIfExists()
+        {
+            return parent;
+        }
+
+        public List<Entity> getEntities()
+        {
+            List<Entity> entities = new List<Entity>();
+            if (isLeaf())
+                entities.AddRange(this.entities);
+            /*else
+            {
+                if (UL != null) entities.AddRange(UL.getEntities());
+                if (UR != null) entities.AddRange(UR.getEntities());
+                if (LL != null) entities.AddRange(LL.getEntities());
+                if (LR != null) entities.AddRange(LR.getEntities());
+            }*/
+            return entities;
+        }
+
+        public void remove(Entity entity)
+        {
+            if (isLeaf())
+                entities.Remove(entity);
+
+            if (empty() && parent != null)
+            {
+                entities.Clear();
+                parent.remove(this);
+            }
+        }
+
         public void update(UpdateParams updateParams)
         {
             if (UL != null) UL.update(updateParams);
@@ -195,8 +281,8 @@ namespace GameProgrammingMajor
 
             if (this.isLeaf())
             {
-                List<T> removeList = new List<T>();
-                foreach (T t in entities)
+                List<Entity> removeList = new List<Entity>();
+                foreach (Entity t in entities)
                     if (!this.intersects(t))
                     {
                         moveAway(t);

@@ -17,6 +17,7 @@ namespace GameProgrammingMajor
         public Matrix world;            // Entity's world transformation matrix
         public Kinematic kinematic;     // Stores information about position and velocities
         public NPC npc = null;          // Handle to this entity's NPC controller. Can be null.
+        public List<QuadtreeNode> treeNodes;
 
         public Entity(Game game)
         {
@@ -24,6 +25,8 @@ namespace GameProgrammingMajor
             world = Matrix.Identity;
 
             kinematic = new Kinematic();
+
+            treeNodes = new List<QuadtreeNode>();
         }
 
         public Entity(Game game, Vector3 position, float rotation)
@@ -42,6 +45,13 @@ namespace GameProgrammingMajor
         public virtual bool collidesWith(StaticModel model) { return false; }
         public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
         public virtual bool collidesWith(BoundingBox boundingBox) { return false; }
+        public virtual void kill() { }
+
+        public void removeFromTree()
+        {
+            foreach(QuadtreeNode treeNode in treeNodes)
+                treeNode.remove(this);
+        }
 
         public virtual void load(ContentManager content) { }
 

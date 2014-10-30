@@ -97,17 +97,13 @@ namespace GameProgrammingMajor
                     node.GWeight = map.getGWeight(x, y);
 
                     // We only want to store nodes
-
                     // that can be walked on.
-
-                    if (node.Walkable == true)
-                    {
-
+                    // (NOT ANYMORE!)
+                    //if (node.Walkable)
+                    //{
                         node.Neighbors = new SearchNode[4];
-
                         searchNodes[x, y] = node;
-
-                    }
+                    //}
 
                 }
 

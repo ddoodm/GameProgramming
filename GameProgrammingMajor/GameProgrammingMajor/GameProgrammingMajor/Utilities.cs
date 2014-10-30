@@ -23,6 +23,12 @@ namespace GameProgrammingMajor
             this.x = (int)vec.X; this.y = (int)vec.Y;
         }
 
+        public iVec2(Point point)
+        {
+            this.x = point.X;
+            this.y = point.Y;
+        }
+
         public static bool operator== (iVec2 lhs, iVec2 rhs)
         {
             return (lhs.x == rhs.x) && (lhs.y == rhs.y);

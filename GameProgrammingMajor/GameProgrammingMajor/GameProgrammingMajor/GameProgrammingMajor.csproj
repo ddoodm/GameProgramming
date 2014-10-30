@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\WaveManager.cs" />
     <Compile Include="BoundingBoxUtilities.cs" />
     <Compile Include="Entities\EntityManager.cs" />
     <Compile Include="Entities\NPCManager.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Towers\TowerPathFinder.cs" />
     <Compile Include="Towers\TowerSelectionManager.cs" />
     <Compile Include="Towers\TowerTraverser.cs" />
+    <Compile Include="Towers\TurretTower.cs" />
     <Compile Include="UI\HUD.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="World\World.cs" />

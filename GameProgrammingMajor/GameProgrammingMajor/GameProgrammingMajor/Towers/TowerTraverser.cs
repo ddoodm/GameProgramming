@@ -23,15 +23,29 @@ namespace GameProgrammingMajor
         StaticModel markerModel;
         Entity mover;
         TowerManager level;
-        Quadtree<Entity> tankTree;
+        Quadtree tankTree;
 
         float levelWidth, levelHeight;
 
-        public bool showDebugPath = true;
+        public bool showDebugPath = false;
 
-        public TowerTraverser(Quadtree<Entity> tankTree)
+        public void destroy()
+        {
+            // Remove from quadtree!
+            mover.removeFromTree();
+        }
+
+        public TowerTraverser(Quadtree tankTree, TowerManager level)
         {
             this.tankTree = tankTree;
+            this.level = level;
+        }
+
+        public void addPath(List<Vector3> path3D)
+        {
+            List<iVec2> path2D = new List<iVec2>();
+            foreach(Vector3 vec in path3D)
+                path2D.Add(level.idOf(vec));
         }
 
         public void addPath(List<Vector2> path)
@@ -48,6 +62,11 @@ namespace GameProgrammingMajor
         {
             this.mover = mover;
             tankTree.insert(mover);
+        }
+
+        public int pathLength()
+        {
+            return path == null? 0 : path.Count;
         }
 
         /// <summary>
@@ -177,7 +196,9 @@ namespace GameProgrammingMajor
             mover.npc.target = new Kinematic(pathToWorld(target2d));
 
             mover.npc.update(updateParams);
-            markerModel.update(updateParams);
+
+            if(markerModel != null)
+                markerModel.update(updateParams);
         }
 
         private Vector2 getTileMidpoint(Vector2 blockId)

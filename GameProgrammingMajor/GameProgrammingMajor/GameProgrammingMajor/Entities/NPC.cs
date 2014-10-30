@@ -38,11 +38,20 @@ namespace GameProgrammingMajor
         public NPCState state { get; private set; }
         public Stack<NPCState> priorities { get; private set; }
 
+        public float health = 1f;
+
         public float lookAheadDistance = 150f;
 
         public Kinematic kinematic
         {
             get { return entity.kinematic; }
+        }
+
+        public void takeDamage(float amount)
+        {
+            health -= amount;
+            if (health < 0)
+                entity.kill();
         }
 
         public void addPriority(NPCState state)

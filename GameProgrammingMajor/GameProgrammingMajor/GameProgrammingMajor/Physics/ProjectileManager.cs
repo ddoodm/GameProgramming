@@ -16,23 +16,26 @@ namespace GameProgrammingMajor
         private Game game;
         private List<Projectile> projectiles;
         private List<StaticModel> staticTargets;
-        private List<Entity> entityTargets;
+        //private List<Entity> entityTargets;
         private TowerManager towerManager;
         private StaticModel projectileModel;
+        private Quadtree quadtree;
         private float cooldown = 0;
 
         public float cooldownWait = 20f;
         public float projectileSpeed = 0.8f;
         public string projectileFireSound = SoundManager.SoundNames.PROJECTILE_FIRE;
 
-        public ProjectileManager(Game game, World world, TowerManager towerManager)
+        public ProjectileManager(Game game, World world, TowerManager towerManager, Quadtree quadtree)
         {
             this.game = game;
             projectiles = new List<Projectile>();
 
-            entityTargets = world.entityManager.entities;
+            /*entityTargets = world.entityManager.entities;*/
             staticTargets = world.staticManager.models;
             this.towerManager = towerManager;
+
+            this.quadtree = quadtree;
         }
 
         public void loadContent(ContentManager content)
@@ -74,9 +77,9 @@ namespace GameProgrammingMajor
                 }
 
                 if (projectiles[i].collision_test(staticTargets)
-                    || projectiles[i].collision_test(entityTargets)
-                    || projectiles[i].collision_test(updateParams, updateParams.player)
-                    || projectiles[i].collision_test(towerManager))
+                  /*|| projectiles[i].collision_test(entityTargets)*/
+                    || projectiles[i].collision_test(towerManager)
+                    || projectiles[i].collision_test(quadtree) != null)
                 {
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
@@ -140,27 +143,14 @@ namespace GameProgrammingMajor
                 return false;
             }
 
+            /*
             public bool collision_test(List<Entity> targets)
             {
                 foreach (Entity target in targets)
                     if (target.collidesWith(boundingSphere))
                         return true;
                 return false;
-            }
-
-            public bool collision_test(UpdateParams updateParams, Player player)
-            {
-                if(player.collidesWith(boundingSphere))
-                {
-                    player.takeDamage(updateParams, damage);
-
-                    // Shake the camera
-                    updateParams.camera.shake(25);
-
-                    return true;
-                }
-                return false;
-            }
+            }*/
 
             /// <summary>
             /// Check for collisions with all Towers in a TowerManager
@@ -168,6 +158,11 @@ namespace GameProgrammingMajor
             public bool collision_test(TowerManager towerManager)
             {
                 return towerManager.towersCollideWith(boundingSphere);
+            }
+
+            public Entity collision_test(Quadtree quadtree)
+            {
+                return quadtree.collision(boundingSphere);
             }
 
             public void draw(DrawParams drawParams)
