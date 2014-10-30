@@ -53,10 +53,13 @@ namespace GameProgrammingMajor
             ((Seek)tank.npc.steering).targetRadius = TowerManager.blockSize;
             tank.npc.steering.maxSpeed = 10;
             tank.npc.steering.maxAcceleration = 200;
-            traverser.setMover(tank);
 
+            // Set position to start of path
             tank.npc.kinematic.position = level.coordinatesOf(
-                new iVec2(path[0] / TowerManager.blockSize));
+    new iVec2(path[0] / TowerManager.blockSize));
+
+            // THEN set the mover (for the quadtree to insert correctly)
+            traverser.setMover(tank);
 
             traverser.addPath(new List<Vector2>(path));
             //give it path
@@ -127,7 +130,6 @@ namespace GameProgrammingMajor
                         delay = 0;
 
                         TowerTraverser newTraverser = new TowerTraverser(quadtree, level);
-                        newTraverser.setMover(new Tank(game, updateParams.world, level));
                         addMonster(game.Content, newTraverser);
                     }
                 }
