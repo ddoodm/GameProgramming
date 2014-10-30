@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<game>
+  <waves>
+    <waveNumbers>1;2;5;5;15</waveNumbers>
+  </waves>
+  <level>
+    <name>Level 1</name>
+    <height>11</height>
+    <width>21</width>
+		<layout>
+      <row>111111111111111111111</row>
+      <row>100000000000000000001</row>  
+      <row>100000000000000000001</row>   
+      <row>100000000001000000001</row>   
+      <row>100000000001000000001</row>   
+      <row>100000000001100000201</row>   
+      <row>100000000001000000001</row>   
+      <row>100000000001000000001</row>   
+      <row>100000000000000000001</row>   
+      <row>100000000000000000001</row>   
+      <row>111111111111111111111</row>
+    </layout>
+  </level> 
+</game>

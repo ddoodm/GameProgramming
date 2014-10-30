@@ -1,0 +1,3 @@
+monsters get to the end code
+multiple waves and type of monsters			plasma teapot at goal
+reading from xml
