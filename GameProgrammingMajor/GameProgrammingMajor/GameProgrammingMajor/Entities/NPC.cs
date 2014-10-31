@@ -47,11 +47,11 @@ namespace GameProgrammingMajor
             get { return entity.kinematic; }
         }
 
-        public void takeDamage(float amount)
+        public void takeDamage(UpdateParams updateParams, float amount)
         {
             health -= amount;
             if (health < 0)
-                entity.kill();
+                entity.kill(updateParams);
         }
 
         public void addPriority(NPCState state)

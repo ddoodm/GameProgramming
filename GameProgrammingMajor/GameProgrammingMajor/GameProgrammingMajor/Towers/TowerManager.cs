@@ -329,6 +329,10 @@ namespace GameProgrammingMajor
             updatePathFinder(updateParams, selectedBlock);
 
             waveManager.Update(updateParams);
+
+            // Death map test
+            if(updateParams.keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.M))
+                updateParams.hud.setDeathMap(generateDeathMap());
         }
 
         public void placeTower(iVec2 cID, Tower tower)
@@ -367,6 +371,41 @@ namespace GameProgrammingMajor
                 if (block.tower != null && block.tower.collidesWith(box))
                     return true;
             return false;
+        }
+
+        public void addDeathAt(Vector3 position)
+        {
+            iVec2 blockID = idOf(position);
+            TowerBlock block = blocks[blockID.y, blockID.x];
+            block.addDeath();
+        }
+
+        public Texture2D generateDeathMap()
+        {
+            Texture2D bmp = new Texture2D(game.GraphicsDevice, NUM_BLOCKS, NUM_BLOCKS);
+            int[,] deathCounts = new int[NUM_BLOCKS,NUM_BLOCKS];
+            int highestDeathCount = blocks[0,0].deathCount;
+
+            for (int y = 0; y < NUM_BLOCKS; y++)
+                for (int x = 0; x < NUM_BLOCKS; x++)
+                {
+                    deathCounts[y, x] = blocks[y, x].deathCount;
+
+                    if (deathCounts[y, x] > highestDeathCount)
+                        highestDeathCount = deathCounts[y, x];
+                }
+
+            Color[] normedDeathCounts = new Color[NUM_BLOCKS * NUM_BLOCKS];
+            for (int y = 0; y < NUM_BLOCKS; y++)
+                for (int x = 0; x < NUM_BLOCKS; x++)
+                {
+                    float luma = (float)deathCounts[y, x] / (float)highestDeathCount;
+                    normedDeathCounts[NUM_BLOCKS * y + x] =
+                        new Color(luma, luma, luma, .75f);
+                }
+
+            bmp.SetData<Color>(normedDeathCounts);
+            return bmp;
         }
 
         public void draw(DrawParams drawParams)

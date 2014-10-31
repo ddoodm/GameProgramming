@@ -20,6 +20,9 @@ namespace GameProgrammingMajor
         private Texture2D gameOverSprite;
         private Texture2D blackTexture;
 
+        private const int deathMapSize = 200;
+        private Texture2D deathMap;
+
         Player player;
 
         public int quadtreeNodeCount;
@@ -38,6 +41,15 @@ namespace GameProgrammingMajor
             // Make a 1x1 semi-transparent texture
             blackTexture = new Texture2D(game.GraphicsDevice, 1, 1);
             blackTexture.SetData(new Color[] {new Color(0, 0, 0, 0.75f)});
+
+            // Null deathmap texture
+            deathMap = new Texture2D(game.GraphicsDevice, 1, 1);
+            deathMap.SetData(new Color[] { new Color(0, 0, 0, .75f) });
+        }
+
+        public void setDeathMap(Texture2D deathMap)
+        {
+            this.deathMap = deathMap;
         }
 
         public void update(UpdateParams updateParams)
@@ -72,6 +84,16 @@ namespace GameProgrammingMajor
                     new Vector2(20 - i * 2, 20 - i * 2),    // Position
                     i == 0 ? Color.Black : Color.White);
             }
+
+            // Draw death map
+            if (deathMap != null)
+            {
+                game.spriteBatch.Draw(
+                    deathMap, new Rectangle(
+                        game.GraphicsDevice.Viewport.Width - deathMapSize - 15, 15,
+                        deathMapSize, deathMapSize), Color.White);
+            }
+
             game.spriteBatch.End();
 
             // Restore GD states after spriteBatch draw

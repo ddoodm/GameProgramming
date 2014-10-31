@@ -79,7 +79,7 @@ namespace GameProgrammingMajor
                 if (projectiles[i].collision_test(staticTargets)
                   /*|| projectiles[i].collision_test(entityTargets)*/
                     || projectiles[i].collision_test(towerManager)
-                    || projectiles[i].collision_test(quadtree))
+                    || projectiles[i].collision_test(updateParams, quadtree))
                 {
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
@@ -160,12 +160,12 @@ namespace GameProgrammingMajor
                 return towerManager.towersCollideWith(boundingSphere);
             }
 
-            public bool collision_test(Quadtree quadtree)
+            public bool collision_test(UpdateParams updateParams, Quadtree quadtree)
             {
                 Entity subject = quadtree.collision(boundingSphere);
 
                 if (subject != null && subject.npc != null)
-                    subject.npc.takeDamage(damage);
+                    subject.npc.takeDamage(updateParams, damage);
 
                 return subject != null;
             }

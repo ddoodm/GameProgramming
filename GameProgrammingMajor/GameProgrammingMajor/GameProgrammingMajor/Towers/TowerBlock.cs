@@ -30,6 +30,8 @@ namespace GameProgrammingMajor
         private PlaneEntity selectionIndicator;
         public bool selected = false;
 
+        public int deathCount = 0;
+
         public TowerBlock(Game game, iVec2 blockId, Matrix world, float size)
         {
             this.game = game;
@@ -58,6 +60,11 @@ namespace GameProgrammingMajor
         public int getGWeight()
         {
             return tower.getGWeight();
+        }
+
+        public void addDeath()
+        {
+            deathCount++;
         }
 
         public void update(UpdateParams updateParams)

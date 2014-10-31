@@ -95,10 +95,15 @@ namespace GameProgrammingMajor
             }
         }
 
-        public override void kill()
+        public override void kill(UpdateParams updateParams)
         {
             traverser.kill();
-            base.kill();
+
+            // Tell the TowerManager for stat generation
+            level.addDeathAt(kinematic.position);
+            updateParams.hud.setDeathMap(level.generateDeathMap());
+
+            base.kill(updateParams);
         }
 
         public bool colliding(Tank other)
