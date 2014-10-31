@@ -79,7 +79,7 @@ namespace GameProgrammingMajor
                 if (projectiles[i].collision_test(staticTargets)
                   /*|| projectiles[i].collision_test(entityTargets)*/
                     || projectiles[i].collision_test(towerManager)
-                    || projectiles[i].collision_test(quadtree) != null)
+                    || projectiles[i].collision_test(quadtree))
                 {
                     // Play collision sound effect
                     updateParams.soundManager.play(SoundManager.SoundNames.IMPACT_METAL);
@@ -108,7 +108,7 @@ namespace GameProgrammingMajor
             public float speed;
             public float screenTime = 0;
             public float creationTime = 0;
-            public float damage = 0.2f;
+            public float damage = 0.26f;
 
             public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed)
             {
@@ -160,9 +160,14 @@ namespace GameProgrammingMajor
                 return towerManager.towersCollideWith(boundingSphere);
             }
 
-            public Entity collision_test(Quadtree quadtree)
+            public bool collision_test(Quadtree quadtree)
             {
-                return quadtree.collision(boundingSphere);
+                Entity subject = quadtree.collision(boundingSphere);
+
+                if (subject != null && subject.npc != null)
+                    subject.npc.takeDamage(damage);
+
+                return subject != null;
             }
 
             public void draw(DrawParams drawParams)

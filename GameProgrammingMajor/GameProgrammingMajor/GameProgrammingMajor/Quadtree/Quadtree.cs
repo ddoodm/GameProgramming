@@ -10,8 +10,8 @@ namespace GameProgrammingMajor
 {
     public class Quadtree
     {
-        public const int MAX_OBJECTS = 1;
-        public const int MAX_LEVELS = 5;
+        public const int MAX_OBJECTS = 2;
+        public const int MAX_LEVELS = 3;
 
         public BoundingBox size;
 
@@ -52,6 +52,11 @@ namespace GameProgrammingMajor
                 return null;
 
             return root.collision(sphere);
+        }
+
+        public List<Entity> getEntities()
+        {
+            return root.getEntities();
         }
 
         public void update(UpdateParams updateParams)

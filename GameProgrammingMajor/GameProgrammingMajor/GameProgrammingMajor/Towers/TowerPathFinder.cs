@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace GameProgrammingMajor
 {
-    class TowerPathFinder
+    public class TowerPathFinder
     {
         // Stores an array of the walkable search nodes.
         private SearchNode[,] searchNodes;

@@ -46,16 +46,16 @@ namespace GameProgrammingMajor
 
         public bool isLeaf()
         {
-            return
+            return (empty()) && (
                 (currentDepth >= Quadtree.MAX_LEVELS)
-                || (entities.Count <= Quadtree.MAX_OBJECTS);
+                || (entities.Count <= Quadtree.MAX_OBJECTS));
         }
 
         public bool willBeLeaf()
         {
-            return
+            return (empty()) && (
                 (currentDepth >= Quadtree.MAX_LEVELS)
-                || ((entities.Count + 1) <= Quadtree.MAX_OBJECTS);
+                || ((entities.Count + 1) <= Quadtree.MAX_OBJECTS));
         }
 
         /// <summary>
@@ -102,13 +102,16 @@ namespace GameProgrammingMajor
                 // Move all entities down
                 List<Entity> movingEntities = new List<Entity>(entities);
                 movingEntities.Add(entity);
+                this.entities.Clear();
 
                 foreach (Entity t in movingEntities)
+                {
+                    t.treeNodes.Remove(this);
                     foreach (QuadtreeNode node in branchesFor(t))
                         node.insert(t);
+                }
 
                 movingEntities.Clear();
-                this.entities.Clear();
             }
         }
 
@@ -231,10 +234,11 @@ namespace GameProgrammingMajor
                 if (isLeaf())
                     return this;
 
-                if (UL != null) return UL.getNodeAt(position);
-                if (UR != null) return UR.getNodeAt(position);
-                if (LL != null) return LL.getNodeAt(position);
-                if (LR != null) return LR.getNodeAt(position);
+                QuadtreeNode node = null;
+                if (UL != null && (node = UL.getNodeAt(position)) != null) return node;
+                if (UR != null && (node = UR.getNodeAt(position)) != null) return node;
+                if (LL != null && (node = LL.getNodeAt(position)) != null) return node;
+                if (LR != null && (node = LR.getNodeAt(position)) != null) return node;
             }
 
             return null;
@@ -250,13 +254,13 @@ namespace GameProgrammingMajor
             List<Entity> entities = new List<Entity>();
             if (isLeaf())
                 entities.AddRange(this.entities);
-            /*else
+            else
             {
                 if (UL != null) entities.AddRange(UL.getEntities());
                 if (UR != null) entities.AddRange(UR.getEntities());
                 if (LL != null) entities.AddRange(LL.getEntities());
                 if (LR != null) entities.AddRange(LR.getEntities());
-            }*/
+            }
             return entities;
         }
 
@@ -272,8 +276,15 @@ namespace GameProgrammingMajor
             }
         }
 
+        public void removeIfOutside(Entity entity)
+        {
+            if (!entity.collidesWith(bounds))
+                remove(entity);
+        }
+
         public void update(UpdateParams updateParams)
         {
+            /*
             if (UL != null) UL.update(updateParams);
             if (UR != null) UR.update(updateParams);
             if (LL != null) LL.update(updateParams);
@@ -281,14 +292,13 @@ namespace GameProgrammingMajor
 
             if (this.isLeaf())
             {
-                List<Entity> removeList = new List<Entity>();
                 foreach (Entity t in entities)
                     if (!this.intersects(t))
                     {
                         moveAway(t);
                         break;
                     }
-            }
+            } */
         }
 
         public void draw(DrawParams drawParams)

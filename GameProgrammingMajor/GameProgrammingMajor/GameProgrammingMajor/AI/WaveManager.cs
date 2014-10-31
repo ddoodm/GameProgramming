@@ -10,7 +10,7 @@ namespace GameProgrammingMajor
     /// <summary>
     /// Dan's enemy wave controller code
     /// </summary>
-    class WaveManager
+    public class WaveManager
     {
         List<TowerTraverser> monsters;
         TowerPathFinder pathfinder;
@@ -24,6 +24,7 @@ namespace GameProgrammingMajor
         List<Vector2> path;
         TowerManager level;
         Quadtree quadtree;
+        int idCounter = 0;
 
         public WaveManager(TowerManager level, iVec2 startPoint, iVec2 endPoint, MainGame game, Quadtree quadtree)
         {
@@ -46,7 +47,7 @@ namespace GameProgrammingMajor
         private void addMonster(ContentManager content, TowerTraverser traverser)
         {
             // Create the entity that will traverse the terrain
-            Tank tank = new Tank(game, ((MainGame)game).world, level); // TODO: Very bad hack. Do not do this.
+            Tank tank = new Tank(game, ((MainGame)game).world, level, traverser, idCounter++); // TODO: Very bad hack. Do not do this.
             tank.load(content);
             tank.npc = new NPC(game, tank);
             tank.npc.steering = new Seek();
@@ -115,6 +116,14 @@ namespace GameProgrammingMajor
             return true;
         }
 
+        /// <summary>
+        /// Remove a tower traverser from the list of traversers
+        /// </summary>
+        public void remove(TowerTraverser traverser)
+        {
+            monsters.Remove(traverser);
+        }
+
         public void Update(UpdateParams updateParams)
         {
             //for each wave wavedelay between waves 
@@ -129,7 +138,7 @@ namespace GameProgrammingMajor
                         numberToSpawn[wavenum]--;
                         delay = 0;
 
-                        TowerTraverser newTraverser = new TowerTraverser(quadtree, level);
+                        TowerTraverser newTraverser = new TowerTraverser(quadtree, level, this);
                         addMonster(game.Content, newTraverser);
                     }
                 }

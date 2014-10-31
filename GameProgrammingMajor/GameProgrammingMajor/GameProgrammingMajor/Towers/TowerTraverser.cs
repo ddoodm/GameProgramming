@@ -16,7 +16,7 @@ namespace GameProgrammingMajor
     /// http://xnatd.blogspot.com.au/2011/12/pathfinding-tutorial-part-3.html
     /// ... But has been modified to implement Steering
     /// </summary>
-    class TowerTraverser
+    public class TowerTraverser
     {
         public Vector2 position;
         List<Vector2> path;
@@ -24,6 +24,7 @@ namespace GameProgrammingMajor
         Entity mover;
         TowerManager level;
         Quadtree tankTree;
+        WaveManager waveManager;
 
         float levelWidth, levelHeight;
 
@@ -35,10 +36,11 @@ namespace GameProgrammingMajor
             mover.removeFromTree();
         }
 
-        public TowerTraverser(Quadtree tankTree, TowerManager level)
+        public TowerTraverser(Quadtree tankTree, TowerManager level, WaveManager waveManager)
         {
             this.tankTree = tankTree;
             this.level = level;
+            this.waveManager = waveManager;
         }
 
         public void addPath(List<Vector3> path3D)
@@ -137,6 +139,12 @@ namespace GameProgrammingMajor
             return new iVec2?(targetBlock);
         }
 
+        public void kill()
+        {
+            this.destroy();
+            waveManager.remove(this);
+        }
+
         public void Update(UpdateParams updateParams, TowerManager level)
         {
             this.level = level;
@@ -199,6 +207,12 @@ namespace GameProgrammingMajor
 
             if(markerModel != null)
                 markerModel.update(updateParams);
+
+            // Remove from tree and re-insert
+            foreach (QuadtreeNode node in mover.treeNodes)
+                node.removeIfOutside(mover);
+            mover.treeNodes.Clear();
+            tankTree.insert(mover);
         }
 
         private Vector2 getTileMidpoint(Vector2 blockId)

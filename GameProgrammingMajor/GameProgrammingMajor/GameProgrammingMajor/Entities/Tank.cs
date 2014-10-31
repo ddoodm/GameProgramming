@@ -21,10 +21,16 @@ namespace GameProgrammingMajor
 
         private TowerManager level;
 
-        public Tank(Game game, Vector3 position, World world, TowerManager level)
+        private TowerTraverser traverser;
+
+        public int id;
+
+        public Tank(Game game, Vector3 position, World world, TowerManager level, TowerTraverser traverser, int id)
             : base(game)
         {
             this.level = level;
+            this.traverser = traverser;
+            this.id = id;
 
             model = new TankModel();
 
@@ -33,10 +39,15 @@ namespace GameProgrammingMajor
             projectileManager = new ProjectileManager(game, world, level, level.tankTree);
         }
 
-        public Tank(Game game, World world, TowerManager towerManager)
-            : this(game, Vector3.Zero, world, towerManager)
+        public Tank(Game game, World world, TowerManager towerManager, TowerTraverser traverser, int id)
+            : this(game, Vector3.Zero, world, towerManager, traverser, id)
         {
             
+        }
+
+        public bool Equals(Tank rhs)
+        {
+            return rhs.id == id;
         }
 
         public override void load(ContentManager content)
@@ -82,6 +93,12 @@ namespace GameProgrammingMajor
                 projectileManager.projectileSpeed = 0.5f;
                 projectileManager.shoot(updateParams, turretPosition, targetDirection);
             }
+        }
+
+        public override void kill()
+        {
+            traverser.kill();
+            base.kill();
         }
 
         public bool colliding(Tank other)

@@ -84,21 +84,26 @@ namespace GameProgrammingMajor
             if (target != null)
             {
                 Vector3 origin = turretPosition;
-                Vector3 direction = (target.kinematic.position + target.kinematic.velocity) - origin;
-                Vector3 unitDirection = Vector3.Normalize(direction);
-                updateTurretFacing(direction);
-                projectileMan.shoot(updateParams, origin, unitDirection);
+                Vector3 direction = Vector3.Normalize((target.kinematic.position + target.kinematic.velocity) - origin);
+                updateTurretFacing(origin, target.kinematic.position);
+                projectileMan.shoot(updateParams, origin, direction);
             }
         }
 
         private Entity findTarget()
         {
+            /*
             QuadtreeNode node = quadtree.getNodeAt(world.Translation);
 
             if (node == null)
                 return null;
 
-            List<Entity> entities = node.getEntities();
+            QuadtreeNode parent = node.getParentIfExists();
+            if (parent == null)
+                parent = node;
+             */
+
+            List<Entity> entities = quadtree.getEntities();
 
             if (entities.Count == 0)
                 return null;
@@ -116,8 +121,9 @@ namespace GameProgrammingMajor
             }
         }
 
-        private void updateTurretFacing(Vector3 direction)
+        private void updateTurretFacing(Vector3 origin, Vector3 target)
         {
+            Vector3 direction = target - origin;
             float rotY = (float)Math.Atan2(direction.X, direction.Z) - MathHelper.ToRadians(90f);
             Matrix rotMatrix = Matrix.CreateRotationY(rotY);
             axisBone.Transform = bakedAxisTransform * rotMatrix;
