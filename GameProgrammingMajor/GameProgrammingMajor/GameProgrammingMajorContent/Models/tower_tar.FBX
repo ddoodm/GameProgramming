@@ -385,7 +385,7 @@ Objects:  {
         }
         UseMipMap: 0
         Filename: "D:\GameProgramming\Textures\block_tar.png"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\block_tar.png"
+        RelativeFilename: "..\Textures\block_tar.png"
     }
     Texture: "Texture::Map #2", "" {
         Type: "TextureVideoClip"
@@ -411,7 +411,7 @@ Objects:  {
         }
         Media: "Video::Map #2"
         FileName: "D:\GameProgramming\Textures\block_tar.png"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\block_tar.png"
+        RelativeFilename: "..\Textures\block_tar.png"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "Alpha_Black"

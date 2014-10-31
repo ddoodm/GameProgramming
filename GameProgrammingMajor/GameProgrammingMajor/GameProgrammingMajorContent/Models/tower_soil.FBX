@@ -380,7 +380,7 @@ Objects:  {
             Property: "LastFrame", "int", "",0
             Property: "Width", "int", "",0
             Property: "Height", "int", "",0
-            Property: "Path", "KString", "", "D:\GameProgramming\Textures\block_soil.png"
+            Property: "Path", "KString", "", "..\Textures\block_soil.png"
             Property: "StartFrame", "int", "",0
             Property: "StopFrame", "int", "",0
             Property: "PlaySpeed", "double", "",0
@@ -392,7 +392,7 @@ Objects:  {
         }
         UseMipMap: 0
         Filename: "D:\GameProgramming\Textures\block_soil.png"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\block_soil.png"
+        RelativeFilename: "..\Textures\block_soil.png"
     }
     Texture: "Texture::Map #1", "" {
         Type: "TextureVideoClip"
@@ -418,7 +418,7 @@ Objects:  {
         }
         Media: "Video::Map #1"
         FileName: "D:\GameProgramming\Textures\block_soil.png"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\block_soil.png"
+        RelativeFilename: "..\Textures\block_soil.png"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "Alpha_Black"

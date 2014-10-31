@@ -834,7 +834,7 @@ Objects:  {
         }
         UseMipMap: 0
         Filename: "D:\GameProgramming\Textures\BrickOldRounded0298_1_S.jpg"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\BrickOldRounded0298_1_S.jpg"
+        RelativeFilename: "..\Textures\BrickOldRounded0298_1_S.jpg"
     }
     Video: "Video::Map #3", "Clip" {
         Type: "Clip"
@@ -855,7 +855,7 @@ Objects:  {
         }
         UseMipMap: 0
         Filename: "D:\GameProgramming\Textures\concreteNew.jpg"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\concreteNew.jpg"
+        RelativeFilename: "..\Textures\concreteNew.jpg"
     }
     Texture: "Texture::Map #2", "" {
         Type: "TextureVideoClip"
@@ -881,7 +881,7 @@ Objects:  {
         }
         Media: "Video::Map #2"
         FileName: "D:\GameProgramming\Textures\BrickOldRounded0298_1_S.jpg"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\BrickOldRounded0298_1_S.jpg"
+        RelativeFilename: "..\Textures\BrickOldRounded0298_1_S.jpg"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "Alpha_Black"
@@ -911,7 +911,7 @@ Objects:  {
         }
         Media: "Video::Map #3"
         FileName: "D:\GameProgramming\Textures\concreteNew.jpg"
-        RelativeFilename: "..\..\..\..\..\GameProgramming\Textures\concreteNew.jpg"
+        RelativeFilename: "..\Textures\concreteNew.jpg"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "Alpha_Black"

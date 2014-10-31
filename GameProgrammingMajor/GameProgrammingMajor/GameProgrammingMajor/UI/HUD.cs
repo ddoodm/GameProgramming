@@ -92,6 +92,18 @@ namespace GameProgrammingMajor
                     deathMap, new Rectangle(
                         game.GraphicsDevice.Viewport.Width - deathMapSize - 15, 15,
                         deathMapSize, deathMapSize), Color.White);
+
+                Vector2 textPosition = new Vector2(
+                    game.GraphicsDevice.Viewport.Width - deathMapSize,
+                    deathMapSize + 15);
+                for (int i = 0; i < 2; i++)
+                {
+                    game.spriteBatch.DrawString(
+                        uiFont,                                 // Font object
+                        "Kill Heatmap",                         // String
+                        new Vector2(textPosition.X - i * 2, textPosition.Y - i * 2),    // Position
+                        i == 0 ? Color.Black : Color.White);
+                }
             }
 
             game.spriteBatch.End();

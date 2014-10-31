@@ -284,6 +284,9 @@ namespace GameProgrammingMajor
 
         public void update(UpdateParams updateParams)
         {
+            entities.Clear();
+            if(parent != null) parent.remove(this);
+
             /*
             if (UL != null) UL.update(updateParams);
             if (UR != null) UR.update(updateParams);
