@@ -19,8 +19,8 @@ namespace GameProgrammingMajor
 
         private Vector3 turretPosition;
 
-        public TurretTower(Game game, Matrix world, TowerManager level, float size, Quadtree quadtree)
-            : base(game, world, size)
+        public TurretTower(Game game, Matrix world, TowerManager level, float size, Quadtree quadtree, iVec2 id)
+            : base(game, world, size, id)
         {
             this.quadtree = quadtree;
             this.level = level;
@@ -110,12 +110,13 @@ namespace GameProgrammingMajor
             else
             {
                 // Check whether a ray can see any of the tanks
-                foreach (Entity entity in entities)
+                // Search backwards to find the oldest tank
+                for(int i=entities.Count-1; i>=0; i--)
                 {
                     Ray ray = new Ray(turretPosition, Vector3.Normalize(
-                        (entity.kinematic.position + entity.kinematic.velocity) - turretPosition));
+                        (entities[i].kinematic.position + entities[i].kinematic.velocity) - turretPosition));
                     if (!level.intersects(ray))
-                        return entity;
+                        return entities[i];
                 }
                 return null;
             }

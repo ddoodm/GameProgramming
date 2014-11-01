@@ -50,7 +50,8 @@ namespace GameProgrammingMajor
             tankTree = new Quadtree(new BoundingBox(-halfTreeSize, halfTreeSize), game.GraphicsDevice);
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain, tankTree);
+            LevelDescription level = LevelLoader.loadLevel("Levels\\level1.xml", game.Content);
+            towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain, tankTree, level);
         }
 
         public void load(ContentManager content)

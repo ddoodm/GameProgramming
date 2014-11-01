@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
        private int gWeight = 0;
 
-       public TeapotTower(Game game, Matrix world, float size)
-            : base(game, world, size)
+       public TeapotTower(Game game, Matrix world, float size, iVec2 id)
+            : base(game, world, size, id)
         {
             loadModel();
         }

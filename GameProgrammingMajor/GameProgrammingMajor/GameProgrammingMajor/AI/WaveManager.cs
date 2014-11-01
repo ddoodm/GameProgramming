@@ -13,7 +13,7 @@ namespace GameProgrammingMajor
     public class WaveManager
     {
         List<TowerTraverser> monsters;
-        TowerPathFinder pathfinder;
+        public TowerPathFinder pathfinder;
         iVec2 startPoint, endPoint;
         MainGame game;
         //GameTime time;
@@ -52,12 +52,11 @@ namespace GameProgrammingMajor
             tank.npc = new NPC(game, tank);
             tank.npc.steering = new Seek();
             ((Seek)tank.npc.steering).targetRadius = TowerManager.blockSize;
-            tank.npc.steering.maxSpeed = 10;
+            tank.npc.steering.maxSpeed = 100;
             tank.npc.steering.maxAcceleration = 200;
 
             // Set position to start of path
-            tank.npc.kinematic.position = level.coordinatesOf(
-    new iVec2(path[0] / TowerManager.blockSize));
+            tank.npc.kinematic.position = level.coordinatesOf(new iVec2(path[0] / TowerManager.blockSize));
 
             // THEN set the mover (for the quadtree to insert correctly)
             traverser.setMover(tank);

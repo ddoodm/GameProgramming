@@ -59,7 +59,8 @@ namespace GameProgrammingMajor
 
         public int getGWeight()
         {
-            return tower.getGWeight();
+            // Add death count to avoid likely-death areas
+            return tower.getGWeight() + deathCount * 2;
         }
 
         public void addDeath()

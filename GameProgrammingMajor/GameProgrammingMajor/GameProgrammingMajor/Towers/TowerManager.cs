@@ -10,13 +10,15 @@ namespace GameProgrammingMajor
 {
     public enum TowerType
     {
-        WALL = 0,
+        NONE = -1,
+        GRASS = 0,
+        WALL,
         PATH,
-        GRASS,
         TAR,
-        TEAPOT,
         TURRET,
-        NONE
+        TEAPOT,
+        START = 8,
+        END = 9,
     }
 
     /// <summary>
@@ -62,7 +64,7 @@ namespace GameProgrammingMajor
         private WaveManager waveManager;
 
         // A pre-designed map
-        private int[,] predesignedMap = new int[NUM_BLOCKS, NUM_BLOCKS]
+        private int[,] predesignedMap; /* = new int[NUM_BLOCKS, NUM_BLOCKS]
         {
             {2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
             {2,3,3,2,5,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
@@ -84,18 +86,7 @@ namespace GameProgrammingMajor
             {2,2,2,2,2,1,2,2,2,2,2,2,3,2,2,0,2,2,2,2},
             {2,2,2,2,2,1,2,2,2,2,2,2,2,3,2,2,2,2,2,2},
             {1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,4},
-        };
-
-        /// <summary>
-        /// Create a new Tower Manager.
-        /// </summary>
-        /// <param name="game">The main game object</param>
-        /// <param name="position">The position of this collection of towers.</param>
-        public TowerManager(Game game, Matrix world)
-            : this(game, world, null, null)
-        {
-
-        }
+        };*/
 
         /// <summary>
         /// Create a new Tower Manager.
@@ -103,12 +94,15 @@ namespace GameProgrammingMajor
         /// <param name="game">The main game object</param>
         /// <param name="position">The position of this collection of towers.</param>
         /// <param name="terrain">A pre-initialized terrain height map.</param>
-        public TowerManager(Game game, Matrix world, Terrain terrain, Quadtree tankTree)
+        public TowerManager(Game game, Matrix world, Terrain terrain, Quadtree tankTree, LevelDescription levelDescription)
         {
             this.game = game;
             this.world = world;
             this.terrain = terrain;
             this.tankTree = tankTree;
+
+            // Copy levelDescription map to this map
+            predesignedMap = levelDescription.indices;
 
             midPosition = world.Translation - new Vector3(
                 blockSize * NUM_BLOCKS,
@@ -126,8 +120,13 @@ namespace GameProgrammingMajor
             // Set up path finding objects
             pathFinder = new TowerPathFinder(this);
 
+            iVec2? startBlock = firstInstanceInPredesign(TowerType.START);
+            iVec2? endBlock = firstInstanceInPredesign(TowerType.END);
+            if (!startBlock.HasValue || !endBlock.HasValue)
+                throw new Exception("Start and end block must be declared in the XML level layout file.");
+
             waveManager = new WaveManager(
-                this, new iVec2(0,0), new iVec2(18,19), (MainGame)game, tankTree);
+                this, startBlock.Value, endBlock.Value, (MainGame)game, tankTree);
         }
 
         public void load(ContentManager content)
@@ -143,8 +142,10 @@ namespace GameProgrammingMajor
             for (int z = 0; z < NUM_BLOCKS; z++)
                 for (int x = 0; x < NUM_BLOCKS; x++)
                 {
+                    iVec2 cID = new iVec2(z, x);
+
                     // Place each block in a grid formation:
-                    Vector3 blockPosition = coordinatesOf(new iVec2(z, x));
+                    Vector3 blockPosition = coordinatesOf(cID);
 
                     // Compute the block's world transform matrix
                     Matrix blockWorld = Matrix.CreateTranslation(blockPosition);
@@ -153,7 +154,7 @@ namespace GameProgrammingMajor
                     blocks[z, x] = new TowerBlock(game, new iVec2(z, x), blockWorld, blockSize);
 
                     // Set the block based on the pre-designed map
-                    blocks[z, x].setTower(createTowerFromInt(predesignedMap[z, x], blockWorld, blockSize));
+                    blocks[z, x].setTower(createTowerFromInt(predesignedMap[z, x], blockWorld, blockSize, cID));
                 }
         }
 
@@ -173,27 +174,38 @@ namespace GameProgrammingMajor
             return TowerType.NONE;
         }
 
-        private Tower createTowerFromInt(int towerTypeID, Matrix world, float size)
+        private Tower createTowerFromInt(int towerTypeID, Matrix world, float size, iVec2 id)
         {
             TowerType towerType = (TowerType)towerTypeID;
 
             switch (towerType)
             {
                 case TowerType.GRASS:
-                    return new GrassTower(game, world, size);
+                    return new GrassTower(game, world, size, this, id);
                 case TowerType.PATH:
-                    return new PathTower(game, world, size);
+                    return new PathTower(game, world, size, id);
                 case TowerType.WALL:
-                    return new WallTower(game, world, size);
+                    return new WallTower(game, world, size, id);
                 case TowerType.TAR:
-                    return new TarTower(game, world, size);
+                    return new TarTower(game, world, size, id);
                 case TowerType.TEAPOT:
-                    return new TeapotTower(game, world, size);
+                    return new TeapotTower(game, world, size, id);
                 case TowerType.TURRET:
-                    return new TurretTower(game, world, this, size, tankTree);
+                    return new TurretTower(game, world, this, size, tankTree, id);
+                case TowerType.START: case TowerType.END:
+                    return new GrassTower(game, world, size, this, id);
             }
 
             throw new Exception("towerTypeID has no corresponding tower type.");
+        }
+
+        public iVec2? firstInstanceInPredesign(TowerType type)
+        {
+            for (int i = 0; i < NUM_BLOCKS; i++)
+                for (int j = 0; j < NUM_BLOCKS; j++)
+                    if (predesignedMap[j,i] == (int)type)
+                        return new iVec2(j, i);
+            return null;
         }
 
         /// <summary>
@@ -300,8 +312,14 @@ namespace GameProgrammingMajor
                         && blocks[z, x].selected)
                     {
                         // Unfortunately, we must place the tower first, and remove it if it is illegal
-                        TowerType oldTower = getTowerTypeAt(x, z);
-                        Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size);
+                        Tower oldTower = getTowerAt(x, z);
+                        TowerType oldTowerType = getTowerTypeOf(oldTower.GetType());
+
+                        // Do not allow replacement of solids
+                        if (oldTower.isSolid())
+                            continue;
+
+                        Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size, cID);
                         placeTower(cID, newTower);
 
                         if (waveManager.placementAllowedAt(this, cID))
@@ -316,7 +334,8 @@ namespace GameProgrammingMajor
                         else
                         {
                             // Placement is not allowed, so we must undo
-                            placeTower(cID, createTowerFromInt((int)oldTower, blocks[z, x].world, blocks[z, x].size));
+                            //placeTower(cID, createTowerFromInt((int)oldTower, blocks[z, x].world, blocks[z, x].size, cID));
+                            placeTower(cID, oldTower);
                         }
                     }
 
@@ -378,6 +397,15 @@ namespace GameProgrammingMajor
             iVec2 blockID = idOf(position);
             TowerBlock block = blocks[blockID.y, blockID.x];
             block.addDeath();
+
+            // Update pathfinder search nodes to consider deaths
+            waveManager.updatePathfinder();
+            waveManager.calculatePaths();
+        }
+
+        public int getDeathCountAt(iVec2 id)
+        {
+            return blocks[id.y, id.x].deathCount;
         }
 
         public Texture2D generateDeathMap()

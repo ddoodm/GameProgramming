@@ -9,6 +9,7 @@ namespace GameProgrammingMajor
 {
     public class Tower : Entity
     {
+        protected iVec2 id;
         private float size;
         protected StaticModel model;
         protected BoundingBox boundingBox;
@@ -20,16 +21,17 @@ namespace GameProgrammingMajor
         // Path-finding weight
         private int gWeight = 0;
 
-        public Tower(Game game, Matrix world, float size)
+        public Tower(Game game, Matrix world, float size, iVec2 id)
             : base(game, world)
         {
             this.size = size;
+            this.id = id;
 
             init_shadowPlane();
         }
 
         public Tower(Tower rhs)
-            : this(rhs.game, rhs.world, rhs.size)
+            : this(rhs.game, rhs.world, rhs.size, rhs.id)
         {
 
         }
@@ -105,8 +107,8 @@ namespace GameProgrammingMajor
     {
         private int gWeight = 0;
 
-        public WallTower(Game game, Matrix world, float size)
-            : base(game, world, size)
+        public WallTower(Game game, Matrix world, float size, iVec2 id)
+            : base(game, world, size, id)
         {
             loadModel();
         }

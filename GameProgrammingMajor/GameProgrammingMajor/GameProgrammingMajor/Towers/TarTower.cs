@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
         private int gWeight = 10;
 
-        public TarTower(Game game, Matrix world, float size)
-            : base(game, world, size)
+        public TarTower(Game game, Matrix world, float size, iVec2 id)
+            : base(game, world, size, id)
         {
             loadModel();
         }

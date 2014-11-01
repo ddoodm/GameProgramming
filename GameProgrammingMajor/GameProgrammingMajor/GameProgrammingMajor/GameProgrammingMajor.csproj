@@ -78,6 +78,8 @@
     <Compile Include="Entities\NPCManager.cs" />
     <Compile Include="Entities\PlaneEntity.cs" />
     <Compile Include="Entities\PrimitiveEntity.cs" />
+    <Compile Include="LevelDescription.cs" />
+    <Compile Include="LevelLoader.cs" />
     <Compile Include="Models\PlasmaModel.cs" />
     <Compile Include="Models\Skybox.cs" />
     <Compile Include="Models\StaticModelManager.cs" />

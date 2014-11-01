@@ -9,10 +9,12 @@ namespace GameProgrammingMajor
     class GrassTower : Tower
     {
         public int gWeight = 3;
+        private TowerManager level;
 
-        public GrassTower(Game game, Matrix world, float size)
-            : base(game, world, size)
+        public GrassTower(Game game, Matrix world, float size, TowerManager level, iVec2 id)
+            : base(game, world, size, id)
         {
+            this.level = level;
             loadModel();
         }
 
@@ -27,6 +29,7 @@ namespace GameProgrammingMajor
 
         public override int getGWeight()
         {
+            // Add the death count to this block's GWeight
             return gWeight;
         }
 

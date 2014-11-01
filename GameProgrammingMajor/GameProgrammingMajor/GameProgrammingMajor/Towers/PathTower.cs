@@ -12,8 +12,8 @@ namespace GameProgrammingMajor
         // Path is a first-class A* block - it is preferred
         private int gWeight = 0;
 
-        public PathTower(Game game, Matrix world, float size)
-            : base(game, world, size)
+        public PathTower(Game game, Matrix world, float size, iVec2 id)
+            : base(game, world, size, id)
         {
             loadModel();
         }
