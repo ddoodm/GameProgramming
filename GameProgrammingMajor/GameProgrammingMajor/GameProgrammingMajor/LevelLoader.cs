@@ -14,7 +14,9 @@ namespace GameProgrammingMajor
 
         public static LevelDescription loadLevel(string path, ContentManager content)
         {
-            XmlReader xml = XmlReader.Create(path);
+            XmlReader xml;
+            try { xml = XmlReader.Create(path); }
+            catch { throw new Exception("Level XML File \"" + path + "\" does not exist. "); }
             LevelDescription level = new LevelDescription();
 
             while (xml.Read())
