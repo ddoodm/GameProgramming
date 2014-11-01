@@ -51,7 +51,7 @@ namespace GameProgrammingMajor
             // Provide the entity with this NPC object
             entity.npc = this;
 
-            fsm = new FSM(fsmFile);
+            fsm = new FSM(this, fsmFile);
 
             if (DEBUG)
                 waypointModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
@@ -69,20 +69,48 @@ namespace GameProgrammingMajor
             entity.load(content);
         }
 
-        public void approachTarget()
-        {
+        // --------------------------- FSM Functions --------------------------- \\
 
+        public bool tryEvaluateCondition(Condition condition)
+        {
+            try
+            {
+                if (condition.Equals(Condition.lowHealth))
+                    return entity.lowHealth();
+                if (condition.Equals(Condition.atTarget))
+                    return ((Tank)entity).atTarget();
+                if (condition.Equals(Condition.awayFromAttacker))
+                    return ((Tank)entity).awayFromAttacker();
+            }
+            catch
+            {
+                throw new Exception(
+                    "Condition: \"" + condition.ToString() + "\" is not suitable for " +
+                    "entity of type \"" + entity.GetType().ToString() + "\".");
+            }
+
+            throw new Exception("No evaluator defined for the specified condition.");
         }
 
-        public void evade()
+        public void executeState(UpdateParams updateParams, StateName state)
         {
-
+            if (state.Equals(StateName.attackTarget))
+                ((Tank)entity).fsm_attackTarget(updateParams);
+            else if (state.Equals(StateName.evadeAttacker))
+                ((Tank)entity).fsm_evadeAttacker(updateParams);
+            else if (state.Equals(StateName.gotoTarget))
+                ((Tank)entity).fsm_goToTarget(updateParams);
         }
+
+        // ------------------------- End FSM Functions ------------------------- \\
 
         public void update(UpdateParams updateParams)
         {
             // Obtain time difference
             float timeDelta = (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
+
+            // Update the FSM
+            fsm.update(updateParams);
 
             // Update steering AI state using a state machine
             // OLD METHOD FROM ALPHA

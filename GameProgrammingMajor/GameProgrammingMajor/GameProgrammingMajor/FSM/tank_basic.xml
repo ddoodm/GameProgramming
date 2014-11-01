@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<states>
+  <state name="gotoTarget">
+    <transition condition="atTarget" action="attackTarget"/>
+    <transition condition="lowHealth" action="evadeAttacker"/>
+  </state>
+  <state name="attackTarget">
+    
+  </state>
+  <state name="evadeAttacker">
+    <transition condition="awayFromAttacker" action="gotoTarget"/>
+  </state>
+</states>

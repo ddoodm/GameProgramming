@@ -23,6 +23,8 @@ namespace GameProgrammingMajor
 
         private TowerTraverser traverser;
 
+        private Tower targetTower;
+
         public int id;
 
         public Tank(Game game, Vector3 position, World world, TowerManager level, TowerTraverser traverser, int id)
@@ -63,38 +65,12 @@ namespace GameProgrammingMajor
             updateTurret();
             updateWheels();
 
-            shootRandomly(updateParams);
-
             // Initialize world matrix and scale the model down
             world = Matrix.Identity * Matrix.CreateScale(0.03f);
 
             // Update world matrix
             world *= Matrix.CreateRotationY(kinematic.orientation);
             world *= Matrix.CreateTranslation(kinematic.position);
-        }
-
-        /// <summary>
-        /// Shoot at the turret target randomly.
-        /// </summary>
-        private void shootRandomly(UpdateParams updateParams)
-        {
-            // Break if there is no target
-            if (turretTarget == null)
-                return;
-
-            projectileManager.update(updateParams);
-
-            // Generate a random number to determine whether to shoot
-            int randNum = updateParams.random.Next(0, 20);
-
-            if (randNum == 0)
-            {
-                Vector3 turretPosition = Vector3.Transform(model.canonPosition, world);
-                Vector3 targetDirection = Vector3.Normalize(turretTarget.position - turretPosition);
-
-                projectileManager.projectileSpeed = 0.5f;
-                projectileManager.shoot(updateParams, turretPosition, targetDirection);
-            }
         }
 
         public override void kill(UpdateParams updateParams)
@@ -173,6 +149,38 @@ namespace GameProgrammingMajor
             /* model.SteerRotation =
                 (float)Math.Atan2(npc.steering.linear.X, npc.steering.linear.Y)
                 + MathHelper.PiOver2; */
+        }
+
+        public bool atTarget()
+        {
+            return traverser.pathLength() <= 2;
+        }
+
+        public bool awayFromAttacker()
+        {
+            // TODO: Implement "awayFromAttacker".
+            return true;
+        }
+
+        public void fsm_attackTarget(UpdateParams updateParams)
+        {
+            Tower targetTower = traverser.targetTower;
+            turretTarget = targetTower.kinematic;
+
+            // Get direction to target
+            Vector3 targetDirection = turretTarget.position - kinematic.position;
+
+            projectileManager.shoot(updateParams, this.kinematic.position, targetDirection);
+        }
+
+        public void fsm_evadeAttacker(UpdateParams updateParams)
+        {
+
+        }
+
+        public void fsm_goToTarget(UpdateParams updateParams)
+        {
+
         }
 
         public override void draw(DrawParams drawParams)

@@ -44,6 +44,14 @@ namespace GameProgrammingMajor
             this.world = world;
         }
 
+        public bool lowHealth()
+        {
+            if (npc == null)
+                throw new Exception("FSM condition called for non-NPC.");
+
+            return npc.health <= 0.25f;
+        }
+
         public virtual bool collidesWith(StaticModel model) { return false; }
         public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
         public virtual bool collidesWith(BoundingBox boundingBox) { return false; }

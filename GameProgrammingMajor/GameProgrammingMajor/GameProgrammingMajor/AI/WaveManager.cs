@@ -138,6 +138,7 @@ namespace GameProgrammingMajor
                         delay = 0;
 
                         TowerTraverser newTraverser = new TowerTraverser(quadtree, level, this);
+                        newTraverser.setTargetTower(level.getTowerAt(endPoint.x, endPoint.y));
                         addMonster(game.Content, newTraverser);
                     }
                 }
@@ -150,12 +151,16 @@ namespace GameProgrammingMajor
             for (int i = 0; i < monsters.Count; i++)
             {
                 monsters[i].Update(updateParams, level);
+
+                // Entities are no longer removed by the WaveManager,
+                // entities are now removed only when they are killed.
+                /*
                 if (monsters[i].pathLength() == 0)
                 {
                     monsters[i].destroy();
                     monsters.RemoveAt(i);//could add to a remove list and remove them later so they have time to shoot or somthing
                     i--;
-                }
+                } */
                 //if monster.waypoints.count == 0 add to a remove list and if its close enough have it deal damage to the player 
             }
         }

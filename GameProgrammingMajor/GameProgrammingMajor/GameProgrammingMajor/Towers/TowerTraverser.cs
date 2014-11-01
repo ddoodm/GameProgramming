@@ -25,6 +25,7 @@ namespace GameProgrammingMajor
         TowerManager level;
         Quadtree tankTree;
         WaveManager waveManager;
+        public Tower targetTower { get; protected set; }
 
         float levelWidth, levelHeight;
 
@@ -65,6 +66,11 @@ namespace GameProgrammingMajor
         {
             this.mover = mover;
             tankTree.insert(mover);
+        }
+
+        public void setTargetTower(Tower targetTower)
+        {
+            this.targetTower = targetTower;
         }
 
         public int pathLength()
