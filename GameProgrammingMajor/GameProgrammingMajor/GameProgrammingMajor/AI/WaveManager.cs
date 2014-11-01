@@ -26,7 +26,7 @@ namespace GameProgrammingMajor
         Quadtree quadtree;
         int idCounter = 0;
 
-        public WaveManager(TowerManager level, iVec2 startPoint, iVec2 endPoint, MainGame game, Quadtree quadtree)
+        public WaveManager(TowerManager level, iVec2 startPoint, iVec2 endPoint, MainGame game, Quadtree quadtree, LevelDescription levelDescription)
         {
             monsters = new List<TowerTraverser>();
             pathfinder = new TowerPathFinder(level);//mabe just have reference to level and use its path finder
@@ -36,6 +36,7 @@ namespace GameProgrammingMajor
             //load wave Manager details from xml
             this.level = level;
             this.quadtree = quadtree;
+            this.numberToSpawn = levelDescription.numberToSpawn;
             path = getPath(startPoint, endPoint);
         }
 

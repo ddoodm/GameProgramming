@@ -128,7 +128,7 @@ namespace GameProgrammingMajor
                 throw new Exception("Start and end block must be declared in the XML level layout file.");
 
             waveManager = new WaveManager(
-                this, startBlock.Value, endBlock.Value, (MainGame)game, tankTree);
+                this, startBlock.Value, endBlock.Value, (MainGame)game, tankTree, levelDescription);
         }
 
         public void load(ContentManager content)
