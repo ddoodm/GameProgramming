@@ -28,8 +28,6 @@ namespace GameProgrammingMajor
     {
         private Game game;
 
-        public int toPlaceID = (int)TowerType.WALL; // what type dose the player want to place
-
         public const int
             NUM_BLOCKS = 20;        // The number of tower blocks in both axes.
         public const float
@@ -63,7 +61,10 @@ namespace GameProgrammingMajor
         public Quadtree tankTree;
 
         // The wave manager
-        private WaveManager waveManager;
+        public WaveManager waveManager;
+
+        // What type dose the player want to place
+        public int toPlaceID = (int)TowerType.WALL;
 
         // A pre-designed map
         private int[,] predesignedMap; /* = new int[NUM_BLOCKS, NUM_BLOCKS]
@@ -201,6 +202,10 @@ namespace GameProgrammingMajor
             throw new Exception("towerTypeID has no corresponding tower type.");
         }
 
+        /// <summary>
+        /// Get the coordinates of the first instance of a particular type
+        /// in the predesigned map (loaded from XML)
+        /// </summary>
         public iVec2? firstInstanceInPredesign(TowerType type)
         {
             for (int i = 0; i < NUM_BLOCKS; i++)

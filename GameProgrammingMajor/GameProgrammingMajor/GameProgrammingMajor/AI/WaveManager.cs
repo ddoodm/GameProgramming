@@ -159,6 +159,14 @@ namespace GameProgrammingMajor
             }
         }
 
+        public List<Entity> getEntities()
+        {
+            List<Entity> entities = new List<Entity>();
+            foreach (TowerTraverser traverser in monsters)
+                entities.Add(traverser.mover);
+            return entities;
+        }
+
         public void Draw(DrawParams drawParams)
         {
             foreach (TowerTraverser monster in monsters)

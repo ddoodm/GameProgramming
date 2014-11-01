@@ -19,6 +19,8 @@ namespace GameProgrammingMajor
         public NPC npc = null;          // Handle to this entity's NPC controller. Can be null.
         public List<QuadtreeNode> treeNodes;
 
+        public bool dead { get; protected set; }
+
         public Entity(Game game)
         {
             this.game = game;
@@ -45,7 +47,7 @@ namespace GameProgrammingMajor
         public virtual bool collidesWith(StaticModel model) { return false; }
         public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
         public virtual bool collidesWith(BoundingBox boundingBox) { return false; }
-        public virtual void kill(UpdateParams updateParams) { }
+        public virtual void kill(UpdateParams updateParams) { dead = true; }
 
         public void removeFromTree()
         {

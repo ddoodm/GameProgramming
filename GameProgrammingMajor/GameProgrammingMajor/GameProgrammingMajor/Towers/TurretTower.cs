@@ -21,6 +21,8 @@ namespace GameProgrammingMajor
 
         private BoundingSphere turretRange;
 
+        private Entity target;
+
         public TurretTower(Game game, Matrix world, TowerManager level, float size, Quadtree quadtree, iVec2 id)
             : base(game, world, size, id)
         {
@@ -29,7 +31,7 @@ namespace GameProgrammingMajor
 
             projectileMan = new ProjectileManager(game, ((MainGame)game).world, level, quadtree);
 
-            turretRange = new BoundingSphere(this.boundingBox.Max, 600f);
+            turretRange = new BoundingSphere(this.boundingBox.Max, 400f);
 
             loadModel();
         }
@@ -79,8 +81,9 @@ namespace GameProgrammingMajor
 
             model.update(updateParams);
 
-            // Search for targets
-            Entity target = findTarget();
+            // Search for targets if we need a new one
+            if(target == null || target.dead || !targetInRange(target))
+                target = findTarget();
 
             projectileMan.update(updateParams);
 
@@ -94,20 +97,14 @@ namespace GameProgrammingMajor
             }
         }
 
+        private bool targetInRange(Entity target)
+        {
+            return turretRange.Contains(target.kinematic.position) != ContainmentType.Disjoint;
+        }
+
         private Entity findTarget()
         {
-            /*
-            QuadtreeNode node = quadtree.getNodeAt(world.Translation);
-
-            if (node == null)
-                return null;
-
-            QuadtreeNode parent = node.getParentIfExists();
-            if (parent == null)
-                parent = node;
-             */
-
-            List<Entity> entities = quadtree.getEntities();
+            List<Entity> entities = level.waveManager.getEntities();
 
             if (entities.Count == 0)
                 return null;
@@ -118,13 +115,13 @@ namespace GameProgrammingMajor
                 for(int i=entities.Count-1; i>=0; i--)
                 {
                     // Check that the entity is in range
-                    if (turretRange.Contains(entities[i].kinematic.position) == ContainmentType.Disjoint)
+                    if (!targetInRange(entities[i]))
                         continue;
 
-                    Ray ray = new Ray(turretPosition, Vector3.Normalize(
-                        (entities[i].kinematic.position + entities[i].kinematic.velocity) - turretPosition));
-                    if (!level.intersects(ray))
-                        return entities[i];
+                    // Used to to ray casting here,
+                    // but that was far too much of an overhead.
+
+                    return entities[i];
                 }
                 return null;
             }

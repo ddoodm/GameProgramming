@@ -21,7 +21,7 @@ namespace GameProgrammingMajor
         public Vector2 position;
         List<Vector2> path;
         StaticModel markerModel;
-        Entity mover;
+        public Entity mover;
         TowerManager level;
         Quadtree tankTree;
         WaveManager waveManager;
