@@ -298,8 +298,11 @@ namespace GameProgrammingMajor
             // Obtain the ID of the currently selected block
             iVec2 selectedBlock = selectionManager.getSelectedBlock(
                 game.GraphicsDevice.Viewport, updateParams.camera, updateParams.mouseState);
+
+            // Determine which block to place
             if (updateParams.keyboardState.IsKeyDown(Keys.D4)) toPlaceID = (int)TowerType.WALL;
             if (updateParams.keyboardState.IsKeyDown(Keys.D5)) toPlaceID = (int)TowerType.TURRET;
+            if (updateParams.keyboardState.IsKeyDown(Keys.D6)) toPlaceID = (int)TowerType.GRASS;
 
             // For each block in the 2D array:
             for (int z = 0; z < NUM_BLOCKS; z++)
@@ -319,8 +322,8 @@ namespace GameProgrammingMajor
                         Tower oldTower = getTowerAt(x, z);
                         TowerType oldTowerType = getTowerTypeOf(oldTower.GetType());
 
-                        // Do not allow replacement of solids
-                        if (oldTower.isSolid())
+                        // Do not allow replacement of solids (unless we're placing grass)
+                        if (toPlaceID != (int)TowerType.GRASS && oldTower.isSolid())
                             continue;
 
                         //Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size, cID);
