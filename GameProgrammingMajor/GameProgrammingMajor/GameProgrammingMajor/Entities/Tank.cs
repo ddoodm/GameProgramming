@@ -32,6 +32,8 @@ namespace GameProgrammingMajor
             this.traverser = traverser;
             this.id = id;
 
+            npc = new NPC(game, this, "FSM\\tank_basic.xml");
+
             model = new TankModel();
 
             kinematic.position = position;

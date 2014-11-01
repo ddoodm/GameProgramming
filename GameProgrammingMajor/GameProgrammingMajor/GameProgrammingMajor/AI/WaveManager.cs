@@ -49,7 +49,6 @@ namespace GameProgrammingMajor
             // Create the entity that will traverse the terrain
             Tank tank = new Tank(game, ((MainGame)game).world, level, traverser, idCounter++); // TODO: Very bad hack. Do not do this.
             tank.load(content);
-            tank.npc = new NPC(game, tank);
             tank.npc.steering = new Seek();
             ((Seek)tank.npc.steering).targetRadius = TowerManager.blockSize;
             tank.npc.steering.maxSpeed = 100;

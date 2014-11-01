@@ -35,16 +35,26 @@ namespace GameProgrammingMajor
         public Entity entity { get; private set; }
         public Kinematic target;
         public Steering steering;
-        public NPCState state { get; private set; }
-        public Stack<NPCState> priorities { get; private set; }
+        public FSM fsm { get; protected set; }
 
         public float health = 1f;
-
-        public float lookAheadDistance = 150f;
 
         public Kinematic kinematic
         {
             get { return entity.kinematic; }
+        }
+
+        public NPC(Game game, Entity entity, string fsmFile)
+        {
+            this.entity = entity;
+
+            // Provide the entity with this NPC object
+            entity.npc = this;
+
+            fsm = new FSM(fsmFile);
+
+            if (DEBUG)
+                waypointModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
         }
 
         public void takeDamage(UpdateParams updateParams, float amount)
@@ -54,51 +64,19 @@ namespace GameProgrammingMajor
                 entity.kill(updateParams);
         }
 
-        public void addPriority(NPCState state)
-        {
-            priorities.Push(state);
-            setState(state);
-        }
-
-        private void setState(NPCState state)
-        {
-            if (this.state == state)
-                return;
-
-            this.state = state;
-
-            // Backup old steering state
-            Steering oldSteering = steering;
-
-            switch (state)
-            {
-                case NPCState.SEEK:     steering = new Seek(oldSteering);      break;
-                case NPCState.ARRIVE:   steering = new Arrive(oldSteering);    break;
-                case NPCState.PURSUE:   steering = new Pursue(oldSteering);    break;
-                case NPCState.AVOID:    steering = new Avoid(oldSteering);     break;
-            }
-        }
-
-        public NPC(Game game, Entity entity)
-        {
-            this.entity = entity;
-
-            // Provide the entity with this NPC object
-            entity.npc = this;
-
-            // Configure the priorities stack
-            priorities = new Stack<NPCState>();
-
-            // Default steering algorithm
-            priorities.Push(NPCState.ARRIVE);
-
-            if(DEBUG)
-                waypointModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
-        }
-
         public void load(ContentManager content)
         {
             entity.load(content);
+        }
+
+        public void approachTarget()
+        {
+
+        }
+
+        public void evade()
+        {
+
         }
 
         public void update(UpdateParams updateParams)

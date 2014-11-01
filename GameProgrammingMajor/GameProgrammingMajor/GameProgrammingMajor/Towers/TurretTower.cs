@@ -19,6 +19,8 @@ namespace GameProgrammingMajor
 
         private Vector3 turretPosition;
 
+        private BoundingSphere turretRange;
+
         public TurretTower(Game game, Matrix world, TowerManager level, float size, Quadtree quadtree, iVec2 id)
             : base(game, world, size, id)
         {
@@ -26,6 +28,8 @@ namespace GameProgrammingMajor
             this.level = level;
 
             projectileMan = new ProjectileManager(game, ((MainGame)game).world, level, quadtree);
+
+            turretRange = new BoundingSphere(this.boundingBox.Max, 600f);
 
             loadModel();
         }
@@ -113,6 +117,10 @@ namespace GameProgrammingMajor
                 // Search backwards to find the oldest tank
                 for(int i=entities.Count-1; i>=0; i--)
                 {
+                    // Check that the entity is in range
+                    if (turretRange.Contains(entities[i].kinematic.position) == ContainmentType.Disjoint)
+                        continue;
+
                     Ray ray = new Ray(turretPosition, Vector3.Normalize(
                         (entities[i].kinematic.position + entities[i].kinematic.velocity) - turretPosition));
                     if (!level.intersects(ray))
