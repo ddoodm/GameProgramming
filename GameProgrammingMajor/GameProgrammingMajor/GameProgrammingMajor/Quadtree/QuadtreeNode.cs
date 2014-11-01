@@ -202,13 +202,14 @@ namespace GameProgrammingMajor
 
         public void remove(QuadtreeNode node)
         {
-            if (UL != null && UL.Equals(node)) UL = null;
+            /*if (UL != null && UL.Equals(node)) UL = null;
             if (UR != null && UR.Equals(node)) UR = null;
             if (LL != null && LL.Equals(node)) LL = null;
             if (LR != null && LR.Equals(node)) LR = null;
 
             if (empty() && parent != null)
                 parent.remove(this);
+             */
         }
 
         public bool empty()
