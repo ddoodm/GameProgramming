@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-
+using Microsoft.Xna.Framework.Input;
 namespace GameProgrammingMajor
 {
     public enum TowerType
@@ -27,6 +27,8 @@ namespace GameProgrammingMajor
     public class TowerManager
     {
         private Game game;
+
+        public int toPlaceID = (int)TowerType.WALL; // what type dose the player want to place
 
         public const int
             NUM_BLOCKS = 20;        // The number of tower blocks in both axes.
@@ -296,6 +298,8 @@ namespace GameProgrammingMajor
             // Obtain the ID of the currently selected block
             iVec2 selectedBlock = selectionManager.getSelectedBlock(
                 game.GraphicsDevice.Viewport, updateParams.camera, updateParams.mouseState);
+            if (updateParams.keyboardState.IsKeyDown(Keys.D4)) toPlaceID = (int)TowerType.WALL;
+            if (updateParams.keyboardState.IsKeyDown(Keys.D5)) toPlaceID = (int)TowerType.TURRET;
 
             // For each block in the 2D array:
             for (int z = 0; z < NUM_BLOCKS; z++)
@@ -319,7 +323,8 @@ namespace GameProgrammingMajor
                         if (oldTower.isSolid())
                             continue;
 
-                        Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size, cID);
+                        //Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size, cID);
+                        Tower newTower = createTowerFromInt(toPlaceID, blocks[z,x].world, blocks[z, x].size, cID);
                         placeTower(cID, newTower);
 
                         if (waveManager.placementAllowedAt(this, cID))
@@ -447,6 +452,7 @@ namespace GameProgrammingMajor
             boundary.draw(drawParams);
 
             waveManager.Draw(drawParams);
+
         }
     }
 }
