@@ -34,6 +34,7 @@ namespace GameProgrammingMajor
         {
             // Remove from quadtree!
             mover.removeFromTree();
+            mover.dead = true;
         }
 
         public TowerTraverser(Quadtree tankTree, TowerManager level, WaveManager waveManager)

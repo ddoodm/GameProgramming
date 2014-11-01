@@ -31,7 +31,7 @@ namespace GameProgrammingMajor
 
             projectileMan = new ProjectileManager(game, ((MainGame)game).world, level, quadtree);
 
-            turretRange = new BoundingSphere(this.boundingBox.Max, 400f);
+            turretRange = new BoundingSphere(this.boundingBox.Max, 300f);
 
             loadModel();
         }
@@ -51,7 +51,7 @@ namespace GameProgrammingMajor
 
             projectileMan.loadContent(game.Content);
             projectileMan.projectileSpeed = .25f;
-            projectileMan.cooldownWait = 70f;
+            projectileMan.cooldownWait = 125f;
 
             // Load bones
             axisBone = model.model.Bones["turret_swiv"];
@@ -59,7 +59,7 @@ namespace GameProgrammingMajor
             turretBone = model.model.Bones["turret_gun"];
             bakedTurretTransform = turretBone.Transform;
 
-            turretPosition = world.Translation + new Vector3(0, boundingBox.Max.Y, 0);
+            turretPosition = world.Translation + bakedTurretTransform.Translation;
         }
 
         public override int getGWeight()
@@ -91,9 +91,8 @@ namespace GameProgrammingMajor
             if (target != null)
             {
                 Vector3 origin = turretPosition;
-                Vector3 direction = Vector3.Normalize((target.kinematic.position + target.kinematic.velocity) - origin);
                 updateTurretFacing(origin, target.kinematic.position);
-                projectileMan.shoot(updateParams, origin, direction);
+                projectileMan.shootSeeking(updateParams, origin, target.kinematic, this);
             }
         }
 

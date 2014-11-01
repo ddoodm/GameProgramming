@@ -384,10 +384,10 @@ namespace GameProgrammingMajor
         /// </summary>
         /// <param name="sphere">The sphere to collide with</param>
         /// <returns>True if an intersection was detected</returns>
-        public bool towersCollideWith(BoundingSphere sphere)
+        public bool towersCollideWith(BoundingSphere sphere, Tower excludedTower)
         {
             foreach (TowerBlock block in blocks)
-                if (block.tower != null && block.tower.collidesWith(sphere))
+                if (block.tower != null && block.tower != excludedTower && block.tower.collidesWith(sphere))
                     return true;
             return false;
         }

@@ -64,6 +64,24 @@ namespace GameProgrammingMajor
             shoot(updateParams, camera.position, camera.direction);
         }
 
+        public void shootSeeking(UpdateParams updateParams, Vector3 origin, Kinematic target, Tower excludedTower)
+        {
+            if (cooldown <= 0)
+            {
+                Vector3 direction = Vector3.Normalize((target.position + target.velocity) - origin);
+                SeekProjectile p = new SeekProjectile(this,
+                    new StaticModel(projectileModel), origin, direction, projectileSpeed, target);
+                p.excludedTower = excludedTower;
+                projectiles.Add(p);
+
+                updateParams.soundManager.play(projectileFireSound);
+
+                cooldown = cooldownWait;
+            }
+            else
+                cooldown -= 1f;
+        }
+
         public void update(UpdateParams updateParams)
         {
             for (int i = 0; i < projectiles.Count; i++)
@@ -76,9 +94,9 @@ namespace GameProgrammingMajor
                     continue;
                 }
 
-                if (projectiles[i].collision_test(staticTargets)
+                if (
                   /*|| projectiles[i].collision_test(entityTargets)*/
-                    || projectiles[i].collision_test(towerManager)
+                    projectiles[i].collision_test(towerManager)
                     || projectiles[i].collision_test(updateParams, quadtree))
                 {
                     // Play collision sound effect
@@ -99,16 +117,19 @@ namespace GameProgrammingMajor
 
         public class Projectile
         {
-            private ProjectileManager manager;
-            private StaticModel projectileModel;
-            private BoundingSphere boundingSphere;
-            private Vector3 start;
-            private Vector3 direction;
+            protected ProjectileManager manager;
+            protected StaticModel projectileModel;
+            protected BoundingSphere boundingSphere;
+            protected Vector3 start;
+            protected Vector3 direction;
+
+            public Tower excludedTower;
 
             public float speed;
             public float screenTime = 0;
             public float creationTime = 0;
             public float damage = 1f / 10f;
+            public float radius = 15f;
 
             public Projectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed)
             {
@@ -117,9 +138,11 @@ namespace GameProgrammingMajor
                 this.start = start;
                 this.direction = direction;
                 this.speed = speed;
+
+                boundingSphere = new BoundingSphere(start + screenTime * direction, radius);
             }
 
-            public void update(UpdateParams updateParams)
+            public virtual void update(UpdateParams updateParams)
             {
                 float bulletTime = (float)updateParams.gameTime.TotalGameTime.TotalMilliseconds * speed;
 
@@ -131,8 +154,7 @@ namespace GameProgrammingMajor
                 projectileModel.world *= Matrix.CreateTranslation(start + screenTime * direction);
 
                 // Update projectile's bounding sphere position
-                foreach (ModelMesh mesh in projectileModel.model.Meshes)
-                    boundingSphere = new BoundingSphere(start + screenTime * direction, mesh.BoundingSphere.Radius);
+                boundingSphere = new BoundingSphere(start + screenTime * direction, radius);
             }
 
             public bool collision_test(List<StaticModel> targets)
@@ -157,7 +179,7 @@ namespace GameProgrammingMajor
             /// </summary>
             public bool collision_test(TowerManager towerManager)
             {
-                return towerManager.towersCollideWith(boundingSphere);
+                return towerManager.towersCollideWith(boundingSphere, excludedTower);
             }
 
             public bool collision_test(UpdateParams updateParams, Quadtree quadtree)
@@ -173,6 +195,29 @@ namespace GameProgrammingMajor
             public void draw(DrawParams drawParams)
             {
                 projectileModel.draw(drawParams);
+            }
+        }
+
+        public class SeekProjectile : Projectile
+        {
+            private Kinematic target;
+
+            public SeekProjectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed, Kinematic target)
+                : base(manager, projectileModel, start, direction, speed)
+            {
+                this.target = target;
+            }
+
+            public override void update(UpdateParams updateParams)
+            {
+                recomputeDirection();
+                base.update(updateParams);
+            }
+
+            private void recomputeDirection()
+            {
+                if (boundingSphere != null)
+                    this.direction = Vector3.Normalize( (target.position + Vector3.Up * 5f) - start );
             }
         }
     }

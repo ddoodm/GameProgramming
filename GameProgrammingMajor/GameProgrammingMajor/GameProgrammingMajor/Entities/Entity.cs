@@ -19,7 +19,7 @@ namespace GameProgrammingMajor
         public NPC npc = null;          // Handle to this entity's NPC controller. Can be null.
         public List<QuadtreeNode> treeNodes;
 
-        public bool dead { get; protected set; }
+        public bool dead;
 
         public Entity(Game game)
         {
