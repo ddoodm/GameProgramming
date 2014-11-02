@@ -19,7 +19,7 @@ namespace GameProgrammingMajor
         //GameTime time;
         float delay, defaultDelay = 4f;//could make this different for each wave
         float waveDelay = 14f, defaultWaveDelay = 15f;//could make this differnt for each wave
-        int[] numberToSpawn = { 2, 5, 5, 15 };
+        int[] numberToSpawn;
         public int wavenum;
         List<Vector2> path;
         TowerManager level;

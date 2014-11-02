@@ -9,6 +9,8 @@ namespace GameProgrammingMajor
 {
     class TarTower : Tower
     {
+        private float cost = 100f;
+
         private int gWeight = 10;
 
         public TarTower(Game game, Matrix world, float size, iVec2 id)
@@ -23,6 +25,11 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_tar"), world);
+        }
+
+        public override float getCost()
+        {
+            return cost;
         }
 
         public override int getGWeight()
