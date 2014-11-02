@@ -11,7 +11,7 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\nPlayer Cash: ${1:0.00}\nPlacing Block: {2}\n";
+        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\nPlayer Cash: ${1:0.00}\nPlacing Block (4,5,6,7,8): {2}\n";
         public static string TEXT_DEBUG = "Camera (1,2,3): {3}\nQuadtree Nodes: {4}";
 
         private SpriteFont uiFont;
