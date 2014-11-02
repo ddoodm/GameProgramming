@@ -14,18 +14,18 @@ namespace GameProgrammingMajor
     /// </summary>
     public class Tank : Entity
     {
-        private TankModel model;
+        protected TankModel model;
 
-        private ProjectileManager projectileManager;
+        protected ProjectileManager projectileManager;
         public Kinematic turretTarget;
 
-        private TowerManager level;
+        protected TowerManager level;
 
-        private TowerTraverser traverser;
+        protected TowerTraverser traverser;
 
-        private Tower targetTower;
+        public Tower targetTower;
 
-        public int id;
+        protected int id;
 
         public Tank(Game game, Vector3 position, World world, TowerManager level, TowerTraverser traverser, int id)
             : base(game)
@@ -34,13 +34,10 @@ namespace GameProgrammingMajor
             this.traverser = traverser;
             this.id = id;
 
-            npc = new NPC(game, this, "FSM\\tank_basic.xml");
-
             model = new TankModel();
-
             kinematic.position = position;
 
-            projectileManager = new ProjectileManager(game, world, level, level.tankTree);
+            initialize(game, world, level);
         }
 
         public Tank(Game game, World world, TowerManager towerManager, TowerTraverser traverser, int id)
@@ -49,14 +46,22 @@ namespace GameProgrammingMajor
             
         }
 
+        public virtual void initialize(Game game, World world, TowerManager level)
+        {
+            npc = new NPC(game, this, "FSM\\tank_basic.xml");
+
+            projectileManager = new ProjectileManager(game, world, level, level.tankTree);
+            projectileManager.maxAmmo = 6;
+        }
+
         public bool Equals(Tank rhs)
         {
             return rhs.id == id;
         }
 
-        public override void load(ContentManager content)
+        public virtual void load(ContentManager content)
         {
-            model.Load(content);
+            model.Load(content, "tank");
             projectileManager.loadContent(content);
         }
 
@@ -71,6 +76,8 @@ namespace GameProgrammingMajor
             // Update world matrix
             world *= Matrix.CreateRotationY(kinematic.orientation);
             world *= Matrix.CreateTranslation(kinematic.position);
+
+            projectileManager.update(updateParams);
         }
 
         public override void kill(UpdateParams updateParams)
@@ -82,6 +89,12 @@ namespace GameProgrammingMajor
             updateParams.hud.setDeathMap(level.generateDeathMap());
 
             base.kill(updateParams);
+        }
+
+        public override void destroy()
+        {
+            traverser.kill();
+            base.destroy();
         }
 
         public bool colliding(Tank other)
@@ -153,7 +166,11 @@ namespace GameProgrammingMajor
 
         public bool atTarget()
         {
-            return traverser.pathLength() <= 2;
+            if (turretTarget == null)
+                return false;
+
+            BoundingSphere range = new BoundingSphere(this.kinematic.position, 100f);
+            return range.Contains(turretTarget.position) == ContainmentType.Contains;
         }
 
         public bool awayFromAttacker()
@@ -162,15 +179,18 @@ namespace GameProgrammingMajor
             return true;
         }
 
+        public bool noAmmo()
+        {
+            return projectileManager.outOfAmmo();
+        }
+
         public void fsm_attackTarget(UpdateParams updateParams)
         {
-            Tower targetTower = traverser.targetTower;
-            turretTarget = targetTower.kinematic;
-
             // Get direction to target
-            Vector3 targetDirection = turretTarget.position - kinematic.position;
+            Vector3 target = turretTarget.position + Vector3.Up * 10f;
+            Vector3 targetDirection = Vector3.Normalize(target - kinematic.position);
 
-            projectileManager.shoot(updateParams, this.kinematic.position, targetDirection);
+            shootAt(updateParams, targetDirection);
         }
 
         public void fsm_evadeAttacker(UpdateParams updateParams)
@@ -183,10 +203,40 @@ namespace GameProgrammingMajor
 
         }
 
+        private void shootAt(UpdateParams updateParams, Vector3 direction)
+        {
+            projectileManager.shoot(updateParams, this.kinematic.position + Vector3.Up * 12f, direction, this);
+        }
+
         public override void draw(DrawParams drawParams)
         {
             model.Draw(world, drawParams.camera.view, drawParams.camera.projection);
             projectileManager.draw(drawParams);
+        }
+    }
+
+    public class TankAggressive : Tank
+    {
+        public TankAggressive(Game game, Vector3 position, World world, TowerManager level, TowerTraverser traverser, int id)
+            : base(game, position, world, level, traverser, id)
+        { }
+
+        public TankAggressive(Game game, World world, TowerManager towerManager, TowerTraverser traverser, int id)
+            : this(game, Vector3.Zero, world, towerManager, traverser, id)
+        { }
+
+        public override void initialize(Game game, World world, TowerManager level)
+        {
+            npc = new NPC(game, this, "FSM\\tank_aggressive.xml");
+
+            projectileManager = new ProjectileManager(game, world, level, level.tankTree);
+            projectileManager.maxAmmo = 12;
+        }
+
+        public override void load(ContentManager content)
+        {
+            model.Load(content, "red_tank");
+            projectileManager.loadContent(content);
         }
     }
 
@@ -293,10 +343,10 @@ namespace GameProgrammingMajor
         /// <summary>
         /// Loads the tank model.
         /// </summary>
-        public void Load(ContentManager content)
+        public void Load(ContentManager content, string modelPath)
         {
             // Load the tank model from the ContentManager.
-            model = content.Load<Model>("tank");
+            model = content.Load<Model>(modelPath);
 
             // Look up shortcut references to the bones we are going to animate.
             leftBackWheelBone = model.Bones["l_back_wheel_geo"];

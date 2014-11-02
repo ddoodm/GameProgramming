@@ -85,7 +85,7 @@ namespace GameProgrammingMajor
                 Vector3 position = kinematic.position + direction * (boundingSphere.Radius * 2f);
 
                 // Fire the projectile
-                projectileMan.shoot(updateParams, position, direction);
+                projectileMan.shoot(updateParams, position, direction, null);
             }
         }
 

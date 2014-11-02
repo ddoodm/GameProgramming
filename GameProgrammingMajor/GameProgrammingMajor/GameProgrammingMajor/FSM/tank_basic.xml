@@ -5,9 +5,12 @@
     <transition condition="lowHealth" action="evadeAttacker"/>
   </state>
   <state name="attackTarget">
-    
+    <transition condition="noAmmo" action="destroy"/>
   </state>
   <state name="evadeAttacker">
     <transition condition="awayFromAttacker" action="gotoTarget"/>
+  </state>
+  <state name="destroy">
+    
   </state>
 </states>

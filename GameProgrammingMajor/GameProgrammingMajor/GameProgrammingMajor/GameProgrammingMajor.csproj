@@ -120,7 +120,12 @@
     <Compile Include="World\World.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FSM\tank_basic.xml" />
+    <Content Include="FSM\tank_aggressive.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="FSM\tank_basic.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

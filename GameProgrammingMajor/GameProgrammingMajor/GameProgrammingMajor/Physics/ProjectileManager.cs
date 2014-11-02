@@ -26,6 +26,8 @@ namespace GameProgrammingMajor
         public float projectileSpeed = 0.8f;
         public string projectileFireSound = SoundManager.SoundNames.PROJECTILE_FIRE;
 
+        public int shotsFired = 0, maxAmmo = -1;
+
         public ProjectileManager(Game game, World world, TowerManager towerManager, Quadtree quadtree)
         {
             this.game = game;
@@ -43,17 +45,19 @@ namespace GameProgrammingMajor
             projectileModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
         }
 
-        public void shoot(UpdateParams updateParams, Vector3 origin, Vector3 direction)
+        public void shoot(UpdateParams updateParams, Vector3 origin, Vector3 direction, Entity excluded)
         {
             if (cooldown <= 0)
             {
                 Projectile p = new Projectile(this, 
                     new StaticModel(projectileModel), origin, direction, projectileSpeed);
+                p.excludedEntity = excluded;
                 projectiles.Add(p);
 
                 updateParams.soundManager.play(projectileFireSound);
 
                 cooldown = cooldownWait;
+                shotsFired++;
             }
             else
                 cooldown -= 1f;
@@ -61,7 +65,7 @@ namespace GameProgrammingMajor
 
         public void shoot(UpdateParams updateParams, Camera camera)
         {
-            shoot(updateParams, camera.position, camera.direction);
+            shoot(updateParams, camera.position, camera.direction, null);
         }
 
         public void shootSeeking(UpdateParams updateParams, Vector3 origin, Kinematic target, Tower excludedTower)
@@ -77,9 +81,15 @@ namespace GameProgrammingMajor
                 updateParams.soundManager.play(projectileFireSound);
 
                 cooldown = cooldownWait;
+                shotsFired++;
             }
             else
                 cooldown -= 1f;
+        }
+
+        public bool outOfAmmo()
+        {
+            return maxAmmo != -1 && shotsFired >= maxAmmo;
         }
 
         public void update(UpdateParams updateParams)
@@ -124,6 +134,7 @@ namespace GameProgrammingMajor
             protected Vector3 direction;
 
             public Tower excludedTower;
+            public Entity excludedEntity;
 
             public float speed;
             public float screenTime = 0;
@@ -186,10 +197,10 @@ namespace GameProgrammingMajor
             {
                 Entity subject = quadtree.collision(boundingSphere);
 
-                if (subject != null && subject.npc != null)
+                if (subject != null && subject.npc != null && subject != excludedEntity)
                     subject.npc.takeDamage(updateParams, damage);
 
-                return subject != null;
+                return subject != null && subject != excludedEntity;
             }
 
             public void draw(DrawParams drawParams)

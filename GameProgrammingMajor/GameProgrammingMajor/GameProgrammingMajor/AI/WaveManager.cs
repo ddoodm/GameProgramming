@@ -48,12 +48,15 @@ namespace GameProgrammingMajor
         private void addMonster(ContentManager content, TowerTraverser traverser)
         {
             // Create the entity that will traverse the terrain
-            Tank tank = new Tank(game, ((MainGame)game).world, level, traverser, idCounter++); // TODO: Very bad hack. Do not do this.
+            TankAggressive tank = new TankAggressive(game, ((MainGame)game).world, level, traverser, idCounter++); // TODO: Very bad hack. Do not do this.
             tank.load(content);
             tank.npc.steering = new Seek();
             ((Seek)tank.npc.steering).targetRadius = TowerManager.blockSize;
             tank.npc.steering.maxSpeed = 100;
             tank.npc.steering.maxAcceleration = 200;
+
+            // Give the tank the target
+            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count-1] / TowerManager.blockSize)));
 
             // Set position to start of path
             tank.npc.kinematic.position = level.coordinatesOf(new iVec2(path[0] / TowerManager.blockSize));
@@ -62,7 +65,6 @@ namespace GameProgrammingMajor
             traverser.setMover(tank);
 
             traverser.addPath(new List<Vector2>(path));
-            //give it path
             monsters.Add(traverser);
         }
 

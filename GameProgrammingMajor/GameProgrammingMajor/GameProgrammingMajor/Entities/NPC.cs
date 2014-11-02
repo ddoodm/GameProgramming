@@ -73,21 +73,14 @@ namespace GameProgrammingMajor
 
         public bool tryEvaluateCondition(Condition condition)
         {
-            try
-            {
                 if (condition.Equals(Condition.lowHealth))
                     return entity.lowHealth();
                 if (condition.Equals(Condition.atTarget))
                     return ((Tank)entity).atTarget();
                 if (condition.Equals(Condition.awayFromAttacker))
                     return ((Tank)entity).awayFromAttacker();
-            }
-            catch
-            {
-                throw new Exception(
-                    "Condition: \"" + condition.ToString() + "\" is not suitable for " +
-                    "entity of type \"" + entity.GetType().ToString() + "\".");
-            }
+                if (condition.Equals(Condition.noAmmo))
+                    return ((Tank)entity).noAmmo();
 
             throw new Exception("No evaluator defined for the specified condition.");
         }
@@ -100,6 +93,8 @@ namespace GameProgrammingMajor
                 ((Tank)entity).fsm_evadeAttacker(updateParams);
             else if (state.Equals(StateName.gotoTarget))
                 ((Tank)entity).fsm_goToTarget(updateParams);
+            else if (state.Equals(StateName.destroy))
+                entity.destroy();
         }
 
         // ------------------------- End FSM Functions ------------------------- \\

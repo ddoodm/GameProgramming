@@ -52,10 +52,16 @@ namespace GameProgrammingMajor
             return npc.health <= 0.25f;
         }
 
+        public virtual void destroy()
+        {
+            dead = true;
+            removeFromTree();
+        }
+
         public virtual bool collidesWith(StaticModel model) { return false; }
         public virtual bool collidesWith(BoundingSphere boundingSphere) { return false; }
         public virtual bool collidesWith(BoundingBox boundingBox) { return false; }
-        public virtual void kill(UpdateParams updateParams) { dead = true; }
+        public virtual void kill(UpdateParams updateParams) { destroy(); }
 
         public void removeFromTree()
         {
