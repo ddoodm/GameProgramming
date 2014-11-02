@@ -9,7 +9,7 @@ namespace GameProgrammingMajor
 {
     class TarTower : Tower
     {
-        private float cost = 100f;
+        private float cost = 300f;
 
         private int gWeight = 10;
 

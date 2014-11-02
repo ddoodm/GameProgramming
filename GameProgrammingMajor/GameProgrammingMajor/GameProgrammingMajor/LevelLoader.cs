@@ -68,9 +68,9 @@ namespace GameProgrammingMajor
                 else if (xml.NodeType == XmlNodeType.Text)
                 {
                     if (aCurrentElement == "waveNumbers")
-                    {
                         level.numberToSpawn = stringToIntArray(xml.ReadContentAsString(), ';');
-                    }
+                    if (aCurrentElement == "waveTypes")
+                        level.typesToSpawn = stringToIntArray(xml.ReadContentAsString(), ';');
                 }
             }
 

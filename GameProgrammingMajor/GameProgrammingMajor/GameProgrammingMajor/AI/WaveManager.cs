@@ -20,6 +20,7 @@ namespace GameProgrammingMajor
         float delay, defaultDelay = 4f;//could make this different for each wave
         float waveDelay = 14f, defaultWaveDelay = 15f;//could make this differnt for each wave
         int[] numberToSpawn;
+        int[] typesToSpawn;
         public int wavenum;
         List<Vector2> path;
         TowerManager level;
@@ -37,6 +38,7 @@ namespace GameProgrammingMajor
             this.level = level;
             this.quadtree = quadtree;
             this.numberToSpawn = levelDescription.numberToSpawn;
+            this.typesToSpawn = levelDescription.typesToSpawn;
             path = getPath(startPoint, endPoint);
         }
 
@@ -45,10 +47,23 @@ namespace GameProgrammingMajor
             return pathfinder.FindPath(startPoint, endPoint);
         }
 
-        private void addMonster(ContentManager content, TowerTraverser traverser)
+        private Tank createTank(ContentManager content, int type, TowerTraverser traverser)
         {
             // Create the entity that will traverse the terrain
-            TankAggressive tank = new TankAggressive(game, ((MainGame)game).world, level, traverser, idCounter++); // TODO: Very bad hack. Do not do this.
+            Tank tank;
+            
+            switch(type)
+            {
+                case 1:
+                    tank = new TankAggressive(game, ((MainGame)game).world, level, traverser, idCounter++);
+                    break;
+
+                case 0:
+                default:
+                    tank = new Tank(game, ((MainGame)game).world, level, traverser, idCounter++);
+                    break;
+            }
+            
             tank.load(content);
             tank.npc.steering = new Seek();
             ((Seek)tank.npc.steering).targetRadius = TowerManager.blockSize;
@@ -56,11 +71,16 @@ namespace GameProgrammingMajor
             tank.npc.steering.maxAcceleration = 200;
 
             // Give the tank the target
-            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count-1] / (int)TowerManager.blockSize)));
+            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count - 1] / (int)TowerManager.blockSize)));
 
             // Set position to start of path
-            tank.npc.kinematic.position = level.coordinatesOf(new iVec2(0,0));
+            tank.npc.kinematic.position = level.coordinatesOf(new iVec2(0, 0));
 
+            return tank;
+        }
+
+        private void addTank(Tank tank, TowerTraverser traverser)
+        {
             // THEN set the mover (for the quadtree to insert correctly)
             traverser.setMover(tank);
 
@@ -141,7 +161,8 @@ namespace GameProgrammingMajor
 
                         TowerTraverser newTraverser = new TowerTraverser(quadtree, level, this);
                         newTraverser.setTargetTower(level.getTowerAt(endPoint.x, endPoint.y));
-                        addMonster(game.Content, newTraverser);
+                        Tank tank = createTank(game.Content, typesToSpawn[wavenum], newTraverser);
+                        addTank(tank, newTraverser);
                     }
                 }
                 else

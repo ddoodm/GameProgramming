@@ -8,6 +8,7 @@ namespace GameProgrammingMajor
     public struct LevelDescription
     {
         public int[] numberToSpawn;
+        public int[] typesToSpawn;
 
         public int width, height;
         public float money;
