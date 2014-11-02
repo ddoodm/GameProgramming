@@ -9,7 +9,12 @@ namespace GameProgrammingMajor
 {
     public class TeapotTower : Tower
     {
-       private int gWeight = 0;
+        private int gWeight = 0;
+
+        // Teapot takes 85 hits before the game is over
+        private const float DAMAGE = 1f / 85f;
+
+        public float health = 1f;
 
        public TeapotTower(Game game, Matrix world, float size, iVec2 id)
             : base(game, world, size, id)
@@ -44,11 +49,37 @@ namespace GameProgrammingMajor
             return true;
         }
 
+        public override bool collidesWith(BoundingSphere sphere)
+        {
+            if (base.collidesWith(sphere))
+            {
+                this.takeDamage();
+                return true;
+            }
+            return false;
+        }
+
+        public void takeDamage()
+        {
+            health -= DAMAGE;
+
+            if (health <= 0)
+                this.kill();
+        }
+
+        public void kill()
+        {
+            destroy();
+        }
+
         public override void update(UpdateParams updateParams)
         {
             base.update(updateParams);
 
             model.update(updateParams);
+
+            updateParams.hud.teapotHealth = health;
+            updateParams.hud.teapotDead = dead;
         }
 
         public override void draw(DrawParams drawParams)

@@ -11,7 +11,7 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Health: {0:0.0}\n";
+        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\n";
         public static string TEXT_DEBUG = "Camera (1,2,3): {1}\nQuadtree Nodes: {2}";
 
         private SpriteFont uiFont;
@@ -23,17 +23,17 @@ namespace GameProgrammingMajor
         private const int deathMapSize = 200;
         private Texture2D deathMap;
 
-        Player player;
-
         public int quadtreeNodeCount;
+
+        public float teapotHealth;
+        public bool teapotDead;
 
         public bool visible = true; 
         public bool debugVisible = true;
 
-        public HUD(MainGame game, Player player)
+        public HUD(MainGame game)
         {
             this.game = game;
-            this.player = player;
 
             uiFont = game.Content.Load<SpriteFont>("Font\\UIFont");
             gameOverSprite = game.Content.Load<Texture2D>("Textures\\UI\\GameOver");
@@ -58,7 +58,7 @@ namespace GameProgrammingMajor
 
             message = string.Format(
                 TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
-                player.health,
+                teapotHealth,
                 camType.ToString(),
                 quadtreeNodeCount);
         }
@@ -69,7 +69,7 @@ namespace GameProgrammingMajor
         /// <param name="drawParams"></param>
         public void draw(DrawParams drawParams, SpriteBatch spriteBatch)
         {
-            if(player.isDead)
+            if(teapotDead)
                 drawGameOver(drawParams, spriteBatch);
 
             if (!visible)

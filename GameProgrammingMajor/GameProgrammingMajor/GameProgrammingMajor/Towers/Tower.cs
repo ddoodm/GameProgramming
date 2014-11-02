@@ -78,7 +78,7 @@ namespace GameProgrammingMajor
 
         }
 
-        public bool collidesWith(BoundingSphere sphere)
+        public virtual bool collidesWith(BoundingSphere sphere)
         {
             if (boundingBox == null || sphere == null)
                 return false;
@@ -86,7 +86,7 @@ namespace GameProgrammingMajor
             return boundingBox.Intersects(sphere);
         }
 
-        public bool collidesWith(BoundingBox box)
+        public virtual bool collidesWith(BoundingBox box)
         {
             if (boundingBox == null || box == null)
                 return false;
@@ -94,7 +94,7 @@ namespace GameProgrammingMajor
             return boundingBox.Intersects(box);
         }
 
-        public bool collidesWith(Ray ray)
+        public virtual bool collidesWith(Ray ray)
         {
             if (boundingBox == null || ray == null)
                 return false;

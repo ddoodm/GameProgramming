@@ -106,8 +106,8 @@ namespace GameProgrammingMajor
             // Supply the Player to the world
             world.player = player;
 
-            // Create a HUD that displays information about the Player
-            hud = new HUD(this, player);
+            // Create a HUD that displays information about the game, and debug
+            hud = new HUD(this);
 
             base.Initialize();
         }
