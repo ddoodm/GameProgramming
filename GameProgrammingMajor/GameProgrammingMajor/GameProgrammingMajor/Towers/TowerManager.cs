@@ -66,6 +66,8 @@ namespace GameProgrammingMajor
         // What type dose the player want to place
         public TowerType toPlaceID = TowerType.WALL;
 
+        public LevelDescription levelDescription;
+
         // A pre-designed map
         private int[,] predesignedMap; /* = new int[NUM_BLOCKS, NUM_BLOCKS]
         {
@@ -103,6 +105,7 @@ namespace GameProgrammingMajor
             this.world = world;
             this.terrain = terrain;
             this.tankTree = tankTree;
+            this.levelDescription = levelDescription;
 
             // Copy levelDescription map to this map
             predesignedMap = levelDescription.indices;

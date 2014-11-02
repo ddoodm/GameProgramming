@@ -10,6 +10,7 @@ namespace GameProgrammingMajor
         public int[] numberToSpawn;
 
         public int width, height;
+        public float money;
 
         public int[,] indices;
     }

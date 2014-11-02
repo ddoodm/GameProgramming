@@ -5,6 +5,7 @@
   </waves>
   <level>
     <name>Level 1</name>
+    <money>200</money>
     <height>20</height>
     <width>20</width>
 		<layout>

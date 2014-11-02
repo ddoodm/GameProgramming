@@ -59,6 +59,7 @@ namespace GameProgrammingMajor
             projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
             projectileMan.cooldownWait = 5f;
 
+            money = towerManager.levelDescription.money;
             hud.setPlayerMoney(money);
         }
 

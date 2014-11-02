@@ -95,28 +95,15 @@ namespace GameProgrammingMajor
                     aCurrentElement = xml.Name;
                     switch (aCurrentElement)
                     {
-                        /*case "startX":
-                            {
-                                mStartX = theReader.ReadElementContentAsInt();
-                                break;
-                            }
-
-                        case "startY":
-                            {
-                                mStartY = theReader.ReadElementContentAsInt();
-                                break;
-                            }
-                        */
+                        case "money":
+                            level.money = xml.ReadElementContentAsFloat();
+                            break;
                         case "height":
-                            {
-                                level.height = xml.ReadElementContentAsInt();
-                                break;
-                            }
+                            level.height = xml.ReadElementContentAsInt();
+                            break;
                         case "width":
-                            {
-                                level.width = xml.ReadElementContentAsInt();
-                                break;
-                            }
+                            level.width = xml.ReadElementContentAsInt();
+                            break;
                     }
                 }
                 else if (xml.NodeType == XmlNodeType.EndElement)
