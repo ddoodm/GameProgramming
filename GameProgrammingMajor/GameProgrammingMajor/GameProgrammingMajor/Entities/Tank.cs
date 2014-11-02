@@ -169,7 +169,7 @@ namespace GameProgrammingMajor
             if (turretTarget == null)
                 return false;
 
-            BoundingSphere range = new BoundingSphere(this.kinematic.position, 100f);
+            BoundingSphere range = new BoundingSphere(this.kinematic.position, 42f);
             return range.Contains(turretTarget.position) == ContainmentType.Contains;
         }
 

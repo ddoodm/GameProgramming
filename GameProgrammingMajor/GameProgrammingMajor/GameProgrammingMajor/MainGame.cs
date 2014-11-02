@@ -100,14 +100,14 @@ namespace GameProgrammingMajor
             // Load the world
             world.hardcodedWorldPopulation(this);
 
+            // Create a HUD that displays information about the game, and debug
+            hud = new HUD(this);
+
             // Create a player at (-100,0,0)
-            player = new Player(this, Matrix.CreateTranslation(new Vector3(-150f, 0, 0)), world, world.towerManager);
+            player = new Player(this, hud, Matrix.CreateTranslation(new Vector3(-150f, 0, 0)), world, world.towerManager);
 
             // Supply the Player to the world
             world.player = player;
-
-            // Create a HUD that displays information about the game, and debug
-            hud = new HUD(this);
 
             base.Initialize();
         }
@@ -168,16 +168,6 @@ namespace GameProgrammingMajor
             // Play the ambient noise
             if (soundManager.ambientInstance == null)
                 soundManager.playAmbience(SoundManager.SoundNames.AMBIENCE_TOWN);
-
-            // Stop working if the player has died
-            if (player.isDead)
-            {
-                // When 'return' is pressed, restore health
-                if (keyboard.IsKeyDown(Keys.Enter))
-                    player.health = 1f;
-                else
-                    return;
-            }
 
             // Select the type of camera:
             changeCamera(keyboard);

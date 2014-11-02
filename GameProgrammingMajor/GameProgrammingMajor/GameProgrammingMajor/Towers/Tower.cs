@@ -16,6 +16,9 @@ namespace GameProgrammingMajor
         protected DrawableBoundingBox drawableBoundingBox;
         protected PlaneEntity shadowTex;
 
+        // The cost to purchase this tower
+        public static float cost = 0f;
+
         public bool shadowEnabled = false;
 
         // Path-finding weight
@@ -57,6 +60,11 @@ namespace GameProgrammingMajor
         public virtual bool isSolid()
         {
             return false;
+        }
+
+        public virtual float getCost()
+        {
+            return cost;
         }
 
         public virtual void update(UpdateParams updateParams)
@@ -107,6 +115,9 @@ namespace GameProgrammingMajor
     {
         private int gWeight = 0;
 
+        // The cost to purchase this tower
+        private static float cost = 65f;
+
         public WallTower(Game game, Matrix world, float size, iVec2 id)
             : base(game, world, size, id)
         {
@@ -125,6 +136,11 @@ namespace GameProgrammingMajor
 
             // Create a drawable Bounding Box from the Bounding Box created above
             drawableBoundingBox = new DrawableBoundingBox(boundingBox, game.GraphicsDevice, Color.White);
+        }
+
+        public override float getCost()
+        {
+            return cost;
         }
 
         public override int getGWeight()

@@ -64,7 +64,7 @@ namespace GameProgrammingMajor
         public WaveManager waveManager;
 
         // What type dose the player want to place
-        public int toPlaceID = (int)TowerType.WALL;
+        public TowerType toPlaceID = TowerType.WALL;
 
         // A pre-designed map
         private int[,] predesignedMap; /* = new int[NUM_BLOCKS, NUM_BLOCKS]
@@ -177,10 +177,8 @@ namespace GameProgrammingMajor
             return TowerType.NONE;
         }
 
-        private Tower createTowerFromInt(int towerTypeID, Matrix world, float size, iVec2 id)
+        private Tower createTowerFromType(TowerType towerType, Matrix world, float size, iVec2 id)
         {
-            TowerType towerType = (TowerType)towerTypeID;
-
             switch (towerType)
             {
                 case TowerType.GRASS:
@@ -195,11 +193,18 @@ namespace GameProgrammingMajor
                     return new TeapotTower(game, world, size, id);
                 case TowerType.TURRET:
                     return new TurretTower(game, world, this, size, tankTree, id);
-                case TowerType.START: case TowerType.END:
+                case TowerType.START:
+                case TowerType.END:
                     return new GrassTower(game, world, size, this, id);
             }
 
             throw new Exception("towerTypeID has no corresponding tower type.");
+        }
+
+        private Tower createTowerFromInt(int towerTypeID, Matrix world, float size, iVec2 id)
+        {
+            TowerType towerType = (TowerType)towerTypeID;
+            return createTowerFromType(towerType, world, size, id);
         }
 
         /// <summary>
@@ -298,6 +303,17 @@ namespace GameProgrammingMajor
             return false;
         }
 
+        public void getTowerTypeToPlace(HUD hud, KeyboardState keys)
+        {
+            if (keys.IsKeyDown(Keys.D4)) toPlaceID = TowerType.WALL;
+            if (keys.IsKeyDown(Keys.D5)) toPlaceID = TowerType.TURRET;
+            if (keys.IsKeyDown(Keys.D6)) toPlaceID = TowerType.GRASS;
+            if (keys.IsKeyDown(Keys.D7)) toPlaceID = TowerType.PATH;
+            if (keys.IsKeyDown(Keys.D8)) toPlaceID = TowerType.TAR;
+
+            hud.setBlockToPlace(toPlaceID);
+        }
+
         public void update(UpdateParams updateParams)
         {
             // Obtain the ID of the currently selected block
@@ -305,9 +321,7 @@ namespace GameProgrammingMajor
                 game.GraphicsDevice.Viewport, updateParams.camera, updateParams.mouseState);
 
             // Determine which block to place
-            if (updateParams.keyboardState.IsKeyDown(Keys.D4)) toPlaceID = (int)TowerType.WALL;
-            if (updateParams.keyboardState.IsKeyDown(Keys.D5)) toPlaceID = (int)TowerType.TURRET;
-            if (updateParams.keyboardState.IsKeyDown(Keys.D6)) toPlaceID = (int)TowerType.GRASS;
+            getTowerTypeToPlace(updateParams.hud, updateParams.keyboardState);
 
             // For each block in the 2D array:
             for (int z = 0; z < NUM_BLOCKS; z++)
@@ -332,10 +346,10 @@ namespace GameProgrammingMajor
                             continue;
 
                         //Tower newTower = new WallTower(game, blocks[z, x].world, blocks[z, x].size, cID);
-                        Tower newTower = createTowerFromInt(toPlaceID, blocks[z,x].world, blocks[z, x].size, cID);
+                        Tower newTower = createTowerFromType(toPlaceID, blocks[z,x].world, blocks[z, x].size, cID);
                         placeTower(cID, newTower);
 
-                        if (waveManager.placementAllowedAt(this, cID))
+                        if (waveManager.placementAllowedAt(this, cID) && updateParams.player.buy(newTower))
                         {
                             // Update search nodes
                             pathFinder.updateSearchNodes(this);
@@ -387,7 +401,10 @@ namespace GameProgrammingMajor
         public bool towersCollideWith(BoundingSphere sphere, Tower excludedTower)
         {
             foreach (TowerBlock block in blocks)
-                if (block.tower != null && block.tower != excludedTower && block.tower.collidesWith(sphere))
+                if (block.tower != null
+                    && block.tower.isSolid()
+                    && block.tower != excludedTower
+                    && block.tower.collidesWith(sphere))
                     return true;
             return false;
         }

@@ -13,8 +13,8 @@ namespace GameProgrammingMajor
     /// </summary>
     public class Player
     {
-        public float score = 0;
-        public float health = 1f;
+        private const float TANK_KILLED_PAYMENT = 125f;
+        public float money = 200f;
 
         public Kinematic kinematic;
         public Steering steering;
@@ -42,11 +42,14 @@ namespace GameProgrammingMajor
 
         private ProjectileManager projectileMan;
 
+        private HUD hud;
+
         /// <summary>
         /// Create a player that is linked to a camera
         /// </summary>
-        public Player(Game game, Matrix worldMatrix, World world, TowerManager towerManager)
+        public Player(Game game, HUD hud, Matrix worldMatrix, World world, TowerManager towerManager)
         {
+            this.hud = hud;
             this.kinematic = new Kinematic(worldMatrix.Translation);
             this.steering = new Steering();
 
@@ -55,6 +58,8 @@ namespace GameProgrammingMajor
             projectileMan = new ProjectileManager(game, world, towerManager, towerManager.tankTree);
             projectileMan.projectileFireSound = SoundManager.SoundNames.PLAYER_PROJECTILE_FIRE;
             projectileMan.cooldownWait = 5f;
+
+            hud.setPlayerMoney(money);
         }
 
         public void loadContent(ContentManager content)
@@ -68,25 +73,6 @@ namespace GameProgrammingMajor
 
             // Translate the player's bounding sphere
             boundingSphere = new BoundingSphere(kinematic.position, boundingSphere.Radius);
-
-            fireProjectile(updateParams);
-        }
-
-        public void fireProjectile(UpdateParams updateParams)
-        {
-            // Fire a projectile if the mouse button is down
-            projectileMan.update(updateParams);
-            if (updateParams.mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-            {
-                // Get camera direction
-                Vector3 direction = Vector3.Normalize(updateParams.camera.direction);
-
-                // Add the player's collision radius and projectile
-                Vector3 position = kinematic.position + direction * (boundingSphere.Radius * 2f);
-
-                // Fire the projectile
-                projectileMan.shoot(updateParams, position, direction, null);
-            }
         }
 
         /// <summary>
@@ -169,21 +155,27 @@ namespace GameProgrammingMajor
             return boundingSphere.Intersects(otherSphere);
         }
 
-        public void takeDamage(UpdateParams updateParams, float damage)
+        public bool buy (Tower tower)
         {
-            // Constrain to 0 or above
-            if (health - damage > 0)
-                health -= damage;
-            else
-                health = 0;
-
-            // Play damage sound effect
-            updateParams.soundManager.play(SoundManager.SoundNames.PLAYER_PAIN);
+            float towerCost = tower.getCost();
+            if (money >= towerCost)
+            {
+                money -= towerCost;
+                hud.setPlayerMoney(money);
+                return true;
+            }
+            return false;
         }
 
-        public bool isDead
+        public void pay(float amount)
         {
-            get { return health == 0; }
+            money += amount;
+            hud.setPlayerMoney(money);
+        }
+
+        public void notifyEntityKilled(Entity entity)
+        {
+            pay(TANK_KILLED_PAYMENT);
         }
 
         public void draw(DrawParams drawParams)

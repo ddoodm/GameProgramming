@@ -68,12 +68,13 @@ namespace GameProgrammingMajor
             shoot(updateParams, camera.position, camera.direction, null);
         }
 
-        public void shootSeeking(UpdateParams updateParams, Vector3 origin, Kinematic target, Tower excludedTower)
+        public void shootSeeking(UpdateParams updateParams, Vector3 origin,
+            Kinematic target, Tower excludedTower, Action<Entity> projectileCollisionCallback)
         {
             if (cooldown <= 0)
             {
                 Vector3 direction = Vector3.Normalize((target.position + target.velocity) - origin);
-                SeekProjectile p = new SeekProjectile(this,
+                SeekProjectile p = new SeekProjectile(this, projectileCollisionCallback,
                     new StaticModel(projectileModel), origin, direction, projectileSpeed, target);
                 p.excludedTower = excludedTower;
                 projectiles.Add(p);
@@ -132,6 +133,7 @@ namespace GameProgrammingMajor
             protected BoundingSphere boundingSphere;
             protected Vector3 start;
             protected Vector3 direction;
+            protected Action<Entity> projectileCollisionCallback;
 
             public Tower excludedTower;
             public Entity excludedEntity;
@@ -198,7 +200,10 @@ namespace GameProgrammingMajor
                 Entity subject = quadtree.collision(boundingSphere);
 
                 if (subject != null && subject.npc != null && subject != excludedEntity)
+                {
                     subject.npc.takeDamage(updateParams, damage);
+                    projectileCollisionCallback(subject);
+                }
 
                 return subject != null && subject != excludedEntity;
             }
@@ -213,9 +218,11 @@ namespace GameProgrammingMajor
         {
             private Kinematic target;
 
-            public SeekProjectile(ProjectileManager manager, StaticModel projectileModel, Vector3 start, Vector3 direction, float speed, Kinematic target)
+            public SeekProjectile(ProjectileManager manager, Action<Entity> projectileCollisionCallback, StaticModel projectileModel,
+                Vector3 start, Vector3 direction, float speed, Kinematic target)
                 : base(manager, projectileModel, start, direction, speed)
             {
+                this.projectileCollisionCallback = projectileCollisionCallback;
                 this.target = target;
             }
 

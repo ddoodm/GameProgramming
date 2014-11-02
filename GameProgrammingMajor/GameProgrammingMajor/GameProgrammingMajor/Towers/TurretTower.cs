@@ -9,6 +9,8 @@ namespace GameProgrammingMajor
 {
     public class TurretTower : WallTower
     {
+        private static float cost = 200f;
+
         private int gWeight = 0;
         private Quadtree quadtree;
         private ProjectileManager projectileMan;
@@ -22,6 +24,8 @@ namespace GameProgrammingMajor
         private BoundingSphere turretRange;
 
         private Entity target;
+
+        private Player player;
 
         public TurretTower(Game game, Matrix world, TowerManager level, float size, Quadtree quadtree, iVec2 id)
             : base(game, world, size, id)
@@ -62,6 +66,11 @@ namespace GameProgrammingMajor
             turretPosition = world.Translation + bakedTurretTransform.Translation;
         }
 
+        public override float getCost()
+        {
+            return cost;
+        }
+
         public override int getGWeight()
         {
             return gWeight;
@@ -79,6 +88,9 @@ namespace GameProgrammingMajor
         {
             base.update(updateParams);
 
+            if (player == null)
+                player = updateParams.player;
+
             model.update(updateParams);
 
             // Search for targets if we need a new one
@@ -92,8 +104,16 @@ namespace GameProgrammingMajor
             {
                 Vector3 origin = turretPosition;
                 updateTurretFacing(origin, target.kinematic.position);
-                projectileMan.shootSeeking(updateParams, origin, target.kinematic, this);
+                projectileMan.shootSeeking(updateParams, origin, target.kinematic, this, projectileCollisionCallback);
             }
+        }
+
+        public void projectileCollisionCallback(Entity collidedEntity)
+        {
+            collidedEntity.setAttacker(this);
+
+            if (collidedEntity.dead)
+                player.notifyEntityKilled(collidedEntity);
         }
 
         private bool targetInRange(Entity target)

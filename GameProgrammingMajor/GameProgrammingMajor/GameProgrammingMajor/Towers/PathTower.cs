@@ -9,6 +9,9 @@ namespace GameProgrammingMajor
 {
     public class PathTower : Tower
     {
+        // The cost to purchase this tower
+        private static float cost = 120f;
+
         // Path is a first-class A* block - it is preferred
         private int gWeight = 0;
 
@@ -24,6 +27,11 @@ namespace GameProgrammingMajor
         private void loadModel()
         {
             model = new StaticModel(game, game.Content.Load<Model>("Models\\tower_soil"), world);
+        }
+
+        public override float getCost()
+        {
+            return cost;
         }
 
         public override int getGWeight()

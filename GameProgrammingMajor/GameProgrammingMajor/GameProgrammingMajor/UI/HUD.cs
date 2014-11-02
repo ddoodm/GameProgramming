@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {1}\nQuadtree Nodes: {2}";
+        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\nPlayer Cash: ${1:0.00}\nPlacing Block: {2}\n";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {3}\nQuadtree Nodes: {4}";
 
         private SpriteFont uiFont;
         private string message = "";
@@ -27,6 +27,8 @@ namespace GameProgrammingMajor
 
         public float teapotHealth;
         public bool teapotDead;
+        public float playerMoney;
+        public TowerType blockToPlace;
 
         public bool visible = true; 
         public bool debugVisible = true;
@@ -52,6 +54,16 @@ namespace GameProgrammingMajor
             this.deathMap = deathMap;
         }
 
+        public void setPlayerMoney(float money)
+        {
+            this.playerMoney = money;
+        }
+
+        public void setBlockToPlace(TowerType blockToPlace)
+        {
+            this.blockToPlace = blockToPlace;
+        }
+
         public void update(UpdateParams updateParams)
         {
             Type camType = updateParams.camera.GetType();
@@ -59,6 +71,8 @@ namespace GameProgrammingMajor
             message = string.Format(
                 TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
                 teapotHealth,
+                playerMoney,
+                Enum.GetName(typeof(TowerType), blockToPlace),
                 camType.ToString(),
                 quadtreeNodeCount);
         }

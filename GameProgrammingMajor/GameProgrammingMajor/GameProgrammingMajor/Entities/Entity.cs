@@ -18,6 +18,7 @@ namespace GameProgrammingMajor
         public Kinematic kinematic;     // Stores information about position and velocities
         public NPC npc = null;          // Handle to this entity's NPC controller. Can be null.
         public List<QuadtreeNode> treeNodes;
+        public Entity attacker;
 
         public bool dead;
 
@@ -56,6 +57,11 @@ namespace GameProgrammingMajor
         {
             dead = true;
             removeFromTree();
+        }
+
+        public virtual void setAttacker(Entity attacker)
+        {
+            attacker = attacker;
         }
 
         public virtual bool collidesWith(StaticModel model) { return false; }
