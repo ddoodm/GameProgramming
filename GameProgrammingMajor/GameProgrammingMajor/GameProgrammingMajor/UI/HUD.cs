@@ -78,6 +78,10 @@ namespace GameProgrammingMajor
                 Enum.GetName(typeof(TowerType), blockToPlace),
                 camType.ToString(),
                 quadtreeNodeCount);
+
+            if (teapotDead || levelComplete)
+                if (updateParams.keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
+                    game.startOver();
         }
 
         /// <summary>

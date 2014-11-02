@@ -83,6 +83,11 @@ namespace GameProgrammingMajor
             IsMouseVisible = true;
         }
 
+        public void startOver()
+        {
+            Initialize();
+        }
+
         /// <summary>
         /// 
         /// </summary>
