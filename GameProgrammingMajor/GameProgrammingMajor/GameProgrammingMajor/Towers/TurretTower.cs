@@ -37,6 +37,8 @@ namespace GameProgrammingMajor
 
             turretRange = new BoundingSphere(this.boundingBox.Max, 300f);
 
+            this.npc = new NPC(game, this, null);
+
             loadModel();
         }
 
@@ -153,6 +155,24 @@ namespace GameProgrammingMajor
             Matrix rotMatrix = Matrix.CreateRotationY(rotY);
             axisBone.Transform = bakedAxisTransform * rotMatrix;
             turretBone.Transform = bakedTurretTransform * rotMatrix;
+        }
+
+        public override bool collidesWith(BoundingSphere sphere)
+        {
+            if(base.collidesWith(sphere))
+            {
+                npc.health -= 0.1f;
+                if (npc.health <= 0f)
+                    destroy();
+                return true;
+            }
+            return false;
+        }
+
+        public override void destroy()
+        {
+            level.removeTower(level.idOf(kinematic.position));
+            base.destroy();
         }
 
         public override void draw(DrawParams drawParams)

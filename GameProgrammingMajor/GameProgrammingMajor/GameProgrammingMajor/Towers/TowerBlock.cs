@@ -15,7 +15,7 @@ namespace GameProgrammingMajor
         private Game game;
 
         // The two-dimensional index of this block
-        protected iVec2 blockId;
+        public iVec2 blockId;
 
         // The transformation of this block
         public Matrix world;

@@ -51,7 +51,8 @@ namespace GameProgrammingMajor
             // Provide the entity with this NPC object
             entity.npc = this;
 
-            fsm = new FSM(this, fsmFile);
+            if(fsmFile != null)
+                fsm = new FSM(this, fsmFile);
 
             if (DEBUG)
                 waypointModel = new StaticModel(game, game.Content.Load<Model>("Models\\DSphere"));
@@ -73,18 +74,20 @@ namespace GameProgrammingMajor
 
         public bool tryEvaluateCondition(Condition condition)
         {
-                if (condition.Equals(Condition.lowHealth))
-                    return entity.lowHealth();
-                if (condition.Equals(Condition.atTarget))
-                    return ((Tank)entity).atTarget();
-                if (condition.Equals(Condition.awayFromAttacker))
-                    return ((Tank)entity).awayFromAttacker();
-                if (condition.Equals(Condition.noAmmo))
-                    return ((Tank)entity).noAmmo();
-                if (condition.Equals(Condition.lowAmmo))
-                    return ((Tank)entity).lowAmmo();
-                if (condition.Equals(Condition.nearTurret))
-                    return ((Tank)entity).nearTurret();
+            if (condition.Equals(Condition.lowHealth))
+                return entity.lowHealth();
+            if (condition.Equals(Condition.atTarget))
+                return ((Tank)entity).atTarget();
+            if (condition.Equals(Condition.awayFromAttacker))
+                return ((Tank)entity).awayFromAttacker();
+            if (condition.Equals(Condition.noAmmo))
+                return ((Tank)entity).noAmmo();
+            if (condition.Equals(Condition.lowAmmo))
+                return ((Tank)entity).lowAmmo();
+            if (condition.Equals(Condition.nearTurret))
+                return ((Tank)entity).nearTurret();
+            if (condition.Equals(Condition.noAttacker))
+                return ((Tank)entity).noAttacker();
 
             throw new Exception("No evaluator defined for the specified condition.");
         }
@@ -111,7 +114,8 @@ namespace GameProgrammingMajor
             float timeDelta = (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Update the FSM
-            fsm.update(updateParams);
+            if(fsm != null)
+                fsm.update(updateParams);
 
             // Update steering AI state using a state machine
             // OLD METHOD FROM ALPHA

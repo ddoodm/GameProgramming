@@ -176,7 +176,7 @@ namespace GameProgrammingMajor
         public bool awayFromAttacker()
         {
             // TODO: Implement "awayFromAttacker".
-            return true;
+            return !nearTurret();
         }
 
         public bool noAmmo()
@@ -195,23 +195,26 @@ namespace GameProgrammingMajor
                 && new BoundingSphere(this.kinematic.position, 400f).Contains(attacker.kinematic.position) == ContainmentType.Contains;
         }
 
+        public bool noAttacker()
+        {
+            return attacker.dead;
+        }
+
         public void fsm_attackTarget(UpdateParams updateParams)
         {
             // Get direction to target
             Vector3 target = turretTarget.position + Vector3.Up * 10f;
             Vector3 targetDirection = Vector3.Normalize(target - kinematic.position);
 
-            traverser.allowMovement = true;
-
             shootAt(updateParams, targetDirection);
         }
 
         public void fsm_attackTurret(UpdateParams updateParams)
         {
-            traverser.allowMovement = false;
-
             if (attacker == null)
                 return;
+
+            traverser.removePath();
 
             Vector3 attackerPosition = attacker.kinematic.position;
             Vector3 target = attackerPosition + Vector3.Up * 10f;
@@ -222,12 +225,13 @@ namespace GameProgrammingMajor
 
         public void fsm_evadeAttacker(UpdateParams updateParams)
         {
-            traverser.allowMovement = true;
+            
         }
 
         public void fsm_goToTarget(UpdateParams updateParams)
         {
-             traverser.allowMovement = true;
+            if(traverser.pathLength() == 0)
+                traverser.pathfindToTeapot();
         }
 
         private void shootAt(UpdateParams updateParams, Vector3 direction)
@@ -257,7 +261,8 @@ namespace GameProgrammingMajor
             npc = new NPC(game, this, "FSM\\tank_aggressive.xml");
 
             projectileManager = new ProjectileManager(game, world, level, level.tankTree);
-            projectileManager.maxAmmo = 3;
+            projectileManager.maxAmmo = 12;
+            projectileManager.cooldownWait = 50f;
         }
 
         public override void load(ContentManager content)

@@ -14,6 +14,7 @@ namespace GameProgrammingMajor
         noAmmo,
         nearTurret,
         lowAmmo,
+        noAttacker,
     }
 
     public enum StateName

@@ -8,8 +8,8 @@
     <transition condition="noAmmo" action="destroy"/>
   </state>
   <state name="attackTurret">
-    <transition condition="noAmmo" action="gotoTarget"/>
-    <transition condition="lowHealth" action="gotoTarget"/>
+    <transition condition="noAmmo" action="destroy"/>
+    <transition condition="noAttacker" action="gotoTarget"/>
   </state>
   <state name="evadeAttacker">
     <transition condition="awayFromAttacker" action="gotoTarget"/>

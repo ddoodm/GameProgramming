@@ -9,7 +9,7 @@ namespace GameProgrammingMajor
 {
     public class Tower : Entity
     {
-        protected iVec2 id;
+        public iVec2 id;
         private float size;
         protected StaticModel model;
         protected BoundingBox boundingBox;

@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
         private int gWeight = 0;
 
-        // Teapot takes 85 hits before the game is over
-        private const float DAMAGE = 1f / 85f;
+        // Teapot takes 50 hits before the game is over
+        private const float DAMAGE = 1f / 50f;
 
         public float health = 1f;
 

@@ -26,11 +26,14 @@ namespace GameProgrammingMajor
         Quadtree tankTree;
         WaveManager waveManager;
         public Tower targetTower { get; protected set; }
-        public bool allowMovement = true;
+        private iVec2 teapotCoords;
 
         float levelWidth, levelHeight;
 
         public bool showDebugPath = false;
+
+        public TowerPathFinder pathfinder
+        { get { return waveManager.pathfinder; } }
 
         public void destroy()
         {
@@ -44,6 +47,11 @@ namespace GameProgrammingMajor
             this.tankTree = tankTree;
             this.level = level;
             this.waveManager = waveManager;
+        }
+
+        public void setTeapotCoords(iVec2 teapotCoords)
+        {
+            this.teapotCoords = teapotCoords;
         }
 
         public void addPath(List<Vector3> path3D)
@@ -126,6 +134,16 @@ namespace GameProgrammingMajor
             path = pathFinder.FindPath(from, target);
         }
 
+        public void pathfindToTeapot()
+        {
+            pathfindTo(teapotCoords, level, waveManager.pathfinder);
+        }
+
+        public void removePath()
+        {
+            path.Clear();
+        }
+
         /// <summary>
         /// Get the block ID that the mover is currently at.
         /// </summary>
@@ -160,7 +178,7 @@ namespace GameProgrammingMajor
             levelWidth = levelHeight = TowerManager.NUM_BLOCKS * TowerManager.blockSize;
 
             // Update if there is a path
-            if (path != null && path.Count > 0 && allowMovement)
+            if (path != null && path.Count > 0)
             {
                 // Check whether the mover is in the target radius
                 bool atNextTarget = mover.npc.inTargetRadius();

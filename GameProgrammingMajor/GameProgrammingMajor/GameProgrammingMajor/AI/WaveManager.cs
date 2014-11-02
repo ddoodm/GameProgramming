@@ -161,6 +161,7 @@ namespace GameProgrammingMajor
 
                         TowerTraverser newTraverser = new TowerTraverser(quadtree, level, this);
                         newTraverser.setTargetTower(level.getTowerAt(endPoint.x, endPoint.y));
+                        newTraverser.setTeapotCoords(endPoint);
                         Tank tank = createTank(game.Content, typesToSpawn[wavenum], newTraverser);
                         addTank(tank, newTraverser);
                     }

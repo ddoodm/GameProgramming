@@ -289,9 +289,34 @@ namespace GameProgrammingMajor
             return blocks[y, x].tower;
         }
 
+        public Tower getTowerAt(iVec2 id)
+        {
+            return blocks[id.y, id.x].tower;
+        }
+
         public int getGWeight(int x, int y)
         {
             return blocks[y, x].getGWeight();
+        }
+
+        public void removeTower(iVec2 id)
+        {
+            TowerBlock block = blocks[id.y, id.x];
+
+            block.tower.dead = true;
+
+            block.tower
+                = new GrassTower(game, block.world, block.size, this, id);
+        }
+
+        public iVec2 findRandomFreeBlock()
+        {
+            Random r = new Random();
+
+            iVec2 randomBlock;
+            while (!getTowerAt(randomBlock = new iVec2(r.Next(NUM_BLOCKS), r.Next(NUM_BLOCKS))).isSolid()) ;
+
+            return randomBlock;
         }
 
         public bool intersects(Ray ray)
