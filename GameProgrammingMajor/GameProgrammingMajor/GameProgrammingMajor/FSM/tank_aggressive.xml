@@ -2,10 +2,14 @@
 <states>
   <state name="gotoTarget">
     <transition condition="atTarget" action="attackTarget"/>
-    <transition condition="lowHealth" action="evadeAttacker"/>
+    <transition condition="nearTurret" action="attackTurret"/>
   </state>
   <state name="attackTarget">
     <transition condition="noAmmo" action="destroy"/>
+  </state>
+  <state name="attackTurret">
+    <transition condition="noAmmo" action="gotoTarget"/>
+    <transition condition="lowHealth" action="gotoTarget"/>
   </state>
   <state name="evadeAttacker">
     <transition condition="awayFromAttacker" action="gotoTarget"/>

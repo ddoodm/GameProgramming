@@ -47,6 +47,9 @@ namespace GameProgrammingMajor
 
         public void shoot(UpdateParams updateParams, Vector3 origin, Vector3 direction, Entity excluded)
         {
+            if (outOfAmmo())
+                return;
+
             if (cooldown <= 0)
             {
                 Projectile p = new Projectile(this, 
@@ -71,6 +74,9 @@ namespace GameProgrammingMajor
         public void shootSeeking(UpdateParams updateParams, Vector3 origin,
             Kinematic target, Tower excludedTower, Action<Entity> projectileCollisionCallback)
         {
+            if (outOfAmmo())
+                return;
+
             if (cooldown <= 0)
             {
                 Vector3 direction = Vector3.Normalize((target.position + target.velocity) - origin);
@@ -90,7 +96,7 @@ namespace GameProgrammingMajor
 
         public bool outOfAmmo()
         {
-            return maxAmmo != -1 && shotsFired >= maxAmmo;
+            return (maxAmmo != -1) && (shotsFired >= maxAmmo);
         }
 
         public void update(UpdateParams updateParams)
@@ -202,7 +208,9 @@ namespace GameProgrammingMajor
                 if (subject != null && subject.npc != null && subject != excludedEntity)
                 {
                     subject.npc.takeDamage(updateParams, damage);
-                    projectileCollisionCallback(subject);
+                    
+                    if(projectileCollisionCallback != null)
+                        projectileCollisionCallback(subject);
                 }
 
                 return subject != null && subject != excludedEntity;

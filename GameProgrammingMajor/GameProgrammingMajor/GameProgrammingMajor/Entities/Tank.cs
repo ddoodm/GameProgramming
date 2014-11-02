@@ -169,7 +169,7 @@ namespace GameProgrammingMajor
             if (turretTarget == null)
                 return false;
 
-            BoundingSphere range = new BoundingSphere(this.kinematic.position, 42f);
+            BoundingSphere range = new BoundingSphere(this.kinematic.position, 70f);
             return range.Contains(turretTarget.position) == ContainmentType.Contains;
         }
 
@@ -184,10 +184,37 @@ namespace GameProgrammingMajor
             return projectileManager.outOfAmmo();
         }
 
+        public bool lowAmmo()
+        {
+            return (projectileManager.maxAmmo - projectileManager.shotsFired) < 10;
+        }
+
+        public bool nearTurret()
+        {
+            return attacker != null
+                && new BoundingSphere(this.kinematic.position, 400f).Contains(attacker.kinematic.position) == ContainmentType.Contains;
+        }
+
         public void fsm_attackTarget(UpdateParams updateParams)
         {
             // Get direction to target
             Vector3 target = turretTarget.position + Vector3.Up * 10f;
+            Vector3 targetDirection = Vector3.Normalize(target - kinematic.position);
+
+            traverser.allowMovement = true;
+
+            shootAt(updateParams, targetDirection);
+        }
+
+        public void fsm_attackTurret(UpdateParams updateParams)
+        {
+            traverser.allowMovement = false;
+
+            if (attacker == null)
+                return;
+
+            Vector3 attackerPosition = attacker.kinematic.position;
+            Vector3 target = attackerPosition + Vector3.Up * 10f;
             Vector3 targetDirection = Vector3.Normalize(target - kinematic.position);
 
             shootAt(updateParams, targetDirection);
@@ -195,12 +222,12 @@ namespace GameProgrammingMajor
 
         public void fsm_evadeAttacker(UpdateParams updateParams)
         {
-
+            traverser.allowMovement = true;
         }
 
         public void fsm_goToTarget(UpdateParams updateParams)
         {
-
+             traverser.allowMovement = true;
         }
 
         private void shootAt(UpdateParams updateParams, Vector3 direction)
@@ -230,7 +257,7 @@ namespace GameProgrammingMajor
             npc = new NPC(game, this, "FSM\\tank_aggressive.xml");
 
             projectileManager = new ProjectileManager(game, world, level, level.tankTree);
-            projectileManager.maxAmmo = 12;
+            projectileManager.maxAmmo = 3;
         }
 
         public override void load(ContentManager content)

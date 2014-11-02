@@ -27,6 +27,8 @@ namespace GameProgrammingMajor
         public Tower(Game game, Matrix world, float size, iVec2 id)
             : base(game, world)
         {
+            this.world = world;
+            this.kinematic.position = world.Translation;
             this.size = size;
             this.id = id;
 

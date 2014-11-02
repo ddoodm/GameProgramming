@@ -81,6 +81,10 @@ namespace GameProgrammingMajor
                     return ((Tank)entity).awayFromAttacker();
                 if (condition.Equals(Condition.noAmmo))
                     return ((Tank)entity).noAmmo();
+                if (condition.Equals(Condition.lowAmmo))
+                    return ((Tank)entity).lowAmmo();
+                if (condition.Equals(Condition.nearTurret))
+                    return ((Tank)entity).nearTurret();
 
             throw new Exception("No evaluator defined for the specified condition.");
         }
@@ -93,6 +97,8 @@ namespace GameProgrammingMajor
                 ((Tank)entity).fsm_evadeAttacker(updateParams);
             else if (state.Equals(StateName.gotoTarget))
                 ((Tank)entity).fsm_goToTarget(updateParams);
+            else if (state.Equals(StateName.attackTurret))
+                ((Tank)entity).fsm_attackTurret(updateParams);
             else if (state.Equals(StateName.destroy))
                 entity.destroy();
         }

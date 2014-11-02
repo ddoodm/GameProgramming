@@ -12,6 +12,8 @@ namespace GameProgrammingMajor
         lowHealth,
         awayFromAttacker,
         noAmmo,
+        nearTurret,
+        lowAmmo,
     }
 
     public enum StateName
@@ -20,6 +22,7 @@ namespace GameProgrammingMajor
         attackTarget,
         evadeAttacker,
         destroy,
+        attackTurret,
     }
 
     public class Transition

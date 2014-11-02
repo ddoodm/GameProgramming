@@ -61,7 +61,7 @@ namespace GameProgrammingMajor
 
         public virtual void setAttacker(Entity attacker)
         {
-            attacker = attacker;
+            this.attacker = attacker;
         }
 
         public virtual bool collidesWith(StaticModel model) { return false; }

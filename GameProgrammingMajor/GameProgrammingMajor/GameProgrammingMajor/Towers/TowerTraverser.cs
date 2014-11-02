@@ -26,6 +26,7 @@ namespace GameProgrammingMajor
         Quadtree tankTree;
         WaveManager waveManager;
         public Tower targetTower { get; protected set; }
+        public bool allowMovement = true;
 
         float levelWidth, levelHeight;
 
@@ -159,7 +160,7 @@ namespace GameProgrammingMajor
             levelWidth = levelHeight = TowerManager.NUM_BLOCKS * TowerManager.blockSize;
 
             // Update if there is a path
-            if (path != null && path.Count > 0)
+            if (path != null && path.Count > 0 && allowMovement)
             {
                 // Check whether the mover is in the target radius
                 bool atNextTarget = mover.npc.inTargetRadius();
