@@ -56,10 +56,10 @@ namespace GameProgrammingMajor
             tank.npc.steering.maxAcceleration = 200;
 
             // Give the tank the target
-            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count-1] / TowerManager.blockSize)));
+            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count-1] / (int)TowerManager.blockSize)));
 
             // Set position to start of path
-            tank.npc.kinematic.position = level.coordinatesOf(new iVec2(path[0] / TowerManager.blockSize));
+            tank.npc.kinematic.position = level.coordinatesOf(new iVec2(0,0));
 
             // THEN set the mover (for the quadtree to insert correctly)
             traverser.setMover(tank);
