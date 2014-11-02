@@ -118,7 +118,7 @@ namespace GameProgrammingMajor
         private int gWeight = 0;
 
         // The cost to purchase this tower
-        private static float cost = 65f;
+        private static float cost = 15f;
 
         public WallTower(Game game, Matrix world, float size, iVec2 id)
             : base(game, world, size, id)

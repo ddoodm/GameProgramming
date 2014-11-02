@@ -172,6 +172,9 @@ namespace GameProgrammingMajor
                     wavenum++;
                 }
             }
+            else if (wavenum >= numberToSpawn.Length && monsters.Count == 0)
+                updateParams.hud.levelComplete = true;
+
             for (int i = 0; i < monsters.Count; i++)
             {
                 monsters[i].Update(updateParams, level);

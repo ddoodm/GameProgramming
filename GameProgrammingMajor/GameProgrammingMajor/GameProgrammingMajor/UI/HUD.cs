@@ -18,6 +18,7 @@ namespace GameProgrammingMajor
         private string message = "";
 
         private Texture2D gameOverSprite;
+        private Texture2D levelCompleteSprite;
         private Texture2D blackTexture;
 
         private const int deathMapSize = 200;
@@ -29,6 +30,7 @@ namespace GameProgrammingMajor
         public bool teapotDead;
         public float playerMoney;
         public TowerType blockToPlace;
+        public bool levelComplete;
 
         public bool visible = true; 
         public bool debugVisible = true;
@@ -39,6 +41,7 @@ namespace GameProgrammingMajor
 
             uiFont = game.Content.Load<SpriteFont>("Font\\UIFont");
             gameOverSprite = game.Content.Load<Texture2D>("Textures\\UI\\GameOver");
+            levelCompleteSprite = game.Content.Load<Texture2D>("Textures\\UI\\LevelComplete");
 
             // Make a 1x1 semi-transparent texture
             blackTexture = new Texture2D(game.GraphicsDevice, 1, 1);
@@ -83,7 +86,9 @@ namespace GameProgrammingMajor
         /// <param name="drawParams"></param>
         public void draw(DrawParams drawParams, SpriteBatch spriteBatch)
         {
-            if(teapotDead)
+            if (levelComplete)
+                drawLevelComplete(drawParams, spriteBatch);
+            else if (teapotDead)
                 drawGameOver(drawParams, spriteBatch);
 
             if (!visible)
@@ -138,6 +143,20 @@ namespace GameProgrammingMajor
 
             spriteBatch.Draw(blackTexture, view, Color.White);
             spriteBatch.Draw(gameOverSprite, midView, Color.White);
+
+            spriteBatch.End();
+        }
+
+        private void drawLevelComplete(DrawParams drawParams, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+
+            Rectangle view = drawParams.graphicsDevice.Viewport.Bounds;
+            Vector2 midView = new Vector2(view.Center.X, view.Center.Y);
+            midView -= new Vector2(gameOverSprite.Bounds.Center.X, gameOverSprite.Bounds.Center.Y);
+
+            spriteBatch.Draw(blackTexture, view, Color.White);
+            spriteBatch.Draw(levelCompleteSprite, midView, Color.White);
 
             spriteBatch.End();
         }

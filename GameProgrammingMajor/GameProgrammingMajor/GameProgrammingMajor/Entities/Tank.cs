@@ -261,7 +261,7 @@ namespace GameProgrammingMajor
             npc = new NPC(game, this, "FSM\\tank_aggressive.xml");
 
             projectileManager = new ProjectileManager(game, world, level, level.tankTree);
-            projectileManager.maxAmmo = 12;
+            projectileManager.maxAmmo = 6;
             projectileManager.cooldownWait = 50f;
         }
 
