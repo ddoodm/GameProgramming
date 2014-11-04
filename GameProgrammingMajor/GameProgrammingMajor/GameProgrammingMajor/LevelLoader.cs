@@ -95,6 +95,9 @@ namespace GameProgrammingMajor
                     aCurrentElement = xml.Name;
                     switch (aCurrentElement)
                     {
+                        case "name":
+                            level.name = xml.ReadElementContentAsString();
+                            break;
                         case "money":
                             level.money = xml.ReadElementContentAsFloat();
                             break;

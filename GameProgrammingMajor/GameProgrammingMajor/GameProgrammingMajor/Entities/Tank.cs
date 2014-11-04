@@ -23,8 +23,6 @@ namespace GameProgrammingMajor
 
         protected TowerTraverser traverser;
 
-        public Tower targetTower;
-
         protected int id;
 
         public Tank(Game game, Vector3 position, World world, TowerManager level, TowerTraverser traverser, int id)
@@ -138,6 +136,11 @@ namespace GameProgrammingMajor
 
         private void updateTurret()
         {
+            // Update location of teapot block
+            iVec2? teapotBlock = level.firstInstanceInPredesign(TowerType.TEAPOT);
+            if(teapotBlock.HasValue)
+                turretTarget = new Kinematic(level.coordinatesOf(teapotBlock.Value));
+
             // Do not update if there is no target
             if (turretTarget == null)
                 return;
@@ -169,7 +172,7 @@ namespace GameProgrammingMajor
             if (turretTarget == null)
                 return false;
 
-            BoundingSphere range = new BoundingSphere(this.kinematic.position, 70f);
+            BoundingSphere range = new BoundingSphere(this.kinematic.position, 75f);
             return range.Contains(turretTarget.position) == ContainmentType.Contains;
         }
 
@@ -217,8 +220,8 @@ namespace GameProgrammingMajor
             traverser.removePath();
 
             Vector3 attackerPosition = attacker.kinematic.position;
-            Vector3 target = attackerPosition + Vector3.Up * 10f;
-            Vector3 targetDirection = Vector3.Normalize(target - kinematic.position);
+            Vector3 target = attackerPosition + Vector3.Up * 12f;
+            Vector3 targetDirection = Vector3.Normalize(target - kinematic.position + Vector3.Up * 12f);
 
             shootAt(updateParams, targetDirection);
         }

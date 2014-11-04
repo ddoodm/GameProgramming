@@ -71,7 +71,7 @@ namespace GameProgrammingMajor
             tank.npc.steering.maxAcceleration = 200;
 
             // Give the tank the target
-            tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count - 1] / (int)TowerManager.blockSize)));
+            //tank.turretTarget = new Kinematic(level.coordinatesOf(new iVec2(path[path.Count - 1] / (int)TowerManager.blockSize)));
 
             // Set position to start of path
             tank.npc.kinematic.position = level.coordinatesOf(new iVec2(0, 0));
@@ -190,6 +190,11 @@ namespace GameProgrammingMajor
                 } */
                 //if monster.waypoints.count == 0 add to a remove list and if its close enough have it deal damage to the player 
             }
+
+            // Tell the HUD the wave number
+            updateParams.hud.waveNum = wavenum;
+            updateParams.hud.waveCount = numberToSpawn[wavenum];
+            updateParams.hud.waveType = typesToSpawn[wavenum];
         }
 
         public List<Entity> getEntities()

@@ -30,7 +30,7 @@ namespace GameProgrammingMajor
             npcManager = new NPCManager(game);
         }
 
-        public void hardcodedWorldPopulation(Game game)
+        public void hardcodedWorldPopulation(Game game, int levelNumber)
         {
             // Add a test floor primitive to the Entity manager
             PlanePrimitive floor = new PlanePrimitive(game, 1000f, Vector3.Up);
@@ -51,8 +51,7 @@ namespace GameProgrammingMajor
             tankTree = new Quadtree(new BoundingBox(-halfTreeSize, halfTreeSize), game.GraphicsDevice);
 
             // Create a "Tower Manager" which allows for the placement of towers in the area
-            int levelNum = 1;
-            LevelDescription level = LevelLoader.loadLevel("Levels\\level" + Convert.ToString(levelNum) + ".xml", game.Content);
+            LevelDescription level = LevelLoader.loadLevel("Levels\\level" + Convert.ToString(levelNumber) + ".xml", game.Content);
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain, tankTree, level);
 
             // Tree patches

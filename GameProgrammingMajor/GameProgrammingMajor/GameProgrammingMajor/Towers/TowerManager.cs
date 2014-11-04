@@ -218,8 +218,8 @@ namespace GameProgrammingMajor
         {
             for (int i = 0; i < NUM_BLOCKS; i++)
                 for (int j = 0; j < NUM_BLOCKS; j++)
-                    if (predesignedMap[j,i] == (int)type)
-                        return new iVec2(j, i);
+                    if (predesignedMap[i,j] == (int)type)
+                        return new iVec2(j, i); // FIXED: Horrible bug
             return null;
         }
 
@@ -407,6 +407,8 @@ namespace GameProgrammingMajor
             // Death map test
             if(updateParams.keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.M))
                 updateParams.hud.setDeathMap(generateDeathMap());
+
+            updateParams.hud.levelName = levelDescription.name;
         }
 
         public void placeTower(iVec2 cID, Tower tower)

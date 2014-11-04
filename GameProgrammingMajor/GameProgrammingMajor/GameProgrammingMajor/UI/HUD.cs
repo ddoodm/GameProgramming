@@ -11,8 +11,8 @@ namespace GameProgrammingMajor
     {
         MainGame game;
 
-        public static string TEXT_PLAYER = "Teapot Health: {0:0.0}\nPlayer Cash: ${1:0.00}\nPlacing Block (4,5,6,7,8): {2}\n";
-        public static string TEXT_DEBUG = "Camera (1,2,3): {3}\nQuadtree Nodes: {4}";
+        public static string TEXT_PLAYER = "Level Name: {0}\nWave #{1}, Count: {2}, Type: {3}\nPlacing Block (4,5,6,7,8): {4}\n";
+        public static string TEXT_DEBUG = "Camera (1,2,3): {5}\nQuadtree Nodes: {6}";
 
         // Constants from Photoshop
         private int HEALTHBAR_START_X = 665, HEALTHBAR_START_Y = 35, HEALTHBAR_WIDTH = 437, HEALTHBAR_HEIGHT = 19;
@@ -27,9 +27,13 @@ namespace GameProgrammingMajor
         private Texture2D blackTexture;
         private Texture2D[] towerTexes;
         private Texture2D cTowerTex;
+        private Texture2D whiteTexture;
 
         private const int deathMapSize = 200;
         private Texture2D deathMap;
+
+        public string levelName;
+        public int waveNum, waveCount, waveType;
 
         public int quadtreeNodeCount;
 
@@ -65,6 +69,8 @@ namespace GameProgrammingMajor
             // Make a 1x1 semi-transparent texture
             blackTexture = new Texture2D(game.GraphicsDevice, 1, 1);
             blackTexture.SetData(new Color[] {new Color(0, 0, 0, 0.75f)});
+            whiteTexture = new Texture2D(game.GraphicsDevice, 1, 1);
+            whiteTexture.SetData(new Color[] { new Color(1f, 1f, 1f, 1f) });
 
             // Null deathmap texture
             deathMap = new Texture2D(game.GraphicsDevice, 1, 1);
@@ -107,15 +113,15 @@ namespace GameProgrammingMajor
 
             message = string.Format(
                 TEXT_PLAYER + (debugVisible ? TEXT_DEBUG : ""),
-                teapotHealth,
-                playerMoney,
+                levelName,
+                waveNum, waveCount, waveType,
                 Enum.GetName(typeof(TowerType), blockToPlace),
                 camType.ToString(),
                 quadtreeNodeCount);
 
             if (teapotDead || levelComplete)
                 if (updateParams.keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
-                    game.startOver();
+                    game.nextLevel();
         }
 
         /// <summary>

@@ -60,6 +60,9 @@ namespace GameProgrammingMajor
         public Camera camera;
         public HUD hud;
 
+        private const int MAX_LEVELS = 2;
+        private int levelNumber = 0;
+
         /// <summary>
         /// Topdown camera description
         /// </summary>
@@ -83,8 +86,12 @@ namespace GameProgrammingMajor
             IsMouseVisible = true;
         }
 
-        public void startOver()
+        public void nextLevel()
         {
+            levelNumber++;
+            if (levelNumber >= MAX_LEVELS)
+                levelNumber = 0;
+
             Initialize();
         }
 
@@ -103,7 +110,7 @@ namespace GameProgrammingMajor
             camera = new TopdownCamera(this, topdownCamDesc);
 
             // Load the world
-            world.hardcodedWorldPopulation(this);
+            world.hardcodedWorldPopulation(this, levelNumber);
 
             // Create a HUD that displays information about the game, and debug
             hud = new HUD(this);
