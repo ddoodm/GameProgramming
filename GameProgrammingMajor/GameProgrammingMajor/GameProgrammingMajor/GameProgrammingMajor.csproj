@@ -132,7 +132,9 @@
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
     <Content Include="Levels\level1.xml" />
-    <Content Include="Levels\level0.xml" />
+    <Content Include="Levels\level0.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameProgrammingMajorContent\GameProgrammingMajorContent.contentproj">

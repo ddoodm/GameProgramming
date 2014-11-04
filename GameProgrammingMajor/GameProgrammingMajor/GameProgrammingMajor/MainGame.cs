@@ -80,6 +80,7 @@ namespace GameProgrammingMajor
 
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
+            //graphics.IsFullScreen = true;
 
             randomGenerator = new Random();
 
@@ -176,6 +177,10 @@ namespace GameProgrammingMajor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
                 || keyboard.IsKeyDown(Keys.Escape))
                 this.Exit();
+
+            // Toggle full-screen
+            if (keyboard.IsKeyDown(Keys.F12))
+                graphics.ToggleFullScreen();
 
             // Play the ambient noise
             if (soundManager.ambientInstance == null)
