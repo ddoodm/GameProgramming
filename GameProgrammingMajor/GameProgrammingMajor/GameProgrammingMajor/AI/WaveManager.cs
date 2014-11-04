@@ -151,6 +151,11 @@ namespace GameProgrammingMajor
             waveDelay += (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
             if (wavenum < numberToSpawn.Length && waveDelay > defaultWaveDelay)
             {
+                // Tell the HUD the wave number
+                updateParams.hud.waveNum = wavenum;
+                updateParams.hud.waveCount = numberToSpawn[wavenum];
+                updateParams.hud.waveType = typesToSpawn[wavenum];
+
                 if (numberToSpawn[wavenum] > 0)
                 {
                     delay += (float)updateParams.gameTime.ElapsedGameTime.TotalSeconds;
@@ -190,11 +195,6 @@ namespace GameProgrammingMajor
                 } */
                 //if monster.waypoints.count == 0 add to a remove list and if its close enough have it deal damage to the player 
             }
-
-            // Tell the HUD the wave number
-            updateParams.hud.waveNum = wavenum;
-            updateParams.hud.waveCount = numberToSpawn[wavenum];
-            updateParams.hud.waveType = typesToSpawn[wavenum];
         }
 
         public List<Entity> getEntities()
