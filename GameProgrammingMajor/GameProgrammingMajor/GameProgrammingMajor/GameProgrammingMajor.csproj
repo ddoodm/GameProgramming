@@ -115,6 +115,7 @@
     <Compile Include="Towers\TowerSelectionManager.cs" />
     <Compile Include="Towers\TowerTraverser.cs" />
     <Compile Include="Towers\TurretTower.cs" />
+    <Compile Include="TreePatch.cs" />
     <Compile Include="UI\HUD.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="World\World.cs" />

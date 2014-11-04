@@ -19,6 +19,7 @@ namespace GameProgrammingMajor
         public NPCManager npcManager;
         public TowerManager towerManager;
         public Quadtree tankTree;
+        public TreePatch[] treePatches;
 
         public Player player;
 
@@ -53,6 +54,16 @@ namespace GameProgrammingMajor
             int levelNum = 1;
             LevelDescription level = LevelLoader.loadLevel("Levels\\level" + Convert.ToString(levelNum) + ".xml", game.Content);
             towerManager = new TowerManager(game, Matrix.CreateTranslation(new Vector3(0,10f,0)), terrain, tankTree, level);
+
+            // Tree patches
+            const int outerSize = 1000, innerSize = 500;
+            treePatches = new TreePatch[]
+            {
+                new TreePatch(game, new Rectangle(-outerSize, -outerSize, outerSize * 2, innerSize), terrain, 12),
+                new TreePatch(game, new Rectangle(-outerSize, innerSize, outerSize * 2, innerSize), terrain, 12),
+                new TreePatch(game, new Rectangle(-outerSize, -innerSize, innerSize, outerSize * 2), terrain, 12),
+                new TreePatch(game, new Rectangle(innerSize, -outerSize, outerSize, outerSize * 2), terrain, 12),
+            };
         }
 
         public void load(ContentManager content)
@@ -77,6 +88,9 @@ namespace GameProgrammingMajor
             towerManager.draw(drawParams);
             npcManager.draw(drawParams);
             tankTree.draw(drawParams);
+
+            foreach (TreePatch patch in treePatches)
+                patch.draw(drawParams);
         }
     }
 }
