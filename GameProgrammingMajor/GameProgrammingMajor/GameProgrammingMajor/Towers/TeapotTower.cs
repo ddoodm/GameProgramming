@@ -78,7 +78,7 @@ namespace GameProgrammingMajor
 
             model.update(updateParams);
 
-            updateParams.hud.teapotHealth = health;
+            updateParams.hud.setTeapotHealth(health);
             updateParams.hud.teapotDead = dead;
         }
 
