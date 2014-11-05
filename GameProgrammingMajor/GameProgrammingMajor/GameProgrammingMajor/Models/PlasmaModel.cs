@@ -29,6 +29,12 @@ namespace GameProgrammingMajor
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);
 
+            BlendState bs = BlendState.Additive;
+            BlendState oldBs = drawParams.graphicsDevice.BlendState;
+            drawParams.graphicsDevice.BlendState = bs;
+
+            drawParams.graphicsDevice.RasterizerState = RasterizerState.CullNone;
+
             // Draw each mesh in model
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -44,6 +50,9 @@ namespace GameProgrammingMajor
 
                 mesh.Draw();
             }
+
+            drawParams.graphicsDevice.BlendState = oldBs;
+            drawParams.graphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
         }
     }
 }
